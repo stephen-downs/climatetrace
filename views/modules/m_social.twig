@@ -1,0 +1,95 @@
+{% include '../components/heading.twig' with heading %}
+<div class="wrapper" data-animation="itemsFade" data-elements="js-card">
+    <div class="wrapper__row">
+    {% for col in row_top %}
+        <div class="col-33">
+            <div class="card js-card">
+                <div class="card__wrapper">
+                    <div class="card__body">
+                        <div class="card__front js-front">
+                            <div class="card__texts">
+                                <div class="card__head">
+                                    <span class="card__media">[[svg::{{col.media}}-icon]]</span>
+                                    <span class="card__date"><i>|</i>{{col.data}}</span>
+                                </div>
+                                <p class="card__content">{{col.text}}</p>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__author">
+                                    <img src="{{col.author_image}}" alt="">
+                                    <p class="card__author-name">{{col.author}}<p>
+                                </div>
+                                <div class="card__flip">[[svg::flip-icon]]</div>
+                            </div>
+                        </div>
+                        <div class="card__back js-back">
+                            <div class="card__socials">
+                                {% for social in col.socials %}
+                                <a href="{{social.link}}" data-share="{{social.type}}" target="_blank">[[svg::{{social.type}}]]</a>
+                                {% endfor %}
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__flip">[[svg::flip-icon]]</div>
+                            </div>
+                            <div class="card__decors">
+                                <div class="card__decor card__decor--left">
+                                    <img src="./media/elephant.png" alt="">
+                                </div>
+                                <div class="card__decor card__decor--right">
+                                    <img src="./media/fish.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    {% endfor %}
+    </div>
+    <div class="wrapper__row wrapper__row--bottom">
+    {% for col in row_bottom %}
+        <div class="col-33">
+            <div class="card js-card">
+                <div class="card__wrapper">
+                    <div class="card__body">
+                        <div class="card__front js-front">
+                            <div class="card__texts">
+                                <div class="card__head">
+                                    <span class="card__media">[[svg::{{col.media}}-icon]]</span>
+                                    <span class="card__date">|  {{col.data}}</span>
+                                </div>
+                                <p class="card__content">{{col.text}}</p>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__author">
+                                    <img src="{{col.author_image}}" alt="">
+                                    <p class="card__author-name">{{col.author}}<p>
+                                </div>
+                                <div class="card__flip">[[svg::flip-icon]]</div>
+                            </div>
+                        </div>
+                        <div class="card__back js-back">
+                            <div class="card__socials">
+                                {% for social in col.socials %}
+                                <a href="{{social.link}}" data-share="{{social.type}}" target="_blank">[[svg::{{social.type}}]]</a>
+                                {% endfor %}
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__flip">[[svg::flip-icon]]</div>
+                            </div>
+                            <div class="card__decors">
+                                <div class="card__decor card__decor--left">
+                                    <img src="./media/elephant.png" alt="">
+                                </div>
+                                <div class="card__decor card__decor--right">
+                                    <img src="./media/fish.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    {% endfor %}
+    </div>
+</div>

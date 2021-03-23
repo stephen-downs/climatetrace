@@ -1,0 +1,45 @@
+<figure class="video{% if fullHeight %} player--full-height{% endif %}">
+    <div class="player player--video{% if fullHeight %} player--full-height{% endif %}" {% if autoplaypreview %} data-parallax="autoplaypreview"{% endif %} {% if scrollAutoplay %} data-parallax="autoplay"{% endif %} data-component="Video" data-avname="{{avName}}" data-options='{"autoplay": {% if autoplay %}true{% else %}false{% endif %}{% if muted %},"muted": true{% endif %}{% if cover %}, "size": "cover"{% endif %}{% if contain %}, "size": "contain"{% endif %}{% if tracking %}, "tracking": [{% for trackItem in tracking %}{ "breakpoint": "{{trackItem.breakpoint}}", "value": "{{trackItem.value}}", "isSend": false }{% if not loop.last %},{% endif %}{% endfor %}]{% endif %} }'>
+        <div class="player__wrapper js-player-wrapper">
+            <video src="{{src}}" {% if poster %} poster="{{poster}}" {% endif %} {% if controls %} controls{% endif %}{% if loop %} loop{% endif %}{% if autoplay %} autoplay muted playsinline{% endif %} {% if muted %}muted{% endif %}{% if playsinline %} playsinline{% endif %}>
+                {% if subtitles %}
+                <track src="{{subtitles}}" label="Subtitles" kind="subtitles" srclang="en" default></track>
+                {% endif %}
+            </video>
+            {% if controls and contain %}
+            {% include './player-ui.twig' with video %}
+            {% endif %}
+
+            {% if cta and contain %}
+            {% include './player-cta.twig' with video %}
+            {% endif %}
+        </div>
+        {% if controls and not contain %}
+        {% include './player-ui.twig' with video %}
+        {% endif %}
+
+        {% if hotspots %}
+            {% for hotspot in hotspots %}
+                {% include './player-hotspot.twig' with hotspot %}
+            {% endfor %}
+        {% endif %}
+
+        {% if cta and not contain %}
+            {% include './player-cta.twig' with video %}
+            {% endif %}
+    <div class="video__poster">
+                          <img src="/dist/media/cindy01.jpg" alt="">
+                          <div class="player__button">
+                            <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="35.5" cy="35.5" r="33.5" stroke="white" stroke-width="3.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M47.7537 35.5001L28.8 48.9001V22.1001L47.7537 35.5001V35.5001Z"
+                                    stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                          </div>
+                        </div>
+    </div>
+    {% if caption %}
+    <figcaption>{{caption}}</figcaption>
+    {% endif %}
+</figure>

@@ -1,0 +1,55 @@
+{
+  "progress": true,
+  "navigation": {
+    "logo": "./media/ct-logo.png"
+  },
+  "aside": {
+    "editions": [
+      {
+        "url": "https://huncwot.com/pl",
+        "date": "January 1, 2021",
+        "lead": "The Rise of Sunrise",
+        "img": "./media/edition_01.png"
+      },
+      {
+        "url": "https://huncwot.com/pl",
+        "date": "December 31, 2020",
+        "lead": "Stop this pipiline",
+        "img": "./media/edition_02.jpg"
+      },
+      {
+        "url": "https://huncwot.com/pl",
+        "date": "December 24, 2020",
+        "lead": "Neque porro quisquam"
+      },
+      {
+        "url": "https://huncwot.com/pl",
+        "date": "December 18, 2020",
+        "lead": "Lorem ipsum dolor sit consequat"
+      },
+      {
+        "url": "https://huncwot.com/pl",
+        "date": "December 15, 2020",
+        "lead": "Duis aute irure dolor in"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "modules": [
+        {
+          "type": "hero",
+          "grid": true,
+          "items": [
+            {
+              "map": "axes_1",
+              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
+              "stat": "173.67 billion",
+              "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

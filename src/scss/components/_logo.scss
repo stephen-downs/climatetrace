@@ -1,0 +1,45 @@
+.logo {
+    &--happen {
+        width: 241px;
+    }
+    &--voices {
+        width: 253px;
+    }
+    &--inside {
+        width: 143px;
+    }
+    &--seen {
+        width: 281px;
+        @include breakpoint(not-desktop) {
+            width: 222px;
+        }
+    }
+    &--trending {
+        width: 154px;
+
+        @include breakpoint(not-desktop) {
+            width: 104px;
+        }
+    }
+    &--videos {
+        width: 205px;
+    }
+    &--science {
+        width: 261px;
+        @include breakpoint(not-desktop) {
+            width: 222px;
+        }
+    }
+    &--planet {
+        width: 311px;
+    }
+    &--groups {
+        width: 254px;
+    }
+    &--stories {
+        width: 255px;
+        @include breakpoint(not-desktop) {
+            width: 222px;
+        }
+    }
+}

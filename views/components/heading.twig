@@ -1,0 +1,12 @@
+<div class="heading heading--{{title|lower|replace({' ':'-'})}}" data-animation="heading">
+    <div class="heading__logo js-logo">
+        <h2 class="{% if no_logo %}heading__title{% else %}sr-only{% endif %}">{{title}}</h2>
+        {% if svg_logo %}
+        [[svg::{{svg_logo}}]]
+        {% endif %}
+        {% if logo %}
+        <img src="{{logo}}" alt="" class="heading__img">
+        {% endif %}
+    </div>
+    <hr class="heading__hr js-heading-hr">
+</div>

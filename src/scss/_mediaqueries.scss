@@ -1,0 +1,76 @@
+body::before {
+    display: none;
+
+    @include breakpoint(phone) {
+        content: "phone";
+    }
+    @include breakpoint(tablet) {
+        content: "tablet";
+    }
+    @include breakpoint(desktop) {
+        content: "desktop";
+
+        @include breakpoint(ipad-pro) {
+            content: "tablet";
+        }
+
+        @include breakpoint(tablet-landscape) {
+            content: "tablet";
+        }
+    }
+}
+
+// Just Phones
+@include breakpoint(phone) {
+    .tablet-only,
+    %tablet-only,
+    .phone-hide,
+    %phone-hide {
+        display: none !important;
+    }
+}
+
+// Tablet & Desktop
+@include breakpoint(tablet) {
+    .tablet-hide,
+    %tablet-hide {
+        display: none !important;
+    }
+}
+
+// Desktop
+@include breakpoint(desktop) {
+    .tablet-only,
+    %tablet-only,
+    .desktop-hide,
+    %desktop-hide {
+        display: none !important;
+    }
+}
+
+// Not Desktop
+@include breakpoint(not-desktop) {
+    .desktop-only,
+    %desktop-only {
+        display: none !important;
+    }
+}
+
+@include breakpoint(desktop) {
+    .show-narrower-screen,
+    .show-wider-screen {
+        display: none !important;
+    }
+
+    @media (max-width: 1340px) {
+        .show-narrower-screen {
+            display: block !important;
+        }
+    }
+
+    @media (min-width: 1341px) {
+        .show-wider-screen {
+            display: block !important;
+        }
+    }
+}

@@ -1,0 +1,206 @@
+.quote {
+    position: relative;
+    z-index: 2;
+    color: $color-mid-grey;
+
+    &.is-heading {
+        margin-top: 20px;
+
+        @include breakpoint(desktop) {
+            margin-top: 88px;
+        }
+    }
+
+    &.is-background {
+        color: $color-white;
+    }
+
+    &__text {
+        font-weight: 400;
+
+        @include breakpoint(desktop) {
+            font-weight: 300;
+        }
+
+        p,
+        > div {
+            &::before,
+            &::after {
+                display: inline;
+                font-weight: 400;
+                opacity: 0;
+                line-height: 1px;
+                transition: opacity 1s $ease-out;
+
+                @include breakpoint(desktop) {
+                    font-size: $gutter-width;
+                }
+            }
+
+            &::after {
+                content: "”";
+
+                .animated & {
+                    opacity: 1;
+                    transition-delay: 1s;
+                }
+            }
+
+            &::before {
+                content: "“";
+
+                .animated & {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        @include flex();
+
+        @include breakpoint(not-desktop) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &__image {
+        & + .quote--aside {
+            border-left: 0;
+        }
+
+        img {
+            display: block;
+            width: 200px;
+
+            @include breakpoint(not-desktop) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__footer {
+        p {
+            position: relative;
+            padding-left: 15px;
+
+            &::before {
+                content: "—";
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+
+    .module--full & {
+        padding: 0 30px;
+    }
+
+    &--center {
+        @extend .grid-8;
+        margin: 0 auto;
+        text-align: center;
+        padding: 125px 0;
+
+        @include breakpoint(tablet) {
+            padding: 125px 56px;
+        }
+
+        @include breakpoint(desktop) {
+            padding: vh(175) 0 vh(165);
+
+            &.is-short {
+                padding: 50px 0;
+            }
+        }
+
+        .quote__text {
+            font-weight: 400;
+            @include font-size($h2 * 0.75);
+            margin-bottom: 25px * 2;
+            padding: 0 15px;
+
+            @include breakpoint(iphone5) {
+                @include font-size($h2 * 0.6);
+            }
+
+            @include breakpoint(tablet) {
+                padding: 0;
+                @include font-size($h2 * 0.85);
+            }
+
+            @include breakpoint(desktop) {
+                font-weight: 300;
+                @include font-size(36, 42);
+            }
+
+            p,
+            > div {
+                &::before,
+                &::after {
+                    font-size: 45px;
+
+                    @include breakpoint(phone) {
+                        font-size: 38px;
+                    }
+
+                    @include breakpoint(iphone5) {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            // FOR UNCACHE OPTION OF ANIMATION QUOTE
+            // div > div { display: inline-block; }
+        }
+
+        .quote__footer {
+            @include font-size($h5 * 0.83);
+
+            @include breakpoint(tablet) {
+                @include font-size($h5 * 0.93);
+            }
+
+            @include breakpoint(desktop) {
+                @include font-size($h5);
+                font-weight: 400;
+            }
+        }
+    }
+
+    &--aside {
+        border-left: 5px solid $color-mid-grey;
+        padding: 10px 0 10px 30px;
+        margin-top: 5px;
+
+        .quote__text {
+            @include font-size($h4, $h4 * 1.35);
+            margin-bottom: 20px;
+
+            @include breakpoint(tablet) {
+                @include font-size($h3, $h3 * 1.5);
+                margin-bottom: 30px;
+            }
+        }
+
+        .quote__footer {
+            @include font-size($p2);
+            font-weight: 400;
+        }
+    }
+
+    &__mark {
+        margin-bottom: 25px;
+
+        img {
+            width: 38px;
+
+            @include breakpoint(desktop) {
+                margin-bottom: 40px;
+                width: 46px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

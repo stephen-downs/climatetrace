@@ -1,0 +1,78 @@
+.evaluation {
+    position: relative;
+    @include flex(row, center, center);
+    display: inline-flex;
+    text-decoration: none;
+    color: $color-black;
+    width: auto;
+    margin-right: 3px;
+    cursor: pointer;
+    touch-action: none;
+
+    .masonry & {
+        color: $color-cyjan;
+    }
+
+    .slider--article & {
+        @include breakpoint(not-desktop) {
+            color: $color-white;
+        }
+    }
+
+    @include hover {
+        .svg-dislike {
+            fill: var(--color-secondary);
+        }
+
+        .svg-clap {
+            fill: var(--color-primary);
+        }
+    }
+
+    &__icon {
+        width: 38px;
+        height: auto;
+        color: currentColor;
+        position: relative;
+        pointer-events: none;
+
+        @include breakpoint(not-desktop) {
+            .slider--article & {
+                width: 26px;
+            }
+        }
+
+        svg {
+            width: 100%;
+            fill: currentColor;
+            transition: fill $time-fast $easing;
+        }
+    }
+
+    &__number {
+        font-family: $font-text;
+        font-weight: 600;
+        margin: 5px 10px 0;
+        @include font-size(14, 22);
+        pointer-events: none;
+
+        @include breakpoint(not-desktop) {
+            margin: 5px 5px 0;
+        }
+    }
+
+    &__circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-primary);
+        transform: translate(-50%, -50%) scale(0);
+        border-radius: 50%;
+
+        .evaluation--dislike & {
+            background-color: var(--color-secondary);
+        }
+    }
+}

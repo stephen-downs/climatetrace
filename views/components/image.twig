@@ -1,0 +1,5 @@
+<figure class="image{% if full %} image--full{% endif %}" {% if custom_animation %}data-animation="{{custom_animation}}"{% endif %}>
+    {% include './picture.twig' with image %}
+    {% if caption %}<figcaption class="image__caption">{{caption|raw}}</figcaption>{% endif %}
+    {% if lightbox_id %}<a class="image__link" href='#lightbox{{lightbox_id}}' data-lightbox>[[svg::luope]]</a>{% endif %}
+</figure>

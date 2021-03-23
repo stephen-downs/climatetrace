@@ -1,0 +1,64 @@
+<div class="footer" data-component="Parallax" data-options='{"elements": ["js-logo-1", "js-logo-2", "js-logo-3", "js-logo-4", "js-logo-5", "js-logo-6", "subscribe"], "moveX": ["20", "30", "15", "10", "25", "35", "35"], "moveY": ["20", "30", "15", "10", "25", "35", "35"]}'>
+    <div class="footer__row">
+        <hr class="footer__hr footer__hr--top js-hr-top">
+        <div class="footer__col-left">
+            <div class="footer__logos">
+                <div class="footer__logos-row">
+                    {% for logo in logos_top %}
+                    <a href="#{{logo.hash}}" data-scroll-to class="footer__logo js-logo-{{loop.index}}" style="width: {{logo.width}}"><img src="{{logo.src}}" alt=""></a>
+                    {% endfor %}
+                </div>
+                <div class="footer__logos-row">
+                    {% for logo in logos_bottom %}
+                    <a href="#{{logo.hash}}" data-scroll-to class="footer__logo js-logo-{{loop.index + 1}}" style="width: {{logo.width}}"><img src="{{logo.src}}" alt=""></a>
+                    {% endfor %}
+                </div>
+                <hr class="footer__hr footer__hr--bottom js-hr-middle">
+            </div>
+            <div class="footer__bottom-bar">
+                <div class="footer__menu">
+                    <span>© 2021 Inside The Movement</span>
+                    <ul class="footer__list">
+                        {% for item in menu %}
+                        <li><a href="{{item.url}}">{{item.page}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <div class="show-wider-screen">
+                    <div class="social">
+                        {# <p class="social__title">Share this Edition</p> #}
+                        {% include '../components/social.twig' with social %}
+                    </div>
+                    </div>
+                    <div class="show-narrower-screen">
+                    <div class="share share--circle" data-component="Tooltip">
+                        <div class="share__title">Share this edition</div>
+                        <button class="share__button js-toggle">
+                            <span class="icon icon--share">
+                                [[svg::share]]
+                            </span>
+                            <span class="share__copy">Share</span>
+                        </button>
+                        <div class="share__tooltip">
+                        {% include '../components/share.twig' with social %}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {# <div class="footer__social">
+                    {% include '../components/social.twig' with social %}
+                    <div class="show-wider-screen">{% include '../components/social.twig' with social %}</div>
+                    <div class="show-narrower-screen">
+                    {% include '../components/share.twig' with social %}
+                    </div>
+                </div> #}
+            </div>
+        </div>
+        <div class="footer__col-right">
+            <hr class="footer__hr footer__hr--vertical js-hr-v">
+            {% include '../components/subscribe.twig' %}
+        </div>
+        <hr class="footer__hr footer__hr--bottom js-hr-bottom">
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<figure class="video">
+    <div class="player player--youtube{% if fullHeight %} player--full-height{% endif %}" data-component="Youtube" data-options='{ "id": "{{id}}"{% if autoplay %}, "autoplay": true{% endif %}{% if cover %}, "size": "cover"{% endif %}{% if contain %}, "size": "contain"{% endif %}{% if poster %}, "poster": "{{poster}}"{% endif %} }'>
+        <div class="player__wrapper js-player-wrapper">
+            <div class="youtube"></div>
+            {% if controls and contain %}
+            {% include './player-ui.twig' %}
+            {% endif %}
+            {% if cta and contain %}
+            {% include './player-cta.twig' with youtube %}
+            {% endif %}
+        </div>
+        {% if controls and not contain %}
+        {% include './player-ui.twig' %}
+        {% endif %}
+        {% if cta and not contain %}
+        {% include './player-cta.twig' with youtube %}
+        {% endif %}
+    <div class="video__poster">
+                          <img src="/dist/media/cindy01.jpg" alt="">
+                          <div class="player__button">
+                            <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="35.5" cy="35.5" r="33.5" stroke="white" stroke-width="3.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M47.7537 35.5001L28.8 48.9001V22.1001L47.7537 35.5001V35.5001Z"
+                                    stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                          </div>
+                        </div>
+    </div>
+    {% if caption %}
+    <figcaption>{{caption}}</figcaption>
+    {% endif %}
+</figure>

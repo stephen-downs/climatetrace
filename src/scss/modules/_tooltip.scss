@@ -1,0 +1,98 @@
+.tooltips {
+  display: none;
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  font-style: normal;
+  // overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: color $time $easing;
+  transition: color $time $easing;
+  background-color: $color-blue-light-2;
+  z-index: 2;
+
+  @include breakpoint(phone) {
+  }
+
+  &__box {
+    position: absolute;
+    pointer-events: none;
+    top: 0%;
+    left: 50%;
+    display: block;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% + 20px));
+    transition: opacity $time $easing, transform $time $easing;
+
+    .ie & {
+      transform: translate(-50%, -100%);
+    }
+
+    .is-open & {
+      opacity: 1;
+      transform: translate(-50%, -100%);
+
+      @include breakpoint(phone) {
+        transform: translate(0%, 10%);
+      }
+
+      @include breakpoint(tablet-only) {
+        transform: translate(0%, 10%);
+      }
+
+      #section-1-module-9 & {
+        @include breakpoint(tablet-landscape) {
+          transform: translate(-35%, -100%);
+        }
+      }
+    }
+
+    @include breakpoint(not-desktop) {
+      transform: translate(0, calc(10% + 20px));
+      width: calc(100vw - 56px);
+      left: 0;
+    }
+
+    @include breakpoint(tablet-only) {
+      width: calc(100vw - 110px);
+    }
+
+    i {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 30px 35px 25px;
+      background-color: $color-blue-dark;
+      color: $color-white;
+      font-style: normal;
+      z-index: 2;
+      transform: translateY(30px);
+
+      @include breakpoint(desktop) {
+        transform: translateY(-30px);
+        width: 400px;
+        font-size: 16px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -23px;
+          left: calc(50% - 25px);
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 24px 25px 0 25px;
+          border-color: $color-blue-dark transparent transparent transparent;
+        }
+      }
+
+      @include breakpoint(laptop) {
+        width: 420px;
+      }
+    }
+  }
+}

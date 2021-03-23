@@ -1,0 +1,51 @@
+{% if items %}
+<div class="slidercustom" data-component="SliderCustom" data-animation="fadeUp">
+
+	<div class="slidercustom__items">
+    	{% for item in items %}
+    	<div class="slidercustom__item" data-animate-slider="{{item.animate}}">
+
+            {% if item.type == "percent" %}
+
+	    		<div class="percent percent-cirlce">
+					<svg class="svg-slider-circle" viewBox="0 0 162 162">
+					    <circle fill="none" stroke="#b3b3b3" stroke-width="2" stroke-miterlimit="10" cx="81" cy="81" r="77.5"/>
+					    <circle class="draw" fill="none" stroke="#073c91" stroke-width="7" stroke-miterlimit="10" cx="81" cy="81" r="77.5" stroke-dasharray="487" stroke-dashoffset="487" data-stroke-dashoffset="{{item.strokedashoffset}}px" />
+					</svg>
+
+					<div  class="percent__text" data-to="{{item.percent}}">
+						<div class="number">{{item.percent}}</div>
+					</div>
+				</div>
+
+			{% else %}
+				<div class="{{item.type}}">
+					[[svg::{{item.type}}]]
+				</div>
+			{% endif %}
+
+
+			<p>{{item.text | raw }}</p>
+      	</div>
+    	{% endfor %}
+    </div>
+
+
+
+	<button class="slidercustom__arrow-left">
+		[[svg::arrow-left]]
+	</button>
+	<button class="slidercustom__arrow-right">
+		[[svg::arrow-right]]
+	</button>
+	<div class="slidercustom__dots">
+		{% for item in items %}
+			<button class="slidercustom__dot"><span></span><span></span></button>
+		{% endfor %}
+	</div>
+
+
+	<p class="slidercustom__source">{{source}}</p>
+
+</div>
+{% endif %}

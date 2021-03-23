@@ -1,0 +1,155 @@
+.navbar {
+    $aside-mobile: calc(calc(100vw - 48px) * -1);
+
+    width: 100%;
+    height: $nav-height-m;
+    position: fixed;
+    top: 0;
+    background-color: $color-theme;
+    z-index: 3;
+    transition: transform $time-fast, opacity $time-fast $easing;
+    transform: translateY(38px);
+    opacity: 1;
+
+    @include breakpoint(desktop) {
+        height: $nav-height;
+    }
+
+    &::before {
+        @include pseudo(100%, 100px, 0, 0, $color-theme, 2);
+        transform: translateY(-70px);
+    }
+
+    &::after {
+        @include pseudo(350px, 100%, 0, auto, $color-theme, -1);
+        right: 0;
+        transform: translateX(340px);
+        transition: background $time-fast $easing;
+    }
+
+    @include breakpoint(not-desktop) {
+        &::after {
+            @include pseudo(100vw, 100%, 0, auto, $color-theme, -1);
+            transform: translateX(calc(100vw - 10px));
+        }
+    }
+
+    .is-scrolled & {
+        transform: translateY(0);
+    }
+    // .is-trailer-scrolled &,
+    // .navbar-always-shown & {
+    //     opacity: 1;
+    //     transform: translateY(0);
+    // }
+
+    // .navbar-always-shown & {
+    //     display: block;
+    // }
+
+    .is-aside-open & {
+        transform: translate(-#{$aside-width}, 0);
+
+        @include breakpoint(not-desktop) {
+            transform: translate(#{$aside-mobile}, 0);
+        }
+
+        &::before {
+            opacity: 0;
+        }
+    }
+
+    // .is-scroll-end & {
+    //     &::after {
+    //         background-color: var(--color-secondary);
+    //     }
+    // }
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        // pointer-events: none;
+        z-index: 3;
+        padding-left: margin(phone);
+        @include flex(row, space-between, center);
+
+        @include breakpoint(desktop) {
+            padding-left: margin();
+        }
+
+        img {
+            display: block;
+        }
+    }
+
+    &__utils {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        @include flex(row, flex-end, center);
+
+        @include breakpoint(phone) {
+            width: percent(137, 414, 20);
+        }
+    }
+
+    &__logo {
+        height: 100%;
+        max-width: 100%;
+        transition: transform $time-fast $easing;
+
+        .is-scrolled & {
+            transform: scale(0.7);
+        }
+    }
+
+    &__item {
+        height: 100%;
+        position: relative;
+        // padding: 0 15px;
+        @include flex(row, center, center);
+        color: $color-white;
+        @include font-size(16, 24);
+        font-weight: 700;
+
+        @include breakpoint(phone) {
+            font-size: 3.3vw;
+        }
+
+        @include breakpoint(phone-small) {
+            font-size: 3vw;
+            padding: 0 7px;
+        }
+
+        @include breakpoint(desktop) {
+            // padding: 0 22px;
+        }
+
+        // &::before {
+        //     @include pseudo(1px, 100%, 0, 0, rgba($color-white, 0.4), 1);
+        // }
+
+        &:last-of-type {
+            padding: 0;
+        }
+
+        a {
+            @include flex(row, center, center);
+            height: 100%;
+            transition: color $time-fast $easing;
+            font-size: 18px;
+            width: 100px;
+
+            @include breakpoint(desktop) {
+                padding: 0 22px;
+                font-size: 26px;
+                width: auto;
+            }
+
+            @include hover {
+                color: $color-dark;
+            }
+        }
+    }
+}

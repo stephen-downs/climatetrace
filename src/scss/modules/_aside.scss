@@ -1,0 +1,161 @@
+.aside {
+    $w: 350px;
+    $w-mobile: 100vw;
+    $bg: var(--color-primary);
+
+    position: fixed;
+    right: 0;
+    left: auto;
+    top: 0;
+    transform: translate(100%);
+    width: $w;
+    width: $w-mobile;
+
+    height: #{var(--app-height)} + #{$nav-height};
+    transition: transform $time, background $time $easing;
+    color: $color-white;
+    z-index: 3;
+    background: $bg;
+    overflow-y: scroll;
+    display: none;
+
+    @include breakpoint(tablet) {
+        max-height: 1024px;
+    }
+
+    @include breakpoint(desktop) {
+        width: $w;
+
+        @include breakpoint(ipad-pro) {
+            max-height: 1370px;
+            min-height: 1370px;
+        }
+    }
+
+    .is-aside-open & {
+        transform: translate(0%);
+    }
+
+    .is-animated & {
+        display: block;
+    }
+
+    .is-scroll-end & {
+        background: var(--color-secondary);
+    }
+
+    &__wrapper {
+        position: relative;
+        min-height: var(--app-height);
+        height: 100%;
+        padding: $nav-height 40px $nav-height margin();
+    }
+
+    &__menu {
+        width: 100%;
+        padding: 0;
+        border-bottom: 2px solid $color-white;
+    }
+
+    &__item {
+        position: relative;
+        @include font-size(24, 1);
+        margin-bottom: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        a {
+            display: block;
+            width: 100%;
+            color: $color-white;
+            transition: color $time-fast $easing;
+
+            @include hover {
+                color: $color-dark;
+            }
+        }
+
+        span {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-family: $font-text;
+            font-weight: 700;
+            @include font-size(10, 1);
+            letter-spacing: 0.33px;
+        }
+
+        &:last-of-type {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__editions {
+        padding-bottom: 100px;
+    }
+
+    &__edition {
+        position: relative;
+        width: 100%;
+        font-family: $font-text;
+        font-weight: 700;
+        padding: 21px 0;
+        border-bottom: 2px solid rgba($color-white, 0.4);
+
+        &::after {
+            @include pseudo(100%, 2px, auto, 0, $color-dark, 1);
+            bottom: -2px;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+            transition: transform $time $easing;
+        }
+
+        @include hover {
+            .aside__lead,
+            .aside__date {
+                color: $color-dark;
+            }
+
+            .aside__img img {
+                transform: scale(1.1);
+            }
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__date {
+        @include font-size(12, 14);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        transition: color $time-fast $easing;
+    }
+
+    &__lead {
+        @include font-size(24, 26);
+        margin-bottom: 10px;
+        transition: color $time-fast $easing;
+    }
+
+    &__img {
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+            transition: transform 1s $easing;
+        }
+    }
+
+    &__url {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}

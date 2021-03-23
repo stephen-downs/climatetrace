@@ -1,0 +1,42 @@
+.skip {
+  &__heading {
+    @include font-size(14, 14);
+  }
+
+  &__item {
+    position: relative;
+    @include flex(row, flex-start, center);
+    padding: 10px 14px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #e9ebee;
+    box-shadow: -3px 5px 10px -4px rgba(11, 39, 66, 0.2);
+
+    .link {
+      @include full;
+      z-index: 1;
+    }
+
+    .copy {
+      color: $color-blue-dark-2;
+      @include font-size(14, 14);
+    }
+
+    .title {
+      font-weight: 400;
+      @include font-size(18, 18);
+      margin-bottom: 5px;
+
+      @include breakpoint(not-desktop) {
+        @include font-size(16, 16);
+      }
+    }
+
+    .img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 14px;
+    }
+  }
+}

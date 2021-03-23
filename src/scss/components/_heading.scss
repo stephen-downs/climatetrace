@@ -1,0 +1,171 @@
+.heading {
+    width: 100%;
+    position: relative;
+
+    &--voices-to-amplify {
+        margin-bottom: 40px;
+    }
+
+    &--inside-scoop {
+        margin-bottom: 16px;
+    }
+
+    &--seen-around-the-world {
+        margin-bottom: 33px;
+    }
+
+    &--groups-to-support {
+        @include breakpoint(tablet-landscape) {
+            padding-bottom: 20px;
+        }
+        @include breakpoint(ipad-pro) {
+            padding-bottom: 30px;
+        }
+    }
+
+    &--trending-on-social-media {
+        margin-bottom: 5px;
+
+        @include breakpoint(not-desktop) {
+            margin-bottom: 0px;
+        }
+    }
+
+    &--videos-you-need-to-share {
+        margin-bottom: 22px;
+    }
+
+    &--essential-stories {
+        margin-bottom: 24px;
+    }
+
+    &__logo {
+        img {
+            object-fit: contain;
+        }
+
+        .heading--shareable-science &,
+        .heading--groups-to-support &,
+        .heading--wins-for-the-planet & {
+            @include breakpoint(tablet-landscape) {
+                @include flex(row, flex-start, center);
+                margin-bottom: 30px;
+            }
+            @include breakpoint(ipad-pro) {
+                @include flex(row, flex-start, center);
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__hr {
+        @include hr();
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: auto;
+
+        .heading--make-it-happen & {
+            width: calc(100% - 181px);
+            bottom: 9px;
+        }
+
+        .heading--voices-to-amplify & {
+            width: calc(100% - 48px);
+            bottom: -7px;
+        }
+
+        .heading--inside-scoop & {
+            width: calc(100% - 164px);
+            bottom: 22px;
+        }
+
+        .heading--seen-around-the-world & {
+            width: calc(100% - 293px);
+
+            @include breakpoint(not-desktop) {
+                width: calc(100% - 232px);
+            }
+        }
+
+        .heading--trending-on-social-media & {
+            width: calc(100% - 170px);
+            bottom: 28px;
+
+            @include breakpoint(not-desktop) {
+                width: calc(100% - 122px);
+            }
+        }
+
+        .heading--videos-you-need-to-share & {
+            width: calc(100% - 225px);
+            bottom: 11px;
+        }
+
+        .heading--shareable-science &,
+        .heading--wins-for-the-planet & {
+            display: none;
+        }
+
+        .heading--shareable-science & {
+            width: calc(100% - 235px);
+            display: block;
+
+            @include breakpoint(desktop) {
+                display: none;
+            }
+        }
+
+        .heading--groups-to-support & {
+            width: calc(100% - 267px);
+            bottom: 40px;
+
+            @include breakpoint(not-desktop) {
+                display: none;
+            }
+
+            @include breakpoint(tablet-landscape) {
+                width: 100%;
+                left: 0;
+                bottom: 20px;
+            }
+
+            @include breakpoint(ipad-pro) {
+                width: 100%;
+                left: 0;
+                bottom: 30px;
+            }
+        }
+
+        .heading--essential-stories & {
+            width: calc(100% - 270px);
+            bottom: 9px;
+
+            @include breakpoint(not-desktop) {
+                width: calc(100% - 240px);
+            }
+        }
+    }
+
+    &__intro {
+        display: none;
+
+        @include breakpoint(tablet-landscape) {
+            @include font-size(18, 22);
+            display: block;
+            width: 620px;
+            margin-left: $gutter-width;
+        }
+
+        @include breakpoint(ipad-pro) {
+            @include font-size(18, 22);
+            display: block;
+            width: 620px;
+            margin-left: $gutter-width;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.person {
+
+
+    &__title {
+        font-weight: 400;
+        margin-bottom: 15px;
+        color: $color-blue-dark-2;
+        @include font-size(30, 30);
+        text-align: center;
+    }
+
+
+    &__subtitle {
+        width: 230px;
+        @include font-size(14, 14);
+        text-align: center;
+        margin: auto;
+    }
+
+
+    &__icon {
+        position: relative;
+        margin: 60px auto 40px;
+
+        @include breakpoint(not-desktop) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 200px;
+            margin-top: 75px;
+            opacity: 1;
+            transition: $time-fast opacity $ease-out;
+
+            .is-playing & {
+                opacity: 0.1 !important;
+            }
+        }
+
+
+        img {
+            display: block;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            // .ie &,
+            // .safari & {
+            //     display: none;
+            // }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.full-screen {
+    @extend .full-height;
+
+    align-items: center;
+
+    &.section--long { 
+        height:auto;
+
+        > * {
+            padding: 100px 0;
+        }
+    }
+
+    &.section--bg-quote { background-color: $color-mid-grey; }
+
+    &.section--flip {
+        display: flex;
+        flex-direction: column;
+
+        .flip__title { margin-top: auto; }
+        #main & .flip { margin-bottom: auto; }
+    }
+}

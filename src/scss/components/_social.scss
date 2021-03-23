@@ -1,0 +1,337 @@
+$social-size: 28px;
+$social-size-mobile: 25px;
+$color-nav-mobile: rgba($color-dark, 0.4);
+
+.social {
+    @include flex(row, center, center);
+
+    .footer & {
+        @include breakpoint(not-desktop) {
+            width: 100%;
+            @include flex(column, center, center);
+        }
+    }
+
+    .share--circle & {
+        margin-left: 2px;
+    }
+
+    &--toggle {
+        display: block;
+        position: relative;
+    }
+
+    &__items {
+        .social--toggle & {
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            display: none;
+
+            @include breakpoint(not-desktop) {
+                // flex-direction: column;
+                padding: 8px 0;
+            }
+
+            .is-open & {
+                display: flex;
+            }
+        }
+
+        .player & {
+            transition: transform $time $ease-out 0.025s, opacity 0.2s $ease-out;
+            position: absolute;
+            top: 0;
+            z-index: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .share--circle & {
+            position: relative;
+
+            &::after {
+                @include pseudo(1px, 19px, 50%, auto, rgba($color-white, 0.5), 1);
+                right: -8px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &__tooltip {
+        position: absolute;
+        top: 0;
+        left: #{$social-size + 22px};
+        height: inherit;
+        background-color: $color-white;
+        border-radius: 5px;
+        border: 1px solid $color-gray;
+        pointer-events: none;
+        transform: translateX(-10px);
+        opacity: 0;
+        transition: opacity $time $ease-out, transform $time $ease-out;
+
+        @include breakpoint(not-desktop) {
+            transform: translateY(-10px);
+            left: -6px;
+            top: #{$social-size-mobile + 16px};
+            width: inherit;
+            height: auto;
+            background-color: $color-nav-mobile;
+            border: none;
+        }
+
+        .is-open & {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+
+            @include breakpoint(not-desktop) {
+                transform: translateY(0);
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 11px;
+            left: -16px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 14px 16px 14px 0;
+            border-color: transparent $color-gray transparent transparent;
+
+            @include breakpoint(not-desktop) {
+                content: none;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 13px 16px 13px 0;
+            border-color: transparent $color-white transparent transparent;
+
+            @include breakpoint(not-desktop) {
+                top: -8px;
+                left: 12px;
+                border-width: 0 8px 8px 8px;
+                border-color: transparent transparent $color-nav-mobile transparent;
+            }
+        }
+    }
+
+    &__item {
+        align-items: center;
+        // background: $color-gray;
+        border-radius: 50%;
+        color: $color-white;
+        display: inline-flex;
+        font-size: 15px;
+        height: $social-size-mobile;
+        width: $social-size-mobile;
+        justify-content: center;
+        margin: 0 2px;
+        text-align: center;
+        transition: color 0.3s $ease-out, background-color 0.3s $ease-out;
+        vertical-align: top;
+
+        span {
+            color: currentColor;
+            transition: color $time $easing;
+        }
+
+        @include breakpoint(desktop) {
+            height: $social-size;
+            width: $social-size;
+            margin: 0 4px;
+        }
+
+        svg {
+            width: 100%;
+        }
+        svg path {
+            transition: fill $time $easing 0.1s;
+        }
+
+        @include hover {
+            svg path {
+                fill: var(--color-secondary);
+            }
+        }
+
+        .social--toggle & {
+            width: 26px;
+            height: 26px;
+            pointer-events: none;
+            color: rgba($color-white, 0.7);
+
+            span {
+                color: rgba($color-white, 0.7);
+            }
+
+            @include hover {
+                color: $color-white;
+
+                span {
+                    color: $color-white;
+                }
+            }
+        }
+
+        .social--dark & {
+            @include hover {
+                svg path {
+                    fill: var(--color-primary);
+                }
+            }
+        }
+
+        .header &,
+        .footer & {
+            color: $color-gray;
+
+            @include hover {
+                color: var(--color-secondary);
+                span {
+                    color: var(--color-secondary);
+                }
+            }
+            span {
+                color: $color-gray;
+            }
+            &button {
+                color: $color-gray;
+            }
+        }
+
+        .share--circle & {
+            @media (max-width: 1340px) {
+                margin: 0 2px;
+                width: 26px;
+                height: 26px;
+            }
+            svg path {
+                fill: rgba($color-white, 0.5);
+            }
+        }
+    }
+
+    &__close {
+        display: none;
+
+        .share--circle & {
+            display: block;
+            position: relative;
+            width: 17px;
+            height: 17px;
+            opacity: 0.5;
+            margin-left: 14px;
+
+            &::after {
+                @include pseudo(3px, 19px, 50%, 50%, $color-white, 1);
+                transform: translate(-50%, -50%) rotate(45deg);
+                border-radius: 20%;
+            }
+
+            &::before {
+                @include pseudo(3px, 19px, 50%, 50%, $color-white, 1);
+                transform: translate(-50%, -50%) rotate(-45deg);
+                border-radius: 20%;
+            }
+        }
+    }
+
+    &__title {
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        @include font-size(10, 20);
+        margin-right: 7px;
+        font-weight: 700;
+
+        .share--circle & {
+            display: none;
+        }
+
+        .footer & {
+            @include breakpoint(not-desktop) {
+                @include font-size(12, 20);
+                margin-bottom: 8px;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            @include font-size(12, 22);
+        }
+    }
+
+    &__button {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+        .player & {
+            height: 25px;
+        }
+    }
+}
+
+%social-items-active {
+    transform: translateY(-100%);
+    opacity: 1;
+    transition-delay: 0s, 0.15s;
+    pointer-events: all;
+}
+
+.copied {
+    position: absolute;
+    z-index: 3;
+    background-color: $color-dark;
+    bottom: -45px;
+    color: $color-white;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 8px;
+    pointer-events: none;
+    text-transform: uppercase;
+    user-select: none;
+    white-space: nowrap;
+    border: 2px solid $color-white;
+    margin-right: 2px;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity $time-fast $easing, transform $time-fast $easing;
+
+    .is-copied & {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    // &::after {
+    //     content: "";
+    //     border-color: transparent transparent $color-dark;
+    //     border-style: solid;
+    //     border-width: 0 8px 8px;
+    //     height: 0;
+    //     left: 50%;
+    //     margin-left: -8px;
+    //     position: absolute;
+    //     top: -7px;
+    //     width: 0;
+    // }
+}
+
+.is-open .social--toggle .social__item {
+    pointer-events: all;
+}

@@ -1,0 +1,9 @@
+<div class="text{% if textUnderlay %} text--underlay{% endif %}">{% spaceless %}
+    {% if texts is iterable %}
+        {% for text in texts %}
+            {{text|raw}}
+        {% endfor %}
+    {% else %}
+        {{text|raw}}
+    {% endif %}
+{% endspaceless %}</div>

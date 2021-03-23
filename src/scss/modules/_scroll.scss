@@ -1,0 +1,48 @@
+.scroll {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    color: $color-white;
+    display: flex;
+    height: 80px;
+    margin: 0 auto -40px;
+    text-align: center;
+    z-index: 3;
+
+    @include breakpoint(desktop) {
+        bottom: 10%;
+    }
+
+    a {
+        color: $color-white;
+        display: block;
+        margin: 0 auto;
+        cursor: pointer;
+        padding: 20px;
+        text-decoration: none;
+        transition: opacity 0.5s linear;
+    }
+
+
+    &__text {
+        letter-spacing: 2px;
+        font-weight: 400;
+        @include font-size(14, 22);
+        text-transform: uppercase;
+        pointer-events: none;
+        display: block;
+    }
+
+
+    &__arrow {
+        display: inline-block;
+        margin: 0 auto;
+        animation: scrollDown 1s ease-in-out 0.2s alternate backwards;
+        animation-iteration-count: infinite;
+        animation-delay: 3s;
+        pointer-events: none;
+    }
+}

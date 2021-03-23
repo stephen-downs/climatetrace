@@ -1,0 +1,11 @@
+<div class="faq">
+    <h2 class="title__h2">FAQ</h2>
+    <hr class="title__hr js-hr">
+    {% for row in rows %}
+    <div class="faq__row">
+        <div class="faq__question">{{row.question|raw}}</div>
+        <span class="faq__border js-border"></span>
+        <p class="faq__answer">{{row.answer|raw}}</p>
+    </div>
+    {% endfor %}
+</div>

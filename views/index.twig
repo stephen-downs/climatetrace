@@ -1,0 +1,84 @@
+{% extends "./base.twig" %}
+{% block content %}{% spaceless %}
+    {% include './scaffold/aside.twig' with aside %}
+    <div class="navbar" id="navbar">
+        {% include './scaffold/progress.twig' %}
+        <div class="navbar__wrapper">
+            <img src="{{navigation.logo}}" alt="" class="navbar__logo">
+            <div class="navbar__utils">
+                <div class="navbar__item">
+                    <button class="hamburger" data-hamburger>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+
+
+    {# ====================== Backgrounds ====================== #}
+    {% if backgrounds %}
+    <div id="backgrounds-fixed" class="backgrounds" data-animation="intro">{% spaceless %}
+        <div class="backgrounds__curtain js-curtain">
+        </div>
+        {% for background in backgrounds %}
+        {% if background.common %}
+        <div class="fixed">
+            <div class="fixed__wrapper">
+                {% if background.title %}
+                <div class="fixed__title{% if background.title_hidden %} sr-only{% endif %}">{{background.title|raw}}</div>
+                {% endif %}
+                {% if background.graphic_title %}
+                <div class="fixed__graphic-title"><img src="{{background.graphic_title}}" alt="" class="fixed__img js-fixed-title"></div>
+                <div class="fixed__sub js-sub">The action toolkit for the climate movement.</div>
+                <div class="scroll">
+                    <span class="scroll__arrow js-arr"><img src="/dist/media/arrow-down-black.png" alt=""></span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="background background--{{background.name|lower}}"{#
+        #} id="{{background.id ?: 'bg-' ~ loop.index0}}"{#
+        #}{% if background.componentName %}data-bg-component="{{background.componentName}}"{% else %}data-bg-component="Background"{% endif %}{#
+        #}{% if background.parallax %} data-parallax="{{background.parallax}}"{% endif %}{#
+        #}{% if background.timeline %} data-timeline="{{background.timeline}}"{% endif %}{#
+        #}{% if background.animation %} data-animation="{{background.animation}}"{% endif %}{#
+        #}{% if background.options %} data-options='{{background.options|json_encode()}}'{% endif %}>
+            <div class="background__wrap">
+                {% if background.name|lower != 'background' %}{%- include "backgrounds/b_" ~ background.name|lower ~ ".twig" with background|merge({ videos: videos, audios: audios }) only  -%}{% endif %}
+                <div class="background__darken js-darken"></div>
+                <div class="background__gradient"></div>
+                {% if background.title or background.text %}<div class="background__caption{% if background.center %} background__caption--center{% endif %}{% if background.captionAnimateIn %} js-static{% endif %}">
+                    {% if background.title %}<div class="background__title">{{ background.title|raw }}</div>{% endif %}
+                    {% if background.text %}<div class="background__text">{{ background.text|raw }}</div>{% endif %}
+                    {% if background.button %}<button class="background__button js-button" data-omni="{{background.tracking}}">{{ background.button|raw }}</button>{% endif %}
+                </div>{% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    {% endspaceless %}</div>
+    {% endif %}
+    <article id="article-main" class="content{{ ' ' ~ theme ?: '' }}"{#
+    #}{% if templates == 'multimedia' %} data-templates="multimedia"{% endif %}>
+
+    {% for section in sections %}
+    {# sections #}
+    {% if sections|length > 1 %}<section>{% endif %}
+    {# modules in section #}
+    {% for module in section.modules %}
+		{% include "scaffold/module.twig" %}
+    {% endfor %}
+
+    {# END of scrollify section div #}
+    {% if sections|length > 1 %}</section>{% endif %}
+
+    {% endfor %}{# END of sections #}
+
+</article>
+{% endspaceless %}{% endblock %}

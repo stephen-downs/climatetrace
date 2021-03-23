@@ -1,0 +1,69 @@
+$sprites: (
+    xs-instagram: (
+        28,
+        28,
+    ),
+    xs-facebook: (
+        28,
+        28,
+    ),
+    xs-youtube: (
+        28,
+        28,
+    ),
+    xs-twitter: (
+        28,
+        28,
+    ),
+    xs-pinterest: (
+        28,
+        28,
+    ),
+    xs-linkedin: (
+        28,
+        28,
+    ),
+    xs-share: (
+        28,
+        28,
+    ),
+    xs-link: (
+        28,
+        28,
+    ),
+    xs-mail: (
+        28,
+        28,
+    ),
+);
+
+[class^="sprite-"] {
+    fill: currentColor;
+    position: relative;
+    html.windows & {
+        top: -2px;
+    }
+}
+
+@each $sprite-label, $sprite-params in $sprites {
+    .sprite-#{$sprite-label} {
+        width: #{nth($sprite-params, 1)}px;
+        height: #{nth($sprite-params, 2)}px;
+    }
+}
+
+a,
+button {
+    @include hover {
+        @each $sprite-label, $sprite-params in $sprites {
+            .sprite-#{$sprite-label} {
+                @extend %sprite-#{$sprite-label}-hover !optional;
+            }
+        }
+    }
+}
+
+.sprites {
+    position: absolute;
+    pointer-events: none;
+}

@@ -1,0 +1,62 @@
+{
+    "paths": {
+        "sass": {
+            "main": "src/scss/main.scss",
+            "dest": "dist/css"
+        },
+        "styles": {
+            "main": [
+                "src/scss/**/*.scss",
+                "*.scss",
+                "*.css"
+            ]
+        },
+        "scripts": {
+            "libs": [
+                "node_modules/jquery/dist/jquery.js",
+                "node_modules/babel-polyfill/dist/polyfill.js",
+                "node_modules/gsap/dist/gsap.js",
+                "node_modules/imagesloaded/imagesloaded.pkgd.min.js",
+                "node_modules/stats.js/build/stats.min.js",
+                "node_modules/screenfull/dist/screenfull.js"
+            ],
+            "ts": "src/ts/**/*.ts",
+            "main": "src/ts/Site.ts",
+            "components": "src/ts/components/",
+            "definitions": "src/ts/**/*.d.ts",
+            "plugins": "src/js/*.js",
+            "dest": "dist/js",
+            "file": "script.js"
+        },
+        "images": {
+            "source": "src/media/images/**/*.+(jpg|png|gif)",
+            "dest": "dist/media"
+        },
+        "tinypng": {
+            "files": "src/media/images-compressed/**/*.+(jpg|png|gif)",
+            "folder": "src/media/images-compressed"
+        },
+        "svg": {
+            "files": "src/svg/*.svg",
+            "inline": "src/svg/inline/*.svg",
+            "nomin": "src/svg/nomin/*.svg",
+            "sprite": "src/svg/sprite/*.svg",
+            "dest": "views/svgs/"
+        },
+        "json": [
+            "*.json"
+        ],
+        "html": {
+            "main": "views/index.twig",
+            "files": [
+                "*.json",
+                "views/**/*.twig"
+            ],
+            "dest": "dist",
+            "destFiles": [
+                "/dist/index.html"
+            ]
+        }
+    },
+    "proxyURL": "http://climatetrace.lh"
+}

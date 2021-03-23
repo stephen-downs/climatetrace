@@ -1,0 +1,46 @@
+{% include '../components/heading.twig' with heading %}
+<div class="masonry">
+    <div class="masonry__intro" data-animation="fadeUp">
+        <p>{{intro|raw}}</p>
+    </div>
+    <div class="masonry__row">
+        {% for col in cols_top %}
+        <div class="masonry__col col-{{col.size}}">
+            <div class="masonry__tile" {% if col.bgColor %}style="background-color: {{col.bgColor}}"{% endif %}>
+                {% if col.bg %}<div class="masonry__bg"><img src="{{col.bg}}" alt="" class="js-img"></div>{% endif %}
+                <div class="masonry__logo"><img src="{{col.logo}}" alt=""></div>
+                <div class="masonry__title" data-animation="lead">
+                    <h3>{{col.title|raw}}</h3>
+                </div>
+                <div class="masonry__text">
+                    <p>{{col.text|raw}}</p>
+                </div>
+                <div class="masonry__footer">
+                    {% include '../components/clap.twig' %}
+                    {% include '../components/share.twig' with col.social %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="masonry__row masonry__row--bottom">
+        {% for col in cols_bottom %}
+        <div class="masonry__col col-{{col.size}}">
+            <div class="masonry__tile" {% if col.bgColor %}style="background-color: {{col.bgColor}}"{% endif %}>
+                {% if col.bg %}<div class="masonry__bg"><img src="{{col.bg}}" alt="" class="js-img"></div>{% endif %}
+                <div class="masonry__logo"><img src="{{col.logo}}" alt=""></div>
+                <div class="masonry__title" data-animation="lead">
+                    <h3>{{col.title|raw}}</h3>
+                </div>
+                <div class="masonry__text">
+                    <p>{{col.text|raw}}</p>
+                </div>
+                <div class="masonry__footer">
+                    {% include '../components/clap.twig' %}
+                    {% include '../components/share.twig' with col.social %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

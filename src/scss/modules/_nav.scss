@@ -1,0 +1,499 @@
+$color-border: $color-white;
+$color-point: $color-white;
+$background: #252525;
+
+
+.nav {
+    position: fixed;
+    right: 0;
+    left: auto;
+    z-index: 5;
+    height: var(--app-height);
+    width: 100%;
+    background-color: $background;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50%);
+    backface-visibility: hidden;
+    color: $color-white;
+
+
+    @include breakpoint(tablet) {
+        width: 337px;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -90px;
+        left: auto;
+        width: 100px;
+        height: 100%;
+        z-index: 5;
+        background-color: $background;
+    }
+
+
+
+    &__iscroll {
+        height: var(--app-height);
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+        width: 100%;
+        pointer-events: none;
+
+        .collapsed & {
+            pointer-events: auto;
+        }
+    }
+
+
+    &__wrapper {
+        position: relative;
+        z-index: 4;
+        padding: 95px 0;
+        width: 100%;
+        opacity: 0;
+
+        height: inherit;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+
+
+        .nav__iscroll & { padding: 95px 0; }
+        .is-short & { height: 100%; @include flex(column, center, center); }
+
+        @include breakpoint(desktop) {
+            @include flex(column, center, center);
+            position: absolute;
+            height: auto;
+            overflow: hidden;
+        }
+    }
+
+
+
+    &__list {
+        position: relative;
+        text-align: center;
+
+
+
+        .progressbar-vline & {
+            text-align: left;
+            width: 85px;
+            margin: 0 auto;
+
+            @include breakpoint(desktop) {
+                width: auto;
+            }
+        }
+    }
+
+
+
+    &__item {
+        position: relative;
+        @include font-size(16, 20);
+        font-weight: 300;
+        margin: 27px auto;
+        backface-visibility: hidden;
+        transform: translate3d(0,0,0);
+
+        &:first-child { margin-top: 0; }
+
+        .is-short & {
+            @include font-size(21, 30);
+
+            @include breakpoint(desktop) {
+                @include font-size(14, 20);
+            }
+        }
+
+        a {
+            position: relative;
+            backface-visibility: hidden;
+            transform: translate3d(0,0,0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: inline-block;
+            color: inherit;
+            text-decoration: none;
+
+            &.is-active {
+                span { transform: scaleX(1) translateZ(0); }
+            }
+        }
+
+
+
+        span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: $color-white;
+            margin: 5px auto;
+            transition: transform $time-fast;
+            backface-visibility: hidden;
+            transform: scaleX(0) translate3d(0, 0, 0);
+        }
+
+
+        &:hover {
+
+            span { transform: scaleX(1) translateZ(0); }
+        }
+    }
+
+
+
+    &__footer {
+        width: 100%;
+    }
+
+
+
+    &__explore {
+        position: relative;
+        width: calc(100% - 60px);
+        padding: 36px 0px 33px;
+        border-top: 1px solid $color-point;
+        border-bottom: 1px solid $color-point;
+        margin: 50px auto 0;
+        backface-visibility: hidden;
+        transform: translate3d(0,0,0);
+        // @include breakpoint(desktop) {
+
+        // }
+    }
+
+
+
+    &__explore-lead {
+        text-align: center;
+        @include font-size(14, 20);
+        font-weight: 300;
+        margin: 40px auto 25px;
+        width: 210px;
+    }
+
+
+
+    &__button {
+        position: relative;
+        @include flex();
+        text-decoration: none;
+        color: $color-white;
+        background-color: $color-mid-grey;
+        height: 40px;
+        width: 120px;
+        margin: 0 auto;
+        overflow: hidden;
+        text-transform: uppercase;
+
+        span {
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+            @include font-size(13, 15);
+        }
+
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 101%;
+            height: 0;
+            top: 50%;
+            left: 50%;
+            background: $color-white;
+            opacity: 0;
+            z-index: 0;
+            transform: translateX(-50%) translateY(-50%);
+            transition: height $time-fast, opacity $time-fast;
+        }
+
+
+        &:hover {
+            span { color: $color-mid-grey; }
+
+            &::after { opacity: 1; height: 101%; }
+        }
+    }
+}
+
+
+.nav-bar {
+    position: fixed;
+    width: 100%;
+    top: 71px;
+    left: auto;
+    height: 70px;
+    background-color: transparent;
+    transition: background-color $time;
+    z-index: 6;
+    pointer-events: none;
+
+    @include breakpoint(desktop) {
+        top: 81px;
+    }
+
+    // .is-scrolled-navbar & { background-color: rgba($color-black, 0.6); }
+}
+
+
+/// STYLE FOR ASIDE (RIGHT) PROGRESSBAR
+.nav-progressbar {
+    display: none;
+    position: fixed;
+    right: 31px;
+    left: auto;
+    z-index: 4;
+    height: var(--app-height);
+    width: 98px;
+    // background-color: $color-black;
+    opacity: 1;
+    // pointer-events: none;
+    transform: translateX(50%);
+    backface-visibility: hidden;
+
+    .inner {
+        pointer-events: auto;
+    }
+
+    .progressbar-hline + & {
+        width: 131px;
+    }
+
+    @include breakpoint(desktop) {
+        @include flex(column, center, flex-start);
+    }
+
+
+
+    &--square {
+        width: 79px;
+    }
+
+
+    a {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+
+
+
+    i {
+        display: inline-block;
+        font-style: normal;
+        @include font-size(10, 20);
+        opacity: 0;
+        transition: opacity $time;
+        pointer-events: none;
+    }
+
+
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+
+
+    &__item {
+
+
+        /// STYLE FOR NAV MENU WITH CIRCLE PROGRESSBAR
+        &--circle {
+            display: block;
+            width: 14px;
+            height: 14px;
+            border: 1px solid $color-white;
+            border-radius: 50%;
+            background-color: transparent;
+            transition: background-color $time;
+            margin-bottom: 35px;
+
+
+            &::after,
+            &::before {
+                content: "";
+                transform-origin: 50% 50%;
+                border-radius: 50%;
+                transition: transform 0.3s $ease-out-back, opacity 0.35s $ease-out-back;
+            }
+
+
+            &::after {
+                @include full;
+                width: 13px;
+                height: 13px;
+                transform: scale(0.5);
+                background-color: $color-white;
+                opacity: 0;
+            }
+
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: calc(100% + 12px);
+                height: calc(100% + 12px);
+                transform-origin: 50% 50%;
+                transform: translate(-50%, -50%) scale(0.5);
+                background-color: rgba($color-border, 0.5);
+                opacity: 0;
+            }
+
+            &.is-active {
+                // border: 6px solid rgba($color-border, 0.5);
+                background-color: $color-white;
+                &::after { transform: scale(1); opacity: 1; }
+                &::before { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            }
+
+            &:hover {
+
+                &::after {
+                    transform: scale(1);
+                    opacity: 0.75;
+                }
+            }
+        }
+
+
+
+        /// STYLE FOR NAV MENU WITH HORIZONTAL LINE PROGRESSBAR
+        &--hline {
+            opacity: 0.5;
+            transition: opacity $time;
+            margin: 12px 0;
+
+            i {
+                @include font-size(12, 20);
+            }
+
+
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 6px;
+                width: 35px;
+                height: 3px;
+                background-color: $color-white;
+                transition: width $time;
+
+            }
+
+            &:hover {
+                opacity: .75;
+            }
+
+            &.is-active {
+                opacity: 1;
+
+
+                span { width: 10px; }
+                i { opacity: 1;}
+            }
+        }
+
+
+
+        /// STYLE FOR NAV MENU WITH VERTICAL LINE PROGRESSBAR
+        &--vline {
+            opacity: 0.5;
+            transition: opacity $time;
+            margin: 12px 0;
+
+
+
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                height: 25px;
+                width: 3px;
+                background-color: $color-white;
+            }
+
+            &:hover {
+                opacity: .75;
+            }
+
+            i { @include font-size(13, 20); }
+
+
+
+            &.is-active {
+                opacity: 1;
+
+
+                i { opacity: 1;}
+            }
+        }
+
+
+
+        /// STYLE FOR NAV MENU WITH CONSTANT LINE PROGRESSBAR
+        &--square {
+            display: block;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin-left: -20px;
+            span {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                display: block;
+                width: 10px !important;
+                height: 10px !important;
+                background-color: $color-point !important;
+                transition: width $time, height $time;
+                transform-origin: center;
+            }
+
+
+            //pointer-events: none;
+        }
+    }
+
+
+
+    &__wrapper {
+        &--square {
+            position: relative;
+            height: 40vh;
+            width: 1px;
+            opacity: 1;
+            pointer-events: auto;
+            cursor: pointer;
+            padding: 0 20px;
+
+            &:hover {
+                .square-inner {
+                    width: 15px !important;
+                    height: 15px !important;
+                }
+            }
+
+            span {
+                position: absolute;
+                height: 100%;
+                width: 1px;
+                background-color: $color-white;
+            }
+        }
+    }
+}

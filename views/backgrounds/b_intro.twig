@@ -1,0 +1,16 @@
+{% if video %}
+{% include '../components/video.twig' with video %}
+{% endif %}
+{% if image %}
+{% include '../components/image.twig' with image %}
+{% endif %}
+{% if fixed_content %}
+<div class="fixed">
+    {% if title %}
+    <h1 class="fixed__title{% if title_hidden %} sr-only{% endif %}">{{title|raw}}</h1>
+    {% endif %}
+    {% if graphic_title %}
+    <div class="fixed__graphic-title"><img src="{{graphic_title}}" alt="" class="fixed__img"></div>
+    {% endif %}
+</div>
+{% endif %}

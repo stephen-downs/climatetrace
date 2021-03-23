@@ -1,0 +1,31 @@
+{# <div class="grid-12"> #}
+    <div class="lead" data-component="Parallax" data-options='{"elements": ["js-img"], "moveX": ["50"], "moveY": ["50"]}'>
+        <h1 class="lead__h1{% if title_narrow_mobile %} lead__h1--narrow{% endif %}" data-animation="chars"><span>{{title|raw}}</span></h1>
+        <div class="lead__row" data-animation="itemsFade" data-elements="js-col">
+            {% for text in texts %}
+            {% if text.image %}
+            <div class="lead__image desktop-hide">
+                <picture>
+                    {% if text.image %}
+                        {% if text.image_tablet %}
+                        <source media="(max-width: 767px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{text.image}}">
+                        <source media="(max-width: 1023px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{text.image_tablet}}">
+                        {% else %}
+                        <source media="(max-width: 1023px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{text.image}}">
+                        {% endif %}
+                    {% endif %}
+                    <img src="{{src|default('data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=')}}" alt="" class="{% if text.image_preload %}preload {% endif %}is-loading">
+                </picture>
+            </div>
+            {% else %}
+            <div class="lead__col js-col">
+                <p>{{text}}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="lead__image desktop-only">
+            {% include '../components/picture.twig' with image %}
+        </div>
+    </div>
+{# </div> #}

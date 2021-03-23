@@ -1,0 +1,40 @@
+.header {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    @include flex(row, space-between, center);
+    padding-top: 20px;
+
+    @include breakpoint(desktop) {
+        height: 83px;
+    }
+
+    &__time {
+        font-family: $font-text;
+        @include font-size(16, 19);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        transition: opacity $time $easing;
+
+        @include breakpoint(tablet) {
+            @include font-size(18, 22);
+        }
+
+        @include breakpoint(desktop) {
+            @include font-size(20, 24);
+        }
+
+        .is-toggled-share & {
+            opacity: 0;
+        }
+    }
+
+    &__hr {
+        @include hr();
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform-origin: 0 0;
+    }
+}

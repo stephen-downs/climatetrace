@@ -1,0 +1,51 @@
+.module {
+    position: relative;
+    z-index: 2;
+    background-color: $color-bg;
+    padding: 35px 0;
+
+    // @include breakpoint(tablet) {
+    //     padding: 35px 0;
+    // }
+
+    @include breakpoint(desktop) {
+        padding: 50px 0;
+    }
+
+    &--header {
+        padding: 0;
+    }
+
+    &--lead {
+        padding-top: 0;
+    }
+
+    &--plain {
+        padding: 0;
+        min-height: var(--app-height);
+        background-color: transparent;
+        pointer-events: none;
+        position: relative;
+        z-index: -1;
+
+        @include breakpoint(not-desktop) {
+            min-height: calc(var(--app-height) + 100px);
+        }
+    }
+
+    &--banner {
+        height: calc(var(--app-height) * 1.5);
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        z-index: 2;
+
+        + div {
+            padding: 70px 0 35px;
+
+            @include breakpoint(desktop) {
+                padding: 100px 0 50px;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.title {
+    &__h2 {
+        @extend %title;
+    }
+
+    &__hr {
+        @include hr();
+    }
+}

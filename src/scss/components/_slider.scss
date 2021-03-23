@@ -1,0 +1,67 @@
+.slider {
+    width: 100%;
+    overflow: hidden;
+
+    &__list {
+        position: relative;
+    }
+
+    &__item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        &:first-of-type {
+            position: relative;
+        }
+    }
+
+    &__map {
+        margin-top: 50px;
+        svg {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    &__nav {
+        position: relative;
+        height: 4px;
+        @include flex(row, flex-start, center);
+        display: inline-flex;
+        margin-bottom: 25px;
+    }
+
+    &__point {
+        display: block;
+        margin-right: 23px;
+        height: 100%;
+        width: 52px;
+        background-color: rgba($color-white, 0.25);
+        transition: background $time $easing;
+
+        &.is-active {
+            background-color: rgba($color-white, 1);
+        }
+    }
+
+    &__elements {
+        position: absolute;
+        bottom: 0;
+        text-align: left;
+    }
+
+    &__sup {
+        @include font-size(26, 30);
+        text-transform: uppercase;
+    }
+
+    &__stat {
+        @include font-size(120, 1);
+    }
+
+    &__sub {
+        @include font-size(20, 24);
+    }
+}

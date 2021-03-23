@@ -1,0 +1,163 @@
+.form {
+    @include breakpoint(not-desktop) {
+        margin-top: 32px;
+    }
+    &__input {
+        display: block;
+        width: 100%;
+        height: 50px;
+        border: 0;
+        border-bottom: 2px solid $color-dark;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+        @include font-size(30, 1);
+        font-family: $font-sans;
+        background-color: transparent;
+        margin-bottom: 38px;
+        font-weight: 700;
+        letter-spacing: -0.58px;
+
+        &::placeholder {
+            color: rgba($color-dark, 0.2);
+        }
+
+        @include breakpoint(not-desktop) {
+            @include font-size(20, 1);
+            height: 35px;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__legend {
+        @include font-size(18, 28);
+        text-transform: uppercase;
+        margin: 9px 0 15px;
+    }
+
+    &__checkboxes {
+        @include flex(row, flex-start, flex-start);
+        flex-wrap: wrap;
+        max-width: 727px;
+    }
+
+    &__checkitem {
+        position: relative;
+        @include font-size(20, 1);
+        font-weight: 700;
+        letter-spacing: -0.38px;
+        margin-bottom: 25px;
+        padding-left: 35px;
+        padding-right: 20px;
+        min-width: get-grid-width(2);
+        cursor: pointer;
+        user-select: none;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    &__checkbox {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border: 3px solid $color-magenta;
+        transform: translateY(-50%);
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid $color-magenta;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity $time-fast $easing;
+        }
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    input[type="checkbox"]:checked ~ &__checkbox::after {
+        opacity: 1;
+    }
+
+    &__info {
+        font-family: $font-text;
+        @include font-size(16, 22);
+        letter-spacing: -0.53px;
+        margin: 10px 0 35px;
+    }
+
+    &__button {
+        input {
+            width: 221px;
+            height: 61px;
+            border: 8px solid $color-dim;
+            color: $color-dim;
+            background-color: $color-yellow;
+            border-radius: 0;
+            @include font-size(18, 1);
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            font-family: $font-sans;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background $time-fast $easing, color $time-fast $easing;
+
+            @include hover {
+                background-color: $color-dim;
+                color: $color-yellow;
+            }
+
+            @include breakpoint(not-desktop) {
+                margin: 0 auto;
+                text-align: center;
+                display: block;
+            }
+        }
+
+        .is-subscribed & {
+            opacity: 0;
+        }
+    }
+
+    &__row {
+        position: relative;
+    }
+
+    .error {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        color: $color-magenta-dim;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgba($color-white, 0.01) inset !important;
+}

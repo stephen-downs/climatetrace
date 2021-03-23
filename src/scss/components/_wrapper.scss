@@ -1,0 +1,145 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+
+    &--editions {
+        @include breakpoint(desktop) {
+            padding-bottom: 120px;
+        }
+    }
+
+    &--notfull {
+        width: 100%;
+        padding: 0 get-grid-width(1);
+    }
+
+    &__row {
+        position: relative;
+        @include flex(row, space-between, flex-start);
+
+        @include breakpoint(not-desktop) {
+            display: block;
+        }
+        @include breakpoint(ipad-pro) {
+            display: block;
+
+            #shareable-science &,
+            #wins-for-the-planet &,
+            #groups-to-support & {
+                @include flex(row, center, center);
+            }
+        }
+        @include breakpoint(tablet-landscape) {
+            display: block;
+
+            #shareable-science &,
+            #wins-for-the-planet &,
+            #groups-to-support & {
+                @include flex(row, center, center);
+            }
+        }
+
+        &--full-height {
+            height: 100%;
+        }
+
+        &--bottom {
+            margin-top: $gutter-width;
+
+            @include breakpoint(not-desktop) {
+                margin-top: 50px;
+            }
+        }
+
+        &--end {
+            align-items: flex-end;
+
+            @include breakpoint(tablet-landscape) {
+                @include flex(row, flex-start, flex-end);
+            }
+            @include breakpoint(ipad-pro) {
+                @include flex(row, flex-start, flex-end);
+            }
+        }
+
+        &--alignleft {
+            @include flex(row, flex-start, flex-start);
+            padding: margin() 0 15px 0;
+
+            @include breakpoint(not-desktop) {
+                padding: margin(phone) 0 0;
+            }
+        }
+
+        &--cards {
+            @include flex(row, space-between, flex-start);
+            flex-wrap: wrap;
+
+            @include breakpoint(phone) {
+                // padding-top: 40px;
+            }
+        }
+
+        .wrapper--editions &,
+        .module--editions & {
+            @include breakpoint(not-desktop) {
+                display: block;
+            }
+
+            @include breakpoint(tablet-landscape) {
+                display: block;
+            }
+
+            @include breakpoint(ipad-pro) {
+                display: block;
+            }
+        }
+    }
+
+    &__intro {
+        @include font-size(18, 28);
+        margin-bottom: 30px;
+
+        &--space-top {
+            margin-top: 30px;
+
+            @include breakpoint(not-desktop) {
+                margin-top: 17px;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            margin-bottom: 0;
+
+            @include breakpoint(ipad-pro) {
+                margin-bottom: 30px;
+
+                #shareable-science &,
+                #wins-for-the-planet &,
+                #groups-to-support & {
+                    display: none;
+                }
+            }
+            @include breakpoint(tablet-landscape) {
+                margin-bottom: 30px;
+
+                #shareable-science &,
+                #wins-for-the-planet &,
+                #groups-to-support & {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__text {
+        @include font-size(30, 36);
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    &__info {
+        @include font-size(16, 22);
+        font-weight: 400;
+    }
+}

@@ -1,0 +1,577 @@
+.icon-close {
+    display: inline-block;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    transform: rotate(0);
+    transition: transform $time-fast $easing;
+    top: -1px;
+
+    // html.mac & { top: 1px; }
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -1px -10px;
+        background: currentColor;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(135deg);
+    }
+}
+
+%icon-close-hover {
+    transform: rotate(-90deg);
+}
+
+.icon-playpause {
+    display: inline-block;
+    position: relative;
+
+    &::before {
+        width: 3px;
+        height: 3px;
+        content: "";
+        display: block;
+        position: absolute;
+        background: currentColor;
+        left: 22px;
+        transition: opacity $time-fast $easing;
+        opacity: 0;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 14px;
+        border-style: solid;
+        border-width: 7px 0 7px 15px;
+        will-change: border-width;
+        border-color: transparent transparent transparent currentColor;
+        transition: all $time-fast linear;
+    }
+}
+
+%icon-playpause-active::after {
+    border-style: double;
+    border-width: 0 0 0 15px;
+}
+
+.icon-toggleplay {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 20px;
+        border-color: transparent transparent transparent currentColor;
+    }
+}
+
+.icon-full {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    span {
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        display: block;
+        border-color: currentColor;
+        border-style: solid;
+        transition: transform $time-fast ease-out;
+
+        &:nth-child(1) {
+            left: 0;
+            top: 0;
+            border-width: 1px 0 0 1px;
+        }
+        &:nth-child(2) {
+            right: 0;
+            top: 0;
+            border-width: 1px 1px 0 0;
+        }
+        &:nth-child(3) {
+            right: 0;
+            bottom: 0;
+            border-width: 0 1px 1px 0;
+        }
+        &:nth-child(4) {
+            left: 0;
+            bottom: 0;
+            border-width: 0 0 1px 1px;
+        }
+    }
+}
+
+%icon-full-hover span {
+    &:nth-child(1) {
+        transform: translate(-2px, -2px);
+    }
+    &:nth-child(2) {
+        transform: translate(2px, -2px);
+    }
+    &:nth-child(3) {
+        transform: translate(2px, 2px);
+    }
+    &:nth-child(4) {
+        transform: translate(-2px, 2px);
+    }
+}
+
+%icon-full-active span {
+    &:nth-child(1) {
+        left: -2px;
+        top: -2px;
+        border-width: 0 1px 1px 0;
+    }
+    &:nth-child(2) {
+        right: -2px;
+        top: -2px;
+        border-width: 0 0 1px 1px;
+    }
+    &:nth-child(3) {
+        right: -2px;
+        bottom: -2px;
+        border-width: 1px 0 0 1px;
+    }
+    &:nth-child(4) {
+        left: -2px;
+        bottom: -2px;
+        border-width: 1px 1px 0 0;
+    }
+}
+
+.icon-prev,
+.icon-next {
+    width: 16px;
+    height: 14px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    transform: translateX(0);
+    transition: transform $time $easing;
+
+    html.windows & {
+        top: -2px;
+    }
+    html.mac & {
+        top: 1px;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -6px;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        border-color: transparent currentColor currentColor transparent;
+        width: 12px;
+        height: 12px;
+        transform-origin: 6px 6px;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        height: 2px;
+        background: currentColor;
+        left: 0;
+        right: 0;
+        margin-top: -1px;
+        transition: transform $time-fast $easing;
+    }
+}
+
+.icon-prev::before {
+    transform: rotate(135deg) translate(-2px, -2px);
+}
+.icon-next::before {
+    transform: rotate(-45deg) translate(-2px, -2px);
+}
+.icon-prev::after {
+    transform: scaleX(0.01) translateX(-2px);
+}
+.icon-next::after {
+    transform: scaleX(0.01) translateX(2px);
+}
+
+%icon-prev-hover {
+    transform: translateX(-5px);
+    transition-duration: $time-fast;
+    &::after {
+        transform: scaleX(1) translateX(5px);
+    }
+}
+
+%icon-next-hover {
+    transform: translateX(5px);
+    transition-duration: $time-fast;
+    &::after {
+        transform: scaleX(1) translateX(-5px);
+    }
+}
+
+.icon-arr {
+    position: relative;
+    display: inline-block;
+    height: 9px;
+    width: 16px;
+    vertical-align: middle;
+    transform: translateY(0);
+    transition: transform 0.6s $ease-out-back 0.1s;
+
+    html.mac & {
+        top: 1px;
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        position: relative;
+        width: 12/16 * 100%;
+        height: 12/9 * 100%;
+        border-width: 0 2px 2px 0;
+        border-style: solid;
+        border-color: transparent currentColor currentColor transparent;
+        transform: translateY(0) rotate(45deg);
+        transform-origin: 110% 50%;
+    }
+}
+
+%icon-arr-hover {
+    transform: translateY(4px);
+}
+
+.icon--share {
+    position: relative;
+    display: block;
+    z-index: 1;
+    transition: color $time $easing, transform $time-fast $easing;
+    pointer-events: none;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    height: 17px;
+    width: 17px;
+    will-change: transform;
+
+    .masonry & {
+        @include breakpoint(desktop) {
+            height: 23px;
+            width: 23px;
+        }
+    }
+
+    svg {
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .share--circle & {
+        color: $color-white;
+        top: 0;
+        left: -1px;
+
+        @include breakpoint(desktop) {
+            pointer-events: none;
+        }
+    }
+}
+
+.icon-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 10px;
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        top: 50%;
+        left: 3px;
+        margin-top: -3.5px;
+        border-width: 0 1px 1px 0;
+        border-color: transparent currentColor currentColor transparent;
+        border-style: solid;
+        transform: rotate(-45deg) translateX(0);
+        transition: transform $time $easing;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        margin-top: -1px;
+        background: currentColor;
+        transform-origin: left center;
+        transform: translateX(9px) scale(0.1);
+        transition: transform $time $easing;
+        backface-visibility: hidden;
+    }
+}
+
+%icon-arrow-hover {
+    &::before {
+        transform: rotate(-45deg) translate(4px, 4px);
+        transition-duration: $time-fast;
+    }
+    &::after {
+        transform: translateX(0) scale(1);
+        transition-duration: $time-fast;
+    }
+}
+
+.icon-more {
+    width: 5px;
+    height: 8px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    top: -2px;
+
+    html.mac & {
+        top: 0;
+    }
+
+    &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: transparent currentColor currentColor transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -3px;
+        transform: rotate(-45deg) translate(-0.5px, -0.5px);
+    }
+}
+
+.icon-minus,
+.icon-plus {
+    &::before,
+    &::after {
+        content: "";
+        background: currentColor;
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+    }
+
+    &::before {
+        width: 2px;
+        height: 12px;
+        margin: -6px -1px;
+    }
+    &::after {
+        width: 12px;
+        height: 2px;
+        margin: -1px -6px;
+    }
+}
+
+.icon-minus::before {
+    display: none;
+}
+
+.icon-dropdown {
+    position: relative;
+    display: inline-block;
+    height: 9px;
+    width: 16px;
+    vertical-align: middle;
+    transform: translateY(0);
+    transition: transform 0.6s $ease-out-back 0.1s;
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        transition: transform $time-fast $easing, opacity $time-fast $easing;
+        border-style: solid;
+    }
+
+    &::before {
+        border-width: 2px 0 0 2px;
+        border-color: currentColor transparent transparent currentColor;
+        transform: translateY(-12px) rotate(45deg);
+        transform-origin: 13px 6px;
+        opacity: 0;
+    }
+
+    &::after {
+        top: 0;
+        border-width: 0 2px 2px 0;
+        border-color: transparent currentColor currentColor transparent;
+        transform: translateY(1px) rotate(45deg);
+        transform-origin: 13px 6px;
+    }
+}
+
+%icon-dropdown-open {
+    &::before {
+        opacity: 1;
+        transform: translateY(7px) rotate(45deg);
+    }
+    &::after {
+        opacity: 0;
+        transform: translateY(20px) rotate(45deg);
+    }
+}
+
+%icon-dropdown-hover {
+    transform: translateY(4px);
+}
+
+.icon-triangle-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin: 0 0 1px 5px;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: currentColor transparent transparent transparent;
+}
+
+.icon-left-right {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: $gutter-width;
+    height: 14px;
+
+    html.windows & {
+        margin-top: -3px;
+    }
+
+    &::before,
+    &::after {
+        width: 10px;
+        height: 10px;
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -5px;
+        border-width: 2px 0 0 2px;
+        border-style: solid;
+        border-color: currentColor;
+    }
+
+    &::before {
+        transform: rotate(-45deg) translate(-5px, -5px);
+    }
+
+    &::after {
+        transform: rotate(135deg) translate(-5px, -5px);
+    }
+}
+
+%icon-left-right-animation {
+    &::before {
+        animation: left-arr-pulsing 1s linear infinite;
+    }
+    &::after {
+        animation: right-arr-pulsing 1s linear infinite;
+    }
+}
+
+.fa {
+    // &.fa-envelope {
+    //     transform: translateY(-1px);
+    // }
+
+    // @include breakpoint(desktop) {
+    //     transform: translateY(-1px);
+    // }
+}
+
+a,
+button {
+    @include hover {
+        .icon-close {
+            @extend %icon-close-hover !optional;
+        }
+        .icon-menu {
+            @extend %icon-menu-hover !optional;
+        }
+        .icon-full {
+            @extend %icon-full-hover !optional;
+        }
+        .icon-prev {
+            @extend %icon-prev-hover !optional;
+        }
+        .icon-next {
+            @extend %icon-next-hover !optional;
+        }
+        .icon-arr {
+            @extend %icon-arr-hover !optional;
+        }
+        .icon-arrow {
+            @extend %icon-arrow-hover !optional;
+        }
+        .icon-dropdown {
+            @extend %icon-dropdown-hover !optional;
+        }
+    }
+}
+
+.equal-icon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+
+    &::after,
+    &::before {
+        @include pseudo(16, 1px, 50%, 50%, $color-white, 2);
+    }
+
+    &::after {
+        transform: translateY(-2px);
+    }
+
+    &::before {
+        transform: translateY(1px);
+    }
+}

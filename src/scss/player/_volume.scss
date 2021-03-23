@@ -1,0 +1,53 @@
+.volume {
+  position: relative;
+  width: 41px;
+  height: inherit;
+  text-align: left;
+  padding-top: 16px;
+
+  .ios9 & {
+    display: none;
+  }
+
+  @include hover {
+    opacity: $button-hover-opacity;
+  }
+
+  &__bar {
+    width: 150px;
+    height: 24px;
+    position: absolute;
+    left: 40px;
+    top: 0;
+    opacity: 0;
+    transition: opacity $time $easing;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 2px;
+      opacity: 0.25;
+      background: currentcolor;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      margin-top: -1px;
+    }
+  }
+
+  &__value {
+    display: block;
+    background: currentcolor;
+    opacity: 0.8;
+    position: relative;
+    height: 2px;
+    top: 50%;
+    margin-top: -1px;
+  }
+
+  &__button svg {
+    position: relative;
+    margin: 0;
+  }
+}

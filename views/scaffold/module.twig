@@ -1,0 +1,49 @@
+{% if debug %}<!-- module {{loop.index}} -->{% endif %}
+{% spaceless %}
+
+{% set classesArray = module.class|default([]) %}
+{% if module.full == true %}{% set classesArray = classesArray|merge(['module--full']) %}{% endif %}
+{% if module.center == true %}{% set classesArray = classesArray|merge(['module--center']) %}{% endif %}
+{% if module.defaultPadding == true %}{% set classesArray = classesArray|merge(['module--padding']) %}{% endif %}
+{% if module.dark == true %}{% set classesArray = classesArray|merge(['module--dark']) %}{% endif %}
+{% if module.noNav == true %}{% set classesArray = classesArray|merge(['module--no-nav']) %}{% endif %}
+
+{% set stylesArray = [] %}
+{% if module.bgColor %}{% set stylesArray = stylesArray|merge(['background-color: ' ~ module.bgColor ]) %}{% endif %}
+
+<div {#
+#}id="{{module.id ?: 'section-' ~ loop.parent.loop.index ~ '-module-' ~ loop.index}}" {# id
+#}class="module module--{{module.type}}{# main class
+#}{% if classesArray|length > 0 %} {{ classesArray|join(' ') }}{% endif %}"{# modifiers classes
+#}{% if module.class %} module--{{module.class}}{% endif %}{# custom class
+#}{% if module.textLeft %} module--text-left{% endif %}{# flex-start
+#}{% if module.textRight %} module--text-right{% endif %}{# flex-end
+
+## parallax elements array:
+#}{% if module.parallaxElements %} data-component='Parallax' data-options='{{module.parallaxElements|json_encode()}}'{% endif %}{#
+#}{% if module.path %} data-path="{{module.path}}"{% endif %}{#
+
+## multimedia linked background:
+#}{% if module.background %} data-background='{{module.background|json_encode|raw}}'{% endif %}{#
+#}{% if module.background %} data-id="{{module.background.id}}"{% endif %}{#
+## inline styles:
+#}{% if stylesArray|length > 0 %} style="{{ stylesArray|join('; ') }}"{% endif %}{#
+#}>
+
+
+    {% if module.bgImage %}<div class="module__background">{% include '../components/picture.twig' with module.bgImage %}</div>{% endif %}
+
+    {# grid wrap #}
+    {% if module.grid == true %}
+    <div class="grid{% if module.reverse %} grid--reverse{% endif %}"{#
+    #}{% if module.padding %}style="padding-top:{{module.padding[0]}}; padding-bottom:{{module.padding[1]}}"{% endif %}{#
+    #}>{% endif %}
+
+        {% if module.type != 'space' %}
+        {% include "../modules/m_" ~ module.type ~ ".twig" with module|merge({ videos: videos }) only %}
+        {% endif %}
+
+    {# CLOSE grid wrap #}
+    {% if module.grid == true %}</div>{% endif %}
+</div>
+{% endspaceless %}

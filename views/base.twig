@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include './partials/head.twig' %}
+<body>
+
+    <div id="main">
+        {% block content %}{% endblock %}
+        {% include "./scaffold/loader.twig" %}
+    </div>
+    {% include './partials/scripts.twig' %}
+</body>
+</html>

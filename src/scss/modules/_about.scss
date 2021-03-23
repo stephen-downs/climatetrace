@@ -1,0 +1,56 @@
+.about {
+    $bg: $color-purple;
+    $accent: $color-cyjan;
+
+    width: 100%;
+    // max-width: get-grid-width(12);
+    // margin: auto;
+    // min-height: auto;
+    background-color: $bg;
+    padding: 30px 35px 40px;
+
+    @include breakpoint(desktop) {
+        min-height: 500px;
+
+        padding: get-grid-width(1) 70px;
+    }
+
+    &__h1 {
+        font-weight: 400;
+        @include font-size(18, 30);
+        text-transform: uppercase;
+
+        @include breakpoint(phone) {
+            @include font-size(16, 28);
+        }
+    }
+
+    &__text {
+        max-width: get-grid-width(8);
+        @include font-size(52, 62);
+        letter-spacing: -0.5px;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+        font-weight: 700;
+
+        @include breakpoint(phone) {
+            @include font-size(28, 38);
+        }
+
+        @include breakpoint(tablet) {
+            @include font-size(40, 50);
+        }
+
+        em {
+            color: $accent;
+            font-style: normal;
+        }
+    }
+
+    &__hr {
+        @include hr(100%, 6px, $accent);
+        @include breakpoint(desktop) {
+            @include hr(370px, 13px, $accent);
+        }
+    }
+}

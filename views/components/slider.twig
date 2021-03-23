@@ -1,0 +1,16 @@
+{% if grid == true %}<div class="grid-8">{% endif %}
+{% if slides %}
+<div class="slider{% if isOuterZoom %} slider--outer-zoom{% endif %}" data-component="Slider" data-options='{{options|json_encode()}}'>
+{% for slide in slides %}
+    <div>
+        {% include './image.twig' with {image: slide.image, caption: slide.caption} %}
+    </div>
+{% endfor %}
+</div>
+{% for slide in slides %}
+{% if slide.lightbox_id %}
+<a class="image__link image__link--outer js-zoom-link" href='#lightbox{{slide.lightbox_id}}' data-lightbox>[[svg::loupe]]</a>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if grid == true %}</div>{% endif %}

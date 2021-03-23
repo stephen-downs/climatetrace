@@ -1,0 +1,49 @@
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(359deg); }
+}
+
+@keyframes scrollDown {
+    from { transform: translateY(-3px); }
+    to { transform: translateY(3px); }
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    11% { transform: translateX(20px); }
+    22% { transform: translateX(-30px); }
+    33% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes loader-circle-1 {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(27px - 6px, 6px - 50px, 0); }
+}
+
+@keyframes loader-circle-2 {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(50px - 27px, 50px - 6px, 0); }
+}
+
+@keyframes loader-circle-3 {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(6px - 50px, 50px - 50px, 0); }
+}
+
+@keyframes left-arr-pulsing {
+    0% { transform: rotate(-45deg) translate(-4px, -4px); }
+    40% { transform: rotate(-45deg) translate(-6px, -6px); }
+    100% { transform: rotate(-45deg) translate(-4px, -4px); }
+}
+
+@keyframes right-arr-pulsing {
+    0% { transform: rotate(135deg) translate(-4px, -4px); }
+    40% { transform: rotate(135deg) translate(-6px, -6px); }
+    100% { transform: rotate(135deg) translate(-4px, -4px); }
+}
+
+@keyframes glow-shadow {
+    from { box-shadow: 0 0 30px 0px $color-white; }
+    to { box-shadow: 0 0 20px 7px $color-white; }
+}

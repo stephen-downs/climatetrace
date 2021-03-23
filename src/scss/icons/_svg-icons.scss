@@ -1,0 +1,231 @@
+// .svg-pin {
+//     transition: transform $time-fast $easing;
+//     transform: scale(1);
+//     transform-origin: bottom center;
+//     fill: currentColor;
+// }
+
+// %svg-pin-hover {
+//     transform: scale(1.05);
+// }
+svg {
+    vertical-align: middle;
+}
+
+.svg-volume {
+    width: 22px;
+    height: 18px;
+}
+
+.svg-ring {
+    position: absolute;
+    left: -20%;
+    top: -20%;
+    width: 140%;
+    height: 140%;
+    // animation: spin 100s linear infinite paused;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity $time-fast $easing, transform $time-fast $easing;
+
+    @include breakpoint(desktop) {
+        opacity: 0;
+        .is-playing & {
+            transform: scale(0.95);
+            // animation-play-state: running;
+        }
+    }
+
+    // .ie &,
+    // .safari & {
+    //     opacity: 1 !important;
+    // }
+}
+
+.svg-infographic {
+    rect {
+        transform-origin: left center;
+    }
+}
+
+.svg-playpause {
+    width: 50px;
+    height: 50px;
+}
+
+.svg-playpause path,
+rect {
+    opacity: 1;
+    transition: opacity $time-fast $easing;
+    &.pause {
+        opacity: 0;
+    }
+}
+%svg-playpause-play {
+    .pause {
+        opacity: 1;
+    }
+    .play {
+        opacity: 0;
+    }
+}
+
+.svg-volume path,
+g {
+    opacity: 1;
+    transition: opacity $time-fast $easing;
+    &.muted {
+        opacity: 0;
+    }
+}
+%svg-volume-muted {
+    .muted {
+        opacity: 1;
+    }
+    .playing {
+        opacity: 0;
+    }
+}
+
+.svg-switch {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: visible;
+
+    circle {
+        transform-origin: 20px 20px;
+        transition: transform 0.2s ease-out;
+        transform: scale(1);
+    }
+}
+
+%svg-switch-hover {
+    circle {
+        transform: scale(1.1);
+    }
+}
+
+.svg-share {
+    display: block;
+    pointer-events: none;
+    backface-visibility: hidden;
+
+    path {
+        fill: currentColor;
+    }
+
+    .masonry & {
+        width: 23px;
+        height: 23px;
+
+        @include breakpoint(not-desktop) {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    width: 17px;
+    height: 17px;
+}
+
+.svg-url {
+    display: block;
+    margin: 0 auto;
+    width: 15px;
+    height: 15px;
+
+    path {
+        fill: currentColor;
+    }
+}
+
+.svg-drag {
+    display: inline-block;
+    width: 30px;
+    height: 40px;
+    margin-right: 20px;
+    animation: slide 4s infinite;
+
+    path {
+        fill: currentColor;
+    }
+}
+
+.svg-loupe {
+    width: 25px;
+    height: 25px;
+
+    path {
+        fill: currentColor;
+    }
+}
+
+.svg-restart {
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-out;
+
+    path {
+        fill: $color-dark;
+    }
+}
+
+%svg-restart-hover {
+    transform: rotate(180deg);
+}
+
+a,
+button {
+    @include hover {
+        // .svg-pin { @extend %svg-pin-hover !optional; }
+        // .svg-volume { @extend %svg-volume-hover !optional; }
+        .svg-switch {
+            @extend %svg-switch-hover !optional;
+        }
+        .svg-restart {
+            @extend %svg-restart-hover !optional;
+        }
+    }
+}
+
+.svg-happen-logo {
+    @include breakpoint(not-desktop) {
+        width: 241px;
+    }
+}
+
+.svg-voices-logo {
+    @include breakpoint(not-desktop) {
+        width: 253px;
+    }
+}
+
+.svg-twitter-icon * {
+    .card__media & {
+        fill: $color-twitter;
+    }
+}
+
+.svg-facebook-icon * {
+    .card__media & {
+        fill: $color-facebook;
+    }
+}
+
+.svg-pinterest-icon * {
+    .card__media & {
+        fill: $color-pinterest;
+    }
+}
+
+.svg-linkedin-icon * {
+    .card__media & {
+        fill: $color-linkedin;
+    }
+}

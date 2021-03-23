@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <div class="wrapper__row">
+        <div class="join--form">
+            <div class="join__col">
+                <h2 class="join__lead"><span class="join__em">Join</span> the<br> climate<br> movement<br> today.</h2>
+                <hr class="join__hr js-hr"> 
+            </div>
+            <div class="join__col-wide">
+                <form action="/api/newsletter_add" data-api='{"beforeCall": "validate", "callback": "onSubscribe"}' class="form" novalidate="novalidate">
+                    <div class="form__row">
+                        <label class="sr-only" for="f_name">name </label>
+                        <input type="text" placeholder="name" class="form__input" id="f_name" required></input>
+                        <div class="js-error error"></div>
+                    </div>
+                    <div class="form__row">
+                        <label class="sr-only" for="f_email">email</label>
+                        <input type="email" placeholder="email" class="form__input" id="f_email" required></input>
+                        <div class="js-error error"></div>
+                    </div>
+                    <div class="form__row">
+                        <label class="sr-only" for="f_phone">phone</label>
+                        <input type="phone" placeholder="phone" class="form__input" id="f_phone" required></input>
+                        <div class="js-error error"></div>
+                    </div>
+                    <div class="form__row">
+                        <label class="sr-only" for="f_zipcode">zip code</label>
+                        <input type="text" placeholder="zip code" class="form__input" id="f_zipcode" required></input>
+                        <div class="js-error error"></div>
+                    </div>
+                    <fieldset class="form__group">
+                        <legend class="form__legend">Choose your interest:</legend>
+                        <div class="form__checkboxes">
+                            {% for checkbox in checkboxes %}
+                            <label class="form__checkitem">
+                                <input type="checkbox" id="checkbox_{{loop.index}}">
+                                <span class="form__checkbox"></span>
+                                <span>{{checkbox.name}}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                    <div class="form__info">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.
+                    </div>
+                    <div class="form__button">
+                        <input type="submit" value="Join">
+                    </div>
+                    <div class="js-message message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

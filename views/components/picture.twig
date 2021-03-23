@@ -1,0 +1,14 @@
+<picture>
+    {% if image is iterable %}
+    {% if image.mobile %}
+        {% if image.tablet %}
+        <source media="(max-width: 767px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{image.mobile}}">
+        <source media="(max-width: 1023px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{image.tablet}}">
+        {% else %}
+        <source media="(max-width: 1023px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{image.mobile}}">
+        {% endif %}
+    {% endif %}
+    {% if image.desktop %}<source media="(min-width: 1024px)" srcset="data:image/png;base64,aHVuY3dvdA==" data-srcset="{{image.desktop}}{% if image.retina %}, {{image.retina}} 2x{% endif %}">{% endif %}
+    {% endif %}
+    <img src="{{src|default('data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=')}}" data-iesrc="{{src|default(image.desktop)}}" alt="" class="{% if image.preload %}preload {% endif %}{% if image.customClass %}{{image.customClass}}{% endif %} is-loading">
+</picture>

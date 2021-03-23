@@ -1,0 +1,48 @@
+.underline {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    font-style: normal;
+
+    &::after {
+        @include pseudo(100%, 5px, auto, 0, var(--color-primary), -1);
+        bottom: 1px;
+        opacity: 0.6;
+
+        @include breakpoint(desktop) {
+            bottom: 4px;
+        }
+
+        .comb-magenta & {
+            background: $color-orange;
+        }
+
+        .comb-oragne & {
+            background: $color-green;
+        }
+
+        .comb-carrot & {
+            background: $color-lemon;
+        }
+
+        .comb-lemon & {
+            background: $color-magenta;
+        }
+
+        .comb-salmon & {
+            background: $color-cyjan;
+        }
+
+        .comb-purple & {
+            background: $color-cyjan;
+        }
+
+        .comb-cyjan & {
+            background: $color-orange;
+        }
+
+        .comb-green & {
+            background: $color-yellow;
+        }
+    }
+}

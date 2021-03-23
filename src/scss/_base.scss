@@ -1,0 +1,100 @@
+:root {
+    --app-height: calc(100vh - #{$nav-height});
+}
+
+body,
+html {
+    background-color: $color-dark;
+}
+
+#main {
+    overflow-x: hidden;
+    width: 100%;
+    color: $color-white;
+    font-family: $font-sans;
+    font-weight: 400;
+    user-select: text;
+    position: relative;
+
+    .ie & {
+        display: none;
+    }
+
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: none;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    // input,
+    // textarea,
+    // select,
+    button,
+    a:not(.footer &) {
+        font-family: $font-sans;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    article {
+        overflow: hidden;
+    }
+
+    .content {
+        transition: transform $time;
+        position: relative;
+        backface-visibility: hidden;
+        z-index: 2;
+        // will-change: transform;
+
+        .is-aside-open & {
+            transform: translateX(-#{$aside-width});
+        }
+
+        .navbar-always-shown & {
+            > div:first-child {
+                padding-top: #{$nav-height + 25px};
+
+                @include breakpoint(desktop) {
+                    padding-top: #{$nav-height + 50px};
+                }
+            }
+        }
+    }
+}
+
+.ie-banner {
+    display: none !important;
+
+    .ie & {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: rgba($color-magenta, 1);
+        width: 100vw;
+        height: 100vh;
+        color: $color-white;
+        @include flex(row, center, center);
+        font-family: $font-sans;
+
+        p {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+}

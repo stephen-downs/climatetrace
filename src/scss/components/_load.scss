@@ -1,0 +1,37 @@
+.load {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    &__button {
+        @extend %button;
+        width: 162px;
+        height: 42px;
+        margin: 0 auto;
+
+        @include flex(row, center, center);
+
+        span {
+            @include font-size(14, 1);
+            letter-spacing: 2.3px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    &__line {
+        position: absolute;
+        width: calc(50% - 100px);
+        height: 2px;
+        background-color: $color-dark;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        &:last-of-type {
+            right: 0;
+            left: auto;
+        }
+    }
+}

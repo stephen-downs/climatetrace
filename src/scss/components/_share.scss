@@ -1,0 +1,276 @@
+.share {
+    $border-color: $color-black;
+    // $bg-gradient: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
+    $width-xl: 194px;
+    $height-xl: 50px;
+    $width: 162px;
+    $height: 42px;
+
+    position: relative;
+    width: $width;
+    height: $height;
+
+    .slider & {
+        margin-left: auto;
+    }
+
+    .slider__item--article & {
+        @include breakpoint(not-desktop) {
+            width: 114px;
+        }
+    }
+
+    &--circle {
+        width: 134px;
+        @include flex(row, flex-end, center);
+        height: 32px;
+
+        @include breakpoint(desktop) {
+            @include breakpoint(tablet-landscape) {
+                margin-top: 2px;
+            }
+            @include breakpoint(ipad-pro) {
+                margin-top: 2px;
+            }
+        }
+    }
+
+    &__title {
+        @include font-size(10, 22);
+        font-weight: 700;
+        letter-spacing: 0.83px;
+        text-transform: uppercase;
+        margin-right: 6px;
+    }
+
+    &__button {
+        color: $border-color;
+        position: relative;
+        @include flex(row, flex-end, center);
+        padding: 0 15px;
+        // border: 2px solid currentColor;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        transition: transform $time-fast $easing, background $time-fast $easing;
+        backface-visibility: hidden;
+        background-color: $color-white;
+
+        .slider--article & {
+            @include breakpoint(not-desktop) {
+                background-color: transparent;
+                color: $color-white;
+            }
+
+            @include breakpoint(tablet-landscape) {
+                background-color: transparent;
+                color: $color-dim !important;
+            }
+
+            @include breakpoint(ipad-pro) {
+                background-color: transparent;
+                color: $color-dim !important;
+            }
+        }
+
+        .masonry & {
+            background: transparent;
+            color: $color-white !important;
+        }
+
+        &::after {
+            @include pseudo(calc(100% - 1px), 4px, auto, auto, currentColor, 0);
+            right: -3px;
+            bottom: -3px;
+            transition: transform $time-fast $easing, opacity $time-fast $easing;
+        }
+
+        &::before {
+            @include pseudo(4px, 100%, 2px, auto, currentColor, 0);
+            right: -3px;
+            transition: transform $time-fast $easing, opacity $time-fast $easing;
+        }
+
+        .share--circle & {
+            width: 30px;
+            height: 30px;
+            border: 0;
+            border-radius: 50%;
+            background-color: $color-dark;
+            color: $color-white;
+            padding: 0;
+            margin: 0 0 0 auto;
+            @include flex(row, center, center);
+
+            &::after,
+            &::before {
+                display: none;
+            }
+        }
+
+        @include hover {
+            &::after,
+            &::before {
+                // transform: translate(-2px, -2px);
+                opacity: 0;
+            }
+
+            .share__border {
+                transform: translate(2px, 2px);
+            }
+
+            .share__copy,
+            .icon--share {
+                transform: translate(2px, 2px);
+            }
+        }
+
+        .share--circle & {
+            @include hover {
+                background-color: var(--color-secondary);
+
+                .icon--share {
+                    transform: translate(0, 0);
+                }
+            }
+        }
+
+        .is-open & {
+            .share__border {
+                transform: translate(0, 1px);
+            }
+        }
+    }
+
+    &__copy {
+        position: relative;
+        font-weight: 700;
+        @include font-size(14, 1);
+        color: currentColor;
+        padding-left: 12px;
+        text-transform: uppercase;
+        z-index: 1;
+        transition: color $time $easing, transform $time-fast $easing;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        will-change: transform;
+
+        .masonry & {
+            @include font-size(20, 1);
+            margin-top: -2px;
+
+            @include breakpoint(not-desktop) {
+                @include font-size(14, 1);
+                letter-spacing: 2.3px;
+            }
+        }
+
+        .share--circle & {
+            display: none;
+        }
+
+        @include breakpoint(desktop) {
+            pointer-events: none;
+        }
+    }
+
+    &__tooltip {
+        position: absolute;
+        color: $border-color;
+        top: 0;
+        right: 0;
+        left: auto;
+        height: 100%;
+        background: var(--color-primary);
+        border: 2px solid currentColor;
+        pointer-events: none;
+        transform: translateX(10px);
+        @include flex();
+        opacity: 0;
+        transition: opacity $time $ease-out, transform $time $ease-out;
+        z-index: 3;
+        min-width: 162px;
+
+        @include breakpoint(not-desktop) {
+            padding: 0 5px;
+        }
+
+        .masonry & {
+            color: $color-white;
+        }
+
+        .share--circle & {
+            width: 268px;
+            border-radius: 30px;
+            background: $color-dark;
+            color: $color-white;
+            border: 0;
+            @include flex(row, space-between, center);
+
+            @media (max-width: 1340px) {
+                padding: 0 10px;
+                width: 250px;
+            }
+        }
+
+        // .module:not(#shareable-science):not(#essential-stories):not(#make-it-happen) & {
+        //     background: $color-dark;
+        // }
+
+        &::after {
+            @include pseudo(100%, 4px, auto, auto, currentColor, 0);
+            right: -4px;
+            bottom: -4px;
+
+            .share--circle & {
+                display: none;
+            }
+        }
+
+        &::before {
+            @include pseudo(4px, 100%, 2px, auto, currentColor, 0);
+            right: -4px;
+
+            .share--circle & {
+                display: none;
+            }
+        }
+
+        .is-open & {
+            opacity: 1;
+            transform: translate(3px, 1px);
+            pointer-events: all;
+
+            // @include breakpoint(not-desktop) {
+            //     transform: translateY(0);
+            // }
+        }
+    }
+
+    &__border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: $color-dark;
+        z-index: 0;
+        border: 2px solid $color-dim;
+        transition: transform $time-fast $easing;
+        pointer-events: none;
+
+        .masonry & {
+            border: 2px solid $color-white;
+        }
+
+        .share--circle & {
+            display: none;
+        }
+
+        .slider--article & {
+            @include breakpoint(not-desktop) {
+                border: 2px solid $color-white;
+            }
+        }
+    }
+}

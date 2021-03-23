@@ -1,0 +1,435 @@
+.tile {
+    $image-h: 274px;
+    $image-h-short: 220px;
+    $footer-h: 42px;
+    $radius: 29px;
+
+    font-family: $font-text;
+    position: relative;
+    width: 100%;
+    height: inherit;
+    @include flex(column, space-between, flex-start);
+
+    &--border {
+        border-left: 2px solid currentColor;
+        margin-bottom: 35px;
+
+        @include breakpoint(desktop) {
+            padding-top: 33px;
+            border: 0;
+            border-top: 2px solid currentColor;
+            margin-bottom: 0;
+        }
+    }
+
+    &--groups {
+        @include breakpoint(not-desktop) {
+            @include flex(row, flex-start, center);
+            margin-bottom: 33px;
+            height: 180px;
+
+            @include breakpoint(tablet) {
+                height: calc(50vw - 48px);
+            }
+        }
+
+        @include breakpoint(tablet-landscape) {
+            height: 400px;
+        }
+        @include breakpoint(ipad-pro) {
+            height: 400px;
+        }
+    }
+
+    &__body {
+        &--center {
+            text-align: center;
+        }
+
+        @include breakpoint(not-desktop) {
+            padding-left: margin(phone);
+        }
+    }
+
+    &__url {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% - #{$footer-h} - 20px);
+
+        .tile--edition & {
+            height: 100%;
+            z-index: 2;
+        }
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        margin-bottom: 19px;
+
+        .tile--groups & {
+            @include breakpoint(not-desktop) {
+                width: 50%;
+                margin-bottom: 0;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            height: $image-h;
+            margin-bottom: 19px;
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            @include breakpoint(desktop) {
+                object-fit: contain;
+            }
+        }
+
+        .tile--border & {
+            @include breakpoint(phone) {
+                height: 228px;
+            }
+
+            @include breakpoint(tablet) {
+                width: 100%;
+                height: calc(calc(100vw - 20px - 48px) * 0.64);
+            }
+        }
+
+        &--short {
+            height: $image-h-short;
+
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__date {
+        display: block;
+        @include font-size(14, 22);
+        margin-bottom: 2px;
+
+        @include breakpoint(desktop) {
+            @include font-size(16, 22);
+            margin-bottom: 7px;
+        }
+    }
+
+    &__lead {
+        @include font-size(18, 20);
+        font-weight: 700;
+        margin-bottom: 10px;
+
+        @include breakpoint(desktop) {
+            @include font-size(20, 22);
+            margin-bottom: 19px;
+        }
+
+        &--big {
+            @include font-size(24, 24);
+            letter-spacing: -1px;
+            font-weight: 700;
+            margin-bottom: 9px;
+
+            @include breakpoint(desktop) {
+                font-size: 1.65vw;
+                margin-bottom: 12px;
+            }
+
+            @include breakpoint(hd) {
+                @include font-size(32, 32);
+            }
+        }
+    }
+
+    &__footer {
+        width: 100%;
+        @include flex(row, space-between, center);
+        align-self: flex-end;
+        height: $footer-h;
+        margin-top: 20px;
+
+        @include breakpoint(not-desktop) {
+            padding-left: margin(phone);
+
+            .tile--groups & {
+                height: 100%;
+                @include flex(column, flex-end, flex-start);
+                width: 50%;
+                padding-bottom: 3px;
+                padding-top: 5px;
+
+                @include breakpoint(phone) {
+                    @include flex(column, space-between, flex-start);
+                    margin-top: 0;
+                }
+            }
+
+            .tile--big & {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__evaluation {
+        @include flex(row, flex-start, center);
+    }
+
+    // &__text
+
+    &__quote {
+        text-transform: uppercase;
+        @include font-size(24, 24);
+        letter-spacing: -1px;
+        font-weight: 700;
+
+        @include breakpoint(desktop) {
+            font-size: 1.65vw;
+        }
+
+        @include breakpoint(hd) {
+            @include font-size(32, 32);
+        }
+    }
+
+    &__button {
+        @include flex(row, center, center);
+        border-radius: $radius;
+        width: 100%;
+        height: 40px;
+        position: relative;
+        margin: 10px auto 0;
+        color: $color-white;
+        text-decoration: none;
+        border: 2px solid $color-white;
+        transition: border $time-fast $easing, transform $time-fast $easing;
+
+        @include breakpoint(desktop) {
+            width: 214px;
+            height: 40px;
+            margin: 30px auto 0;
+        }
+
+        &::after {
+            @include pseudo(100%, 100%, 5px, 3px, currentColor, -1);
+            border-radius: $radius;
+            transition: transform $time $easing;
+        }
+
+        &::before {
+            @include pseudo(100%, 100%, 0, 0, currentColor, 1);
+            border-radius: $radius;
+            transition: opacity $time $easing;
+            background-color: $color-white;
+            opacity: 0;
+        }
+
+        span {
+            position: relative;
+            z-index: 2;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            @include font-size(14, 20);
+            color: $color-white;
+            transition: color $time $easing;
+            margin-top: -1px;
+        }
+
+        @include hover {
+            border: 2px solid $color-dark;
+            // transform: translate(5px, 3px);
+
+            span {
+                color: $color-dark;
+            }
+
+            &::after {
+                transform: translate(-5px, -3px) scale(0.8);
+                opacity: 0;
+            }
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__portal-logo {
+        margin-bottom: 5px;
+        height: 20px;
+
+        @include breakpoint(not-desktop) {
+            margin: 17px 0 8px;
+            height: 18px;
+        }
+        img {
+            max-height: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // EDITIONS TILE
+    $cover-h: 270px;
+
+    &--edition {
+        position: relative;
+        padding: 8px;
+        color: $color-white;
+
+        @include breakpoint(tablet-landscape) {
+            .col-58 & {
+                padding: 20px;
+            }
+        }
+
+        @include breakpoint(ipad-pro) {
+            .col-58 & {
+                padding: 20px;
+            }
+        }
+
+        @include hover {
+            .tile__cover img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__hr {
+        @include hr(100%, 2px, $color-white);
+        margin: 10px 0;
+    }
+
+    &__content {
+        @include flex(row, flex-start, flex-start);
+
+        @include breakpoint(not-desktop) {
+            display: block;
+        }
+    }
+
+    &__brief {
+        padding: 13px 24px 0 16px;
+        width: percent(282, 769);
+
+        @include breakpoint(tablet-landscape) {
+            padding: 0 30px 0 0;
+        }
+
+        @include breakpoint(ipad-pro) {
+            padding: 0 30px 0 0;
+        }
+
+        @include breakpoint(not-desktop) {
+            width: 100%;
+        }
+    }
+
+    &__cover {
+        height: $cover-h;
+        overflow: hidden;
+
+        .tile__content & {
+            width: percent(450, 769, 0);
+
+            @include breakpoint(not-desktop) {
+                width: 100%;
+                padding: 13px 16px 20px 16px;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform $time $easing;
+        }
+    }
+
+    &__edition {
+        &--top {
+            font-family: $font-text;
+            @include font-size(16, 19);
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+    }
+
+    &__number {
+        .tile__edition--top & {
+            font-weight: 700;
+        }
+    }
+
+    &__title {
+        @include font-size(40, 1);
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+
+    &__boldedtext {
+        font-weight: 700;
+        @include font-size(16, 18);
+        font-family: $font-text;
+
+        p {
+            color: $color-white;
+        }
+
+        .underline {
+            &::after {
+                height: 3px;
+                bottom: 2px;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__time {
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    &__text {
+        @include font-size(14, 18);
+
+        .tile--groups & {
+            position: relative;
+            top: -5px;
+
+            @include breakpoint(phone) {
+                @include font-size(13, 16);
+            }
+        }
+
+        @include breakpoint(tablet) {
+            @include font-size(20, 24);
+        }
+
+        @include breakpoint(desktop) {
+            @include font-size(16, 20);
+        }
+    }
+}
+
+.col-25 {
+    @include breakpoint(not-desktop) {
+        &:last-of-type {
+            .tile {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

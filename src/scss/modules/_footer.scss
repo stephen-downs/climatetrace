@@ -1,0 +1,273 @@
+.footer {
+    $h: 460px;
+    $col-right-w: 424px;
+    $h-logos: 303px;
+
+    width: 100%;
+    padding: 0 margin(phone) margin(phone);
+
+    @include breakpoint(desktop) {
+        padding: 0 margin();
+    }
+
+    &__row {
+        position: relative;
+        width: 100%;
+        @include flex(column, space-between, flex-start);
+
+        @include breakpoint(desktop) {
+            @include flex(row, space-between, flex-start);
+            height: $h;
+        }
+    }
+
+    &__col-left {
+        position: relative;
+
+        @include breakpoint(desktop) {
+            padding-top: 42px;
+            height: 100%;
+            width: calc(100% - #{$col-right-w});
+        }
+    }
+
+    &__col-right {
+        position: relative;
+        margin-left: -20px;
+
+        @include breakpoint(desktop) {
+            padding: 42px 0 42px 36px;
+            width: 424px;
+            height: 100%;
+        }
+    }
+
+    &__logos,
+    &__logos-row {
+        width: 100%;
+        position: relative;
+    }
+
+    &__logos {
+        @include flex(column, center, center);
+        padding-top: 50px;
+
+        @include breakpoint(desktop) {
+            padding-top: 0;
+            height: $h-logos;
+        }
+    }
+
+    &__logos-row {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+
+        @include breakpoint(desktop) {
+            height: 103px;
+            @include flex(row, space-evenly, center);
+            margin-bottom: 40px;
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__logo {
+        svg,
+        img {
+            width: 100%;
+
+            @include breakpoint(tablet) {
+                max-height: 75px !important;
+                object-fit: contain;
+            }
+        }
+
+        width: 15%;
+        @include breakpoint(not-desktop) {
+            margin: auto;
+            width: 50% !important;
+            position: relative;
+            margin-bottom: 50px;
+
+            img {
+                display: block;
+                text-align: center;
+                margin: auto;
+            }
+
+            &--make-it-happen {
+                img {
+                    width: percent(166, 188, 0);
+                }
+            }
+            &--voices-to-amplify {
+                img {
+                    width: percent(139, 188, 0);
+                }
+            }
+            &--inside-scoop {
+                img {
+                    width: percent(80, 188, 0);
+                }
+            }
+            &--seen-around-the-world {
+                img {
+                    width: percent(140, 188, 0);
+                }
+            }
+            &--videos-you-need-to-share {
+                img {
+                    width: percent(131, 188, 0);
+                }
+            }
+            &--trending-on-social-media {
+                img {
+                    width: percent(68, 188, 0);
+                }
+            }
+            &--shareable-science {
+                img {
+                    width: percent(146, 188, 0);
+                }
+            }
+            &--wins-for-the-planet {
+                img {
+                    width: percent(192, 188, 0);
+                }
+            }
+            &--groups-to-support {
+                img {
+                    width: percent(138, 188, 0);
+                }
+            }
+            &--essential-stories {
+                img {
+                    width: percent(157, 188, 0);
+                }
+            }
+        }
+    }
+
+    &__hr {
+        @include hr();
+        position: absolute;
+        left: 0;
+
+        &--vertical {
+            height: 100%;
+            width: 2px;
+            top: 0;
+            left: 0;
+        }
+
+        &--bottom {
+            top: auto;
+            bottom: 0;
+
+            @include breakpoint(not-desktop) {
+                &:not(.js-hr-middle) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__bottom-bar {
+        position: relative;
+        height: calc(100% - #{$h-logos});
+        width: 100%;
+        @include flex(row, center, center);
+        padding: 20px 0 25px;
+
+        @include breakpoint(desktop) {
+            padding: 0 44px 0 0;
+            @include flex(row, space-between, center);
+
+            @include breakpoint(tablet-landscape) {
+                padding: 0 15px 0 0;
+            }
+            @include breakpoint(ipad-pro) {
+                padding: 0 15px 0 0;
+            }
+        }
+    }
+
+    &__menu {
+        font-family: $font-text;
+        @include font-size(14, 16);
+        letter-spacing: 0.45px;
+        width: 100%;
+
+        @include breakpoint(not-desktop) {
+            padding-bottom: margin(phone);
+            span {
+                padding-top: 25px;
+                text-align: center;
+                margin: 0 auto 5px;
+                display: block;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            @include flex(row, flex-start, center);
+            width: auto;
+            @media (max-width: 1105px) {
+                @include font-size(13, 15);
+            }
+        }
+    }
+
+    &__list {
+        @include flex(row, flex-start, center);
+        margin-left: 10px;
+
+        @include breakpoint(not-desktop) {
+            margin: 0 auto;
+            @include flex(row, center, center);
+        }
+
+        li {
+            position: relative;
+            padding: 0 10px;
+
+            &::before {
+                @include pseudo(1px, 100%, 50%, 0, $color-dark, 1);
+                transform: translateY(-50%);
+            }
+
+            &::after {
+                @include pseudo(100%, 100%, 50%, 0, $color-dark, 1);
+                transform-origin: 0 50%;
+                transition: transform $time-fast $easing;
+                transform: translateY(-50%) scaleX(0);
+            }
+
+            @include breakpoint(not-desktop) {
+                &:first-child {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+            @include hover {
+                &::after {
+                    transform: translateY(-50%) scaleX(1);
+                }
+
+                a {
+                    color: $color-white;
+                }
+            }
+        }
+
+        a {
+            position: relative;
+            font-family: $font-text;
+            text-decoration: none;
+            color: inherit;
+            transition: color $time $easing;
+            display: block;
+            z-index: 2;
+        }
+    }
+}

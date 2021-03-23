@@ -1,0 +1,25 @@
+.caption {
+    @include font-size(16, 18);
+    @include flex(row, flex-start, center);
+    margin-top: 16px;
+
+    @include breakpoint(not-desktop) {
+        margin: 20px 0 0;
+    }
+
+    &__number {
+        position: relative;
+        margin-right: 20px;
+
+        &::after {
+            @include pseudo(2px, 100%, 50%, auto, currentColor, 1);
+            right: -10px;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__date {
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}

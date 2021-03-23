@@ -1,0 +1,55 @@
+{% include '../components/heading.twig' with heading %}
+<div class="wrapper">
+    <div class="wrapper__row">
+        {% for col in cols %}
+        <div class="col-{% if col.text %}25{% else %}slider{% endif %}">
+            {% if col.text %}
+            <div class="wrapper__intro">{{col.text}}</div>
+            {% else %}
+            <div class="slider{% if col.slider_type %} slider--{{col.slider_type}}{% endif %}" data-component="Slider">
+                <div class="slider__wrapper">
+                    <div class="slider__list js-list">
+                        {% for item in col.videos %}
+                        <div class="slider__item slider__item--video js-item">
+                            {% if item.video %}
+                            {% include '../components/video.twig' with item.video %}
+                            {% endif %}
+                            {% if item.youtube %}
+                            {% include '../components/youtube.twig' with item.youtube %}
+                            {% endif %}
+                            {% if item.vimeo %}
+                            {% include '../components/vimeo.twig' with item.vimeo %}
+                            {% endif %}
+
+                            <div class="slider__item-footer">
+                                <div class="slider__evaluation">
+                                    {% if item.like %}
+                                    {% include '../components/clap.twig' %}
+                                    {% endif %}
+                                    {% if item.dislike %}
+                                    {% include '../components/dislike.twig' %}
+                                    {% endif %}
+                                </div>
+                                {% if item.social %}
+                                {% include '../components/share.twig' with item.social %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="slider__nav">
+                    <button class="slider__prev js-prev">[[svg::arrow-prev]]</button>
+                    <button class="slider__next js-next">[[svg::arrow-next]]</button>
+                </div>
+                <ul class="slider__dots">
+                    {% for item in col.videos %}
+                    <li class="slider__dot js-dot"></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

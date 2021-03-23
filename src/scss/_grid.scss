@@ -1,0 +1,351 @@
+$bps: tablet desktop;
+$grid-columns: 12;
+$grid-column-width: 79px;
+$grid-gutter-width: $gutter-width;
+$grid-side-width: (
+    phone: 20px,
+    tablet: 40px,
+    desktop: 50px,
+);
+
+$grid-margin: (
+    phone: 20px,
+    tablet: 24px,
+    desktop: 34px,
+);
+
+@function get-grid-width($cols, $side-gutter: 0) {
+    @return max(0, $cols * $grid-column-width + ($cols - 1) * $grid-gutter-width) + $side-gutter * $grid-gutter-width;
+}
+
+@function margin($size: desktop) {
+    @return map-get($map: $grid-margin, $key: $size);
+}
+
+.grid {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @each $bp in $bps {
+        @include breakpoint($bp) {
+            padding-left: map-get($grid-side-width, $bp) - $grid-gutter-width * 0.5;
+            padding-right: map-get($grid-side-width, $bp) - $grid-gutter-width * 0.5;
+        }
+    }
+
+    @include breakpoint(desktop) {
+        flex-direction: row;
+        align-items: unset;
+    }
+
+    &--full-width {
+        padding: 0;
+        margin: 0;
+    }
+
+    &--reverse {
+        flex-direction: column-reverse;
+
+        @include breakpoint(desktop) {
+            flex-direction: row;
+            align-items: unset;
+        }
+    }
+
+    &--50 {
+        width: 100%;
+        height: 50%;
+
+        @include breakpoint(desktop) {
+            height: 100%;
+            width: 50%;
+        }
+    }
+}
+
+%grid--full,
+.grid-full {
+    min-height: var(--app-height);
+    max-width: calc(#{get-grid-width(10)} + 20px);
+    align-items: center;
+    margin: 0 auto;
+}
+
+.grid-full {
+    flex-shrink: 0;
+}
+
+[class*="grid-"]:not([class*="grid--"]) {
+    position: relative;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+        margin-left: $grid-gutter-width * 0.5;
+        margin-right: $grid-gutter-width * 0.5;
+    }
+}
+
+@for $cols from 1 through $grid-columns {
+    .grid-#{$cols} {
+        max-width: 100%;
+
+        @include breakpoint(desktop) {
+            max-width: get-grid-width($cols);
+        }
+    }
+}
+
+[class*="col-"] {
+    width: 100%;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+.col-40 {
+    @include breakpoint(desktop) {
+        max-width: percent(769, 1900);
+        margin-right: $gutter-width;
+    }
+}
+
+.col-60 {
+    width: 100%;
+    @include breakpoint(desktop) {
+        max-width: percent(999, 1900);
+        margin-right: $gutter-width;
+    }
+}
+
+.col-58 {
+    @include breakpoint(desktop) {
+        max-width: percent(769, 1336, 0);
+        margin-right: $gutter-width;
+    }
+    .wrapper--editions & {
+        @include breakpoint(not-desktop) {
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+        @include breakpoint(tablet-landscape) {
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+        @include breakpoint(ipad-pro) {
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+    }
+}
+
+.col-66 {
+    @include breakpoint(desktop) {
+        max-width: percent(1189, 1900);
+        margin-right: $gutter-width;
+    }
+
+    @include breakpoint(tablet-landscape) {
+        #essential-stories & {
+            max-width: 55%;
+        }
+    }
+
+    @include breakpoint(ipad-pro) {
+        #essential-stories & {
+            max-width: 55%;
+        }
+    }
+}
+
+.col-25 {
+    @include breakpoint(desktop) {
+        width: percent(424, 1900);
+        margin-right: $gutter-width;
+        height: 100%;
+
+        .masonry & {
+            @include breakpoint(tablet-landscape) {
+                max-width: 297px;
+            }
+            @include breakpoint(ipad-pro) {
+                max-width: 297px;
+            }
+        }
+
+        @include breakpoint(tablet-landscape) {
+            max-width: 70%;
+            height: auto;
+
+            &.ipad-hide {
+                display: none;
+            }
+
+            #wins-for-the-planet & {
+                height: 100%;
+            }
+        }
+        @include breakpoint(ipad-pro) {
+            max-width: 70%;
+            height: auto;
+
+            &.ipad-hide {
+                display: none;
+            }
+
+            #wins-for-the-planet & {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.col-m-30 {
+    @include breakpoint(tablet-landscape) {
+        max-width: 30%;
+        height: 100%;
+    }
+    @include breakpoint(ipad-pro) {
+        max-width: 30%;
+        height: 100%;
+    }
+}
+
+.col-37 {
+    @include breakpoint(desktop) {
+        max-width: percent(653, 1900);
+        margin-right: $gutter-width;
+    }
+}
+
+.col-33 {
+    @include breakpoint(desktop) {
+        max-width: percent(573, 1900);
+        margin-right: $gutter-width;
+
+        .wrapper__row--cards & {
+            margin-right: 0;
+            // &:nth-of-type(3n) {
+            // }
+        }
+    }
+
+    @include breakpoint(tablet-landscape) {
+        #essential-stories & {
+            max-width: 44%;
+        }
+    }
+
+    @include breakpoint(ipad-pro) {
+        #essential-stories & {
+            max-width: 44%;
+        }
+    }
+}
+
+.col-16 {
+    @include breakpoint(desktop) {
+        max-width: percent(196, 1336, 0);
+        margin-right: $gutter-width;
+    }
+
+    .wrapper--editions &,
+    .module--editions & {
+        @include breakpoint(not-desktop) {
+            margin-bottom: 30px;
+
+            @include breakpoint(tablet) {
+                width: 220px;
+                display: inline-block;
+                margin-right: 16px;
+            }
+        }
+
+        @include breakpoint(tablet-landscape) {
+            width: 220px;
+            max-width: 100%;
+            display: inline-block;
+            margin-right: 16px;
+        }
+        @include breakpoint(ipad-pro) {
+            width: 220px;
+            max-width: 100%;
+            display: inline-block;
+            margin-right: 16px;
+        }
+    }
+
+    &.col-m-full {
+        @include breakpoint(not-desktop) {
+            display: block;
+        }
+
+        @include breakpoint(tablet-landscape) {
+            display: block;
+            margin-bottom: 30px;
+        }
+        @include breakpoint(ipad-pro) {
+            display: block;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.col-full {
+    @include breakpoint(desktop) {
+        width: 100vw;
+        margin-left: -50px;
+
+        @include breakpoint(tablet-landscape) {
+            margin-left: 0;
+        }
+
+        @include breakpoint(ipad-pro) {
+            margin-left: 0;
+        }
+    }
+}
+
+.col-slider {
+    @include breakpoint(desktop) {
+        max-width: calc(#{percent(1340, 1900)} + 50px);
+        margin-right: -50px;
+
+        @include breakpoint(ipad-pro) {
+            max-width: 100%;
+        }
+        @include breakpoint(tablet-landscape) {
+            max-width: 100%;
+            margin-right: 0;
+        }
+    }
+}
+
+.test-grid {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: block;
+
+    &:not(.is-shown) {
+        display: none;
+    }
+
+    .grid {
+        height: 100%;
+    }
+
+    .grid-1 {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVQIW2NkgAJGEP1JJNUHAAVHAboRzMkCAAAAAElFTkSuQmCC");
+        height: 100%;
+    }
+}

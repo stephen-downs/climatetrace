@@ -1,0 +1,212 @@
+.player {
+  &.is-muted .svg-volume {
+    @extend %svg-volume-muted;
+  }
+  &.is-started .player__toggle,
+  &.is-started .cta {
+    display: none;
+  }
+  &.is-swiching .player__toggle,
+  &.is-swiching.has-cta .cta,
+  &.has-cta .player__toggle {
+    display: none !important;
+  }
+
+  &.is-swiching .player__poster {
+    background: $color-black !important;
+  }
+
+  &:not(.is-started),
+  &.is-loading {
+    .player__playpause {
+      &::before {
+        opacity: 1;
+      }
+      &::after {
+        border-width: 0 3px;
+        border-color: transparent $button-color;
+        width: 9px;
+        height: 3px;
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &.is-playing .svg-playpause {
+    @extend %svg-playpause-play;
+  }
+
+  &.is-lightbox {
+    pointer-events: none;
+  }
+
+  &.is-scrubbing .player__progress {
+    transition: none;
+  }
+
+  &.is-fullscreen {
+    background: black;
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0;
+    display: block;
+
+    .player__wrapper {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    video {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .icon-full {
+      @extend %icon-full-active;
+    }
+  }
+
+  &.is-error {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .player__play,
+    .player__pause,
+    .player__time,
+    .player__scrubber,
+    .player__toggle,
+    .cta {
+      display: none;
+    }
+
+    .player__toggle::before,
+    .player__toggle::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 60px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      background: $color-white;
+      margin-left: -3px;
+    }
+
+    .player__toggle::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .player__toggle {
+      opacity: 0.5;
+    }
+
+    .player__error {
+      display: block;
+    }
+  }
+
+  &.is-share-open {
+    .social__items {
+      @extend %social-items-active !optional;
+    }
+  }
+
+  .player__social {
+    @include hover {
+      .social__items {
+        @extend %social-items-active !optional;
+      }
+    }
+  }
+}
+
+.player--vimeo,
+.player--youtube,
+.player--video {
+  &:not(.is-started):not(.is-vimeo):not(.is-playing).has-controls.has-poster {
+    video,
+    iframe {
+      opacity: 1;
+    }
+  }
+
+  &:not(.is-started) .player__progress::after {
+    display: none;
+  }
+
+  &.has-autoplay:not(.is-ended) .player__poster,
+  &.is-started:not(.is-ended) .player__poster {
+    opacity: 0;
+    transition: opacity $time $easing;
+  }
+
+  &.has-autoplay.should-play:not(.is-started):not(.is-ended) .player__poster {
+    opacity: 1 !important;
+    display: block !important;
+  }
+
+  .modernizr-touchevents &.is-started:not(.is-playing):not(.is-lightbox) .player__bar,
+  &.show-playerbar .player__bar,
+  &.is-started:not(.is-playing):not(.is-lightbox) .player__bar,
+  &.is-ended.has-playlist .player__bar,
+  &.is-playlist-open.has-playlist .player__bar,
+  &.is-playing.is-mousemove:hover .player__bar,
+  &.has-hotspots .player__bar {
+    transform: translateY(-100%);
+  }
+
+  &:not(.is-played):not(.is-native) .player__toggle,
+  &:not(.is-native).is-ended .player__toggle {
+    display: block;
+  }
+
+  &.is-started:not(.is-started) .player__loader {
+    opacity: 1;
+  }
+
+  &.is-native,
+  &.is-bgplayer {
+    .player__bar,
+    .player__poster {
+      display: none !important;
+    }
+  }
+
+  @include breakpoint(phone) {
+    &.should-play:not(.is-started):not(.is-ended),
+    &:not(.is-playing):not(.is-bgplayer):not(.is-native) {
+      .player__toggle,
+      .player__poster {
+        opacity: 1 !important;
+        display: block !important;
+      }
+    }
+
+    &.is-playlist-open .playlist {
+      border-bottom: 1px solid $color-black;
+    }
+
+    &.is-playlist-open .playlist__wrap {
+      height: auto;
+      margin-top: -60px;
+    }
+
+    &.is-playlist-open.has-playlist .playlist-toggle a span {
+      display: none;
+    }
+
+    &.has-playlist .player__poster {
+      height: 210px;
+    }
+
+    &.has-playlist .player__toggle {
+      top: 105px;
+    }
+  }
+}
+
+.player--youtube:not(.is-playing) .player__poster {
+  opacity: 1 !important;
+  transition: none !important;
+}

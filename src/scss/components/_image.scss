@@ -1,0 +1,15 @@
+.image {
+    &--full {
+        position: relative;
+        width: 100%;
+        height: calc(100% + 100px);
+        // height: calc(var(--app-height) + #{$nav-height});
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    }
+}
