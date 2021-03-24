@@ -1,0 +1,31 @@
+.highlights {
+    max-width: get-grid-width(12);
+    margin: 0 auto;
+    width: 100%;
+
+    &__wrapper {
+        padding-top: 46px;
+        width: 100%;
+    }
+
+    &__row {
+        height: 423px;
+        width: 100%;
+        @include flex(row, flex-start, center);
+        margin-bottom: 28px;
+    }
+
+    &__col {
+        height: 100%;
+        width: 32%;
+        margin-right: 28px;
+
+        &--big {
+            width: 66%;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}

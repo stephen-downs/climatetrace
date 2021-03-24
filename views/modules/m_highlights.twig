@@ -1,0 +1,41 @@
+<div class="highlights">
+    {% include '../components/heading.twig' with heading %}
+    <div class="highlights__wrapper">
+        <div class="highlights__row">
+            {% for item in items %}
+            <div class="highlights__col {% if item.big %}highlights__col--big{% endif %}">
+                <div class="tile">
+                    <a href="" class="tile__url"></a>
+                    <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
+                    <div class="tile__wrapper">
+                        <h3 class="tile__h3">{{item.title}}</h3>
+                        {% if item.text %}<p class="tile__text">{{item.text}}</p>{% endif %}
+                        <button class="tile__button">
+                            <img src="media/dotted-oval.png" alt="" class="oval-icon">
+                            <img src="media/arr-down.png" alt="" class="arr-down-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="highlights__row highlights__row--bottom">
+            {% for item in items_bottom %}
+            <div class="highlights__col {% if item.big %}highlights__col--big{% endif %}">
+                <div class="tile">
+                    <a href="" class="tile__url"></a>
+                    <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
+                    <div class="tile__wrapper">
+                        <h3 class="tile__h3">{{item.title}}</h3>
+                        {% if item.text %}<p class="tile__text">{{item.text}}</p>{% endif %}
+                        <button class="tile__button">
+                            <img src="media/dotted-oval.png" alt="" class="oval-icon">
+                            <img src="media/arr-down.png" alt="" class="arr-down-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

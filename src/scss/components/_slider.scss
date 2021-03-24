@@ -11,14 +11,21 @@
         top: 0;
         left: 0;
         width: 100%;
+        opacity: 0;
+        transition: opacity $time $easing;
 
         &:first-of-type {
             position: relative;
+        }
+
+        &.is-active {
+            opacity: 1;
         }
     }
 
     &__map {
         margin-top: 50px;
+
         svg {
             height: auto;
             width: 100%;
@@ -48,7 +55,7 @@
 
     &__elements {
         position: absolute;
-        bottom: 0;
+        bottom: -10vh;
         text-align: left;
     }
 
@@ -59,9 +66,41 @@
 
     &__stat {
         @include font-size(120, 1);
+        text-transform: uppercase;
+        animation: glow 2s $ease-in-out infinite alternate;
     }
 
     &__sub {
+        margin-top: 20px;
         @include font-size(20, 24);
+        @include flex(row, flex-start, center);
+
+        span {
+            width: 369px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-left: 16px;
+        }
+    }
+
+    &__captions {
+        position: relative;
+    }
+
+    &__caption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity $time $easing;
+
+        &:first-of-type {
+            position: relative;
+        }
+
+        &.is-active {
+            opacity: 1;
+        }
     }
 }

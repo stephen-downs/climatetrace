@@ -3,37 +3,7 @@
   "navigation": {
     "logo": "./media/ct-logo.png"
   },
-  "aside": {
-    "editions": [
-      {
-        "url": "https://huncwot.com/pl",
-        "date": "January 1, 2021",
-        "lead": "The Rise of Sunrise",
-        "img": "./media/edition_01.png"
-      },
-      {
-        "url": "https://huncwot.com/pl",
-        "date": "December 31, 2020",
-        "lead": "Stop this pipiline",
-        "img": "./media/edition_02.jpg"
-      },
-      {
-        "url": "https://huncwot.com/pl",
-        "date": "December 24, 2020",
-        "lead": "Neque porro quisquam"
-      },
-      {
-        "url": "https://huncwot.com/pl",
-        "date": "December 18, 2020",
-        "lead": "Lorem ipsum dolor sit consequat"
-      },
-      {
-        "url": "https://huncwot.com/pl",
-        "date": "December 15, 2020",
-        "lead": "Duis aute irure dolor in"
-      }
-    ]
-  },
+  "aside": {},
   "sections": [
     {
       "modules": [
@@ -46,6 +16,54 @@
               "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
               "stat": "173.67 billion",
               "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+            },
+            {
+              "map": "",
+              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
+              "stat": "173.67 billion",
+              "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+            },
+            {
+              "map": "",
+              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
+              "stat": "173.67 billion",
+              "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+            }
+          ]
+        },
+        {
+          "type": "highlights",
+          "grid": true,
+          "heading": {
+            "title": "highlights"
+          },
+          "items": [
+            {
+              "title": "Power sector emissions declines by 1.2%.",
+              "big": true,
+              "src": "media/chart-narrow.png"
+            },
+            {
+              "title": "Change in energy related CO2 emissions by region - 2018-2019",
+              "text": "Global power sector emissions declined by some 170 Mt, or 1.2%, with the biggest falls taking place in advanced economies where CO2 emissions are now at levels not seen since the late 1980s (when electricity demand was one-third lower).",
+              "src": "media/ego-surface-image.png"
+            }
+          ],
+          "items_bottom": [
+            {
+              "title": "Global CO2 emissions from coal use declined from 2018.",
+              "src": "media/chart-circle.png",
+              "img_class": "contain"
+            },
+            {
+              "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco ",
+              "src": "media/chart-people.png",
+              "img_class": "contain"
+            },
+            {
+              "title": "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+              "src": "media/chart-map.png",
+              "img_class": "contain"
             }
           ]
         }

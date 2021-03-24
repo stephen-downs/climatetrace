@@ -20,6 +20,10 @@ html {
         display: none;
     }
 
+    p {
+        font-family: $font-text;
+    }
+
     * {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

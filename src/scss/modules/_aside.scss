@@ -54,24 +54,37 @@
     &__menu {
         width: 100%;
         padding: 0;
-        border-bottom: 2px solid $color-white;
     }
 
     &__item {
         position: relative;
         @include font-size(24, 1);
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         font-weight: 700;
         text-transform: uppercase;
 
         a {
-            display: block;
-            width: 100%;
+            position: relative;
+            display: inline-block;
+            width: auto;
             color: $color-white;
             transition: color $time-fast $easing;
+            padding-bottom: 20px;
+            overflow: hidden;
+
+            &::after {
+                @include pseudo(100%, 2px, auto, 0, $color-blue, 1);
+                bottom: 0;
+                transform: translateX(calc(-100% + 50px));
+                transition: transform $time-fast $easing;
+            }
 
             @include hover {
-                color: $color-dark;
+                color: $color-blue;
+
+                &::after {
+                    transform: translateX(0);
+                }
             }
         }
 

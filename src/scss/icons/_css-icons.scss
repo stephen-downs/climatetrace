@@ -564,14 +564,34 @@ button {
 
     &::after,
     &::before {
-        @include pseudo(16, 1px, 50%, 50%, $color-white, 2);
+        @include pseudo(16px, 1px, 50%, 50%, $color-white, 2);
     }
 
     &::after {
-        transform: translateY(-2px);
+        transform: translate(-50%, -3px);
     }
 
     &::before {
-        transform: translateY(1px);
+        transform: translate(-50%, 3px);
     }
+
+    img {
+        animation: spinner 4s infinite alternate-reverse;
+    }
+}
+
+.oval-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+}
+
+.arr-down-icon {
+    width: 14px;
+    height: auto;
+    @include full();
+    margin: auto;
+    z-index: 2;
+    transform: translateY(-1px);
+    transition: opacity $time-fast $easing, transform $time-fast $easing;
 }

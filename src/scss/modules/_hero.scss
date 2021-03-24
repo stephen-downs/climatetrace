@@ -10,8 +10,8 @@
     transform: translateZ(0);
 
     &__wrapper {
-        width: 100%;
         position: relative;
-        height: 100%;
+        width: 100%;
+        height: auto;
     }
 }
