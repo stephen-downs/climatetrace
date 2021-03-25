@@ -1,0 +1,87 @@
+{
+    "progress": true,
+    "navigation": {
+        "logo": "./media/ct-logo.png"
+    },
+    "aside": {},
+    "sections": [
+        {
+            "modules": [
+                {
+                    "type": "hero",
+                    "grid": true,
+                    "items": [
+                        {
+                            "map": "axes_1",
+                            "sup": "0",
+                            "stat": "171203.67 billion",
+                            "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+                        },
+                        {
+                            "map": "",
+                            "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
+                            "stat": "173.67 billion",
+                            "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+                        },
+                        {
+                            "map": "",
+                            "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
+                            "stat": "173.67 billion",
+                            "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+                        }
+                    ]
+                },
+                {
+                    "type": "highlights",
+                    "grid": true,
+                    "heading": {
+                        "title": "highlights"
+                    },
+                    "items": [
+                        {
+                            "title": "Power sector emissions declines by 1.2%.",
+                            "big": true,
+                            "src": "media/chart-narrow.png"
+                        },
+                        {
+                            "title": "Change in energy related CO2 emissions by region - 2018-2019",
+                            "text": "Global power sector emissions declined by some 170 Mt, or 1.2%, with the biggest falls taking place in advanced economies where CO2 emissions are now at levels not seen since the late 1980s (when electricity demand was one-third lower).",
+                            "src": "media/ego-surface-image.png"
+                        }
+                    ],
+                    "items_bottom": [
+                        {
+                            "title": "Global CO2 emissions from coal use declined from 2018.",
+                            "src": "media/chart-circle.png",
+                            "img_class": "contain"
+                        },
+                        {
+                            "title": "Ut enim ad minim veniam, quis nostrud exercitation ullamco ",
+                            "src": "media/chart-people.png",
+                            "img_class": "contain"
+                        },
+                        {
+                            "title": "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+                            "src": "media/chart-map.png",
+                            "img_class": "contain"
+                        }
+                    ]
+                },
+                {
+                    "type": "about",
+                    "grid": true,
+                    "heading": {
+                        "title": "About Climate Trace"
+                    }
+                },
+                {
+                    "type": "subscribe"
+                },
+                {
+                    "type": "footer",
+                    "grid": true
+                }
+            ]
+        }
+    ]
+}

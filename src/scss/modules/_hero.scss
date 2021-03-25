@@ -2,16 +2,19 @@
     position: relative;
     width: 100%;
     max-width: get-grid-width(12);
+    padding: 0 margin(desktop);
     text-align: center;
     height: calc(var(--app-height) - 70px);
     z-index: 2;
     color: $color-white;
     backface-visibility: hidden;
     transform: translateZ(0);
+    @include flex(row, center, center);
 
     &__wrapper {
         position: relative;
         width: 100%;
         height: auto;
+        top: -3vw;
     }
 }
