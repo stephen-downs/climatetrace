@@ -1,18 +1,13 @@
+@import "fonts/quicksand/300";
 @import "fonts/quicksand/400";
 @import "fonts/quicksand/500";
 @import "fonts/quicksand/700";
-@import "fonts/display/400";
+@import "fonts/poiretone/400";
+@import "fonts/poppins/400";
+@import "fonts/poppins/500";
+@import "fonts/poppins/700";
 
-$font-sans: "SFNS Display", sans-serif;
-$font-text: "Quicksand", sans-serif;
-
-// Font sizes
-$h1: 60;
-$h2: 36;
-$h3: 24;
-$h4: 20;
-$h5: 18;
-
-$p1: 16;
-$p2: 14;
-$p3: 12;
+$font-poiret: "Poiret One", sans-serif;
+$font-sans: "Quicksand", sans-serif;
+$font-second: "Poppins", sans-serif;
+$font-text: $font-sans;

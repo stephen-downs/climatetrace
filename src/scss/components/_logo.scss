@@ -1,45 +1,57 @@
+.logos {
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+    max-width: 1103px;
+    width: 100%;
+}
 .logo {
-    &--happen {
-        width: 241px;
-    }
-    &--voices {
-        width: 253px;
-    }
-    &--inside {
-        width: 143px;
-    }
-    &--seen {
-        width: 281px;
-        @include breakpoint(not-desktop) {
-            width: 222px;
-        }
-    }
-    &--trending {
-        width: 154px;
+    margin-right: 8%;
+    margin-bottom: 69px;
 
-        @include breakpoint(not-desktop) {
-            width: 104px;
-        }
+    &:nth-of-type(4n) {
+        margin-right: 0;
     }
-    &--videos {
-        width: 205px;
+    img {
+        width: 100%;
     }
-    &--science {
-        width: 261px;
-        @include breakpoint(not-desktop) {
-            width: 222px;
-        }
+
+    &--wt {
+        width: percent(263, 1103, 0);
     }
-    &--planet {
-        width: 311px;
+
+    &--ea {
+        width: percent(142, 1103, 0);
     }
-    &--groups {
-        width: 254px;
+
+    &--bsa {
+        width: percent(219, 1103, 0);
     }
-    &--stories {
-        width: 255px;
-        @include breakpoint(not-desktop) {
-            width: 222px;
-        }
+
+    &--rmi {
+        width: percent(108, 1103, 0);
+    }
+
+    &--ag {
+        width: percent(211, 1103, 0);
+    }
+
+    &--hc {
+        width: percent(150, 1103, 0);
+    }
+
+    &--hio {
+        width: percent(191, 1103, 0);
+    }
+
+    &--cp {
+        width: percent(149, 1103, 0);
+    }
+
+    &--eaca {
+        width: percent(214, 1103, 0);
+    }
+
+    &--om {
+        width: percent(89, 1103, 0);
     }
 }

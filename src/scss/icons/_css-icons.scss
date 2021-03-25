@@ -576,6 +576,8 @@ button {
     }
 
     img {
+        animation-play-state: paused;
+        display: none;
         animation: spinner 4s infinite alternate-reverse;
     }
 }

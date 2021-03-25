@@ -1,6 +1,6 @@
-<div class="highlights">
+<div class="wrapper highlights">
     {% include '../components/heading.twig' with heading %}
-    <div class="highlights__wrapper">
+    <div class="wrapper__container wrapper__container--highlights">
         <div class="highlights__row">
             {% for item in items %}
             <div class="highlights__col {% if item.big %}highlights__col--big{% endif %}">

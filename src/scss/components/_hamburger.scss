@@ -14,6 +14,17 @@
     color: $color-white;
     padding: $p-v-mobile $p-mobile;
 
+    &::after {
+        @include pseudo(1px, calc(100vh - 100px), 70px, 50%, $color-blue, 1);
+        transform: scaleY(0);
+        transform-origin: left top;
+        transition: transform $time ease-in-out;
+
+        .is-aside-open & {
+            transform: scaleY(1);
+        }
+    }
+
     @include breakpoint(desktop) {
         width: #{27px + $p * 2};
         padding: $p-v $p;

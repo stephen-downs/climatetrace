@@ -9,7 +9,7 @@
             </div>
             {% endfor %}
         </div>
-        <div class="slider__elements">
+        <div class="slider__elements" data-parallax="css-animation">
             <div class="slider__nav">
                 {% for item in items %}
                 <span class="slider__point{% if loop.first %} is-active{% endif %}"></span>
@@ -19,9 +19,9 @@
                 {% for item in items %}
                 <div class="slider__caption{% if loop.first %} is-active{% endif %}" data-caption="{{loop.index0}}">
                     <span class="slider__sup">{{item.sup}}</span>
-                    <div class="slider__stat">{{item.stat}}</div>
+                    <div class="slider__stat css-animation">{{item.stat}}</div>
                     <div class="slider__sub">
-                        <div class="equal-icon"><img src="media/dotted-oval.png" alt=""></div>
+                        <div class="equal-icon"><img src="media/dotted-oval.png" alt="" class="css-animation"></div>
                         <span>{{item.sub}}</span>
                     </div>
                 </div>

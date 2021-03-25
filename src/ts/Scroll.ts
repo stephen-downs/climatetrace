@@ -706,12 +706,14 @@ export class Scroll {
                 break;
 
             case 'heading':
-                const hLogo = $el.find('.js-logo'),
+                const hTitle = $el.find('.js-title'),
                     hr = $el.find('.js-heading-hr');
+                
+                const splitTitle = new SplitText(hTitle, { type: 'words, chars' });
 
                 gsap.set($el, { opacity: 1});
 
-                gsap.fromTo(hLogo, { duration: 1, x: -30, opacity: 0 }, { opacity: 1, x: 0 });
+                gsap.fromTo(splitTitle.chars, { duration: 1, opacity: 0 }, {  opacity: 1, stagger: 0.05 });
                 gsap.fromTo(hr, { duration: 1, scaleX: 0 }, { scaleX: 1, delay: 0.5 });
 
                 break;
@@ -814,6 +816,16 @@ export class Scroll {
                     } else {
                         $el.removeClass('has-parallax');
                     }
+                    break;
+
+
+                case 'css-animation':
+                    if (y >= (pyTop + headerHeight) && y <= pyBottom) {
+                        item.$el.hasClass('animation-play') ? null : item.$el.addClass('animation-play');
+                    } else {
+                        item.$el.removeClass('animation-play');
+                    }
+
                     break;
             
 

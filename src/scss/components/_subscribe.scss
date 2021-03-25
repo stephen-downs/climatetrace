@@ -1,172 +1,61 @@
 .subscribe {
-    $width: 310px;
-    $w-footer: 388px;
-    $h-footer: 374px;
-    $input-h: 61px;
-    $input-h-m: 54px;
-    $primary: var(--color-primary);
-    $accent: var(--color-secondary);
-
     position: relative;
-    width: 100%;
+    height: 563px;
+    padding-top: 100px;
 
-    @include breakpoint(tablet) {
-        margin-top: 30px;
+    &__wrapper {
+        // max-width: ;
     }
 
-    @include breakpoint(desktop) {
-        width: $width;
+    &__h2 {
+        @include font-size(68, 1);
+        font-family: $font-second;
+        position: relative;
+
+        em {
+            font-style: normal;
+            text-transform: uppercase;
+        }
     }
 
-    .message {
-        font-family: $font-text;
+    &__text {
+        @include font-size(24, 1);
+        margin-top: 20px;
+        max-width: get-grid-width(6);
+    }
+
+    &__bg {
         position: absolute;
-        bottom: 18px;
+        top: 0;
         left: 0;
-        font-size: 20px;
-        font-weight: 700;
-    }
-
-    &.is-subscribed {
-        background-color: $accent;
-    }
-
-    &--small {
-        width: $w-footer;
-        height: $h-footer;
-        padding: 24px 34px 38px 44px;
-        background-color: $primary;
-        transition: background $time-fast $easing;
-
-        @include breakpoint(not-desktop) {
-            width: 100vw;
-            padding: margin(phone) margin(phone) 25px;
-            height: auto;
-
-            @include breakpoint(tablet) {
-                margin-top: 0;
-            }
-        }
-
-        .message {
-            position: absolute;
-            bottom: 45px;
-            left: 45px;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        form {
-            @include breakpoint(tablet) {
-                @include flex(row, space-between, flex-end);
-            }
-        }
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
     }
 
     &__row {
-        width: 100%;
         position: relative;
-        transition: opacity 0.2s $easing;
-
-        .subscribe--small & {
-            @include breakpoint(tablet) {
-                margin-left: 50px;
-            }
-        }
-
-        .is-subscribed & {
-            opacity: 0;
-        }
+        width: 735px;
     }
 
-    &__lead {
-        text-transform: uppercase;
-        font-weight: 700;
-        @include font-size(47, 1);
-        margin-bottom: 16px;
-
-        @include breakpoint(tablet) {
-            @include font-size(77, 1);
-        }
-    }
-
-    &__em {
-        color: $accent;
-        transition: color $time-fast $easing;
-
-        .is-subscribed & {
-            color: $primary;
-        }
-    }
-
-    &__label {
-        @include font-size(14, 18);
-        font-family: $font-text;
-        font-weight: 600;
-        display: block;
-        margin-bottom: 13px;
-
-        @include breakpoint(desktop) {
-            @include font-size(15, 19);
-        }
+    &__form {
+        margin-top: 140px;
     }
 
     &__input {
+        border: 0;
+        border-bottom: 2px solid $color-white;
         width: 100%;
-        height: $input-h-m;
-        border: 8px solid $color-dim;
-        background-color: $primary;
-        font-family: $font-text;
-        @include font-size(15, 1);
-        padding: 0 50px 0 15px;
-        color: $color-dark;
-        transition: background $time-fast $easing;
-
-        @include breakpoint(desktop) {
-            height: $input-h;
-        }
+        background-color: transparent;
+        @include font-size(28, 30);
+        padding: 20px 5px;
+        color: $color-white;
+        font-family: $font-sans;
 
         &::placeholder {
-            color: $color-dark;
-        }
-
-        .is-subscribed & {
-            background-color: $accent;
-        }
-    }
-
-    &__button {
-        width: 39px;
-        height: calc(100% - 16px);
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background-color: $accent;
-        @include flex(row, center, center);
-        transition: background $time-fast $easing;
-
-        .subscribe--small & {
-            height: 38px;
-            bottom: 8px;
-            top: auto;
-
-            @include breakpoint(desktop) {
-                height: 45px;
-            }
-        }
-
-        .is-subscribed & {
-            background-color: $primary;
-        }
-
-        svg {
-            transition: transform $time-fast $easing;
-        }
-
-        @include hover {
-            svg {
-                transform: translateX(5px);
-            }
+            color: $color-white;
+            font-weight: 300;
         }
     }
 }

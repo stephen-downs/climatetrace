@@ -20,9 +20,9 @@ html {
         display: none;
     }
 
-    p {
-        font-family: $font-text;
-    }
+    // p {
+    //     font-family: $font-text;
+    // }
 
     * {
         -webkit-font-smoothing: antialiased;
@@ -100,5 +100,12 @@ html {
             text-transform: uppercase;
             font-weight: 700;
         }
+    }
+}
+
+.css-animation {
+    #main .animation-play & {
+        display: block;
+        animation-play-state: running;
     }
 }

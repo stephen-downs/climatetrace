@@ -5,6 +5,10 @@
     &__hr {
         @include hr(calc(50% - 11px), 1px, $color-white);
         position: relative;
+
+        &:first-of-type {
+            transform-origin: right bottom;
+        }
     }
     &__dots {
         position: relative;

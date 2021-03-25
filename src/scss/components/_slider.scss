@@ -67,6 +67,8 @@
     &__stat {
         @include font-size(120, 1);
         text-transform: uppercase;
+        animation-play-state: paused;
+        display: none;
         animation: glow 2s $ease-in-out infinite alternate;
     }
 

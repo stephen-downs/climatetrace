@@ -1,0 +1,60 @@
+.list {
+    display: block;
+    padding-left: 0;
+    list-style-type: none;
+    width: 330px;
+
+    &--small {
+        display: inline-block;
+        width: auto;
+    }
+
+    &__url {
+        position: relative;
+        display: inline-block;
+        padding: 5px 0;
+        @include font-size(24, 32);
+        color: $color-white;
+        transition: color $time $easing;
+
+        &::after {
+            @include pseudo(100%, 2px, auto, 0, $color-blue, 1);
+            bottom: 0;
+            transition: transform $time $easing;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+        }
+
+        @include hover {
+            color: $color-blue;
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+
+        .list--small & {
+            @include font-size(14, 30);
+
+            padding: 0 15px;
+            margin: 0 15px;
+
+            &::after,
+            &::before {
+                @include pseudo(1px, 15px, 50%, 0, $color-white, 1);
+                transform: translateY(-50%);
+            }
+
+            &::after {
+                left: auto;
+                right: 0;
+            }
+
+            @include hover {
+                &::after {
+                    transform: scaleX(1) translateY(-50%);
+                }
+            }
+        }
+    }
+}

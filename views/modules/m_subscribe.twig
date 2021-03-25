@@ -1,0 +1,18 @@
+<div class="subscribe">
+    <img src="media/subscribe_bg.png" class="subscribe__bg" alt="">
+    <div class="wrapper wrapper--subscribe">
+        <h2 class="subscribe__h2">Climate <em>trace</em> Newsletter</h2>
+        <p class="subscribe__text">Stay up-to-date on our efforts to track greenhouse gas (GHG) emissions with unprecedented detail and speed.</p>
+        <form action="/api/newsletter_add" data-api='{"beforeCall": "validate", "callback": "onSubscribe"}' novalidate="novalidate" class="subscribe__form">
+            <div class="subscribe__row">
+                <input class="subscribe__input" aria-label="e-mail" type="email" name="email" placeholder="Your email address" required />
+                <button class="button button--subscribe" type="submit">
+                    <img src="media/dotted-oval.png" alt="" class="oval-icon">
+                    <img src="media/arr-down.png" alt="" class="arr-down-icon">
+                </button>
+                <div class="subscribe__error error--input"></div>
+            </div>
+            <div id="newsletter-result" class="subscribe__result"></div>
+        </form>
+    </div>
+</div>

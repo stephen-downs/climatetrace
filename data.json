@@ -66,6 +66,20 @@
               "img_class": "contain"
             }
           ]
+        },
+        {
+          "type": "about",
+          "grid": true,
+          "heading": {
+            "title": "About Climate Trace"
+          }
+        },
+        {
+          "type": "subscribe"
+        },
+        {
+          "type": "footer",
+          "grid": true
         }
       ]
     }
