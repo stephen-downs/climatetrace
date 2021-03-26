@@ -38,7 +38,6 @@ $color-green-dim: #64bf38;
 $color-dim: #030001;
 // $color-dark: #2d2c31;
 $color-cement: #33342d;
-$color-gray: #444444;
 // $color-gray-light: #808080;
 $color-silver: #eae9e9;
 $color-yellow: #f5f300;
@@ -54,9 +53,13 @@ $color-linkedin: #0e76a8;
 
 $color-dark: #212121;
 $color-mirage: #1d2f36;
+$color-mine-shaft: #2b2b2b;
+$color-gray: #363636;
+$color-silver: #a4a4a4;
 $color-gray-light: #979797;
-$color-theme: $color-dark;
 $color-blue: #02b3fd;
+$color-theme: $color-dark;
+$color-accent: $color-blue;
 
 $color-bg: $color-dark;
 $color-text: $color-white;
@@ -66,6 +69,8 @@ $nav-height: 70px;
 $nav-height-m: 50px;
 $aside-width: 350px;
 $m-aside-width: 100vw;
+
+$radius: 12px;
 
 $time: 0.5s;
 $time-fast: 0.25s;

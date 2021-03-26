@@ -1,0 +1,209 @@
+.filters {
+    position: relative;
+    width: 100%;
+    @include flex(row, flex-start, flex-start);
+    height: 100%;
+
+    %inside {
+        height: 100%;
+        border-radius: $radius;
+        background-color: $color-mine-shaft;
+        border: 1px solid rgba($color-white, 0.5);
+    }
+
+    &__label {
+        @include font-size(16, 27);
+        margin-bottom: 6px;
+    }
+
+    &__panel {
+        @extend %inside;
+        width: calc(100% - 109px);
+        margin-right: 2px;
+        padding: 19px 39px 8px 4px;
+        @include flex(row, flex-start, flex-start);
+    }
+
+    &__clear {
+        @extend %inside;
+        min-height: 131px;
+        height: 100%;
+
+        font-family: $font-second;
+        @include font-size(10, 13);
+        @include flex(column, center, center);
+        width: 107px;
+        border: 1px solid rgba($color-white, 0.5);
+        transition: all $time $easing;
+        font-weight: 500;
+
+        span {
+            display: block;
+            margin-top: 9px;
+            text-transform: uppercase;
+        }
+
+        .icon-img-return {
+            transition: transform $time $easing;
+        }
+
+        @include hover {
+            .icon-img-return {
+                transform: rotate(359deg);
+            }
+
+            background-color: $color-accent;
+        }
+    }
+
+    &__select {
+        position: relative;
+        user-select: none;
+        width: 100%;
+    }
+
+    &__section {
+        position: relative;
+        height: 100%;
+        border-right: 1px solid rgba($color-white, 0.5);
+        padding-left: 23px;
+        flex: 1;
+
+        &:nth-of-type(2) {
+            width: 426px;
+        }
+
+        &:last-of-type {
+            border: none;
+            flex: none;
+        }
+    }
+
+    &__flex {
+        @include flex(row, flex-start, flex-start);
+    }
+
+    &__group {
+        @include flex(row, flex-start, flex-start);
+        flex-wrap: wrap;
+
+        &--nowrap {
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        position: relative;
+        @include font-size(11, 13);
+        font-weight: 500;
+        padding: 7px 13px;
+        border-radius: 20px;
+        border: 2px solid rgba($color-white, 0.5);
+        transition: background $time $easing;
+        background-color: $color-mine-shaft;
+        z-index: 1;
+        text-transform: uppercase;
+        min-width: 47px;
+        text-align: center;
+        margin: 0 6px 8px;
+        cursor: pointer;
+
+        .filters__group--nowrap & {
+            margin: 0 2px 8px;
+        }
+
+        &--static {
+            flex: none;
+            align-self: center;
+            margin-right: 20px;
+        }
+
+        &::after {
+            @include pseudo(calc(100% + 2px), calc(100% + 2px), -1px, -1px, transparent, -1);
+            opacity: 0;
+            transition: opacity $time $easing;
+            border: 2px solid rgba($color-white, 1);
+            border-radius: 20px;
+        }
+
+        @include hover {
+            background-color: $color-accent;
+        }
+
+        &.is-active {
+            background-color: $color-dark;
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__centering {
+        height: 100%;
+    }
+
+    &__timeline {
+        position: relative;
+        height: 21px;
+        width: 278px;
+        margin-bottom: 15px;
+        @include flex(row, flex-start, center);
+        z-index: 1;
+        margin: 0 auto 15px;
+        left: -5px;
+
+        &::after {
+            @include pseudo(100%, 1px, 50%, 0, rgba($color-white, 1), -1);
+            transform: translate(0, -50%);
+        }
+    }
+
+    &__timedot {
+        position: relative;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: $color-white;
+        z-index: 1;
+
+        &::after {
+            @include pseudo(15px, 15px, 50%, 50%, rgba($color-white, 0.4), -1);
+        }
+
+        &::after,
+        &::before {
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            transition: opacity $time $easing, transform $time $easing;
+            opacity: 0;
+        }
+
+        &::before {
+            @include pseudo(21px, 21px, 50%, 50%, rgba($color-white, 0.4), -1);
+        }
+
+        &:nth-of-type(2) {
+            margin-left: 46px;
+        }
+
+        &:nth-of-type(3),
+        &:nth-of-type(4),
+        &:nth-of-type(5) {
+            margin-left: 51px;
+        }
+
+        &:nth-of-type(6) {
+            margin-left: auto;
+        }
+
+        &.is-active {
+            &::after,
+            &::before {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+    }
+}

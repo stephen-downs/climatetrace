@@ -5,7 +5,7 @@
 import { browser } from './Browser';
 import { PushStates } from './PushStates';
 import { Component } from './components/Component';
-import { Progressbar } from './components/Progressbar';
+// import { Progressbar } from './components/Progressbar';
 import { IBreakpoint, breakpoint, Breakpoint } from './Breakpoint';
 import Background from './backgrounds/Background';
 import { $window, $body } from './Site';
@@ -493,7 +493,7 @@ export class Scroll {
             }
 
 
-            Progressbar.update(sT);
+            // Progressbar.update(sT);
         }
     };
 

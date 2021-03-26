@@ -64,7 +64,7 @@
         {% endfor %}
     {% endspaceless %}</div>
     {% endif %}
-    <article id="article-main" class="content{{ ' ' ~ theme ?: '' }}"{#
+    <article id="article-main" data-page class="content{{ ' ' ~ theme ?: '' }}"{#
     #}{% if templates == 'multimedia' %} data-templates="multimedia"{% endif %}>
 
     {% for section in sections %}

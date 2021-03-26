@@ -1,0 +1,19 @@
+.dashboard {
+    position: relative;
+    background-color: $color-gray;
+    padding: 0 margin(desktop);
+
+    &__header {
+        width: 100%;
+    }
+
+    &__wrapper {
+        position: relative;
+        max-width: get-grid-width(12);
+        margin: auto;
+    }
+
+    &__body {
+        padding-top: 30px;
+    }
+}

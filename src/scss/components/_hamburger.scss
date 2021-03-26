@@ -15,7 +15,7 @@
     padding: $p-v-mobile $p-mobile;
 
     &::after {
-        @include pseudo(1px, calc(100vh - 100px), 70px, 50%, $color-blue, 1);
+        @include pseudo(1px, calc(100vh - 100px), 70px, 50%, $color-accent, 1);
         transform: scaleY(0);
         transform-origin: left top;
         transition: transform $time ease-in-out;

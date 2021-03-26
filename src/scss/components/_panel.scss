@@ -1,0 +1,57 @@
+.panel {
+    width: 100%;
+    position: relative;
+
+    &__bar {
+        position: relative;
+        height: 60px;
+        @include flex(row, space-between, center);
+
+        &::after {
+            @include pseudo(100vw, 1px, auto, 50%, $color-silver, 1);
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__filters {
+        text-transform: uppercase;
+        @include font-size(14, 30);
+        position: relative;
+        left: -15px;
+
+        span {
+            position: relative;
+            padding: 0 15px;
+
+            &::after {
+                content: "/";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &__button {
+        @include flex(row, flex-end, center);
+        @include font-size(14, 30);
+        text-transform: uppercase;
+        transition: color $time $easing;
+        color: $color-silver;
+
+        span {
+            color: currentColor;
+        }
+
+        @include hover {
+            .icon-filter {
+                @extend %icon-filter-hover;
+            }
+            span {
+                color: $color-accent;
+            }
+        }
+    }
+}

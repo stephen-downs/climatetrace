@@ -1,0 +1,75 @@
+.select {
+    position: relative;
+    width: 228px;
+    @include flex(column, flex-start, flex-start);
+    font-family: $font-second;
+    font-weight: 300;
+    @include font-size(13, 1);
+
+    &__trigger {
+        position: relative;
+        width: 100%;
+        @include flex(row, flex-start, center);
+        border: 1px solid rgba($color-white, 0.7);
+        height: 40px;
+        line-height: 40px;
+        padding: 0 11px 0 7px;
+        cursor: pointer;
+    }
+
+    &__label {
+        margin-left: 12px;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        position: absolute;
+        display: block;
+        list-style-type: none;
+        left: 0;
+        right: 0;
+        top: 100%;
+        border: 1px solid rgba($color-white, 0.7);
+        border-top: 0;
+        background: $color-mine-shaft;
+        transition: all 0.5s;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 2;
+
+        .is-open & {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        padding: 0 22px 0 22px;
+        font-weight: 300;
+        line-height: 40px;
+        cursor: pointer;
+        transition: all 0.5s;
+        text-transform: uppercase;
+        padding-left: 33px;
+
+        @include hover {
+            background-color: $color-accent;
+        }
+    }
+
+    .icon-img-triangle {
+        position: absolute;
+        top: 50%;
+        right: 11px;
+        transform: translateY(-50%);
+        transition: transform $time $easing;
+    }
+}
+
+.is-open .icon-img-triangle {
+    transform: translateY(-50%) scaleY(-1);
+}

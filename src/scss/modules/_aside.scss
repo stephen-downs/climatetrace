@@ -73,14 +73,14 @@
             overflow: hidden;
 
             &::after {
-                @include pseudo(100%, 2px, auto, 0, $color-blue, 1);
+                @include pseudo(100%, 2px, auto, 0, $color-accent, 1);
                 bottom: 0;
                 transform: translateX(calc(-100% + 50px));
                 transition: transform $time-fast $easing;
             }
 
             @include hover {
-                color: $color-blue;
+                color: $color-accent;
 
                 &::after {
                     transform: translateX(0);

@@ -65,7 +65,7 @@
             }
 
             span {
-                color: $color-blue;
+                color: $color-accent;
             }
         }
     }
@@ -76,7 +76,7 @@
         height: 36px;
 
         &::after {
-            @include pseudo(100%, 100%, 50%, 50%, $color-blue, 1);
+            @include pseudo(100%, 100%, 50%, 50%, $color-accent, 1);
             transform: translate(-50%, -50%) scale(0.2);
             opacity: 0;
             transition: opacity $time-fast $easing, transform $time-fast $easing;

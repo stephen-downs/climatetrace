@@ -6,6 +6,3 @@
 /// <reference path="definitions/modernizr.d.ts" />
 /// <reference path="definitions/screenfull.d.ts" />
 /// <reference path="definitions/stats.d.ts" />
-/// <reference path="definitions/vimeo.d.ts" />
-/// <reference path="definitions/history.d.ts" />
-/// <reference path="definitions/youtube.d.ts" />

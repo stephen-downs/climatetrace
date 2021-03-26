@@ -18,7 +18,7 @@
         transition: color $time $easing;
 
         &::after {
-            @include pseudo(100%, 2px, auto, 0, $color-blue, 1);
+            @include pseudo(100%, 2px, auto, 0, $color-accent, 1);
             bottom: 0;
             transition: transform $time $easing;
             transform: scaleX(0);
@@ -26,7 +26,7 @@
         }
 
         @include hover {
-            color: $color-blue;
+            color: $color-accent;
 
             &::after {
                 transform: scaleX(1);

@@ -80,10 +80,10 @@
             ~ .tile__wrapper--about {
                 .tile__hr {
                     transform: scale(1);
-                    background-color: $color-blue;
+                    background-color: $color-accent;
                 }
                 .tile__text--about {
-                    color: $color-blue;
+                    color: $color-accent;
                 }
                 img {
                     transform: scale(1.1);
@@ -125,7 +125,7 @@
         height: $button-size;
 
         &::after {
-            @include pseudo(100%, 100%, 50%, 50%, $color-blue, 1);
+            @include pseudo(100%, 100%, 50%, 50%, $color-accent, 1);
             transform: translate(-50%, -50%) scale(0.2);
             opacity: 0;
             transition: opacity $time-fast $easing, transform $time-fast $easing;

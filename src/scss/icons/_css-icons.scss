@@ -597,3 +597,86 @@ button {
     transform: translateY(-1px);
     transition: opacity $time-fast $easing, transform $time-fast $easing;
 }
+
+.icon-filter {
+    margin-right: 10px;
+    position: relative;
+    width: 16px;
+    height: 15px;
+    opacity: 0.8;
+
+    i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $color-white;
+
+        &::after {
+            @include pseudo(5px, 5px, 50%, 3px, $color-gray, 1);
+            border-radius: 50%;
+            border: 1px solid $color-white;
+            transform: translateY(-50%);
+            transition: transform $time-fast $easing;
+        }
+
+        &:nth-of-type(2) {
+            top: 7px;
+
+            &::after {
+                left: 8px;
+            }
+        }
+
+        &:last-of-type {
+            top: auto;
+            bottom: 0;
+
+            &::after {
+                left: 3px;
+            }
+        }
+    }
+}
+
+.icon-img-return {
+    width: 18px;
+    height: 18px;
+
+    img {
+        width: 100%;
+    }
+}
+
+%icon-filter-hover {
+    i:first-of-type,
+    i:last-of-type {
+        &::after {
+            transform: translate(5px, -50%);
+        }
+    }
+
+    i:nth-of-type(2) {
+        &::after {
+            transform: translate(-5px, -50%);
+        }
+    }
+}
+
+.icon-img-pin {
+    width: 13px;
+    height: 20px;
+    img {
+        width: 100%;
+    }
+}
+
+.icon-img-triangle {
+    width: 14px;
+    height: 8px;
+
+    img {
+        width: 100%;
+    }
+}

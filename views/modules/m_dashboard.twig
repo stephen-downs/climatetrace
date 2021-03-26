@@ -1,0 +1,95 @@
+<div class="dashboard">
+    <div class="dashboard__header">
+        <div class="dashboard__wrapper">
+            <div class="panel">
+                <div class="panel__bar">
+                    <div class="panel__filters js-picked-filter">
+                        <span>Home</span>
+                        <span>Agriculture</span>
+                        <span>indonesia</span>
+                        <span>last 1 year</span>
+                    </div>
+                    <button class="panel__button">
+                        <span class="icon-filter">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </span>
+                        <span>Filter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard__body">
+        <div class="dashboard__wrapper">
+            <div class="filters" data-component="Filters">
+                <div class="filters__panel js-panel">
+                    <div class="filters__section">
+                        <h4 class="filters__label">Choose sector</h4>
+                        <div class="filters__flex">
+                            <div class="filters__item filters__item--static" data-item="all">All<br> sectors</div>
+                            <div class="filters__group">
+                                <div class="filters__item js-item" data-item="transportation">transportation</div>
+                                <div class="filters__item js-item" data-item="agriculture">agriculture</div>
+                                <div class="filters__item js-item" data-item="forestry">forestry</div>
+                                <div class="filters__item js-item" data-item="buildings">buildings</div>
+                                <div class="filters__item js-item" data-item="electricity">electricity generation</div>
+                                <div class="filters__item js-item" data-item="manufacturing">manufacturing</div>
+                                <div class="filters__item js-item" data-item="extractive">extractive industries</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filters__section">
+                        <h4 class="filters__label">Select time</h4>
+                        <div class="filters__centering">
+                            <div class="filters__timeline">
+                                <div class="filters__timedot" data-time="1w"></div>
+                                <div class="filters__timedot" data-time="1m"></div>
+                                <div class="filters__timedot" data-time="1y"></div>
+                                <div class="filters__timedot" data-time="3y"></div>
+                                <div class="filters__timedot" data-time="5y"></div>
+                                <div class="filters__timedot" data-time="all"></div>
+                            </div>
+                            <div class="filters__group filters__group--nowrap">
+                                <div class="filters__item js-time" data-item="1w">1w</div>
+                                <div class="filters__item js-time" data-item="1m">1m</div>
+                                <div class="filters__item js-time" data-item="1y">1y</div>
+                                <div class="filters__item js-time" data-item="3y">3y</div>
+                                <div class="filters__item js-time" data-item="5y">5y</div>
+                                <div class="filters__item js-time" data-item="all">all time</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filters__section">
+                        <h4 class="filters__label">Select location</h4>
+                        <div class="filters__select">
+                            <div class="select" data-component="Dropdown">
+                                <div class="select__trigger js-trigger">
+                                    <img class="icon-img-pin " src="media/pin-icon.png" alt="">
+                                    <span class="select__label" data-select>indonesia</span>
+                                    <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                                </div>
+                                <ul class="select__list">
+                                    <li class="select__item" data-value="australia">australia</li>
+                                    <li class="select__item" data-value="bahrajn">bahrajn</li>
+                                    <li class="select__item" data-value="colombia">colombia</li>
+                                    <li class="select__item" data-value="dennmark">dennmark</li>
+                                    <li class="select__item" data-value="england">england</li>
+                                    <li class="select__item" data-value="finland">finland</li>
+                                    <li class="select__item" data-value="ghana">ghana</li>
+                                    <li class="select__item" data-value="honduras">honduras</li>
+                                    <li class="select__item" data-value="iran">iran</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="filters__clear js-clear">
+                    <img src="media/return-icon.png" alt="" class="icon-img-return">
+                    <span>clear<br> section</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

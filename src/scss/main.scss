@@ -24,6 +24,8 @@
 @import "modules/footer";
 @import "modules/aside";
 @import "modules/about";
+@import "modules/highlights";
+@import "modules/dashboard";
 
 @import "components/wrapper";
 @import "components/navbar";
@@ -34,10 +36,10 @@
 @import "components/slider";
 @import "components/tile";
 @import "components/hamburger";
-@import "components/title";
 @import "components/scroll";
 @import "components/logo";
 @import "components/button";
 @import "components/list";
-
-@import "modules/highlights";
+@import "components/panel";
+@import "components/filters";
+@import "components/select";
