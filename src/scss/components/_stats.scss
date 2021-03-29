@@ -1,0 +1,40 @@
+.stats {
+    padding: 0 margin(desktop);
+
+    &__heading {
+        @include font-size(16, 26);
+        padding: 20px 0;
+    }
+
+    &__heading-em {
+        font-style: normal;
+        @include font-size(26, 1);
+        display: block;
+    }
+
+    &__content {
+        background-color: $color-gray;
+        padding: 30px 34px;
+        border-radius: $radius;
+    }
+
+    &__h3 {
+        @include font-size(30, 1);
+        font-weight: 300;
+        font-family: $font-second;
+    }
+
+    &__topbar {
+        @include flex(row, space-between, center);
+    }
+
+    &__calendar {
+        @include font-size(12, 1);
+        align-self: flex-start;
+        cursor: pointer;
+
+        .icon-img-triangle {
+            margin-left: 10px;
+        }
+    }
+}

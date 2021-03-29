@@ -61,13 +61,14 @@ $color-blue: #02b3fd;
 $color-theme: $color-dark;
 $color-accent: $color-blue;
 
-$color-bg: $color-dark;
+$color-bg: $color-theme;
 $color-text: $color-white;
 
 $gutter-width: 32px;
 $nav-height: 70px;
 $nav-height-m: 50px;
 $aside-width: 350px;
+$aside-width-margin: 385px;
 $m-aside-width: 100vw;
 
 $radius: 12px;

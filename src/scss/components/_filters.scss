@@ -18,10 +18,33 @@
 
     &__panel {
         @extend %inside;
+        position: relative;
         width: calc(100% - 109px);
         margin-right: 2px;
-        padding: 19px 39px 8px 4px;
+        padding: 19px 39px 19px 4px;
         @include flex(row, flex-start, flex-start);
+
+        &::after,
+        &::before {
+            @include pseudo(0, 0, auto, 50px, transparent, 1);
+            bottom: -20px;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid $color-mine-shaft;
+            transition: transform $time-fast $easing, opacity $time-fast $easing;
+            transform: translateY(-10px);
+
+            .is-toggled & {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        &::before {
+            border-top: 20px solid $color-silver;
+            bottom: -21px;
+            opacity: 0;
+        }
     }
 
     &__clear {
@@ -167,6 +190,7 @@
         border-radius: 50%;
         background-color: $color-white;
         z-index: 1;
+        margin-left: 46px;
 
         &::after {
             @include pseudo(15px, 15px, 50%, 50%, rgba($color-white, 0.4), -1);
@@ -184,17 +208,11 @@
             @include pseudo(21px, 21px, 50%, 50%, rgba($color-white, 0.4), -1);
         }
 
-        &:nth-of-type(2) {
-            margin-left: 46px;
+        &:first-of-type {
+            margin-left: 0;
         }
 
-        &:nth-of-type(3),
-        &:nth-of-type(4),
-        &:nth-of-type(5) {
-            margin-left: 51px;
-        }
-
-        &:nth-of-type(6) {
+        &:last-of-type {
             margin-left: auto;
         }
 

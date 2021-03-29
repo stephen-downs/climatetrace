@@ -1,0 +1,45 @@
+.tabs {
+    position: relative;
+    width: 100%;
+    @include flex(row, space-between, center);
+    padding: 0 35px;
+    margin-top: 50px;
+
+    &::after {
+        @include pseudo(100%, 2px, auto, 0, $color-silver, 1);
+        bottom: 12px;
+    }
+}
+
+.tab {
+    position: relative;
+    @include font-size(24, 28);
+    text-transform: uppercase;
+    color: $color-silver;
+    transition: color $time $easing;
+    cursor: pointer;
+
+    .icon-img-dots {
+        position: relative;
+        display: block;
+        margin: 6px auto 0;
+        transition: transform $time $easing, opacity $time $easing;
+        transform: translateY(-5px);
+        opacity: 0;
+        z-index: 2;
+    }
+
+    &.is-active {
+        color: $color-white;
+        pointer-events: none;
+
+        .icon-img-dots {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @include hover {
+        color: $color-white;
+    }
+}

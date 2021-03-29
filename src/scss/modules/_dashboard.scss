@@ -1,19 +1,136 @@
 .dashboard {
     position: relative;
-    background-color: $color-gray;
-    padding: 0 margin(desktop);
+    margin-top: #{$nav-height + 25px};
+
+    &__top {
+        padding: 0 margin(desktop);
+        position: relative;
+        background-color: $color-gray;
+        width: 100%;
+    }
 
     &__header {
         width: 100%;
+        margin-bottom: 30px;
     }
 
     &__wrapper {
         position: relative;
         max-width: get-grid-width(12);
         margin: auto;
+        width: 100%;
+
+        &--flex {
+            @include flex(row, space-between, center);
+        }
     }
 
     &__body {
-        padding-top: 30px;
+        // padding: 30px 0;
+        overflow: hidden;
+
+        &.is-toggled {
+            overflow: visible;
+        }
+    }
+
+    &__footer {
+        font-family: $font-second;
+        padding: 30px 0;
+        text-transform: uppercase;
+    }
+
+    &__country {
+        width: 50%;
+        padding-right: 20px;
+        margin-right: auto;
+    }
+
+    &__countryname {
+        @include font-size(30, 1);
+        font-weight: 300;
+        margin-bottom: 40px;
+
+        img {
+            margin-right: 15px;
+        }
+    }
+
+    &__emission {
+        @include font-size(56, 1);
+        font-weight: 500;
+    }
+
+    &__updatetime {
+        text-transform: none;
+        @include font-size(16, 1);
+        font-family: $font-sans;
+    }
+
+    &__percentage {
+        width: 134px;
+        @include font-size(18, 24);
+        font-weight: 300;
+
+        strong {
+            font-weight: 500;
+            @include font-size(30, 1);
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+
+    &__rank {
+        position: relative;
+        width: 202px;
+        padding-left: 40px;
+        font-weight: 300;
+        @include font-size(18, 30);
+
+        &::after {
+            @include pseudo(2px, 100%, 0, 0, $color-silver, 1);
+        }
+    }
+
+    &__number {
+        @include font-size(30, 30);
+    }
+
+    &__position {
+        padding-bottom: 18px;
+        position: relative;
+
+        img {
+            margin-top: 5px;
+        }
+
+        &::after {
+            @include pseudo(85%, 2px, auto, 0, $color-silver, 1);
+            bottom: 0;
+        }
+    }
+
+    &__change {
+        padding-top: 22px;
+        img {
+            margin-top: 5px;
+        }
+    }
+
+    &__share {
+        margin-top: 11px;
+        margin-left: 50px;
+    }
+
+    &__share-icon {
+        @include flex(row, flex-start, center);
+        border-bottom: 2px solid $color-silver;
+        padding-bottom: 10px;
+    }
+
+    &__link {
+        padding: 10px;
+        width: 100%;
+        @include flex(row, space-between, center);
     }
 }

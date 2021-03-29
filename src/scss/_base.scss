@@ -63,17 +63,7 @@ html {
         // will-change: transform;
 
         .is-aside-open & {
-            transform: translateX(-#{$aside-width});
-        }
-
-        .navbar-always-shown & {
-            > div:first-child {
-                padding-top: #{$nav-height + 25px};
-
-                @include breakpoint(desktop) {
-                    padding-top: #{$nav-height + 50px};
-                }
-            }
+            transform: translateX(-#{$aside-width-margin});
         }
     }
 }

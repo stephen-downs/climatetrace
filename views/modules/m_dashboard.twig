@@ -1,94 +1,232 @@
-<div class="dashboard">
-    <div class="dashboard__header">
-        <div class="dashboard__wrapper">
-            <div class="panel">
-                <div class="panel__bar">
-                    <div class="panel__filters js-picked-filter">
-                        <span>Home</span>
-                        <span>Agriculture</span>
-                        <span>indonesia</span>
-                        <span>last 1 year</span>
+<div class="dashboard" data-component="Dashboard">
+    <div class="dashboard__top">
+        <div class="dashboard__header">
+            <div class="dashboard__wrapper">
+                <div class="panel">
+                    <div class="panel__bar">
+                        <div class="panel__filters js-picked-filter">
+                            <span>Home</span>
+                            <span>Agriculture</span>
+                            <span>indonesia</span>
+                            <span>last 1 year</span>
+                        </div>
+                        <button class="panel__button js-button-toggle">
+                            <span class="icon-filter">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </span>
+                            <span>Filter</span>
+                        </button>
                     </div>
-                    <button class="panel__button">
-                        <span class="icon-filter">
-                            <i></i>
-                            <i></i>
-                            <i></i>
-                        </span>
-                        <span>Filter</span>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard__body js-dashboard-body">
+            <div class="dashboard__wrapper">
+                <div class="filters" data-component="Filters">
+                    <div class="filters__panel js-panel">
+                        <div class="filters__section">
+                            <h4 class="filters__label">Choose sector</h4>
+                            <div class="filters__flex">
+                                <div class="filters__item filters__item--static js-item-all">All<br> sectors</div>
+                                <div class="filters__group">
+                                    <div class="filters__item js-item" data-item="transportation">transportation</div>
+                                    <div class="filters__item js-item" data-item="agriculture">agriculture</div>
+                                    <div class="filters__item js-item" data-item="forestry">forestry</div>
+                                    <div class="filters__item js-item" data-item="buildings">buildings</div>
+                                    <div class="filters__item js-item" data-item="electricity">electricity generation</div>
+                                    <div class="filters__item js-item" data-item="manufacturing">manufacturing</div>
+                                    <div class="filters__item js-item" data-item="extractive">extractive industries</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filters__section">
+                            <h4 class="filters__label">Select time</h4>
+                            <div class="filters__centering">
+                                <div class="filters__timeline">
+                                    <div class="filters__timedot" data-time="1w"></div>
+                                    <div class="filters__timedot" data-time="1m"></div>
+                                    <div class="filters__timedot" data-time="1y"></div>
+                                    <div class="filters__timedot" data-time="3y"></div>
+                                    <div class="filters__timedot" data-time="5y"></div>
+                                    <div class="filters__timedot" data-time="all-time"></div>
+                                </div>
+                                <div class="filters__group filters__group--nowrap">
+                                    <div class="filters__item js-time" data-item="1w">1w</div>
+                                    <div class="filters__item js-time" data-item="1m">1m</div>
+                                    <div class="filters__item js-time" data-item="1y">1y</div>
+                                    <div class="filters__item js-time" data-item="3y">3y</div>
+                                    <div class="filters__item js-time" data-item="5y">5y</div>
+                                    <div class="filters__item js-time" data-item="all-time">all time</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filters__section">
+                            <h4 class="filters__label">Select location</h4>
+                            <div class="filters__select">
+                                <div class="select" data-component="Dropdown">
+                                    <div class="select__trigger js-trigger">
+                                        <img class="icon-img-pin " src="media/pin-icon.png" alt="">
+                                        <span class="select__label" data-select>indonesia</span>
+                                        <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                                    </div>
+                                    <ul class="select__list">
+                                        <li class="select__item" data-value="australia">australia</li>
+                                        <li class="select__item" data-value="bahrajn">bahrajn</li>
+                                        <li class="select__item" data-value="colombia">colombia</li>
+                                        <li class="select__item" data-value="dennmark">dennmark</li>
+                                        <li class="select__item" data-value="england">england</li>
+                                        <li class="select__item" data-value="finland">finland</li>
+                                        <li class="select__item" data-value="ghana">ghana</li>
+                                        <li class="select__item" data-value="honduras">honduras</li>
+                                        <li class="select__item" data-value="iran">iran</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="filters__clear js-clear">
+                        <img src="media/return-icon.png" alt="" class="icon-img-return">
+                        <span>clear<br> section</span>
                     </button>
                 </div>
             </div>
         </div>
+        <div class="dashboard__footer js-dashboard-footer">
+            <div class="dashboard__wrapper dashboard__wrapper--flex">
+                <div class="dashboard__country">
+                    <div class="dashboard__countryname">
+                        <img src="media/Indonesia.jpg" alt="" class="icon-img-flag">
+                        <span class="js-country-name">Indonesia</span>
+                    </div>
+                    <div class="dashboard__emission js-emission">1.67 billion tonnes</div>
+                    <span class="dashboard__updatetime">Last updated <span class="js-time-update">3d</span></span>
+                </div>
+                <div class="dashboard__percentage">
+                    <strong class="js-global-percentage">0.03%</strong>
+                    <span>of total global emissions</span>
+                </div>
+                <div class="dashboard__rank">
+                    <div class="dashboard__position">
+                        <img src="media/arrow-down-red.png" alt="" class="icon-img-position">
+                        <div class="dashboard__number js-rank-position">78</div>
+                        <div>global rank</div>
+                    </div>
+                    <div class="dashboard__change">
+                        <img src="media/arrow-up-green.png" alt="" class="icon-img-position">
+                        <div class="dashboard__number js-emission-change">21.2%</div>
+                        <div>change</div>
+                    </div>
+                </div>
+                <div class="dashboard__share">
+                    <div class="dashboard__share-icon">
+                        <img src="media/share-icon.png" class="icon-img-share" alt=""><span>share dashboard</span>
+                    </div>
+                    <div class="dashboard__link">
+                        <a href="" data-share>[[svg::full-icon]]</a>
+                        <a href="" data-share>[[svg::csv-icon]]</a>
+                        <a href="" data-share>[[svg::pdf-icon]]</a>
+                        <a href="" data-share>[[svg::json-icon]]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="dashboard__body">
+    <div class="stats" data-component="Stats">
         <div class="dashboard__wrapper">
-            <div class="filters" data-component="Filters">
-                <div class="filters__panel js-panel">
-                    <div class="filters__section">
-                        <h4 class="filters__label">Choose sector</h4>
-                        <div class="filters__flex">
-                            <div class="filters__item filters__item--static" data-item="all">All<br> sectors</div>
-                            <div class="filters__group">
-                                <div class="filters__item js-item" data-item="transportation">transportation</div>
-                                <div class="filters__item js-item" data-item="agriculture">agriculture</div>
-                                <div class="filters__item js-item" data-item="forestry">forestry</div>
-                                <div class="filters__item js-item" data-item="buildings">buildings</div>
-                                <div class="filters__item js-item" data-item="electricity">electricity generation</div>
-                                <div class="filters__item js-item" data-item="manufacturing">manufacturing</div>
-                                <div class="filters__item js-item" data-item="extractive">extractive industries</div>
+            <div class="tabs">
+                <div class="tab" data-tab="0">
+                    <span>Sector</span>
+                    <img src="media/triangle-dots.png" alt="" class="icon-img-dots">
+                </div>
+                <div class="tab" data-tab="1">
+                    <span>Country</span>
+                    <img src="media/triangle-dots.png" alt="" class="icon-img-dots">
+                </div>
+                <div class="tab" data-tab="2">
+                    <span>Time</span>
+                    <img src="media/triangle-dots.png" alt="" class="icon-img-dots">
+                </div>
+                <div class="tab" data-tab="3">
+                    <span>Data</span>
+                    <img src="media/triangle-dots.png" alt="" class="icon-img-dots">
+                </div>
+            </div>
+            <div class="stats__group">
+                <div class="stats__item">
+                    <div class="stats__heading">
+                        Compare country data
+                        <em class="stats__heading-em">by Sector</em>
+                    </div>
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Total Emissions</h3>
+                            <div class="stats__calendar">
+                                <span>Last year</span>
+                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
                             </div>
                         </div>
-                    </div>
-                    <div class="filters__section">
-                        <h4 class="filters__label">Select time</h4>
-                        <div class="filters__centering">
-                            <div class="filters__timeline">
-                                <div class="filters__timedot" data-time="1w"></div>
-                                <div class="filters__timedot" data-time="1m"></div>
-                                <div class="filters__timedot" data-time="1y"></div>
-                                <div class="filters__timedot" data-time="3y"></div>
-                                <div class="filters__timedot" data-time="5y"></div>
-                                <div class="filters__timedot" data-time="all"></div>
-                            </div>
-                            <div class="filters__group filters__group--nowrap">
-                                <div class="filters__item js-time" data-item="1w">1w</div>
-                                <div class="filters__item js-time" data-item="1m">1m</div>
-                                <div class="filters__item js-time" data-item="1y">1y</div>
-                                <div class="filters__item js-time" data-item="3y">3y</div>
-                                <div class="filters__item js-time" data-item="5y">5y</div>
-                                <div class="filters__item js-time" data-item="all">all time</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filters__section">
-                        <h4 class="filters__label">Select location</h4>
-                        <div class="filters__select">
-                            <div class="select" data-component="Dropdown">
-                                <div class="select__trigger js-trigger">
-                                    <img class="icon-img-pin " src="media/pin-icon.png" alt="">
-                                    <span class="select__label" data-select>indonesia</span>
-                                    <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                        <div class="masonry" data-component="Masonry">
+                            <div class="masonry__tile js-masonry-tile" data-tile="forestry" data-value="66.3" data-color="#4FDBC5">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">forestry</h4>
+                                    <div class="masonry__data">1.517 billion tonnes</div>
+                                    <div class="masonry__number">66.3%</div>
                                 </div>
-                                <ul class="select__list">
-                                    <li class="select__item" data-value="australia">australia</li>
-                                    <li class="select__item" data-value="bahrajn">bahrajn</li>
-                                    <li class="select__item" data-value="colombia">colombia</li>
-                                    <li class="select__item" data-value="dennmark">dennmark</li>
-                                    <li class="select__item" data-value="england">england</li>
-                                    <li class="select__item" data-value="finland">finland</li>
-                                    <li class="select__item" data-value="ghana">ghana</li>
-                                    <li class="select__item" data-value="honduras">honduras</li>
-                                    <li class="select__item" data-value="iran">iran</li>
-                                </ul>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="agriculture" data-value="7.5" data-color="#26BBE3">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">agriculture</h4>
+                                    <div class="masonry__data">172.4 million tonnes</div>
+                                    <div class="masonry__number">7.5%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="electricity" data-value="7.4" data-color="#FC8C59">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">Electricity Generation</h4>
+                                    <div class="masonry__data">168.8 million tonnes</div>
+                                    <div class="masonry__number">7.4%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#FDD49E">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">buildings</h4>
+                                    <div class="masonry__data">121.8 million tonnes</div>
+                                    <div class="masonry__number">5.35%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#5877CC">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">transportation</h4>
+                                    <div class="masonry__data">110 MILLION TONNES</div>
+                                    <div class="masonry__number">4.85%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#E75040">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">manufacturing</h4>
+                                    <div class="masonry__data">84.3 million tonnes</div>
+                                    <div class="masonry__number">3.7%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#B60E63">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">Extractive Industries</h4>
+                                    <div class="masonry__data">60.1 million tonnes</div>
+                                    <div class="masonry__number">2.64%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="other" data-value="2.15" data-color="#888788">
+                                <div class="masonry__wrapper">
+                                    <h4 class="masonry__sector">other</h4>
+                                    <div class="masonry__data">48.9 m tonnes</div>
+                                    <div class="masonry__number">2.15%</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="filters__clear js-clear">
-                    <img src="media/return-icon.png" alt="" class="icon-img-return">
-                    <span>clear<br> section</span>
-                </button>
             </div>
         </div>
     </div>

@@ -24,9 +24,9 @@ export class Dropdown extends Component {
 
 
     private bind(): void {
-        this.view.off('select').on('click.select', this.toggle);
+        this.view.off('.select').on('click.select', this.toggle);
         $doc.off('.dropdown').on('click.dropdown', this.onClickAnywhereHandler);
-        this.$item.off('selection').on('click.selection', this.onItemClick);
+        this.$item.off('.selection').on('click.selection', this.onItemClick);
     }
 
 
