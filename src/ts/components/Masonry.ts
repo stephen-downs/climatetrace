@@ -8,6 +8,13 @@ interface IDataStat {
     color: string;
 }
 
+interface IGridItemPosition {
+    column_start: number;
+    column_end: number;
+    row_start: number;
+    row_end: number;
+}
+
 export class Masonry extends Component {
 
     private data: Array<IDataStat> = [];
@@ -15,6 +22,18 @@ export class Masonry extends Component {
     private dataArray: Array<any> = [];
     private area: number;
     private itemMargin: number = 3;
+    private gridRows: number = 20;
+    private gridCols: number = 20;
+    private gridCells: number = this.gridCols * this.gridRows;
+    private cellsBalance: number = this.gridCells;
+    private gridCell: any = {
+        width: this.view.width() / this.gridCols,
+        height: this.view.height() / this.gridRows,
+    };
+    private minCellWidth: number = 3;
+    private minCellHeight: number = 3;
+
+    private itemPositioning: Array<IGridItemPosition> = [];
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
@@ -30,7 +49,7 @@ export class Masonry extends Component {
         });
         this.area = (this.view.width() - this.itemMargin * 3) * this.view.height();
 
-        console.log(this.data, this.area);
+        console.log(this.data, this.area, 'cell width', this.gridCell.width, 'cell height', this.gridCell.height);
 
         this.bind();
     }
@@ -57,80 +76,57 @@ export class Masonry extends Component {
             const color = el[1].color;
             const index = i;
 
-            this.setTileSize(sector, value, color, index);
+            // this.setTileSize(sector, value, color, index);
         });
     }
 
     private setTileSize(sector: string, value: number, color: string, index: number): void {
         const current = this.$item.filter('[data-tile=' + sector + ']');
-
-        let area, h, w, t, l;
-        switch (index) {
-            case 0:
-                area = this.area * (value / 100),
-                h = this.view.height(),
-                w = area / h;
+        let area, h, w, t, l, column_start, column_end, row_start, row_end, item, areaGrid;
         
-                current.css({
-                    height: h,
-                    width: w,
-                    backgroundColor: color,
-                });
+        area = this.area * (value / 100);
 
-                break;
-            
-            case 1:
-                area = this.area * (value / 100),
-                h = (this.view.height() * 0.5) - this.itemMargin,
-                w = (area / h) - (this.itemMargin * 2),
-                t = 0,
-                l = this.$item.eq(0).width() + this.itemMargin;
-                
-                current.css({
-                    height: h,
-                    width: w,
-                    top: t,
-                    left: l,
-                    backgroundColor: color,
-                });
-
-                break;
-
-            case 2:
-                let area_2 = this.area * (value / 100),
-                h_2 = this.$item.eq(1).height(),
-                w_2 = (area_2 / h) - (this.itemMargin * 2),
-                t_2 = this.$item.eq(0).width() + this.$item.eq(1).width() + this.itemMargin * 2 + w > this.view.width() ? this.$item.eq(1).height() + this.itemMargin : 0,
-                l_2 = t_2 === 0 ? this.$item.eq(0).width() + this.$item.eq(1).width() + this.itemMargin * 2 : this.$item.eq(0).width() + this.itemMargin;
-
-                console.log(this.$item.eq(0).width(), this.$item.eq(1).width(), this.itemMargin * 2, w, this.view.width(), (area / h));
+        console.log(area, ':area', this.itemPositioning,this.itemPositioning.length > 0, 'check if some item on array');
         
-                current.css({
-                    height: h_2,
-                    width: w_2,
-                    top: t_2,
-                    left: l_2,
-                    backgroundColor: color,
-
-                });
-
-                break;
-
-            default:
-
-                break;
+        if (index === 0) {
+            column_start = 1;
+            row_start = 1;
+            row_end = this.gridRows;
+            column_end = Math.round(area / (this.gridCell.height * row_end) / this.gridCell.width);
+            areaGrid = Math.round(area / (this.gridCell.width * this.gridCell.height));
+            areaGrid = areaGrid % 2 === 0 ? areaGrid : areaGrid - 1;
         }
-        // if (first) {
-        // } else {
-        //     const area = this.area * (value / 100);
-        //     const h = ;
-        //     const w = area / h;
 
-        //     current.css({
-        //         height: h,
-        //         width: w
-        //     })
+        // if (index > 0) {
+        //     column_start = this.itemPositioning[index-1].column_end + 1 < this.gridCols - this.minCellWidth ? this.itemPositioning[index-1].column_end + 1 : this.itemPositioning[index-2].column_end + 1;
+        //     areaGrid = Math.round(area / (this.gridCell.width * this.gridCell.height)) >= 6 ? Math.round(area / (this.gridCell.width * this.gridCell.height)) : 6;
+        //     areaGrid = areaGrid % 2 === 0 ? areaGrid : areaGrid - 1;
+        //     column_end = areaGrid / this.minCellWidth 
+
+        //     console.log(areaGrid, 'amount of cells');
         // }
+
+        item = <IGridItemPosition>{
+            column_start: column_start,
+            column_end: column_end,
+            row_start: row_start,
+            row_end: row_end,
+        };
+
+        current.css({
+            position: 'relative',
+            opacity: 1,
+            'grid-column-start': column_start,
+            'grid-column-end': column_end,
+            'grid-row-start': row_start,
+            'grid-row-end': 'span' + row_end,
+            backgroundColor: color,
+        });
+
+        this.itemPositioning.push(item);
+        this.cellsBalance = this.cellsBalance - areaGrid;
+        console.log(this.cellsBalance, ':free cells');
+        
     }
 
 }

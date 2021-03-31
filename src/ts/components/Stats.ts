@@ -6,13 +6,16 @@ import { $doc  } from '../Site';
 export class Stats extends Component {
 
     private $tab: JQuery;
+    private $item: JQuery;
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
 
         this.$tab = this.view.find('[data-tab]');
+        this.$item = this.view.find('[data-view]');
 
         this.bind();
+        this.setActiveView(1);
     }
 
 
@@ -26,8 +29,16 @@ export class Stats extends Component {
     
     private switchTab = (e): void => {
         const current = $(e.currentTarget);
+        const index = current.data('tab');
 
+        this.setActiveView(index);
+
+    }
+
+    private setActiveView(index: number): void {
         this.$tab.removeClass('is-active');
-        current.addClass('is-active');
+        this.$item.removeClass('is-active');
+        this.$tab.filter('[data-tab=' + index + ']').addClass('is-active');
+        this.$item.filter('[data-view=' + index + ']').addClass('is-active');
     }
 }

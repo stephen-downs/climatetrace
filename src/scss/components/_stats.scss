@@ -26,6 +26,7 @@
 
     &__topbar {
         @include flex(row, space-between, center);
+        margin-bottom: 20px;
     }
 
     &__calendar {
@@ -35,6 +36,15 @@
 
         .icon-img-triangle {
             margin-left: 10px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: none;
+
+        &.is-active {
+            display: block;
         }
     }
 }

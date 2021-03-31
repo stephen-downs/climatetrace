@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="stats__group">
-                <div class="stats__item">
+                <div class="stats__item" data-view="0">
                     <div class="stats__heading">
                         Compare country data
                         <em class="stats__heading-em">by Sector</em>
@@ -189,35 +189,35 @@
                                     <div class="masonry__number">7.4%</div>
                                 </div>
                             </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#FDD49E">
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#FDD49E">
                                 <div class="masonry__wrapper">
                                     <h4 class="masonry__sector">buildings</h4>
                                     <div class="masonry__data">121.8 million tonnes</div>
                                     <div class="masonry__number">5.35%</div>
                                 </div>
                             </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#5877CC">
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#5877CC">
                                 <div class="masonry__wrapper">
                                     <h4 class="masonry__sector">transportation</h4>
                                     <div class="masonry__data">110 MILLION TONNES</div>
                                     <div class="masonry__number">4.85%</div>
                                 </div>
                             </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#E75040">
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#E75040">
                                 <div class="masonry__wrapper">
                                     <h4 class="masonry__sector">manufacturing</h4>
                                     <div class="masonry__data">84.3 million tonnes</div>
                                     <div class="masonry__number">3.7%</div>
                                 </div>
                             </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#B60E63">
+                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#B60E63">
                                 <div class="masonry__wrapper">
                                     <h4 class="masonry__sector">Extractive Industries</h4>
                                     <div class="masonry__data">60.1 million tonnes</div>
                                     <div class="masonry__number">2.64%</div>
                                 </div>
                             </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="other" data-value="2.15" data-color="#888788">
+                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="other" data-value="2.15" data-color="#888788">
                                 <div class="masonry__wrapper">
                                     <h4 class="masonry__sector">other</h4>
                                     <div class="masonry__data">48.9 m tonnes</div>
@@ -225,6 +225,133 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="stats__item" data-view="1">
+                    <div class="stats__heading">
+                        Compare country data
+                        <em class="stats__heading-em">by Country</em>
+                    </div>
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Relative Rank</h3>
+                            <div class="stats__calendar">
+                                <span>Compare to: ALL</span>
+                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                            </div>
+                        </div>
+                        <div class="rank">
+                            <div class="rank__wrapper">
+                                <div class="rank__table">
+                                    <div class="rank__row">
+                                        <div class="rank__header rank__header--id"></div>
+                                        <div class="rank__header rank__header--country">Country</div>
+                                        <div class="rank__header rank__header--quality">data quality</div>
+                                        <div class="rank__header rank__header--emission">emissions est.</div>
+                                        <div class="rank__header rank__header--trend">1 yr trend</div>
+                                        <div class="rank__header rank__header--capita">emissions / capita</div>
+                                        <div class="rank__header rank__header--global">global</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="Iran">
+                                        <div class="rank__position rank__position--id">1</div>
+                                        <div class="rank__position rank__position--country" data-country="Iran"></div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="South Korea">
+                                        <div class="rank__position rank__position--id">2</div>
+                                        <div class="rank__position rank__position--country" data-country="South Korea">South Korea</div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="Saudi Arabia">
+                                        <div class="rank__position rank__position--id">3</div>
+                                        <div class="rank__position rank__position--country" data-country="Saudi Arabia">Saudi Arabia</div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="Indonesia">
+                                        <div class="rank__position rank__position--id">3</div>
+                                        <div class="rank__position rank__position--country" data-country="Indonesia">Indonesia</div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="Canada">
+                                        <div class="rank__position rank__position--id">4</div>
+                                        <div class="rank__position rank__position--country" data-country="Canada">Canada</div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="Mexico">
+                                        <div class="rank__position rank__position--id">5</div>
+                                        <div class="rank__position rank__position--country" data-country="Mexico">Mexico</div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                    <div class="rank__row" data-country-data="South Africa">
+                                        <div class="rank__position rank__position--id">6</div>
+                                        <div class="rank__position rank__position--country" data-country="South Africa">South Africa</div>
+                                        <div class="rank__position rank__position--quality" data-quality="2"><span></span><span></span><span></span></div>
+                                        <div class="rank__position rank__position--emission" data-emission="0.72" data-unit="GT"></div>
+                                        <div class="rank__position rank__position--trand" data-trend="+7.13%" data-curve="">+7.13% <span><img src="" alt=""><span></div>
+                                        <div class="rank__position rank__position--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</div>
+                                        <div class="rank__position rank__position--global" data-global="0.51%">0.51%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats__item" data-view="2">
+                    <div class="stats__heading">
+                        Compare country data
+                        <em class="stats__heading-em">by Time</em>
+                    </div>
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Change over time by sector</h3>
+                            <div class="stats__calendar">
+                                <span>Last Year</span>
+                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                            </div>
+                        </div>
+                        <div class="rank">
+                            <div class="rank__wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats__item" data-view="3">
+                    <div class="stats__heading">
+                        About our
+                        <em class="stats__heading-em">Data</em>
+                    </div>
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Quality</h3>
+                            <div class="stats__calendar">
+                                <span>About data Quality</span>
+                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

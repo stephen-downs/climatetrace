@@ -1,0 +1,45 @@
+.rank {
+    &__table {
+        width: 100%;
+    }
+
+    &__header {
+        @include font-size(12, 32);
+        text-transform: uppercase;
+        letter-spacing: 0.24px;
+        width: 100%;
+
+        &--id {
+            width: percent(133px, 1477, 0);
+        }
+
+        &--country {
+            width: percent(196px, 1477, 0);
+        }
+
+        &--quality {
+            width: percent(162px, 1477, 0);
+        }
+
+        &--emission {
+            width: percent(204px, 1477, 0);
+        }
+
+        &--trend {
+            width: percent(234px, 1477, 0);
+        }
+
+        &--capita {
+            width: percent(223px, 1477, 0);
+        }
+
+        &--global {
+            width: percent(321px, 1477, 0);
+        }
+    }
+
+    &__row {
+        @include flex(row, flex-start, center);
+        border-bottom: 1px solid $color-silver;
+    }
+}
