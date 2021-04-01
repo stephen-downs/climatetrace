@@ -1,0 +1,65 @@
+.compare {
+    position: relative;
+    &__toggle {
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        width: 298px;
+        box-shadow: 2px 2px 10px rgba($color-black, 0.4);
+        padding-top: 40px;
+        border-radius: 5px;
+        background-color: $color-gray;
+    }
+
+    form {
+        display: block;
+        position: relative;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 4px;
+        @include font-size(10, 12);
+        font-family: $font-second;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    &__input {
+        width: 135px;
+        height: 40px;
+        background-color: $color-tundora;
+        border: 0;
+        font-family: $font-second;
+        color: $color-white;
+        padding: 0 8px;
+        @include font-size(10, 12);
+
+        &--option {
+            opacity: 0;
+        }
+    }
+
+    &__date {
+        position: relative;
+        width: 100%;
+        @include flex(row, center, center);
+        padding: 0 10px;
+    }
+
+    &__calendar {
+        position: relative;
+
+        &:first-of-type {
+            margin-right: 8px;
+        }
+    }
+
+    &__button {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+    }
+}

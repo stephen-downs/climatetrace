@@ -238,3 +238,10 @@ button {
 .svg-json-icon {
     height: 32px;
 }
+.svg-calendar {
+    position: absolute;
+    right: 11px;
+    z-index: 1;
+    top: 28px;
+    width: 14px;
+}

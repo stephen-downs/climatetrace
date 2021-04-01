@@ -239,9 +239,43 @@
                     <div class="stats__content">
                         <div class="stats__topbar">
                             <h3 class="stats__h3">Relative Rank</h3>
-                            <div class="stats__calendar">
-                                <span>Compare to: ALL</span>
-                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                            <div class="stats__calendar compare">
+                                <button class="compare__button js-trigger">
+                                    <span>Compare to: <span class="js-choosen-filter">ALL</span></span>
+                                    <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                                </button>
+                                <div class="compare__toggle">
+                                    <form>
+                                        <div class="compare__date">
+                                            <div class="compare__calendar">
+                                                <label>Start date</label>
+                                                <input type="date" name="from" pattern="mm-dd-yyyy" class="compare__input compare__input--date">
+                                                [[svg::calendar]]
+                                            </div>
+                                            <div class="compare__calendar">
+                                                <label>End date</label>
+                                                <input type="date" name="to" pattern="mm-dd-yyyy" class="compare__input compare__input--date">
+                                                [[svg::calendar]]
+                                            </div>
+                                        </div>
+                                        <div class="compare__option">
+                                            <label>ALL</label>
+                                            <input type="radio" name="option" value="all" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label>Top 10</label>
+                                            <input type="radio" name="option" value="top" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label>Relative</label>
+                                            <input type="radio" name="option" value="relative" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label>Nearby Geographies</label>
+                                            <input type="radio" name="option" value="nearby" class="compare__input compare__input--option">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="rank">
@@ -547,10 +581,62 @@
                                 <div class="coverage__tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">12%</div>
-                                    <p class="coverage__text">of known cattle operations are represented</p>
+                                    <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
                                     <span class="coverage__supplier">DATA SUPPLIER</span>
                                     <div class="coverage__footer">
-                                        <img src="" alt="" class="coverage__logo">
+                                        <img src="/dist/media/coverage-logo-3.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coverage__tile">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number">12%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="/dist/media/coverage-logo-2.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coverage__tile">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number">98%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="/dist/media/coverage-logo-2.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coverage__tile">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number">98%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="/dist/media/coverage-logo-1.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coverage__tile">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number">98%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="/dist/media/coverage-logo-1.png" alt="" class="coverage__logo">
                                         <div class="coverage__update">
                                             <p>Updated <span class="js-update">2/15/21</span></p>
                                             <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>

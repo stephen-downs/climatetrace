@@ -51,11 +51,18 @@
     }
 
     &__item {
-        position: relative;
-        display: none;
+        position: absolute;
+        overflow: hidden;
+        // display: none;
+        transition: all $time;
+        opacity: 0;
+        height: 0;
 
         &.is-active {
-            display: block;
+            position: relative;
+            opacity: 1;
+            // display: block;
+            height: auto;
         }
     }
 }
