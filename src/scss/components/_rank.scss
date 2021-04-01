@@ -1,4 +1,5 @@
 .rank {
+    padding-top: 20px;
     &__table {
         width: 100%;
     }
@@ -6,19 +7,21 @@
     &__header {
         @include font-size(12, 32);
         text-transform: uppercase;
-        letter-spacing: 0.24px;
+        letter-spacing: 0.5px;
         width: 100%;
+    }
 
+    &__cell {
         &--id {
-            width: percent(133px, 1477, 0);
+            width: percent(113px, 1477, 0);
         }
 
         &--country {
-            width: percent(196px, 1477, 0);
+            width: percent(310px, 1477, 0);
         }
 
         &--quality {
-            width: percent(162px, 1477, 0);
+            width: percent(182px, 1477, 0);
         }
 
         &--emission {
@@ -34,12 +37,51 @@
         }
 
         &--global {
-            width: percent(321px, 1477, 0);
+            width: percent(221px, 1477, 0);
         }
     }
 
     &__row {
         @include flex(row, flex-start, center);
         border-bottom: 1px solid $color-silver;
+        font-family: $font-second;
+    }
+
+    &__position {
+        padding: 11px 0;
+        height: 48px;
+        @include flex(row, flex-start, center);
+        @include font-size(14, 1);
+
+        &--id {
+            padding-left: 20px;
+        }
+
+        &--emission {
+            span {
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+
+        &--quality {
+        }
+
+        &--capita {
+            text-transform: uppercase;
+        }
+    }
+
+    .flag {
+        height: 20px;
+        width: auto;
+        display: inline-block;
+        margin-right: 17px;
+    }
+
+    .curve {
+        max-width: 70px;
+        margin-left: 20px;
+        max-height: 20px;
     }
 }

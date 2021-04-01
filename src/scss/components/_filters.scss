@@ -19,9 +19,9 @@
     &__panel {
         @extend %inside;
         position: relative;
-        width: calc(100% - 109px);
-        margin-right: 2px;
-        padding: 19px 39px 19px 4px;
+        width: calc(100% - 92px);
+        margin-right: 12px;
+        padding: 16px 10px 13px 4px;
         @include flex(row, flex-start, flex-start);
 
         &::after,
@@ -55,7 +55,7 @@
         font-family: $font-second;
         @include font-size(10, 13);
         @include flex(column, center, center);
-        width: 107px;
+        width: 80px;
         border: 1px solid rgba($color-white, 0.5);
         transition: all $time $easing;
         font-weight: 500;
@@ -89,16 +89,22 @@
         position: relative;
         height: 100%;
         border-right: 1px solid rgba($color-white, 0.5);
-        padding-left: 23px;
-        flex: 1;
+        padding-left: 21px;
+        flex: 3;
 
+        &:first-of-type {
+            max-width: 496px;
+        }
         &:nth-of-type(2) {
-            width: 426px;
+            width: 294px;
+            flex: none;
+            padding-right: 17px;
         }
 
         &:last-of-type {
             border: none;
-            flex: none;
+            flex: 1;
+            max-width: 276px;
         }
     }
 
@@ -109,17 +115,21 @@
     &__group {
         @include flex(row, flex-start, flex-start);
         flex-wrap: wrap;
+        margin-left: -6px;
+        padding-right: 20px;
 
         &--nowrap {
             flex-wrap: nowrap;
             justify-content: center;
+            padding-right: 0;
+            margin-left: -3px;
         }
     }
 
     &__item {
         position: relative;
-        @include font-size(11, 13);
-        font-weight: 500;
+        @include font-size(10, 12);
+        font-weight: 700;
         padding: 7px 13px;
         border-radius: 20px;
         border: 2px solid rgba($color-white, 0.5);
@@ -134,12 +144,20 @@
 
         .filters__group--nowrap & {
             margin: 0 2px 8px;
+            @include font-size(11, 1);
         }
 
         &--static {
+            position: absolute;
+            top: -3px;
+            right: 0;
             flex: none;
             align-self: center;
             margin-right: 20px;
+
+            .filters__group--nowrap & {
+                right: 17px;
+            }
         }
 
         &::after {
@@ -170,12 +188,11 @@
     &__timeline {
         position: relative;
         height: 21px;
-        width: 278px;
-        margin-bottom: 15px;
+        width: 208px;
         @include flex(row, flex-start, center);
         z-index: 1;
-        margin: 0 auto 15px;
-        left: -5px;
+        margin: 10px auto 15px;
+        left: -2px;
 
         &::after {
             @include pseudo(100%, 1px, 50%, 0, rgba($color-white, 1), -1);

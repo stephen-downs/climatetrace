@@ -25,6 +25,10 @@
         }
     }
 
+    &__flex {
+        @include flex(row, center, center);
+    }
+
     &__body {
         // padding: 30px 0;
         overflow: hidden;
@@ -36,12 +40,12 @@
 
     &__footer {
         font-family: $font-second;
-        padding: 30px 0;
+        padding: 40px 0 30px;
         text-transform: uppercase;
     }
 
     &__country {
-        width: 50%;
+        width: 60%;
         padding-right: 20px;
         margin-right: auto;
     }
@@ -49,7 +53,7 @@
     &__countryname {
         @include font-size(30, 1);
         font-weight: 300;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
 
         img {
             margin-right: 15px;
@@ -57,8 +61,12 @@
     }
 
     &__emission {
-        @include font-size(56, 1);
+        @include font-size(68, 1);
         font-weight: 500;
+
+        @media (max-width: 1280px) {
+            @include font-size(60, 1);
+        }
     }
 
     &__updatetime {
@@ -68,7 +76,7 @@
     }
 
     &__percentage {
-        width: 134px;
+        width: 128px;
         @include font-size(18, 24);
         font-weight: 300;
 
@@ -83,7 +91,7 @@
     &__rank {
         position: relative;
         width: 202px;
-        padding-left: 40px;
+        padding-left: 36px;
         font-weight: 300;
         @include font-size(18, 30);
 
@@ -118,19 +126,20 @@
     }
 
     &__share {
-        margin-top: 11px;
-        margin-left: 50px;
+        border-top: 2px solid $color-silver;
+        margin-top: 20px;
+        padding-top: 10px;
+        @include flex(row, center, center);
     }
 
     &__share-icon {
         @include flex(row, flex-start, center);
-        border-bottom: 2px solid $color-silver;
-        padding-bottom: 10px;
+        padding: 0 20px;
     }
 
     &__link {
         padding: 10px;
-        width: 100%;
+        width: 190px;
         @include flex(row, space-between, center);
     }
 }

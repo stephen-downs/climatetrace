@@ -1,0 +1,61 @@
+.table {
+    &__row {
+        @include flex(row, flex-start, flex-start);
+        border-bottom: 1px solid $color-silver;
+        padding: 20px 0 10px 0;
+
+        &:last-of-type {
+            border: 0;
+        }
+    }
+
+    &__th {
+        @include font-size(12, 32);
+        font-family: $font-second;
+        text-transform: uppercase;
+    }
+
+    &__col {
+        padding-right: 45px;
+
+        &--sub {
+            width: percent(171, 1106, 0);
+        }
+
+        &--def {
+            width: percent(325, 1106, 0);
+        }
+
+        &--src {
+            width: percent(91, 1106, 0);
+        }
+
+        &--met {
+            width: percent(365, 1106, 0);
+        }
+
+        &--data {
+            width: percent(152, 1106, 0);
+        }
+    }
+
+    &__p {
+        font-family: $font-second;
+        font-weight: 300;
+        @include font-size(14, 15);
+        letter-spacing: 0.3px;
+        padding-bottom: 18px;
+
+        strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__icons {
+        img {
+            margin-bottom: 16px;
+            display: block;
+        }
+    }
+}

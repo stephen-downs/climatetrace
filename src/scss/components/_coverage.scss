@@ -1,0 +1,59 @@
+.coverage {
+    &__tile {
+        height: 275px;
+        width: percent(364, 1106, 0);
+        margin-right: 10px;
+        background-color: $color-gray-light;
+        padding: 16px;
+        text-transform: uppercase;
+
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
+    }
+
+    &__sup {
+        text-align: right;
+        @include font-size(16, 15);
+
+        span {
+            @include font-size(12, 15);
+            display: block;
+            letter-spacing: 0.6px;
+            font-weight: 300;
+        }
+    }
+
+    &__number {
+        font-family: $font-second;
+        font-weight: 600;
+        @include font-size(90, 1);
+    }
+
+    &__text {
+        @include font-size(16, 18);
+    }
+
+    &__supplier {
+        display: block;
+        @include font-size(10, 15);
+    }
+
+    &__footer {
+        width: 100%;
+        @include flex(row, space-between, center);
+    }
+
+    &__update {
+        @include font-size(10, 15);
+        text-align: right;
+        letter-spacing: 0.5px;
+        font-weight: 300;
+
+        span {
+            font-weight: 400;
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+}

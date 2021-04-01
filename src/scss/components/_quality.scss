@@ -1,0 +1,35 @@
+.quality {
+    padding-top: 20px;
+
+    &__wrapper {
+        &--flex {
+            @include flex(row, space-between, center);
+            // padding: 0 23px;
+        }
+    }
+
+    &__area {
+        position: relative;
+        padding: 0 72px 10px 72px;
+    }
+
+    &__h3 {
+        font-family: $font-second;
+        @include font-size(20, 37);
+        letter-spacing: 0.4px;
+        font-weight: 400;
+        margin-top: 5px;
+    }
+
+    &__info {
+        @include font-size(15, 37);
+    }
+
+    .dotted-line {
+        width: 1px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+}

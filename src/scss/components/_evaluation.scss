@@ -1,0 +1,33 @@
+.evaluation {
+    @include flex(row, flex-start, center);
+
+    span {
+        @include circle(9);
+        margin-right: 4px;
+        background-color: $color-gray-light;
+    }
+    @for $i from 1 through 3 {
+        &[data-quality="#{$i}"] {
+            @if ($i == 1) {
+                span:first-of-type {
+                    background-color: $color-orange;
+                }
+            }
+
+            @if ($i == 2) {
+                span:first-of-type {
+                    background-color: $color-orange;
+                }
+                span:nth-of-type(#{$i}) {
+                    background-color: $color-orange;
+                }
+            }
+
+            @if ($i == 3) {
+                span {
+                    background-color: $color-orange;
+                }
+            }
+        }
+    }
+}

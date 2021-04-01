@@ -16,12 +16,23 @@
         background-color: $color-gray;
         padding: 30px 34px;
         border-radius: $radius;
+
+        &--space {
+            margin-top: 38px;
+        }
     }
 
     &__h3 {
         @include font-size(30, 1);
         font-weight: 300;
         font-family: $font-second;
+    }
+
+    &__subhead {
+        @include font-size(18, 23);
+        display: block;
+        margin-top: 10px;
+        max-width: 794px;
     }
 
     &__topbar {
