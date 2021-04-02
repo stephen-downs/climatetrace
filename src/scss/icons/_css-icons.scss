@@ -675,6 +675,7 @@ button {
 .icon-img-triangle {
     width: 14px;
     height: 8px;
+    transition: transform $time $easing;
 
     img {
         width: 100%;

@@ -9,24 +9,23 @@ export class Compare extends Component {
     private $trigger: JQuery;
     private isOpen: boolean = false;
     private $selected: JQuery;
-    private $item: JQuery;
+    private $radio: JQuery;
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
 
         this.$trigger = this.view.find('.js-trigger');
-        this.$selected = this.view.find('[data-select]');
-        this.$item = this.view.find('[data-value]');
+        this.$selected = this.view.find('[data-selected]');
+        this.$radio = this.view.find('input[type=radio]');
 
         this.bind();
-        this.view.attr('data-selected', this.$selected.text());
     }
 
 
     private bind(): void {
-        this.view.off('.select').on('click.select', this.toggle);
-        $doc.off('.dropdown').on('click.dropdown', this.onClickAnywhereHandler);
-        this.$item.off('.selection').on('click.selection', this.onItemClick);
+        this.$trigger.off('.toggle').on('click.toggle', this.toggle);
+        $doc.off('.smalldropdown').on('click.smalldropdown', this.onClickAnywhereHandler);
+        this.$radio.off('.selection').on('click.selection', this.onItemClick);
     }
 
 
@@ -53,7 +52,7 @@ export class Compare extends Component {
     }
 
     private onClickAnywhereHandler = (e): void => {
-        if ($(e.currentTarget).hasClass('js-item')) { return; }
+        if ($(e.currentTarget).hasClass('js-item') || !this.isOpen) { return; }
         if ($(e.target).closest(this.view).length <= 0) {
             this.closeSelect();
         }
@@ -62,11 +61,11 @@ export class Compare extends Component {
     private onItemClick = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        const current = $(e.currentTarget).data('value');
+        const current = $(e.currentTarget).attr('value');
 
         this.closeSelect();
         this.$selected.html(current);
 
-        this.view.attr('data-selected', current);
+        this.$selected.attr('data-selected', current);
     }
 }

@@ -31,6 +31,7 @@ export class Dropdown extends Component {
 
 
     private toggle = (e) => {
+        console.log('toggle dp');
         this.isOpen ? this.closeSelect() : this.openSelect(e);
     }
 
@@ -53,7 +54,10 @@ export class Dropdown extends Component {
     }
 
     private onClickAnywhereHandler = (e): void => {
-        if ($(e.currentTarget).hasClass('js-item')) { return; }
+        e.stopPropagation();
+        e.preventDefault();
+        console.log(this.isOpen, '?????');
+        if ($(e.currentTarget).hasClass('js-item') && !this.isOpen) { return; }
         if ($(e.target).closest(this.view).length <= 0) {
             this.closeSelect();
         }

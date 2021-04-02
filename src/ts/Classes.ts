@@ -6,6 +6,7 @@ import { Dashboard } from './components/Dashboard';
 import { Stats } from './components/Stats';
 import { Masonry } from './components/Masonry';
 import { Compare } from './components/Compare';
+import { Chart } from './components/Chart';
 
 import { Page } from './pages/Page';
 
@@ -17,7 +18,8 @@ export const components = {
     Dashboard,
     Stats,
     Masonry,
-    Compare
+    Compare,
+    Chart,
 };
 
 

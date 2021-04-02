@@ -15,7 +15,7 @@ export class Stats extends Component {
         this.$item = this.view.find('[data-view]');
 
         this.bind();
-        this.setActiveView(3);
+        this.setActiveView(2);
     }
 
 

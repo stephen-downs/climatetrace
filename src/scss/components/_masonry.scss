@@ -5,31 +5,10 @@
     // @include flex(row, flex-start, flex-start);
     // flex-wrap: wrap;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
     gap: 2px 2px;
     justify-items: stretch;
-    grid-template-areas:
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . . . . . . . .";
 
     &__tile {
         position: relative;
