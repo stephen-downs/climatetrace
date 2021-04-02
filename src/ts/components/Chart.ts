@@ -9,6 +9,14 @@ export class Chart extends Component {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private $wrapper: JQuery;
+    private margin: any = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    };
+
+    private yPoints = [20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11, 12, 20, 25, 30, 50];
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
@@ -41,5 +49,17 @@ export class Chart extends Component {
 
         current.hasClass('is-on-chart') ? current.removeClass('is-on-chart') : current.addClass('is-on-chart');
     }
+
+    private drawChart(): void {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.renderBackground();
+        this.renderText();
+        this.renderLinesAndLabels();
+    }
     
+
+    private renderBackground(): void {}
+    private renderText(): void {}
+    private renderLinesAndLabels(): void {}
 }
