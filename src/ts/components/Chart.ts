@@ -2,6 +2,10 @@ import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc } from '../Site';
 
+interface IChartSettings {
+    yPoints: Array<number>;
+    color: string;
+}
 
 export class Chart extends Component {
 
@@ -24,6 +28,10 @@ export class Chart extends Component {
         width: 0,
     };
 
+    private rAF: any;
+    private time: number = 0;
+    private largestVal: number = 0;
+    private arrLen: number;
     private yMax: number;
     private xMax: number;
     private ratio: number;
@@ -35,6 +43,9 @@ export class Chart extends Component {
         violet: "#B60E63",
         white: "#fff"
     }
+
+    // private settings: Array<IChartSettings>;
+    private settings: any;
     
 
     private yPoints = [20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11, 12, 20, 25, 30, 45];
@@ -48,12 +59,13 @@ export class Chart extends Component {
         this.canvas = <HTMLCanvasElement>this.view.find('canvas')[0];
         this.ctx = this.canvas.getContext('2d');
 
-        
+        this.largestVal = this.largestYVal();
+        this.arrLen = this.yPoints.length;
 
         this.bind();
-
-        console.log(this.view.attr('data-component'), 'mounted', this.canvas);
-
+        
+        // this.settings = JSON.parse(options);
+        console.log(this.settings, options);
     }
 
 
@@ -75,6 +87,19 @@ export class Chart extends Component {
     };
 
 
+    private largestYVal(): number {
+        let largest = 0;
+        
+        for (let j = 0; j < this.yPoints.length; j++ ) {
+            if (this.yPoints[j] > largest) {
+                largest = this.yPoints[j];
+            }
+        }
+
+        return largest;
+    }
+
+
     private bind(): void {
 
         this.$tab.off('.tab').on('click.tab', this.onClickTab);
@@ -85,12 +110,13 @@ export class Chart extends Component {
         const current = $(e.currentTarget);
 
         current.hasClass('is-on-chart') ? current.removeClass('is-on-chart') : current.addClass('is-on-chart');
-
-
+        this.time = 0;
+        this.renderChart();
     }
 
     private renderChart = (): void => {
-        this.drawGraph(this.yPoints);
+        this.draw();
+        this.drawGraph();
     }
 
     private draw(): void {
@@ -127,6 +153,7 @@ export class Chart extends Component {
             this.ctx.stroke();
         }
 
+
         for (let j = 0; j < years.length; j++) {
             this.ctx.beginPath();
             this.ctx.lineJoin = 'round';
@@ -136,33 +163,29 @@ export class Chart extends Component {
             this.ctx.stroke();
         }
 
-        this.renderChart();
     }
 
 
-    private drawGraph(array: Array<number>): void {
-        let largest = 0;
-        
-        for (let j = 0; j < array.length; j++ ) {
-            if (array[j] > largest) {
-                largest = array[j];
-            }
-        }
-        this.ctx.strokeStyle = this.colors.orange;
-        this.ctx.lineWidth = 3;
+    private drawGraph = (): void => {
 
-        // const xStep = this.canvas.width / array.length;
+        // const xStep = this.canvas.width / this.yPoints.length;
         // let x;
-        // array.forEach( (y, i) => {
+        // this.yPoints.forEach( (y, i) => {
         //     x = i * xStep;
         //     this.ctx.lineTo(x, y);
         // });
         // this.ctx.stroke();
         
-        for (let i = 0; i < array.length; i++) {
-            this.ctx.lineTo(this.graph.right / array.length * i + this.graph.left, (this.graph.height - array[i] / largest * this.graph.height) + this.graph.top);
+        // for (let i = 0; i < this.yPoints.length; i++) {
+        // }
+        if (this.time < this.arrLen) {
+            requestAnimationFrame(this.drawGraph);
         }
+        this.ctx.strokeStyle = this.colors.orange;
+        this.ctx.lineWidth = 3;
+        this.ctx.lineTo(this.graph.right / this.yPoints.length * this.time + this.graph.left, (this.graph.height - this.yPoints[this.time] / this.largestVal * this.graph.height) + this.graph.top);
         this.ctx.stroke();
+        this.time++;
 
     }
 

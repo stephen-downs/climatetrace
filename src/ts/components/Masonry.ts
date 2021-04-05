@@ -49,7 +49,7 @@ export class Masonry extends Component {
         });
         this.area = (this.view.width() - this.itemMargin * 3) * this.view.height();
 
-        console.log(this.data, this.area, 'cell width', this.gridCell.width, 'cell height', this.gridCell.height);
+        // console.log(this.data, this.area, 'cell width', this.gridCell.width, 'cell height', this.gridCell.height);
 
         this.bind();
     }
@@ -67,10 +67,10 @@ export class Masonry extends Component {
     private getArrFromObject(): any {
         this.dataArray = Object.entries(this.data).sort((a, b) => a[0].localeCompare(b[0]));
 
-        console.log(this.dataArray);
+        // console.log(this.dataArray);
 
         this.dataArray.forEach( (el, i) => {
-            console.log(el[1].value, i, 'el');
+            // console.log(el[1].value, i, 'el');
             const value = el[1].value;
             const sector = el[1].sector;
             const color = el[1].color;
@@ -86,7 +86,7 @@ export class Masonry extends Component {
         
         area = this.area * (value / 100);
 
-        console.log(area, ':area', this.itemPositioning,this.itemPositioning.length > 0, 'check if some item on array');
+        // console.log(area, ':area', this.itemPositioning,this.itemPositioning.length > 0, 'check if some item on array');
         
         if (index === 0) {
             column_start = 1;
@@ -125,7 +125,7 @@ export class Masonry extends Component {
 
         this.itemPositioning.push(item);
         this.cellsBalance = this.cellsBalance - areaGrid;
-        console.log(this.cellsBalance, ':free cells');
+        // console.log(this.cellsBalance, ':free cells');
         
     }
 
