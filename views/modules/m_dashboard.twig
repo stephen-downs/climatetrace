@@ -475,9 +475,31 @@
                     <div class="stats__content">
                         <div class="stats__topbar">
                             <h3 class="stats__h3">Change over time by sector</h3>
-                            <div class="stats__calendar">
-                                <span>Last Year</span>
-                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                            <div class="stats__calendar compare compare--sector" data-component="Range">
+                                <button class="compare__button js-trigger">
+                                    <span><span data-selected>Last year</span></span>
+                                    <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
+                                </button>
+                                <div class="compare__toggle">
+                                    <form>
+                                        <div class="compare__option">
+                                            <label class="compare__label">ALL</label>
+                                            <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last year</label>
+                                            <input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 5 years</label>
+                                            <input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 10 years</label>
+                                            <input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="chart" data-component="Chart">

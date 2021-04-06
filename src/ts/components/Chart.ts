@@ -45,6 +45,7 @@ export class Chart extends Component {
     }
 
     private graphsData: Array<IChartSettings> = [];
+    private dataInit: boolean;
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
@@ -78,7 +79,9 @@ export class Chart extends Component {
         };
 
         this.draw();
-        this.createDataObject();
+        if (!this.dataInit) {
+            this.createDataObject();
+        }
 
     };
 
@@ -97,6 +100,8 @@ export class Chart extends Component {
 
             this.graphsData.push(dataItem);
         });
+
+        this.dataInit = true;
         console.log(this.graphsData);
     }
 
