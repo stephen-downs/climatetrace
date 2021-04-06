@@ -30,14 +30,6 @@ export class Chart extends Component {
         width: 0,
     };
 
-    private rAF: any;
-    private time: number = 0;
-    private largestVal: number = 0;
-    private arrLen: number;
-    private yMax: number;
-    private xMax: number;
-    private ratio: number;
-    private maxYValue: number = 0;
     private colors: any = {
         gray: 'rgba(97,97,97,0.5)',
         orange: '#fc8c59',
@@ -50,12 +42,7 @@ export class Chart extends Component {
         sea: '#26bbe3',
     }
 
-    // private settings: Array<IChartSettings>;
-    private charts: any = [];
     private graphsData: Array<IChartSettings> = [];
-
-    private yPoints = [20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11, 12, 20, 25, 30, 45];
-    // private yPoints = [10, 15, 25, 20, 35, 40, 30, 45, 50];
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
@@ -96,12 +83,10 @@ export class Chart extends Component {
                 yPoints: $(el).data('points'),
                 color: this.setColor($(el).data('color')),
                 yPx: this.calcYPx($(el).data('points')),
-            }
+            };
 
             this.graphsData.push(dataItem);
-            
         });
-
         console.log(this.graphsData);
     }
 
@@ -114,14 +99,10 @@ export class Chart extends Component {
     }
 
 
-
-
-
     private onClickTab = (e): void => {
         const current = $(e.currentTarget);
 
         current.hasClass('is-on-chart') ? current.removeClass('is-on-chart') : current.addClass('is-on-chart');
-        this.time = 0;
 
         if (current.hasClass('is-on-chart')) {
             this.animateChart(current.index(), false);
@@ -134,7 +115,6 @@ export class Chart extends Component {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBg();
         this.graphsData.forEach( (graphData) => this.drawGraph(graphData));
-        // this.drawGraph();
     }
 
     private drawBg(): void {
@@ -185,21 +165,19 @@ export class Chart extends Component {
 
 
     private drawGraph = (data: IChartSettings): void => {
+        this.ctx.strokeStyle = data.color;
+        this.ctx.lineWidth = 3;
+        this.ctx.lineCap = 'round';
+        this.ctx.lineJoin = 'round';
+        this.ctx.beginPath();
 
-        
         data.yPx.forEach( (y, i, a) => {
-            this.ctx.strokeStyle = data.color;
             if (i / a.length >= data.xPercent) {
-                this.ctx.lineWidth = 3;
-                this.ctx.lineCap = 'round';
-                this.ctx.lineJoin = 'round';
                 this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
                 this.ctx.stroke();
             }
         });
-        // this.ctx.lineTo(this.graph.right / this.yPoints.length * this.time + this.graph.left, (this.graph.height - this.yPoints[this.time] / this.largestVal * this.graph.height) + this.graph.top);
-
-
+        this.ctx.closePath();
     }
 
 
