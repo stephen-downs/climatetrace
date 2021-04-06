@@ -21,33 +21,39 @@ $tab-colors: (
         border-radius: 5px;
         padding: 10px;
         cursor: pointer;
+        transition: transform 0.4s $easing 0.05s;
 
         &::after {
             @include pseudo(100%, calc(100% - 10px), 0, 0, rgba($color-black, 0.3), 1);
+            border-radius: 5px 5px 0 0;
+            transition: transform 0.3s $easing;
+            transform-origin: top center;
+        }
+
+        &::before {
+            @include pseudo(0, 0, auto, 25px, transparent, 1);
+            bottom: -14px;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            transition: transform $time-fast $easing, opacity $time-fast $easing;
+            transform: translateY(-14px);
+            backface-visibility: hidden;
+        }
+
+        &.is-on-chart::before {
+            transform: translateY(0);
         }
 
         @each $key, $val in $tab-colors {
             &--#{$key} {
                 background-color: #{nth($val, 1)};
-
-                &::before {
-                    @include pseudo(0, 0, auto, 25px, transparent, 1);
-                    bottom: -15px;
-                    border-left: 12px solid transparent;
-                    border-right: 12px solid transparent;
-                    border-top: 15px solid #{nth($val, 1)};
-                    transition: transform $time-fast $easing, opacity $time-fast $easing;
-                    transform: translateY(-10px);
-                    opacity: 0;
-                    backface-visibility: hidden;
-                }
-                &.is-on-chart {
-                    &::before {
-                        opacity: 1;
-                        transform: translateY(0px);
-                    }
-                }
+                &::before { border-top: 15px solid #{nth($val, 1)}; }
             }
+        }
+
+        @include hover {
+            &::after { transform: scaleY(0.94); }
+            transform: translateY(-4px);
         }
     }
 
