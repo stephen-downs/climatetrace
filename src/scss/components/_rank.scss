@@ -1,15 +1,34 @@
 .rank {
     padding-top: 20px;
+
+
+
+    &__wrapper {
+        overflow-y: scroll;
+        max-height: 376px;
+    }
+
+
+
     &__table {
+        border-collapse: collapse;
         width: 100%;
     }
+
+
 
     &__header {
         @include font-size(12, 32);
         text-transform: uppercase;
         letter-spacing: 0.5px;
         width: 100%;
+        position: sticky;
+        top: 0;
+        text-align: left;
+        font-weight: normal;
     }
+
+
 
     &__cell {
         &--id {
@@ -41,11 +60,40 @@
         }
     }
 
+
+
     &__row {
+        border-bottom: 1px solid rgba(#979797, 0.3);
         @include flex(row, flex-start, center);
-        border-bottom: 1px solid $color-silver;
         font-family: $font-second;
+        position: relative;
+        z-index: 0;
+
+        &:last-of-type { border-bottom-color: transparent; }
+
+        &--header {
+            background: $color-gray;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        &::before {
+            content: "";
+            @include full(absolute, 4);
+            background: #414041;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.1s;
+        }
+
+        &:not(:first-child):hover::before {
+            transition-duration: 0s;
+            opacity: 1;
+        }
     }
+
+
 
     &__position {
         padding: 11px 0;
@@ -72,12 +120,16 @@
         }
     }
 
+
+
     .flag {
         height: 20px;
         width: auto;
         display: inline-block;
         margin-right: 17px;
     }
+
+
 
     .curve {
         max-width: 70px;

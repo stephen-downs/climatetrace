@@ -6,7 +6,7 @@
     margin-top: 50px;
 
     &::after {
-        @include pseudo(100%, 2px, auto, 0, $color-silver, 1);
+        @include pseudo(100%, 1px, auto, 0, $color-silver, 1);
         bottom: 12px;
     }
 }

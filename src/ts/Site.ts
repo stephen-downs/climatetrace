@@ -90,7 +90,7 @@ export class Site {
         this.loader.show();
         this.loader.set(0.5);
 
-        
+
         new Copy();
         new Share();
         new API();
@@ -98,16 +98,16 @@ export class Site {
         // this.menu = new Menu($('.js-menu'));
         // this.cookies = new Cookies($('.js-cookies'));
 
-        
+
         Promise.all<void>([
             this.setCurrentPage(),
             // this.preloadAssets(),
             Utils.setRootVars(),
         ]).then(this.onPageLoaded);
-        
-        
-        // if (debug) { Utils.stats(); }
-        
+
+
+        if (debug) { Utils.stats(); }
+
         $window.on('orientationchange', () => setTimeout(() => {
             Utils.setRootVars();
 
@@ -118,7 +118,7 @@ export class Site {
 
 
     private onResize(): void {
-        
+
         Breakpoint.update();
         if (breakpoint.desktop && !browser.mobile) {
             Utils.setRootVars();
@@ -293,7 +293,7 @@ export class Site {
             $pageEl = $($('#main').find('article')[0] || $('#main').children().first()[0]);
         }
 
-        
+
 
         // create Page object:
         let page: Page = new pages[pageName]($pageEl, pageOptions);
