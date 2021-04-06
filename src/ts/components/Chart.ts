@@ -8,6 +8,7 @@ interface IChartSettings {
     yPoints: Array<number>;
     color: string;
     yPx: Array<number>;
+    fill?: boolean;
 }
 
 export class Chart extends Component {
@@ -91,6 +92,7 @@ export class Chart extends Component {
                 yPoints: $(el).data('points'),
                 color: this.setColor($(el).data('color')),
                 yPx: this.calcYPx($(el).data('points')),
+                fill: i === 0 ? true : false,
             };
 
             this.graphsData.push(dataItem);
@@ -188,18 +190,34 @@ export class Chart extends Component {
         data.yPx.forEach( (y, i, a) => {
             if (i / a.length <= data.xPercent && data.xPercent > 0) {
                 this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
-                if (data.id === 0 && i === data.yPx.length - 1) {
-                    this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, this.canvas.height - this.margin.bottom);
-                    this.ctx.lineTo(this.margin.left, this.canvas.height - this.margin.bottom);
-                    this.ctx.fillStyle = data.color;
-                    this.ctx.globalAlpha = 0.4;
-                    this.ctx.fill();
-                    this.ctx.strokeStyle = 'transparent';
-                }
                 this.ctx.stroke();
             }
         });
         this.ctx.closePath();
+
+        if (data.fill) {
+            let lastX = this.margin.left;
+            this.ctx.strokeStyle = 'transparent';
+            this.ctx.fillStyle = data.color;
+            this.ctx.globalAlpha = 0.4;
+
+            this.ctx.beginPath();
+            data.yPx.forEach( (y, i, a) => {
+                
+                if (i / a.length <= data.xPercent && data.xPercent > 0) {
+                    this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
+                    this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, this.canvas.height - this.margin.bottom);
+                    this.ctx.lineTo(lastX, this.canvas.height - this.margin.bottom);
+                    this.ctx.moveTo(this.graph.right / a.length * i + this.graph.left, y);
+                    // this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
+                    lastX = this.graph.right / a.length * i + this.graph.left;
+                }
+            });
+            // this.ctx.lineTo(lastX, this.canvas.height - this.margin.bottom);
+            this.ctx.fill();
+            this.ctx.closePath();
+        }
+
     }
 
 

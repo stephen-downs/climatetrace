@@ -111,6 +111,24 @@ export class PushStates extends Handler {
         }
     }
 
+    public static asideToggle = (e): void => {
+        let el = $(e.currentTarget);
+
+        el.toggleClass('is-open');
+        $body.toggleClass('is-aside-open');
+
+        if (el.hasClass('is-open')) {
+            gsap.set($article, {'will-change': 'transform'});
+            // fixedposition = Scroll.scrollTop;
+            Utils.disableBodyScrolling(Scroll.scrollTop);
+        } else {
+            gsap.set($article, { clearProps: 'will-change'});
+            Utils.enableBodyScrolling(Scroll.scrollTop);
+        }
+
+        return;
+    }
+
 
 
     constructor() {
@@ -297,25 +315,7 @@ export class PushStates extends Handler {
             .on('click.history', this.onHashClick);
 
 
-        $('[data-hamburger]').on('click', this.asideToggle);
-    }
-
-    private asideToggle = (e): void => {
-        let el = $(e.currentTarget);
-
-        el.toggleClass('is-open');
-        $body.toggleClass('is-aside-open');
-
-        if (el.hasClass('is-open')) {
-            gsap.set($article, {'will-change': 'transform'});
-            // fixedposition = Scroll.scrollTop;
-            Utils.disableBodyScrolling(Scroll.scrollTop);
-        } else {
-            gsap.set($article, { clearProps: 'will-change'});
-            Utils.enableBodyScrolling(Scroll.scrollTop);
-        }
-
-        return;
+        $('[data-hamburger]').on('click', PushStates.asideToggle);
     }
 
     private onLanguageClick = (e): void => {
