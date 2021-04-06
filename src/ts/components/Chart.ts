@@ -3,6 +3,7 @@ import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc } from '../Site';
 
 interface IChartSettings {
+    id: number;
     xPercent: number;
     yPoints: Array<number>;
     color: string;
@@ -55,8 +56,9 @@ export class Chart extends Component {
         this.bind();
         
         for (let i = 0; i < this.$tab.length; i++) {
-            this.animateChart(i, false);
+            this.animateChart(i, true);
         }
+        // this.animateChart(0, true);
 
     }
 
@@ -84,7 +86,8 @@ export class Chart extends Component {
 
         this.$tab.each( (i, el) => {
             const dataItem = <IChartSettings>{
-                xPercent: 1,
+                id: i,
+                xPercent: 0,
                 yPoints: $(el).data('points'),
                 color: this.setColor($(el).data('color')),
                 yPx: this.calcYPx($(el).data('points')),
@@ -107,12 +110,12 @@ export class Chart extends Component {
     private onClickTab = (e): void => {
         const current = $(e.currentTarget);
 
-        current.hasClass('is-on-chart') ? current.removeClass('is-on-chart') : current.addClass('is-on-chart');
-
         if (current.hasClass('is-on-chart')) {
             this.animateChart(current.index(), false);
+            current.removeClass('is-on-chart');
         } else {
             this.animateChart(current.index(), true);
+            current.addClass('is-on-chart');
         }
     }
 
@@ -127,6 +130,8 @@ export class Chart extends Component {
 
         // draw X axis
         this.ctx.beginPath();
+        this.ctx.lineWidth = 1;
+
         this.ctx.strokeStyle = this.colors.white;
         this.ctx.moveTo( this.margin.left, this.canvas.height - this.margin.bottom );
         this.ctx.lineTo( this.canvas.width - this.margin.right, this.canvas.height - this.margin.bottom );
@@ -149,6 +154,7 @@ export class Chart extends Component {
             this.ctx.beginPath();
             this.ctx.lineJoin = 'round';
             this.ctx.font = '500 12px Quicksand, sans-serif';
+            this.ctx.lineWidth = 1;
             this.ctx.fillStyle = this.colors.blue;
             this.ctx.fillText('' + val + '', 0, ( this.graph.height) / helpersLine * i + this.margin.top + textTransform);
             this.ctx.moveTo( this.margin.left, ( this.graph.height) / helpersLine * i + this.margin.top );
@@ -159,6 +165,7 @@ export class Chart extends Component {
 
         for (let j = 0; j < years.length; j++) {
             this.ctx.beginPath();
+            this.ctx.lineWidth = 1;
             this.ctx.lineJoin = 'round';
             this.ctx.font = '500 12px Quicksand, sans-serif';
             this.ctx.fillStyle = this.colors.white;
@@ -174,11 +181,21 @@ export class Chart extends Component {
         this.ctx.lineWidth = 3;
         this.ctx.lineCap = 'round';
         this.ctx.lineJoin = 'round';
+        this.ctx.globalAlpha = 1;
+
         this.ctx.beginPath();
 
         data.yPx.forEach( (y, i, a) => {
-            if (i / a.length >= data.xPercent) {
+            if (i / a.length <= data.xPercent && data.xPercent > 0) {
                 this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
+                if (data.id === 0 && i === data.yPx.length - 1) {
+                    this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, this.canvas.height - this.margin.bottom);
+                    this.ctx.lineTo(this.margin.left, this.canvas.height - this.margin.bottom);
+                    this.ctx.fillStyle = data.color;
+                    this.ctx.globalAlpha = 0.4;
+                    this.ctx.fill();
+                    this.ctx.strokeStyle = 'transparent';
+                }
                 this.ctx.stroke();
             }
         });
@@ -190,7 +207,7 @@ export class Chart extends Component {
         const dir = direction ? 1 : 0;
         gsap.to(this.graphsData[id], {
             xPercent: dir,
-            ease: 'power2',
+            ease: 'linear',
             onUpdate: this.draw,
         });
     }
