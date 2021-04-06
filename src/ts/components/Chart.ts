@@ -53,6 +53,11 @@ export class Chart extends Component {
         this.ctx = this.canvas.getContext('2d');
 
         this.bind();
+        
+        for (let i = 0; i < this.$tab.length; i++) {
+            this.animateChart(i, false);
+        }
+
     }
 
 
@@ -79,7 +84,7 @@ export class Chart extends Component {
 
         this.$tab.each( (i, el) => {
             const dataItem = <IChartSettings>{
-                xPercent: 0,
+                xPercent: 1,
                 yPoints: $(el).data('points'),
                 color: this.setColor($(el).data('color')),
                 yPx: this.calcYPx($(el).data('points')),
