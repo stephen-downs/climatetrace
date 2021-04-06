@@ -3,7 +3,7 @@ import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc  } from '../Site';
 
 
-export class Compare extends Component {
+export class Range extends Component {
 
     
     private $trigger: JQuery;

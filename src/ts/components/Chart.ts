@@ -3,8 +3,10 @@ import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc } from '../Site';
 
 interface IChartSettings {
+    xPercent: number;
     yPoints: Array<number>;
     color: string;
+    yPx: Array<number>;
 }
 
 export class Chart extends Component {
@@ -37,16 +39,20 @@ export class Chart extends Component {
     private ratio: number;
     private maxYValue: number = 0;
     private colors: any = {
-        blue: "#6F92F2",
-        gray: "rgba(97,97,97,0.5)",
-        orange: "#D47650",
-        violet: "#B60E63",
-        white: "#fff"
+        gray: 'rgba(97,97,97,0.5)',
+        orange: '#fc8c59',
+        mint: '#4fdbc5',
+        blue: '#5877cc',
+        pink: '#B60E63',
+        white: '#fff',
+        beige: '#fdd49e',
+        cinnabar: '#e75040',
+        sea: '#26bbe3',
     }
 
     // private settings: Array<IChartSettings>;
-    private settings: any;
-    
+    private charts: any = [];
+    private graphsData: Array<IChartSettings> = [];
 
     private yPoints = [20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11, 12, 20, 25, 30, 45];
     // private yPoints = [10, 15, 25, 20, 35, 40, 30, 45, 50];
@@ -59,13 +65,7 @@ export class Chart extends Component {
         this.canvas = <HTMLCanvasElement>this.view.find('canvas')[0];
         this.ctx = this.canvas.getContext('2d');
 
-        this.largestVal = this.largestYVal();
-        this.arrLen = this.yPoints.length;
-
         this.bind();
-        
-        // this.settings = JSON.parse(options);
-        console.log(this.settings, options);
     }
 
 
@@ -83,22 +83,30 @@ export class Chart extends Component {
         };
 
         this.draw();
+        this.createDataObject();
 
     };
 
 
-    private largestYVal(): number {
-        let largest = 0;
-        
-        for (let j = 0; j < this.yPoints.length; j++ ) {
-            if (this.yPoints[j] > largest) {
-                largest = this.yPoints[j];
-            }
-        }
+    private createDataObject(): void {
 
-        return largest;
+        this.$tab.each( (i, el) => {
+            const dataItem = <IChartSettings>{
+                xPercent: 0,
+                yPoints: $(el).data('points'),
+                color: this.setColor($(el).data('color')),
+                yPx: this.calcYPx($(el).data('points')),
+            }
+
+            this.graphsData.push(dataItem);
+            
+        });
+
+        console.log(this.graphsData);
     }
 
+
+    
 
     private bind(): void {
 
@@ -106,21 +114,31 @@ export class Chart extends Component {
     }
 
 
+
+
+
     private onClickTab = (e): void => {
         const current = $(e.currentTarget);
 
         current.hasClass('is-on-chart') ? current.removeClass('is-on-chart') : current.addClass('is-on-chart');
         this.time = 0;
-        this.renderChart();
+
+        if (current.hasClass('is-on-chart')) {
+            this.animateChart(current.index(), false);
+        } else {
+            this.animateChart(current.index(), true);
+        }
     }
 
-    private renderChart = (): void => {
-        this.draw();
-        this.drawGraph();
-    }
-
-    private draw(): void {
+    private draw = (): void => {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawBg();
+        this.graphsData.forEach( (graphData) => this.drawGraph(graphData));
+        // this.drawGraph();
+    }
+
+    private drawBg(): void {
+        
 
         // draw X axis
         this.ctx.beginPath();
@@ -166,29 +184,68 @@ export class Chart extends Component {
     }
 
 
-    private drawGraph = (): void => {
+    private drawGraph = (data: IChartSettings): void => {
 
-        // const xStep = this.canvas.width / this.yPoints.length;
-        // let x;
-        // this.yPoints.forEach( (y, i) => {
-        //     x = i * xStep;
-        //     this.ctx.lineTo(x, y);
-        // });
-        // this.ctx.stroke();
         
-        // for (let i = 0; i < this.yPoints.length; i++) {
-        // }
-        if (this.time < this.arrLen) {
-            requestAnimationFrame(this.drawGraph);
-        }
-        this.ctx.strokeStyle = this.colors.orange;
-        this.ctx.lineWidth = 3;
-        this.ctx.lineTo(this.graph.right / this.yPoints.length * this.time + this.graph.left, (this.graph.height - this.yPoints[this.time] / this.largestVal * this.graph.height) + this.graph.top);
-        this.ctx.stroke();
-        this.time++;
+        data.yPx.forEach( (y, i, a) => {
+            this.ctx.strokeStyle = data.color;
+            if (i / a.length >= data.xPercent) {
+                this.ctx.lineWidth = 3;
+                this.ctx.lineCap = 'round';
+                this.ctx.lineJoin = 'round';
+                this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
+                this.ctx.stroke();
+            }
+        });
+        // this.ctx.lineTo(this.graph.right / this.yPoints.length * this.time + this.graph.left, (this.graph.height - this.yPoints[this.time] / this.largestVal * this.graph.height) + this.graph.top);
+
 
     }
 
 
+    private animateChart(id: number, direction: boolean): void {
+        const dir = direction ? 1 : 0;
+        gsap.to(this.graphsData[id], {
+            xPercent: dir,
+            ease: 'power2',
+            onUpdate: this.draw,
+        });
+    }
 
+    /// HELPERS
+    private largestYVal(data: Array<number>): number {
+        let largest = 0;
+        
+        for (let i = 0; i < data.length; i++ ) {
+            if (data[i] > largest) {
+                largest = data[i];
+            }
+        }
+
+        return largest;
+    }
+
+    private calcYPx(data): Array<number> {
+        const largest = this.largestYVal(data);
+        let arr = [];
+
+        for (let i = 0; i < data.length; i++) {
+            let item = Math.round((this.graph.height - data[i] / largest * this.graph.height) + this.graph.top);
+            arr.push(item);
+        }
+
+        return arr;
+    }
+
+    private setColor(color: string): string {
+        let hex;
+
+        for (const property in this.colors) {
+            if (color === property) {
+                hex = this.colors[property];
+            }
+        }
+
+        return hex;
+    }
 }
