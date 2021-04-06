@@ -166,7 +166,7 @@
                     <div class="stats__content">
                         <div class="stats__topbar">
                             <h3 class="stats__h3">Total Emissions</h3>
-                            <div class="stats__calendar compare compare--sector" data-component="Compare">
+                            <div class="stats__calendar compare compare--sector" data-component="Range">
                                 <button class="compare__button js-trigger">
                                     <span><span data-selected>Last year</span></span>
                                     <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
@@ -261,7 +261,7 @@
                     <div class="stats__content">
                         <div class="stats__topbar">
                             <h3 class="stats__h3">Relative Rank</h3>
-                            <div class="stats__calendar compare" data-component="Compare">
+                            <div class="stats__calendar compare" data-component="Range">
                                 <button class="compare__button js-trigger">
                                     <span>Compare to: <span data-selected>ALL</span></span>
                                     <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
@@ -480,39 +480,39 @@
                                 <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
                             </div>
                         </div>
-                        <div class="chart" data-component="Chart" data-options='[20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11, 12, 20, 25, 30, 45],[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21],[30, 35, 30, 32, 22, 15, 32, 48, 49, 47, 20, 21],[16, 22, 50, 32, 32, 15, 22, 18, 49, 47, 20, 21],[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21],[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21],[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21]'>
+                        <div class="chart" data-component="Chart">
                             <div class="chart__tabs">
-                                <div class="chart__tab chart__tab--orange" data-chart-tab="0">
+                                <div class="chart__tab chart__tab--orange" data-chart-tab="0" data-color="orange" data-points="[20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11, 12, 20, 25, 30, 45]">
                                     <h5 class="chart__sector">Electricity Generation</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
                                 </div>
-                                <div class="chart__tab chart__tab--sea" data-chart-tab="1">
+                                <div class="chart__tab chart__tab--sea" data-chart-tab="1" data-color="sea" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21]">
                                     <h5 class="chart__sector">Agriculture</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
                                 </div>
-                                <div class="chart__tab chart__tab--cyjan" data-chart-tab="2">
+                                <div class="chart__tab chart__tab--mint" data-chart-tab="2" data-color="mint" data-points="[30, 35, 30, 32, 22, 15, 32, 48, 49, 47, 20, 21]">
                                     <h5 class="chart__sector">Forestry</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
                                 </div>
-                                <div class="chart__tab chart__tab--violet" data-chart-tab="3">
+                                <div class="chart__tab chart__tab--pink" data-chart-tab="3" data-color="pink" data-points="[16, 22, 50, 32, 32, 15, 22, 18, 49, 47, 44, 21]">
                                     <h5 class="chart__sector">Extractive Industries</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
                                 </div>
-                                <div class="chart__tab chart__tab--darkblue" data-chart-tab="4">
+                                <div class="chart__tab chart__tab--darkblue" data-chart-tab="4" data-color="blue" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 43, 21]">
                                     <h5 class="chart__sector">TRANSPORTATION</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
                                 </div>
-                                <div class="chart__tab chart__tab--cinnabar" data-chart-tab="5">
+                                <div class="chart__tab chart__tab--cinnabar" data-chart-tab="5" data-color="cinnabar" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 12, 21]">
                                     <h5 class="chart__sector">Manufacturing</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
                                 </div>
-                                <div class="chart__tab chart__tab--beige" data-chart-tab="6">
+                                <div class="chart__tab chart__tab--beige" data-chart-tab="6" data-color="beige" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 34, 21]">
                                     <h5 class="chart__sector">Buildings</h5>
                                     <div class="chart__number">1,872,431</div>
                                     <span class="chart__info">Total CO2 this year</span>
