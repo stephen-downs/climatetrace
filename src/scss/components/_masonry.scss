@@ -10,6 +10,8 @@
     gap: 2px 2px;
     justify-items: stretch;
 
+
+
     &__tile {
         position: relative;
         min-width: 18%;
@@ -19,6 +21,7 @@
         background-color: $color-orange;
         margin: 3px 3px 0 0;
         border-radius: 5px;
+        transition: background-color 0.2s;
 
         &::after {
             @include pseudo(100%, calc(100% - 10px), 0, 0, rgba($color-black, 0.3), 0);
@@ -30,6 +33,7 @@
             grid-row-start: 1;
             grid-row-end: 21;
             background-color: $color-mint;
+            &:hover { background-color: lighten($color-mint, 5%); }
         }
 
         &:nth-child(2) {
@@ -38,6 +42,7 @@
             grid-row-start: 1;
             grid-row-end: span 10;
             background-color: $color-sea;
+            &:hover { background-color: lighten($color-sea, 5%); }
         }
 
         &:nth-child(3) {
@@ -46,6 +51,7 @@
             grid-row-start: 1;
             grid-row-end: span 10;
             background-color: $color-orange;
+            &:hover { background-color: lighten($color-orange, 5%); }
         }
 
         &:nth-child(4) {
@@ -54,6 +60,7 @@
             grid-row-start: 11;
             grid-row-end: 21;
             background-color: $color-beige;
+            &:hover { background-color: lighten($color-beige, 5%); }
         }
 
         &:nth-child(5) {
@@ -62,6 +69,7 @@
             grid-row-start: 11;
             grid-row-end: 13;
             background-color: $color-darkblue;
+            &:hover { background-color: lighten($color-darkblue, 5%); }
         }
 
         &:nth-child(6) {
@@ -70,6 +78,7 @@
             grid-row-start: 14;
             grid-row-end: 21;
             background-color: $color-cinnabar;
+            &:hover { background-color: lighten($color-cinnabar, 5%); }
         }
 
         &:nth-child(7) {
@@ -78,6 +87,7 @@
             grid-row-start: 14;
             grid-row-end: 18;
             background-color: $color-pink;
+            &:hover { background-color: lighten($color-pink, 5%); }
         }
 
         &:nth-child(8) {
@@ -86,8 +96,11 @@
             grid-row-start: 18;
             grid-row-end: 21;
             background-color: $color-cement;
+            &:hover { background-color: lighten($color-cement, 5%); }
         }
     }
+
+
 
     &__wrapper {
         position: relative;
@@ -97,6 +110,8 @@
         font-weight: 500;
         text-transform: uppercase;
     }
+
+
 
     &__data {
         @include font-size(28, 28);
@@ -113,10 +128,14 @@
         }
     }
 
+
+
     &__sector {
         @include font-size(14, 15);
         margin-bottom: 5px;
     }
+
+
 
     &__number {
         @include font-size(20, 1);
