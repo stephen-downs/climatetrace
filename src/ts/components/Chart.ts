@@ -56,16 +56,18 @@ export class Chart extends Component {
         this.ctx = this.canvas.getContext('2d');
 
         this.bind();
-        
+
+        this.resize();
+
         for (let i = 0; i < this.$tab.length; i++) {
             this.animateChart(i, true);
         }
-        // this.animateChart(0, true);
+        this.animateChart(0, true);
 
     }
 
 
-    public resize = (wdt: number, hgt: number, breakpoint?: IBreakpoint, bpChanged?: boolean): void => {
+    public resize = (): void => {
         this.canvas.width = this.$wrapper.width();
         this.canvas.height = this.$wrapper.height();
 
@@ -106,7 +108,7 @@ export class Chart extends Component {
     }
 
 
-    
+
 
     private bind(): void {
 
@@ -133,7 +135,7 @@ export class Chart extends Component {
     }
 
     private drawBg(): void {
-        
+
 
         // draw X axis
         this.ctx.beginPath();
@@ -208,7 +210,7 @@ export class Chart extends Component {
 
             this.ctx.beginPath();
             data.yPx.forEach( (y, i, a) => {
-                
+
                 if (i / a.length <= data.xPercent && data.xPercent > 0) {
                     this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
                     this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, this.canvas.height - this.margin.bottom);
@@ -238,7 +240,7 @@ export class Chart extends Component {
     /// HELPERS
     private largestYVal(data: Array<number>): number {
         let largest = 0;
-        
+
         for (let i = 0; i < data.length; i++ ) {
             if (data[i] > largest) {
                 largest = data[i];

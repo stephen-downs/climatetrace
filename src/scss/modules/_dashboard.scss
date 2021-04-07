@@ -141,5 +141,11 @@
         padding: 10px;
         width: 190px;
         @include flex(row, space-between, center);
+
+        a { transition: color 0.2s; }
+
+        a:hover {
+            color: $color-blue;
+        }
     }
 }

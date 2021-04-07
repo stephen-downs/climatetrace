@@ -1,16 +1,16 @@
-// .svg-pin {
-//     transition: transform $time-fast $easing;
-//     transform: scale(1);
-//     transform-origin: bottom center;
-//     fill: currentColor;
-// }
-
-// %svg-pin-hover {
-//     transform: scale(1.05);
-// }
 svg {
     vertical-align: middle;
 }
+
+
+.svg-csv-icon *,
+.svg-pdf-icon *,
+.svg-json-icon *,
+.svg-full-icon * {
+    fill: currentColor;
+}
+
+
 
 .svg-volume {
     width: 22px;
