@@ -20,7 +20,7 @@ export class Stats extends Component {
         this.$wrap = this.view.find('.js-tabs-wrapper');
 
         this.bind();
-        this.setActiveView(2);
+        this.setActiveView(0);
     }
 
 

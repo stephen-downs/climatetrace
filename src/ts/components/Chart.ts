@@ -60,10 +60,10 @@ export class Chart extends Component {
         this.resize();
 
         for (let i = 0; i < this.$tab.length; i++) {
-            this.animateChart(i, true);
+            this.animateChart(i, false);
         }
         this.animateChart(0, true);
-
+        this.markTab(0);
     }
 
 
@@ -126,6 +126,10 @@ export class Chart extends Component {
             this.animateChart(current.index(), true);
             current.addClass('is-on-chart');
         }
+    }
+
+    private markTab(id: number): void {
+        this.$tab.eq(id).addClass('is-on-chart');
     }
 
     private draw = (): void => {

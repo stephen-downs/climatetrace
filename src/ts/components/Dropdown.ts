@@ -1,7 +1,7 @@
 import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc  } from '../Site';
-
+import { Filters } from './Filters';
 
 export class Dropdown extends Component {
 
@@ -71,6 +71,10 @@ export class Dropdown extends Component {
         this.closeSelect();
         this.$selected.html(current);
 
-        this.view.attr('data-selected', current);
+        this.view.attr('data-selected-country', current);
+
+        setTimeout( () => {
+            Filters.showPickedFilters(current);
+        }, 300);
     }
 }

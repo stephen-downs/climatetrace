@@ -1,9 +1,9 @@
 <div class="wrapper highlights">
     {% include '../components/heading.twig' with heading %}
-    <div class="wrapper__container wrapper__container--highlights">
+    <div class="wrapper__container wrapper__container--highlights" data-animation="itemsFade" data-elements="js-tile">
         <div class="highlights__row">
             {% for item in items %}
-            <div class="highlights__col {% if item.big %}highlights__col--big{% endif %}">
+            <div class="highlights__col {% if item.big %}highlights__col--big{% endif %} js-tile">
                 <div class="tile">
                     <a href="" class="tile__url"></a>
                     <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
@@ -21,7 +21,7 @@
         </div>
         <div class="highlights__row highlights__row--bottom">
             {% for item in items_bottom %}
-            <div class="highlights__col {% if item.big %}highlights__col--big{% endif %}">
+            <div class="highlights__col {% if item.big %}highlights__col--big{% endif %} js-tile">
                 <div class="tile">
                     <a href="" class="tile__url"></a>
                     <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">

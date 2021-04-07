@@ -671,9 +671,9 @@ export class Scroll {
 
                 break;
 
-            case 'join':
+            case 'words':
                 gsap.set($el, { opacity: 1 });
-                const txt = $el.find('.js-lead');
+                const txt = $el;
                 const splittxt = new SplitText(txt, { type: 'words, chars' });
 
                 gsap.fromTo(splittxt.chars, { duration: 1, opacity: 0 }, {  opacity: 1, stagger: 0.05 });
@@ -683,12 +683,13 @@ export class Scroll {
 
             case 'itemsFade':
                 const elements = $el.find('.' + $el.data('elements') + '');
+                const staggerEl = $el.data('stagger') ? $el.data('stagger') : 0.2;
 
                 gsap.set($el, { opacity: 1 });
                 gsap.set(elements, { opacity: 0 });
 
 
-                gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: 0.2, delay: 0.2});
+                gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: 0.2});
 
                 break;
 

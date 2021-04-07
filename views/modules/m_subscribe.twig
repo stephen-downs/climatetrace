@@ -1,8 +1,8 @@
-<div class="subscribe">
-    <img src="media/subscribe_bg.png" class="subscribe__bg" alt="">
+<div class="subscribe" data-component="Parallax" data-options='{"elements": ["js-bg"], "moveX": ["40"], "moveY": ["40"]}'>
+    <img src="media/subscribe_bg.png" class="subscribe__bg js-bg" alt="">
     <div class="wrapper wrapper--subscribe">
-        <h2 class="subscribe__h2">Climate <em>trace</em> Newsletter</h2>
-        <p class="subscribe__text">Stay up-to-date on our efforts to track greenhouse gas (GHG) emissions with unprecedented detail and speed.</p>
+        <h2 class="subscribe__h2" data-animation="words"><span>Climate <em>trace</em> Newsletter</span></h2>
+        <p class="subscribe__text" data-animation="fadeUp" data-delay="0.2">Stay up-to-date on our efforts to track greenhouse gas (GHG) emissions with unprecedented detail and speed.</p>
         <form action="/api/newsletter_add" data-api='{"beforeCall": "validate", "callback": "onSubscribe"}' novalidate="novalidate" class="subscribe__form">
             <div class="subscribe__row">
                 <input class="subscribe__input" aria-label="e-mail" type="email" name="email" placeholder="Your email address" required />

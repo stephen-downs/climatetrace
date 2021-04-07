@@ -2,49 +2,49 @@
     {% include '../components/heading.twig' with heading %}
     <div class="wrapper__container about">
         <div class="about__row about__row--vision">
-            <h3 class="about__h3">Our <strong>vision</strong></h3>
-            <div class="about__text about__text--big">
+            <h3 class="about__h3" data-animation="fadeRight">Our <strong>vision</strong></h3>
+            <div class="about__text about__text--big" data-animation="fadeUp" data-delay="0.2">
                 We make meaningful <em>climate action</em> faster and easier by mobilizing the global tech community to <em>track greenhouse gas (GHG) emissions</em> with unprecedented detail and speed.
             </div>
         </div>
         <div class="about__row about__row--members">
-            <h3 class="about__h3">Our <strong>members</strong></h3>
-            <div class="logos">
-                <div class="logo logo--wt">
+            <h3 class="about__h3" data-animation="fadeRight">Our <strong>members</strong></h3>
+            <div class="logos" data-animation="itemsFade" data-elements="js-logo" data-stagger="0.1">
+                <div class="logo logo--wt js-logo">
                     <img src="media/01_wt.png" alt="">
                 </div>
-                <div class="logo logo--ea">
+                <div class="logo logo--ea js-logo">
                     <img src="media/02_EAlliance.png" alt="">
                 </div>
-                <div class="logo logo--bsa">
+                <div class="logo logo--bsa js-logo">
                     <img src="media/03_BSAlogo.png" alt="">
                 </div>
-                <div class="logo logo--rmi">
+                <div class="logo logo--rmi js-logo">
                     <img src="media/04_RMI_LOGO.png" alt="">
                 </div>
-                <div class="logo logo--ag">
+                <div class="logo logo--ag js-logo">
                     <img src="media/05_AG_2.png" alt="">
                 </div>
-                <div class="logo logo--hc">
+                <div class="logo logo--hc js-logo">
                     <img src="media/06_HC_WORDMARK_WHITE.png" alt="">
                 </div>
-                <div class="logo logo--hio">
+                <div class="logo logo--hio js-logo">
                     <img src="media/07_Hypervine.png" alt="">
                 </div>
-                <div class="logo logo--cp">
+                <div class="logo logo--cp js-logo">
                     <img src="media/08_carbonplan.png" alt="">
                 </div>
-                <div class="logo logo--eaca">
+                <div class="logo logo--eaca js-logo">
                     <img src="media/09_ECAA-logo.png" alt="">
                 </div>
-                <div class="logo logo--om">
+                <div class="logo logo--om js-logo">
                     <img src="media/10_oceanmind.png" alt="">
                 </div>
             </div>
         </div>
         <div class="about__row about__row--methodology">
-            <h3 class="about__h3"><strong>methodology</strong></h3>
-            <p class="about__text">
+            <h3 class="about__h3" data-animation="fadeRight"><strong>methodology</strong></h3>
+            <p class="about__text" data-animation="fadeUp" data-delay="0.2">
                 Climate Trace aims to achieve daily emissions for every square km of Earth’s surface. As a coalition, we gather satellite, ground truth and alternative data sources to maintain verified, high-coverage measurements of atmospheric carbon.
                 <a href="" class="about__button">
                     <span>Read More</span>
@@ -56,9 +56,9 @@
             </p>
         </div>
         <div class="about__row about__row--partners">
-            <h3 class="about__h3">Reports from <strong>our partners</strong></h3>
-            <div class="about__partners">
-                <div class="about__col">
+            <h3 class="about__h3" data-animation="fadeRight">Reports from <strong>our partners</strong></h3>
+            <div class="about__partners" data-animation="itemsFade" data-elements="js-col">
+                <div class="about__col js-col">
                     <div class="tile tile--about">
                         <a href="#" class="tile__url"></a>
                         <div class="tile__wrapper--about">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="about__col">
+                <div class="about__col js-col">
                     <div class="tile tile--about">
                         <a href="#" class="tile__url"></a>
                         <div class="tile__wrapper--about">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="about__col">
+                <div class="about__col js-col">
                     <div class="tile tile--about">
                         <a href="#" class="tile__url"></a>
                         <div class="tile__wrapper--about">
