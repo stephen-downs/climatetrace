@@ -133,7 +133,7 @@
         padding: 7px 13px;
         border-radius: 20px;
         border: 2px solid rgba($color-white, 0.5);
-        transition: background $time $easing;
+        transition: background 0.3s $easing;
         background-color: $color-mine-shaft;
         z-index: 1;
         text-transform: uppercase;

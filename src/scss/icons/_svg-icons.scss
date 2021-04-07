@@ -3,11 +3,16 @@ svg {
 }
 
 
+.svg-ct-logo g[fill="#000"] *,
 .svg-csv-icon *,
 .svg-pdf-icon *,
 .svg-json-icon *,
 .svg-full-icon * {
     fill: currentColor;
+}
+
+.svg-ct-logo g[stroke="#000"] * {
+    stroke: currentColor;
 }
 
 

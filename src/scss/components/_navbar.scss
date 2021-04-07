@@ -65,6 +65,8 @@
     //     }
     // }
 
+
+
     &__wrapper {
         position: relative;
         // max-width: get-grid-width(12, 1);
@@ -85,6 +87,8 @@
         }
     }
 
+
+
     &__utils {
         position: relative;
         z-index: 2;
@@ -96,6 +100,7 @@
         }
     }
 
+    .svg-ct-logo,
     &__logo {
         height: 100%;
         max-width: 100%;
@@ -106,6 +111,12 @@
             transform: scale(0.7);
         }
     }
+
+    .svg-ct-logo {
+        width: round($nav-height * 1098 / 537);
+    }
+
+
 
     &__item {
         height: 100%;
