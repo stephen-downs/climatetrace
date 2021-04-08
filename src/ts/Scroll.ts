@@ -727,9 +727,11 @@ export class Scroll {
 
             case 'itemsFade':
                 const elements = $el.find('.' + $el.data('elements') + '');
+                const elementsIn = $el.data('elements-in') ? $el.find('.' + $el.data('elements-in') + '') : null;
                 const staggerEl = $el.data('stagger') ? $el.data('stagger') : 0.2;
                 const del = delay ? delay : 0.2;
                 const shiftYAxis = $el.data('y') ? true : false;
+                const elScale =  $el.data('scale') ? true : false;
 
                 gsap.set($el, { opacity: 1 });
                 gsap.set(elements, { opacity: 0 });
@@ -738,13 +740,25 @@ export class Scroll {
                     for ( let i = 0; i <  elements.length; i++) {
                         elements[i].classList.add('uncached');
                     }
+
+                    if (elementsIn) {
+                        for ( let i = 0; i <  elementsIn.length; i++) {
+                            elementsIn[i].classList.add('uncached');
+                        }
+                    }
                 }
 
-                if (shiftYAxis) {
-                    gsap.fromTo(elements, { duration: 1, opacity: 0, y: 10}, { y: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                if (elScale) {
+                    gsap.fromTo(elements, 0.8, { duration: 1, opacity: 0, scale: 0.9}, { scale: 1, opacity: 1, stagger: staggerEl, delay: delay });
+                    gsap.fromTo(elementsIn, 0.8, { duration: 1, opacity: 0}, { opacity: 1, stagger: staggerEl, delay: delay + 0.4 });
                 } else {
-                    gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                    if (shiftYAxis) {
+                        gsap.fromTo(elements, { duration: 1, opacity: 0, y: 10}, { y: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                    } else {
+                        gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                    }
                 }
+
 
                 break;
 
