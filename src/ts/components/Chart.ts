@@ -65,7 +65,6 @@ export class Chart extends Component {
 
         const paramsCharts = Utils.getParams(window.location.search).charts;
         this.currentCharts = paramsCharts ? paramsCharts.split(',').map((i) => parseInt(i, 10)) : [0, 3, 4];
-        console.log(this.currentCharts);
 
         this.createDataObject();
 
@@ -175,7 +174,6 @@ export class Chart extends Component {
     private onClickTab = (e): void => {
         this.toggleChart($(e.currentTarget).index());
         this.currentCharts = this.graphsData.map((data, i) => data.shown ? i : null).filter((index) => index !== null);
-        console.log(this.currentCharts);
     }
 
 
