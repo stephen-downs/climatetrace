@@ -509,12 +509,20 @@ export class Scroll {
                 gsap.killTweensOf($el, { opacity: true });
                 gsap.fromTo($el, { opacity: 0 },
                     { duration: time, opacity: 1, ease: 'sine', delay: delay });
+
+                if ($el.data('uncache') === '') {
+                    $el.addClass('uncached');
+                }
                 break;
 
             case 'fadeUp':
                 gsap.killTweensOf($el, { opacity: true, y: true });
                 gsap.fromTo($el, { opacity: 0, y: 40 },
                     { duration: time, opacity: 1, y: 0, ease: 'sine', delay: delay });
+
+                if ($el.data('uncache') === '') {
+                    $el.addClass('uncached');
+                }
                 break;
 
             case 'fadeDown':
@@ -694,7 +702,12 @@ export class Scroll {
                 const splittxt = new SplitText(txt, { type: 'words, chars' });
 
                 gsap.fromTo(splittxt.chars, { duration: 1, opacity: 0 }, {  opacity: 1, stagger: 0.05 });
-
+                
+                if ($el.data('uncache') === '') {
+                    for ( let i = 0; i <  splittxt.chars.length; i++) {
+                        splittxt.chars[i].classList.add('uncached');
+                    }
+                }
 
                 break;
 
@@ -716,12 +729,22 @@ export class Scroll {
                 const elements = $el.find('.' + $el.data('elements') + '');
                 const staggerEl = $el.data('stagger') ? $el.data('stagger') : 0.2;
                 const del = delay ? delay : 0.2;
+                const shiftYAxis = $el.data('y') ? true : false;
 
                 gsap.set($el, { opacity: 1 });
                 gsap.set(elements, { opacity: 0 });
 
+                if ($el.data('uncache') === '') {
+                    for ( let i = 0; i <  elements.length; i++) {
+                        elements[i].classList.add('uncached');
+                    }
+                }
 
-                gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                if (shiftYAxis) {
+                    gsap.fromTo(elements, { duration: 1, opacity: 0, y: -10}, { y: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                } else {
+                    gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                }
 
                 break;
 

@@ -554,7 +554,7 @@
                     </div>
                     <div class="stats__content">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
                                 Quality
                                 <span class="stats__subhead">Data quality score based on:</span>
                             </h3>
@@ -563,8 +563,8 @@
                             </div>
                         </div>
                         <div class="quality">
-                            <div class="quality__wrapper quality__wrapper--flex">
-                                <div class="quality__area">
+                            <div class="quality__wrapper quality__wrapper--flex" data-animation="itemsFade" data-uncache data-delay="0" data-elements="js-area">
+                                <div class="quality__area js-area">
                                     <div class="evaluation" data-quality="2">
                                         <span></span>
                                         <span></span>
@@ -573,7 +573,7 @@
                                     <h3 class="quality__h3">Completeness</h3>
                                     <p class="quality__info">74% coverage from source X, Y</p>
                                 </div>
-                                <div class="quality__area">
+                                <div class="quality__area js-area">
                                     <div class="evaluation" data-quality="3">
                                         <span></span>
                                         <span></span>
@@ -583,7 +583,7 @@
                                     <p class="quality__info">All sources are verified</p>
                                     <img src="media/dotted-line.png" alt="" class="dotted-line">
                                 </div>
-                                <div class="quality__area">
+                                <div class="quality__area js-area">
                                     <div class="evaluation" data-quality="3">
                                         <span></span>
                                         <span></span>
@@ -598,20 +598,19 @@
                     </div>
                     <div class="stats__content stats__content--space">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
                                 Methodology
                                 <span class="stats__subhead">Duis aute irure dolor in reprehenderit in voluptate velit<br> esse cillum dolore eu fugiat nulla pariatur.</span>
                             </h3>
                             <div class="stats__calendar">
                                 <span>About data quality</span>
-                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
                             </div>
                         </div>
                         <div class="quality">
                             <div class="quality__wrapper">
                                 <div class="table">
 
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                             <span class="table__th">subsector</span>
                                         </div>
@@ -628,7 +627,7 @@
                                             <span class="table__th">data frequency</span>
                                         </div>
                                     </div>
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                            <p class="table__p"><strong>CAFOs</strong> Concentrated animal feeding operation</p>
                                         </div>
@@ -649,7 +648,7 @@
                                            <p class="table__p">Updated every 3 weeks</p>
                                         </div>
                                     </div>
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                            <p class="table__p"><strong>Manure Management</strong></p>
                                         </div>
@@ -669,7 +668,7 @@
                                            <p class="table__p">Updated every 3 weeks</p>
                                         </div>
                                     </div>
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                            <p class="table__p"><strong>Rice Cultivation</strong></p>
                                         </div>
@@ -695,18 +694,17 @@
                     </div>
                     <div class="stats__content stats__content--space">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
                                 Coverage
                                 <span class="stats__subhead">If you have an emissions dataset that would benefit our coverage and quality of work at Climate TRACE, check out the library of data below and contact us with your contribution</span>
                             </h3>
                             <div class="stats__calendar">
                                 <span>About data quality</span>
-                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
                             </div>
                         </div>
                         <div class="quality">
-                            <div class="quality__wrapper coverage">
-                                <div class="coverage__tile">
+                            <div class="quality__wrapper coverage" data-animation="itemsFade" data-elements="js-tile" data-uncache data-delay="0">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">12%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -719,7 +717,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">12%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -732,7 +730,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">98%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -745,7 +743,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">98%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -758,7 +756,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">98%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
