@@ -45,9 +45,9 @@ export class Stats extends Component {
         this.$tab.removeClass('is-active');
         this.$tab.filter('[data-tab=' + index + ']').addClass('is-active');
         this.hideCurrent().then(() => {
+            this.cleanCachedAnim();
             this.show(this.tabToShow);
             this.tabToShow = null;
-            this.cleanCachedAnim();
             $window.resize();
 
         });
@@ -75,7 +75,12 @@ export class Stats extends Component {
         const uncaches = this.view.find('.uncached');
         uncaches.removeAttr('style');
         anim.removeClass('animated');
-
+        this.view.find('[data-component]').each((i, el) => {
+            const comp = $(el).data('comp') as Component;
+            if (comp && typeof comp['disable'] !== 'undefined') {
+                comp['disable']();
+            }
+        });
     }
 
     private show(index: number): Promise<void> {
@@ -89,6 +94,14 @@ export class Stats extends Component {
                 duration: 0.7,
                 ease: 'sine',
                 onComplete: () => resolve(),
+            });
+
+
+            this.$current.find('[data-component]').each((i, el) => {
+                const comp = $(el).data('comp') as Component;
+                if (comp && typeof comp['enable'] !== 'undefined') {
+                    comp['enable']();
+                }
             });
         })
     }

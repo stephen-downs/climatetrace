@@ -49,6 +49,8 @@ export class Chart extends Component {
 
     private graphsData: Array<IChartSettings> = [];
 
+    private bgLines: Array<{scaleX: number}>;
+
 
 
     constructor(protected view: JQuery, protected options?) {
@@ -59,18 +61,14 @@ export class Chart extends Component {
         this.canvas = <HTMLCanvasElement>this.view.find('canvas')[0];
         this.ctx = this.canvas.getContext('2d');
 
+        this.bgLines = Array.apply(0, { length: 9 }).map(() => { return { scaleX: 0 }; });
+        console.log(this.bgLines);
+
         this.createDataObject();
 
         this.bind();
 
         this.resize();
-
-        const paramsCharts = Utils.getParams(window.location.search).charts;
-        const initCharts = paramsCharts ? paramsCharts.split(',').map((i) => parseInt(i, 10)) : [0, 3, 4];
-
-        for (let i = 0; i < this.$tab.length; i++) {
-            this.toggleChart(i, initCharts.indexOf(i) >= 0);
-        }
     }
 
 
@@ -91,6 +89,26 @@ export class Chart extends Component {
         this.saveCache();
         this.draw();
     };
+
+
+
+    public enable(): void {
+        const paramsCharts = Utils.getParams(window.location.search).charts;
+        const initCharts = paramsCharts ? paramsCharts.split(',').map((i) => parseInt(i, 10)) : [0, 3, 4];
+        this.showBg();
+        for (let i = 0; i < this.$tab.length; i++) {
+            this.toggleChart(i, initCharts.indexOf(i) >= 0);
+        }
+    }
+
+
+
+    public disable(): void {
+        this.hideBg(true);
+        for (let i = 0; i < this.$tab.length; i++) {
+            this.toggleChart(i, false, true);
+        }
+    }
 
 
 
@@ -156,14 +174,38 @@ export class Chart extends Component {
 
 
 
-    private toggleChart(index: number, show?: boolean): void {
+    private showBg(): void {
+        gsap.killTweensOf(this, { bg: true });
+        gsap.to(this.bgLines, {
+            scaleX: 1,
+            duration: 2,
+            ease: 'power3',
+            stagger: -0.1,
+        });
+    }
+
+
+
+    private hideBg(quick?: boolean): void {
+        gsap.killTweensOf(this, { bg: true });
+        gsap.to(this.bgLines, {
+            scaleX: 0,
+            duration: !quick ? 2 : 0,
+            ease: 'power3',
+            stagger: !quick ? -0.1 : 0,
+        });
+    }
+
+
+
+    private toggleChart(index: number, show?: boolean, quick?: boolean): void {
         const data = this.graphsData[index];
         if (typeof show === 'undefined') {
             show = !data.shown;
         }
 
         gsap.to(data, {
-            duration: 3.2,
+            duration: !quick ? 3.2 : 0,
             xPercent: show ? 1 : 0,
             labelY: data.yPx[show ? data.yPx.length - 1 : 0],
             roundProps: 'labelY',
@@ -196,11 +238,10 @@ export class Chart extends Component {
         this.ctx.lineTo(this.canvas.width - this.margin.right, this.canvas.height - this.margin.bottom);
         this.ctx.stroke();
 
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = this.colors.gray;
-        this.ctx.moveTo(this.margin.left, this.margin.top);
-        this.ctx.lineTo(this.canvas.width - this.margin.right, this.margin.top);
-        this.ctx.stroke();
+        // this.ctx.beginPath();
+        // this.ctx.moveTo(this.margin.left, this.margin.top);
+        // this.ctx.lineTo(this.canvas.width - this.margin.right, this.margin.top);
+        // this.ctx.stroke();
 
         const helpersLine = 8;
         const textTransform = 5;
@@ -208,16 +249,20 @@ export class Chart extends Component {
         let val;
         const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021];
 
+        this.ctx.strokeStyle = this.colors.gray;
+        this.ctx.lineJoin = 'round';
+        this.ctx.font = '500 12px Quicksand, sans-serif';
+        this.ctx.lineWidth = 1;
+        this.ctx.fillStyle = this.colors.blue;
+
         for (let i = 0; i <= helpersLine; i++) {
             val = 50 - step * i;
-            this.ctx.beginPath();
-            this.ctx.lineJoin = 'round';
-            this.ctx.font = '500 12px Quicksand, sans-serif';
-            this.ctx.lineWidth = 1;
-            this.ctx.fillStyle = this.colors.blue;
+            this.ctx.globalAlpha = this.bgLines[i].scaleX;
             this.ctx.fillText('' + val + '', 0, (this.graph.height) / helpersLine * i + this.margin.top + textTransform);
-            this.ctx.moveTo(this.margin.left, (this.graph.height) / helpersLine * i + this.margin.top);
-            this.ctx.lineTo(this.canvas.width - this.margin.right, (this.graph.height) / helpersLine * i + this.margin.top);
+            this.ctx.globalAlpha = 1;
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.graph.left, (this.graph.height) / helpersLine * i + this.margin.top);
+            this.ctx.lineTo(this.graph.left + this.graph.width * this.bgLines[i].scaleX, (this.graph.height) / helpersLine * i + this.margin.top);
             this.ctx.stroke();
         }
 
@@ -312,7 +357,6 @@ export class Chart extends Component {
             this.ctx.fill();
 
             // text:
-            // console.log(lastVal);
             this.ctx.beginPath();
             this.ctx.lineWidth = 1;
             this.ctx.lineJoin = 'round';

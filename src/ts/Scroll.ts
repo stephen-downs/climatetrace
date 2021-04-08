@@ -104,7 +104,7 @@ export class Scroll {
     private sections: JQuery;
     private changingPath: boolean;
 
-    
+
     /**
      * scrolls page to certain element (top edge) with some speed
      * @param  {JQuery}        $el    [target elment]
@@ -140,7 +140,7 @@ export class Scroll {
     public static resetScrollCache(pathname): void {
         Scroll.instance.cache[pathname] = 0;
     }
-    
+
     public static disable(): void {
         this.disabled = true;
     }
@@ -152,7 +152,7 @@ export class Scroll {
     }
 
 
-    
+
     constructor() {
 
         this.ignoreCache = !!browser.safari;
@@ -267,7 +267,7 @@ export class Scroll {
         // if (this.sections) {
 
         //     for (let i = 0; i < this.sections.length; ++i) {
-    
+
         //         const $el: JQuery = this.sections.eq(i);
         //         const role = $el.data('scroll');
         //         const top = $el.offset().top;
@@ -289,13 +289,13 @@ export class Scroll {
         //             shown: $el.data('shown') || false,
         //             delay: delay,
         //         };
-    
+
         //         sections.push(data);
         //         $el.data('cache', i);
         //     }
         // }
 
-        
+
         $('[data-animation]').each((i: number, el: Element) => {
             const $el = $(el);
             animations.push({
@@ -307,11 +307,11 @@ export class Scroll {
                 type: $el.data('animation'),
                 delay: $el.data('delay') || null,
                 uncache: $el.data('uncache'),
-                
+                component: $el.data('comp'),
             });
         });
-        
-        
+
+
 
         const parallaxes: Array<IParallaxCacheItem> = [];
         $('[data-parallax]').each((i: number, el: Element) => {
@@ -401,8 +401,13 @@ export class Scroll {
                     item.$el.addClass('animated');
                     item.done = true;
                     const quick: boolean = yTop >= itemY + itemHeight;
-                    this.animate(item, item.$el, item.type, item.delay, quick);
+                    if (item.component && item.type === 'toggle' && typeof item.component['enable'] === 'function') {
+                        item.component['enable']();
+                    } else {
+                        this.animate(item, item.$el, item.type, item.delay, quick);
+                    }
                 } else if (!!item.done && item.component && item.type === 'toggle' && (itemY > yBottom || itemY + itemHeight < yTop)) {
+                    console.log(item);
                     if (typeof item.component['disable'] === 'function') {
                         item.component['disable']();
                     }
@@ -424,7 +429,7 @@ export class Scroll {
             }
         }
 
-        
+
 
         //bgs
         if (this.cache.backgrounds) {
@@ -436,7 +441,7 @@ export class Scroll {
 
 
             this.cache.backgrounds.forEach((item: IBackgroundCacheItem, index) => {
-                
+
 
                 const itemY: number = !this.ignoreCache ? item.y : item.$el.offset().top;
                 const itemHeight: number = !this.ignoreCache ? item.height : item.$el.outerHeight();
@@ -645,7 +650,7 @@ export class Scroll {
 
                 gsap.set([map, heroEl, heroNav], { opacity: 0});
 
-                gsap.fromTo(map, 1.5, {duration: 1.5, opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, 
+                gsap.fromTo(map, 1.5, {duration: 1.5, opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1,
                     onComplete: () => {
                         map.addClass('is-active');
                         map.removeAttr('style');
@@ -702,7 +707,7 @@ export class Scroll {
                 const splittxt = new SplitText(txt, { type: 'words, chars' });
 
                 gsap.fromTo(splittxt.chars, { duration: 1, opacity: 0 }, {  opacity: 1, stagger: 0.05 });
-                
+
                 if ($el.data('uncache') === '') {
                     for ( let i = 0; i <  splittxt.chars.length; i++) {
                         splittxt.chars[i].classList.add('uncached');
@@ -711,7 +716,7 @@ export class Scroll {
 
                 break;
 
-        
+
             case 'upDown':
                 gsap.set($el, { opacity: 1 });
 
@@ -778,7 +783,7 @@ export class Scroll {
             case 'heading':
                 const hTitle = $el.find('.js-title'),
                     hr = $el.find('.js-heading-hr');
-                
+
                 const splitTitle = new SplitText(hTitle, { type: 'words, chars' });
 
                 gsap.set($el, { opacity: 1});
@@ -807,7 +812,7 @@ export class Scroll {
                 $('html').addClass('is-animated');
 
                 break;
-        
+
             case 'header':
                 gsap.set($el, { opacity: 1});
 
@@ -911,15 +916,15 @@ export class Scroll {
 
                     break;
 
-                
+
                 case 'fixedImage':
                     // console.log(y, "y", sT, pyBottom, windowHeight,windowHeight);
                     if (y >= pyTop && y <= pyBottom) {
-                        
+
                         if (!$el.hasClass('has-parallax')) {
                             $el.addClass('has-parallax');
                         }
-                        
+
 
                     } else {
                         $el.removeClass('has-parallax');
@@ -935,7 +940,7 @@ export class Scroll {
                     }
 
                     break;
-            
+
 
                 case 'relativeParallax':
                     const availableSpace = item.childHeight - item.height; // reserve space

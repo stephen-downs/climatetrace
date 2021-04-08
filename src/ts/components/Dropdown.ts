@@ -5,7 +5,7 @@ import { Filters } from './Filters';
 
 export class Dropdown extends Component {
 
-    
+
     private $trigger: JQuery;
     private isOpen: boolean = false;
     private $selected: JQuery;
@@ -31,7 +31,6 @@ export class Dropdown extends Component {
 
 
     private toggle = (e) => {
-        console.log('toggle dp');
         this.isOpen ? this.closeSelect() : this.openSelect(e);
     }
 
@@ -46,7 +45,6 @@ export class Dropdown extends Component {
     }
 
     private closeSelect(): void {
-        console.log(this.isOpen, 'open?');
         if (this.isOpen) {
             this.view.removeClass('is-open');
             this.isOpen = false;
@@ -56,7 +54,6 @@ export class Dropdown extends Component {
     private onClickAnywhereHandler = (e): void => {
         e.stopPropagation();
         e.preventDefault();
-        console.log(this.isOpen, '?????');
         if ($(e.currentTarget).hasClass('js-item') && !this.isOpen) { return; }
         if ($(e.target).closest(this.view).length <= 0) {
             this.closeSelect();

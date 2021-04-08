@@ -11,6 +11,10 @@ $tab-colors: (
 
 
 .chart {
+    opacity: 1 !important;
+
+
+
     &__tabs {
         @include flex(row, space-between, center);
     }
@@ -25,12 +29,12 @@ $tab-colors: (
         border-radius: 5px;
         padding: 10px;
         cursor: pointer;
-        transition: transform 0.4s $easing 0.05s;
+        // transition: transform 0.4s $easing 0.05s;
 
         &::after {
-            @include pseudo(100%, calc(100% - 10px), 0, 0, rgba($color-black, 0.3), 1);
+            @include pseudo(100%, calc(100% - 10px), 0, 0, rgba($color-black, 0.4), 1);
             border-radius: 5px 5px 0 0;
-            transition: transform 0.3s $easing;
+            transition: transform 0.3s $easing, opacity 0.3s;
             transform-origin: top center;
         }
 
@@ -39,13 +43,14 @@ $tab-colors: (
             bottom: -14px;
             border-left: 12px solid transparent;
             border-right: 12px solid transparent;
-            transition: transform $time-fast $easing, opacity $time-fast $easing;
+            transition: transform 0.3s $easing;
             transform: translateY(-14px);
             backface-visibility: hidden;
         }
 
-        &.is-on-chart::before {
-            transform: translateY(0);
+        &.is-on-chart {
+            &::before { transform: translateY(0); }
+            &::after { opacity: 0.5; }
         }
 
         @each $key, $val in $tab-colors {
@@ -57,9 +62,13 @@ $tab-colors: (
 
         @include hover {
             &::after { transform: scaleY(0.94); }
-            transform: translateY(-4px);
+
+            .chart__info,
             .chart__number,
-            .chart__sector { opacity: 1; }
+            .chart__sector {
+                opacity: 1;
+                transform: translateY(4px);
+            }
         }
     }
 
@@ -80,7 +89,7 @@ $tab-colors: (
         position: relative;
         opacity: 0.5;
         z-index: 2;
-        transition: transform $time-fast $easing, opacity $time-fast $easing;
+        transition: transform 0.5s $easing, opacity 0.5s $easing;
         backface-visibility: hidden;
 
         .is-on-chart & {
@@ -97,7 +106,7 @@ $tab-colors: (
         position: relative;
         opacity: 0.5;
         z-index: 2;
-        transition: transform $time-fast $easing, opacity $time-fast $easing;
+        transition: transform 0.5s $easing, opacity 0.5s $easing;
         backface-visibility: hidden;
 
         .is-on-chart & {
@@ -109,11 +118,12 @@ $tab-colors: (
 
     &__info {
         @include font-size(10, 15);
+        display: block;
         font-weight: 500;
         opacity: 0.5;
         z-index: 2;
         backface-visibility: hidden;
-        transition: transform $time-fast $easing, opacity $time-fast $easing;
+        transition: transform 0.5s $easing, opacity 0.5s $easing;
 
         .is-on-chart & {
             opacity: 1;
