@@ -9,8 +9,7 @@ interface IChartSettings {
     yPx: Array<number>;
     fill?: boolean;
     shown?: boolean;
-    lastY?: number;
-    animating?: boolean;
+    labelY?: number;
 }
 
 export class Chart extends Component {
@@ -137,6 +136,9 @@ export class Chart extends Component {
     private saveCache(): void {
         this.graphsData.forEach((data) => {
             data.yPx = this.calcYPx(data.yPoints);
+            if (!data.labelY) {
+                data.labelY = data.yPx[0];
+            }
         });
     }
 
@@ -155,24 +157,19 @@ export class Chart extends Component {
 
 
     private toggleChart(index: number, show?: boolean): void {
+        const data = this.graphsData[index];
         if (typeof show === 'undefined') {
-            show = !this.graphsData[index].shown;
+            show = !data.shown;
         }
 
-        this.graphsData[index].animating = true;
-
-        gsap.timeline({
-            onUpdate: this.draw,
-        })
-        .to(this.graphsData[index], {
+        gsap.to(data, {
             duration: 3.2,
             xPercent: show ? 1 : 0,
+            labelY: data.yPx[show ? data.yPx.length - 1 : 0],
+            roundProps: 'labelY',
             ease: 'power3.inOut',
-            onComplete: () => {
-                this.graphsData[index].animating = false;
-            },
-        })
-        .addPause('+=0.6');
+            onUpdate: this.draw,
+        });
 
         this.$tab.eq(index).toggleClass('is-on-chart', show);
         this.graphsData[index].shown = show;
@@ -266,11 +263,6 @@ export class Chart extends Component {
         this.ctx.stroke();
         this.ctx.closePath();
 
-        // animate labelY
-        if (!!data.animating) {
-            gsap.to(data, { lastY: lastY, duration: 0.6, ease: 'sine'});
-        }
-
         // fill:
         if (data.fill) {
             let lastX = this.margin.left;
@@ -303,19 +295,19 @@ export class Chart extends Component {
             this.ctx.beginPath();
             this.ctx.lineWidth = 1;
             this.ctx.strokeStyle = data.color;
-            this.ctx.moveTo(this.graph.right, data.lastY);
-            this.ctx.lineTo(this.graph.right + 24, data.lastY);
+            this.ctx.moveTo(this.graph.right, data.labelY);
+            this.ctx.lineTo(this.graph.right + 24, data.labelY);
             this.ctx.stroke();
 
             // pentagon:
             this.ctx.beginPath();
             this.ctx.strokeStyle = 'transparent';
             this.ctx.fillStyle = data.color;
-            this.ctx.moveTo(this.graph.right + 20, data.lastY);
-            this.ctx.lineTo(this.graph.right + 40, data.lastY - 12);
-            this.ctx.lineTo(this.graph.right + 110, data.lastY - 12);
-            this.ctx.lineTo(this.graph.right + 110, data.lastY + 12);
-            this.ctx.lineTo(this.graph.right + 40, data.lastY + 12);
+            this.ctx.moveTo(this.graph.right + 20, data.labelY);
+            this.ctx.lineTo(this.graph.right + 40, data.labelY - 12);
+            this.ctx.lineTo(this.graph.right + 110, data.labelY - 12);
+            this.ctx.lineTo(this.graph.right + 110, data.labelY + 12);
+            this.ctx.lineTo(this.graph.right + 40, data.labelY + 12);
             this.ctx.closePath();
             this.ctx.fill();
 
@@ -326,7 +318,7 @@ export class Chart extends Component {
             this.ctx.lineJoin = 'round';
             this.ctx.font = '500 14px Quicksand, sans-serif';
             this.ctx.fillStyle = this.colors.white;
-            this.ctx.fillText(lastVal + '', this.graph.right + 44, data.lastY + 4 );
+            this.ctx.fillText(lastVal + '', this.graph.right + 44, data.labelY + 4 );
             this.ctx.stroke();
         }
     }
