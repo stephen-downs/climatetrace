@@ -12,6 +12,7 @@
 				},
 				{
 					"type": "highlights",
+					"id": "highlights",
 					"grid": true,
 					"heading": {
 						"title": "highlights"

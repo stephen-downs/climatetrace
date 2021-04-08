@@ -2,9 +2,8 @@
 {% block content %}{% spaceless %}
     {% include './scaffold/aside.twig' with aside %}
     <div class="navbar" id="navbar">
-        {% include './scaffold/progress.twig' %}
         <div class="navbar__wrapper">
-            [[svg::ct-logo]]
+            <a href="/">[[svg::ct-logo]]</a>
             <div class="navbar__utils">
                 <div class="navbar__item">
                     <button class="hamburger" data-hamburger>

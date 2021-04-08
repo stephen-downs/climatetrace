@@ -12,27 +12,25 @@
           "grid": true,
           "items": [
             {
-              "map": "axes_1",
+              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2020 (TONS)",
+              "stat": "193.67 billion",
+              "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
+            },
+            {
               "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
               "stat": "173.67 billion",
               "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
             },
             {
-              "map": "",
-              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
-              "stat": "173.67 billion",
-              "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
-            },
-            {
-              "map": "",
-              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)",
-              "stat": "173.67 billion",
+              "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2018 (TONS)",
+              "stat": "123.67 billion",
               "sub": "THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM "
             }
           ]
         },
         {
           "type": "highlights",
+          "id": "highlights",
           "grid": true,
           "heading": {
             "title": "highlights"

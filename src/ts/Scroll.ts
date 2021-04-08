@@ -158,7 +158,7 @@ export class Scroll {
         this.ignoreCache = !!browser.safari;
 
         $(window).on('scroll', this.onScroll);
-        $('a[href^="#"]:not(".js-nav-item, [data-lightbox]")').on('click', this.onHashClickHandler);
+        // $('a[href^="#"]:not(".js-nav-item, [data-lightbox]")').on('click', this.onHashClickHandler);
         this.backgrounds = this.buildBackgrounds();
         // Scroll.isCustomScroll = $('#wpbs').data('scrollbar');
 
@@ -220,23 +220,23 @@ export class Scroll {
         $window.off('.scrolling');
     }
 
-    private onHashClickHandler = (e): void => {
-        e.preventDefault();
-        // e.stopPropagation();
+    // private onHashClickHandler = (e): void => {
+    //     e.preventDefault();
+    //     // e.stopPropagation();
 
-        if ($(e.target).attr('data-offset')) {
-            let offset = parseInt($(e.target).attr('data-offset'), 10);
+    //     if ($(e.target).attr('data-offset')) {
+    //         let offset = parseInt($(e.target).attr('data-offset'), 10);
 
-            if ( typeof $(e.target).attr('data-offset') === 'string' ) {
-                const off = $(e.target).attr('data-offset').replace('vh', '');
-                offset = $(window).height() * (parseInt(off, 10) / 100);
-            }
+    //         if ( typeof $(e.target).attr('data-offset') === 'string' ) {
+    //             const off = $(e.target).attr('data-offset').replace('vh', '');
+    //             offset = $(window).height() * (parseInt(off, 10) / 100);
+    //         }
 
-            Scroll.scrollToElement($(e.currentTarget.hash), offset);
-        } else {
-            Scroll.scrollToElement($(e.currentTarget.hash));
-        }
-    };
+    //         Scroll.scrollToElement($(e.currentTarget.hash), offset);
+    //     } else {
+    //         Scroll.scrollToElement($(e.currentTarget.hash));
+    //     }
+    // };
 
 
     private buildBackgrounds(): {[key: string]: Background } {
@@ -628,18 +628,35 @@ export class Scroll {
                 break;
 
             case 'hero':
+                gsap.set($el, { opacity: 1 });
 
-                gsap.to($el, { duration: 1, opacity: 1, pointerEvents: 'none', delay: 0.5 });
+                const map = $el.find('[data-item="0"] .js-map');
+                const heroEl = $el.find('[data-caption="0"] .js-el');
+                const heroCaption = $el.find('[data-caption="0"]');
+                const heroNav = $el.find('.js-navigation');
 
-                const heroElements = $el.find('.hero-image:not(.js-tiny)');
-                const tiny = $el.find('.js-tiny');
+                gsap.set([map, heroEl, heroNav], { opacity: 0});
 
-                gsap.from(tiny, { duration: 1.5, opacity: 0, stagger: -0.05, delay: 0.5});
-
-                gsap.from(heroElements, {
-                    duration: 1.5, x: '-50%', y: '50%', stagger: -0.05,
+                gsap.fromTo(map, 1.5, {duration: 1.5, opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, 
                     onComplete: () => {
-                        gsap.set($el, { pointerEvents: 'all' });
+                        map.addClass('is-active');
+                        map.removeAttr('style');
+                    },
+                });
+                gsap.to(heroCaption, {duration: 1, opacity: 1, delay: 0.5,
+                    onComplete: () => {
+                        heroCaption.removeAttr('style');
+                        heroCaption.addClass('is-active');
+                    },
+                });
+                gsap.fromTo(heroEl, 1, {duration: 1, opacity: 0, x: -20}, {opacity: 1, x: 0, delay: 1.25, stagger: 0.2,
+                    onComplete: () => {
+                    }
+                });
+                gsap.to(heroNav, 1, {duration: 1, opacity: 1, delay: 1.5,
+                    onComplete: () => {
+                        heroEl.removeAttr('style');
+                        $el.addClass('is-ready');
                     }
                 });
 
