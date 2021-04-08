@@ -1,5 +1,6 @@
 import { Component } from './Component';
-import { $window  } from '../Site';
+import { $window } from '../Site';
+import * as Utils from '../Utils';
 
 
 export class Stats extends Component {
@@ -20,7 +21,7 @@ export class Stats extends Component {
         this.$wrap = this.view.find('.js-tabs-wrapper');
 
         this.bind();
-        this.setActiveView(0);
+        this.setActiveView(parseInt(Utils.getParams(window.location.search).tab, 10) || 0);
     }
 
 

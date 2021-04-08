@@ -1,6 +1,5 @@
 import { Component } from './Component';
-import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
-import { $doc } from '../Site';
+import * as Utils from '../Utils';
 
 interface IChartSettings {
     id: number;
@@ -9,20 +8,23 @@ interface IChartSettings {
     color: string;
     yPx: Array<number>;
     fill?: boolean;
+    shown?: boolean;
 }
 
 export class Chart extends Component {
 
     private $tab: JQuery;
+    private $wrapper: JQuery;
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
-    private $wrapper: JQuery;
+
     private margin: any = {
         top: 5,
         left: 25,
         right: 50,
         bottom: 49
     };
+
     private graph: any = {
         top: 0,
         left: 0,
@@ -47,6 +49,8 @@ export class Chart extends Component {
     private graphsData: Array<IChartSettings> = [];
     private dataInit: boolean;
 
+
+
     constructor(protected view: JQuery, protected options?) {
         super(view);
 
@@ -59,12 +63,14 @@ export class Chart extends Component {
 
         this.resize();
 
+        const paramsCharts = Utils.getParams(window.location.search).charts;
+        const initCharts = paramsCharts ? paramsCharts.split(',').map((i) => parseInt(i, 10)) : [0, 3, 4];
+
         for (let i = 0; i < this.$tab.length; i++) {
-            this.animateChart(i, false);
+            this.toggleChart(i, initCharts.indexOf(i) >= 0);
         }
-        this.animateChart(0, true);
-        this.markTab(0);
     }
+
 
 
     public resize = (): void => {
@@ -84,12 +90,11 @@ export class Chart extends Component {
         if (!this.dataInit) {
             this.createDataObject();
         }
-
     };
 
 
-    private createDataObject(): void {
 
+    private createDataObject(): void {
         this.$tab.each( (i, el) => {
             const dataItem = <IChartSettings>{
                 id: i,
@@ -104,56 +109,63 @@ export class Chart extends Component {
         });
 
         this.dataInit = true;
-        console.log(this.graphsData);
     }
-
 
 
 
     private bind(): void {
-
         this.$tab.off('.tab').on('click.tab', this.onClickTab);
     }
 
 
+
     private onClickTab = (e): void => {
-        const current = $(e.currentTarget);
+        this.toggleChart($(e.currentTarget).index());
+    }
 
-        if (current.hasClass('is-on-chart')) {
-            this.animateChart(current.index(), false);
-            current.removeClass('is-on-chart');
-        } else {
-            this.animateChart(current.index(), true);
-            current.addClass('is-on-chart');
+
+
+    private toggleChart(index: number, show?: boolean): void {
+        if (typeof show === 'undefined') {
+            show = !this.graphsData[index].shown;
         }
+
+        gsap.to(this.graphsData[index], {
+            duration: 2,
+            xPercent: show ? 1 : 0,
+            ease: 'sine.inOut',
+            onUpdate: this.draw,
+        });
+
+        this.$tab.eq(index).toggleClass('is-on-chart', show);
+        this.graphsData[index].shown = show;
     }
 
-    private markTab(id: number): void {
-        this.$tab.eq(id).addClass('is-on-chart');
-    }
+
 
     private draw = (): void => {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBg();
-        this.graphsData.forEach( (graphData) => this.drawGraph(graphData));
+        this.graphsData.forEach((graphData) => this.drawGraph(graphData));
     }
 
-    private drawBg(): void {
 
+
+    private drawBg(): void {
 
         // draw X axis
         this.ctx.beginPath();
         this.ctx.lineWidth = 1;
 
         this.ctx.strokeStyle = this.colors.white;
-        this.ctx.moveTo( this.margin.left, this.canvas.height - this.margin.bottom );
-        this.ctx.lineTo( this.canvas.width - this.margin.right, this.canvas.height - this.margin.bottom );
+        this.ctx.moveTo(this.margin.left, this.canvas.height - this.margin.bottom);
+        this.ctx.lineTo(this.canvas.width - this.margin.right, this.canvas.height - this.margin.bottom);
         this.ctx.stroke();
 
         this.ctx.beginPath();
         this.ctx.strokeStyle = this.colors.gray;
-        this.ctx.moveTo( this.margin.left, this.margin.top );
-        this.ctx.lineTo( this.canvas.width - this.margin.right, this.margin.top );
+        this.ctx.moveTo(this.margin.left, this.margin.top);
+        this.ctx.lineTo(this.canvas.width - this.margin.right, this.margin.top);
         this.ctx.stroke();
 
         const helpersLine = 8;
@@ -169,9 +181,9 @@ export class Chart extends Component {
             this.ctx.font = '500 12px Quicksand, sans-serif';
             this.ctx.lineWidth = 1;
             this.ctx.fillStyle = this.colors.blue;
-            this.ctx.fillText('' + val + '', 0, ( this.graph.height) / helpersLine * i + this.margin.top + textTransform);
-            this.ctx.moveTo( this.margin.left, ( this.graph.height) / helpersLine * i + this.margin.top );
-            this.ctx.lineTo( this.canvas.width - this.margin.right, ( this.graph.height) / helpersLine * i + this.margin.top );
+            this.ctx.fillText('' + val + '', 0, (this.graph.height) / helpersLine * i + this.margin.top + textTransform);
+            this.ctx.moveTo(this.margin.left, (this.graph.height) / helpersLine * i + this.margin.top);
+            this.ctx.lineTo(this.canvas.width - this.margin.right, (this.graph.height) / helpersLine * i + this.margin.top);
             this.ctx.stroke();
         }
 
@@ -185,8 +197,8 @@ export class Chart extends Component {
             this.ctx.fillText('' + years[j] + '', (this.canvas.width + this.margin.right + this.margin.left) / years.length * j + this.margin.left, this.canvas.height - textTransform * 2);
             this.ctx.stroke();
         }
-
     }
+
 
 
     private drawGraph = (data: IChartSettings): void => {
@@ -197,13 +209,17 @@ export class Chart extends Component {
         this.ctx.globalAlpha = 1;
 
         this.ctx.beginPath();
-
+        const colWidth = this.graph.right / data.yPx.length;
+        const maxX = data.xPercent * (this.graph.right - this.graph.left) + this.graph.left;
         data.yPx.forEach( (y, i, a) => {
-            if (i / a.length <= data.xPercent && data.xPercent > 0) {
-                this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
-                this.ctx.stroke();
+            const x = colWidth * i + this.graph.left;
+            if (x <= maxX && data.xPercent > 0) {
+                this.ctx.lineTo(x, y);
+            } else if (x < maxX + colWidth && data.xPercent > 0) {
+                this.ctx.lineTo(maxX, this.getInterPointsY(maxX, [x - colWidth, a[i-1]], [x, y]));
             }
         });
+        this.ctx.stroke();
         this.ctx.closePath();
 
         if (data.fill) {
@@ -214,34 +230,26 @@ export class Chart extends Component {
 
             this.ctx.beginPath();
             data.yPx.forEach( (y, i, a) => {
-
-                if (i / a.length <= data.xPercent && data.xPercent > 0) {
-                    this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
-                    this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, this.canvas.height - this.margin.bottom);
-                    this.ctx.lineTo(lastX, this.canvas.height - this.margin.bottom);
-                    this.ctx.moveTo(this.graph.right / a.length * i + this.graph.left, y);
-                    // this.ctx.lineTo(this.graph.right / a.length * i + this.graph.left, y);
-                    lastX = this.graph.right / a.length * i + this.graph.left;
+                const x = colWidth * i + this.graph.left;
+                if (x <= maxX && data.xPercent > 0) {
+                    this.ctx.lineTo(x, y);
+                    lastX = x;
+                } else if (x < maxX + colWidth && data.xPercent > 0) {
+                    this.ctx.lineTo(maxX, this.getInterPointsY(maxX, [x - colWidth, a[i - 1]], [x, y]));
+                    lastX = maxX;
                 }
             });
-            // this.ctx.lineTo(lastX, this.canvas.height - this.margin.bottom);
+            this.ctx.lineTo(lastX, this.graph.bottom);
+            this.ctx.lineTo(this.graph.left, this.graph.bottom);
             this.ctx.fill();
             this.ctx.closePath();
         }
-
     }
 
 
-    private animateChart(id: number, direction: boolean): void {
-        const dir = direction ? 1 : 0;
-        gsap.to(this.graphsData[id], {
-            xPercent: dir,
-            ease: 'linear',
-            onUpdate: this.draw,
-        });
-    }
 
     /// HELPERS
+
     private largestYVal(data: Array<number>): number {
         let largest = 0;
 
@@ -253,6 +261,8 @@ export class Chart extends Component {
 
         return largest;
     }
+
+
 
     private calcYPx(data): Array<number> {
         const largest = this.largestYVal(data);
@@ -266,6 +276,8 @@ export class Chart extends Component {
         return arr;
     }
 
+
+
     private setColor(color: string): string {
         let hex;
 
@@ -276,5 +288,13 @@ export class Chart extends Component {
         }
 
         return hex;
+    }
+
+
+
+    private getInterPointsY(x: number, pointA: number[], pointB: number[]): number {
+        const [x1, y1] = pointA;
+        const [x2, y2] = pointB;
+        return (y2 - y1) * (x - x1) / (x2 - x1) + y1;
     }
 }
