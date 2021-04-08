@@ -340,9 +340,6 @@ export class PushStates extends Handler {
     private onClick = (e: JQueryEventObject): void => {
 
         e.preventDefault();
-        if ($body.hasClass('is-aside-open')) {
-            PushStates.asideToggle();
-        }
         let $self: JQuery = $(e.currentTarget as HTMLElement),
             state: string = $self.attr('href').replace('http://' + window.location.host, ''),
             type: string = $self.attr('data-history');
