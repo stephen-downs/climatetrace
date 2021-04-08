@@ -114,24 +114,20 @@ export class PushStates extends Handler {
     public static asideToggle = (e?): void => {
         let el = e ? $(e.currentTarget) : $('[data-hamburger]');
         
-        if (el.hasClass('is-open')) {
+        $body.toggleClass('is-aside-open');
+        el.toggleClass('is-open');
 
-            setTimeout( () => {
-                gsap.set($article, {'will-change': 'transform'});
-                Utils.disableBodyScrolling(Scroll.scrollTop);
-                el.removeClass('is-open');
-                $body.removeClass('is-aside-open');
-            }, 500);
+        if (el.hasClass('is-open')) {
+            gsap.set($article, {'will-change': 'transform'});
+            Utils.enableBodyScrolling(Scroll.scrollTop);
         } else {
             gsap.set($article, { clearProps: 'will-change'});
-            Utils.enableBodyScrolling(Scroll.scrollTop);
-            el.addClass('is-open');
-            $body.addClass('is-aside-open');
+            Utils.disableBodyScrolling(Scroll.scrollTop);
         }
-
         Aside.asideAnimation();
 
-        return;
+
+        // return;
     }
 
 
@@ -343,15 +339,18 @@ export class PushStates extends Handler {
         let $self: JQuery = $(e.currentTarget as HTMLElement),
             state: string = $self.attr('href').replace('http://' + window.location.host, ''),
             type: string = $self.attr('data-history');
+        
+        setTimeout( () => {
 
-        if (type === 'back') {
-            PushStates.back(state);
-        } else if (type === 'replace') {
-            Historyjs.replaceState({ randomData: Math.random() }, document.title, state);
-        } else {
-            Scroll.resetScrollCache(state);
-            Historyjs.pushState({ randomData: Math.random() }, document.title, state);
-        }
+            if (type === 'back') {
+                PushStates.back(state);
+            } else if (type === 'replace') {
+                Historyjs.replaceState({ randomData: Math.random() }, document.title, state);
+            } else {
+                Scroll.resetScrollCache(state);
+                Historyjs.pushState({ randomData: Math.random() }, document.title, state);
+            }
+        }, 1000);
     }
 
 

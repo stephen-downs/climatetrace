@@ -16,11 +16,11 @@ export class Aside extends Component {
 
         if (Aside.instance.isOpen) {
             gsap.to(Aside.instance.$item, 0.25, { duration: 0.25, stagger: -0.1, opacity: 0, x: 20, delay: 0.2})
-            gsap.to(Aside.instance.$hamburgerLine, 0.5, { duration: 0.5, scaleY: 0});
+            gsap.to(Aside.instance.$hamburgerLine, 0.3, { duration: 0.3, scaleY: 0});
             Aside.instance.isOpen = false;
         } else {
             gsap.to(Aside.instance.$item, 0.5, { duration: 0.5, stagger: 0.05, opacity: 1, x: 0, delay: 0.2})
-            gsap.to(Aside.instance.$hamburgerLine, 0.5, { duration: 0.5, scaleY: 1, delay: 0.5});
+            gsap.to(Aside.instance.$hamburgerLine, 0.3, { duration: 0.3, scaleY: 1, delay: 0.5});
             Aside.instance.isOpen = true;
         }
     }
