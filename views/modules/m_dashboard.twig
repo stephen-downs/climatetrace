@@ -96,41 +96,41 @@
         <div class="dashboard__footer js-dashboard-footer">
             <div class="dashboard__wrapper dashboard__wrapper--flex">
                 <div class="dashboard__country">
-                    <div class="dashboard__countryname">
+                    <div class="dashboard__countryname" data-animation="fadeRight">
                         <img src="media/Indonesia.jpg" alt="" class="icon-img-flag">
                         <span class="js-country-name">Indonesia</span>
                     </div>
-                    <div class="dashboard__emission js-emission">1.67 billion tonnes</div>
-                    <span class="dashboard__updatetime">Last updated <span class="js-time-update">3d</span></span>
+                    <div class="dashboard__emission js-emission" data-animation="number" data-time="1.5"><span data-num="1.67">1.67</span><span data-text> billion tonnes</span></div>
+                    <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                 </div>
                 <div class="dashboard__details">
                     <div class="dashboard__flex">
                         <div class="dashboard__percentage">
-                            <strong class="js-global-percentage">0.03%</strong>
+                            <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
                             <span>of total global emissions</span>
                         </div>
                         <div class="dashboard__rank">
                             <div class="dashboard__position">
-                                <img src="media/arrow-down-red.png" alt="" class="icon-img-position">
-                                <div class="dashboard__number js-rank-position">78</div>
+                                <img src="media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
                                 <div>global rank</div>
                             </div>
                             <div class="dashboard__change">
-                                <img src="media/arrow-up-green.png" alt="" class="icon-img-position">
-                                <div class="dashboard__number js-emission-change">21.2%</div>
+                                <img src="media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
+                                <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2<span data-text>%</span></div>
                                 <div>change</div>
                             </div>
                         </div>
                     </div>
-                    <div class="dashboard__share">
-                        <div class="dashboard__share-icon">
+                    <div class="dashboard__share" data-animation="itemsFade" data-elements="js-share-element" data-delay="2" data-stagger="0.05">
+                        <div class="dashboard__share-icon js-share-element">
                             <img src="media/share-icon.png" class="icon-img-share" alt=""><span>share dashboard</span>
                         </div>
                         <div class="dashboard__link">
-                            <a href="" data-share>[[svg::full-icon]]</a>
-                            <a href="" data-share>[[svg::csv-icon]]</a>
-                            <a href="" data-share>[[svg::pdf-icon]]</a>
-                            <a href="" data-share>[[svg::json-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::full-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::csv-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::pdf-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::json-icon]]</a>
                         </div>
                     </div>
                 </div>

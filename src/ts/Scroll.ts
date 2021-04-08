@@ -698,15 +698,30 @@ export class Scroll {
 
                 break;
 
+        
+            case 'upDown':
+                gsap.set($el, { opacity: 1 });
+
+                const yShift = $el.data('shift') === 'up' ? 10 : -10;
+
+                gsap.fromTo($el, { duration: 0.5, y: 0, opacity: 1}, {opacity: 0.2, y: yShift, repeat: 2, ease: 'none', yoyo: true, delay: delay,
+                    onComplete: () => {
+                        gsap.to($el, { duration: 0.5, y: 0, opacity: 1});
+                    }
+                });
+
+                break;
+
             case 'itemsFade':
                 const elements = $el.find('.' + $el.data('elements') + '');
                 const staggerEl = $el.data('stagger') ? $el.data('stagger') : 0.2;
+                const del = delay ? delay : 0.2;
 
                 gsap.set($el, { opacity: 1 });
                 gsap.set(elements, { opacity: 0 });
 
 
-                gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: 0.2});
+                gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
 
                 break;
 
@@ -767,6 +782,44 @@ export class Scroll {
                 gsap.fromTo([htime, shareText, socialD], { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: 0.1});
                 gsap.fromTo(hHr, { scaleX: 0}, { scaleX: 1});
 
+                break;
+
+
+            case 'number':
+                const numEl = $el.find('[data-num]');
+                const num = $el.find('[data-num]').data('num');
+                const dur = $el.data('time') ? $el.data('time') * 1000 : 2000;
+                const numText = $el.find('[data-text]').length > 0 ? $el.find('[data-text]') : null;
+                let fixed = num.toString().indexOf('.') > -1 ? num.toString().length - num.toString().indexOf('.') - 1 : null;
+
+                numEl.css({
+                    'width': numEl.width(),
+                    'display': 'inline-block'
+                });
+
+                gsap.fromTo($el, { duration: 0.5, opacity: 0}, { opacity: 1});
+                if (numText) {
+                    gsap.set(numText, { opacity: 0});
+                    gsap.to(numText, 1,{duration: 1, opacity: 1, delay: dur/1000});
+                }
+
+                numEl.prop('Counter', 0).animate({
+                    Counter: num,
+                }, {
+                    duration: dur,
+                    easing: 'swing',
+                    step: (now): void => {
+                        if (fixed && fixed > 0) {
+                            if (numEl.data('replace')) {
+                                numEl.text((now.toFixed(fixed).toString().replace('.', ',')));
+                            } else {
+                                numEl.text(now.toFixed(fixed));
+                            }
+                        } else {
+                            numEl.text(Math.ceil(now));
+                        }
+                    },
+                });
                 break;
 
             default:
