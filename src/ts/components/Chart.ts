@@ -50,7 +50,7 @@ export class Chart extends Component {
     private graphsData: Array<IChartSettings> = [];
 
     private bgLines: Array<{scaleX: number}>;
-
+    private currentCharts: number[];
 
 
     constructor(protected view: JQuery, protected options?) {
@@ -62,7 +62,10 @@ export class Chart extends Component {
         this.ctx = this.canvas.getContext('2d');
 
         this.bgLines = Array.apply(0, { length: 9 }).map(() => { return { scaleX: 0 }; });
-        console.log(this.bgLines);
+
+        const paramsCharts = Utils.getParams(window.location.search).charts;
+        this.currentCharts = paramsCharts ? paramsCharts.split(',').map((i) => parseInt(i, 10)) : [0, 3, 4];
+        console.log(this.currentCharts);
 
         this.createDataObject();
 
@@ -93,11 +96,9 @@ export class Chart extends Component {
 
 
     public enable(): void {
-        const paramsCharts = Utils.getParams(window.location.search).charts;
-        const initCharts = paramsCharts ? paramsCharts.split(',').map((i) => parseInt(i, 10)) : [0, 3, 4];
         this.showBg();
         for (let i = 0; i < this.$tab.length; i++) {
-            this.toggleChart(i, initCharts.indexOf(i) >= 0);
+            this.toggleChart(i, this.currentCharts.indexOf(i) >= 0);
         }
     }
 
@@ -170,6 +171,8 @@ export class Chart extends Component {
 
     private onClickTab = (e): void => {
         this.toggleChart($(e.currentTarget).index());
+        this.currentCharts = this.graphsData.map((data, i) => data.shown ? i : null).filter((index) => index !== null);
+        console.log(this.currentCharts);
     }
 
 
