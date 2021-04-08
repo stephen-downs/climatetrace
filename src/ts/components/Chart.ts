@@ -239,14 +239,9 @@ export class Chart extends Component {
         this.ctx.lineWidth = 1;
 
         this.ctx.strokeStyle = this.colors.white;
-        this.ctx.moveTo(this.margin.left, this.canvas.height - this.margin.bottom);
-        this.ctx.lineTo(this.canvas.width - this.margin.right, this.canvas.height - this.margin.bottom);
+        this.ctx.moveTo(this.graph.left, this.graph.bottom);
+        this.ctx.lineTo(this.graph.right + 20, this.graph.bottom);
         this.ctx.stroke();
-
-        // this.ctx.beginPath();
-        // this.ctx.moveTo(this.margin.left, this.margin.top);
-        // this.ctx.lineTo(this.canvas.width - this.margin.right, this.margin.top);
-        // this.ctx.stroke();
 
         const helpersLine = 8;
         const textTransform = 5;
@@ -267,7 +262,7 @@ export class Chart extends Component {
             this.ctx.globalAlpha = 1;
             this.ctx.beginPath();
             this.ctx.moveTo(this.graph.left, (this.graph.height) / helpersLine * i + this.margin.top);
-            this.ctx.lineTo(this.graph.left + this.graph.width * this.bgLines[i].scaleX, (this.graph.height) / helpersLine * i + this.margin.top);
+            this.ctx.lineTo(this.graph.left + (this.graph.width + 20) * this.bgLines[i].scaleX, (this.graph.height) / helpersLine * i + this.margin.top);
             this.ctx.stroke();
         }
 
