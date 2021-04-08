@@ -97,8 +97,11 @@ export class Chart extends Component {
 
     public enable(): void {
         this.showBg();
+        let visible = 0;
         for (let i = 0; i < this.$tab.length; i++) {
-            this.toggleChart(i, this.currentCharts.indexOf(i) >= 0);
+            const v = this.currentCharts.indexOf(i) >= 0;
+            this.toggleChart(i, v, false, visible * 0.3);
+            visible += !!v ? 1 : 0;
         }
     }
 
@@ -201,7 +204,7 @@ export class Chart extends Component {
 
 
 
-    private toggleChart(index: number, show?: boolean, quick?: boolean): void {
+    private toggleChart(index: number, show?: boolean, quick?: boolean, delay?: number): void {
         const data = this.graphsData[index];
         if (typeof show === 'undefined') {
             show = !data.shown;
@@ -212,7 +215,8 @@ export class Chart extends Component {
             xPercent: show ? 1 : 0,
             labelY: data.yPx[show ? data.yPx.length - 1 : 0],
             roundProps: 'labelY',
-            ease: 'power3.inOut',
+            ease: 'power3',
+            delay: !quick ? delay || 0 : 0,
             onUpdate: this.draw,
         });
 
