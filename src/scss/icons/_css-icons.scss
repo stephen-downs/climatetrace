@@ -612,13 +612,14 @@ button {
         width: 100%;
         height: 1px;
         background-color: $color-white;
+        transition: background $time-fast $easing;
 
         &::after {
             @include pseudo(5px, 5px, 50%, 3px, $color-gray, 1);
             border-radius: 50%;
             border: 1px solid $color-white;
             transform: translateY(-50%);
-            transition: transform $time-fast $easing;
+            transition: border $time-fast $easing, transform $time-fast $easing;
         }
 
         &:nth-of-type(2) {
@@ -626,6 +627,7 @@ button {
 
             &::after {
                 left: 8px;
+                transition-delay: 0.05s;
             }
         }
 
@@ -635,6 +637,7 @@ button {
 
             &::after {
                 left: 3px;
+                transition-delay: 0.1s;
             }
         }
     }
@@ -652,14 +655,18 @@ button {
 %icon-filter-hover {
     i:first-of-type,
     i:last-of-type {
+        background-color: $color-blue;
         &::after {
             transform: translate(5px, -50%);
+            border: 1px solid $color-blue;
         }
     }
 
     i:nth-of-type(2) {
+        background-color: $color-blue;
         &::after {
             transform: translate(-5px, -50%);
+            border: 1px solid $color-blue;
         }
     }
 }

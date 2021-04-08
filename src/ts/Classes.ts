@@ -22,7 +22,8 @@ export const components = {
     Masonry,
     Range,
     Chart,
-    Parallax
+    Parallax,
+    Aside
 };
 
 

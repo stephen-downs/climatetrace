@@ -69,7 +69,8 @@
         width: 100%;
         @include flex(row, center, center);
         padding: 0 10px;
-        margin-bottom: 18px;
+        margin-bottom: 8px;
+        margin-top: 10px;
     }
 
     &__calendar {
@@ -86,6 +87,19 @@
         display: block;
         margin-left: auto;
         margin-right: 0;
+        height: 30px;
+        min-width: 150px;
+        text-align: right;
+
+        span {
+            transition: color $time-fast $easing;
+        }
+
+        @include hover {
+            span {
+                color: $color-blue;
+            }
+        }
     }
 
     &__option {

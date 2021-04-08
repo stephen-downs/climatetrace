@@ -16,7 +16,7 @@
   <meta property="og:title" content="Climate TRACE">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/main.css?v=1.0.35">
+  <link rel="stylesheet" href="./css/main.css?v=2021-04-08-16-12">
 </head>
 
 <body>
@@ -77,6 +77,7 @@
               <span></span>
               <span></span>
               <span></span>
+              <i></i>
             </button>
           </div>
         </div>
@@ -361,7 +362,7 @@
             <p class="subscribe__text" data-animation="fadeUp" data-delay="0.2">Stay up-to-date on our efforts to track greenhouse gas (GHG) emissions with unprecedented detail and speed.</p>
             <form action="/api/newsletter_add" data-api='{"beforeCall": "validate", "callback": "onSubscribe"}' novalidate="novalidate" class="subscribe__form">
               <div class="subscribe__row">
-                <input class="subscribe__input" aria-label="e-mail" type="email" name="email" placeholder="Your email address" required />
+                <input class="subscribe__input" aria-label="e-mail" type="email" name="email" placeholder="Your email address" required autocomplete="off" />
                 <button class="button button--subscribe" type="submit">
                   <img src="media/dotted-oval.png" alt="" class="oval-icon">
                   <img src="media/arr-down.png" alt="" class="arr-down-icon">

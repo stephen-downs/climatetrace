@@ -2,7 +2,7 @@ import { Handler } from './Handler';
 import { Scroll } from './Scroll';
 import { $body, $article, $pageHeader } from './Site';
 import * as Utils from './Utils';
-
+import { Aside } from './components/Aside';
 // import { Signup } from './Signup';
 
 
@@ -113,18 +113,23 @@ export class PushStates extends Handler {
 
     public static asideToggle = (e?): void => {
         let el = e ? $(e.currentTarget) : $('[data-hamburger]');
-
-        el.toggleClass('is-open');
-        $body.toggleClass('is-aside-open');
-
+        
         if (el.hasClass('is-open')) {
-            gsap.set($article, {'will-change': 'transform'});
-            // fixedposition = Scroll.scrollTop;
-            Utils.disableBodyScrolling(Scroll.scrollTop);
+
+            setTimeout( () => {
+                gsap.set($article, {'will-change': 'transform'});
+                Utils.disableBodyScrolling(Scroll.scrollTop);
+                el.removeClass('is-open');
+                $body.removeClass('is-aside-open');
+            }, 500);
         } else {
             gsap.set($article, { clearProps: 'will-change'});
             Utils.enableBodyScrolling(Scroll.scrollTop);
+            el.addClass('is-open');
+            $body.addClass('is-aside-open');
         }
+
+        Aside.asideAnimation();
 
         return;
     }

@@ -14,15 +14,21 @@
     color: $color-white;
     padding: $p-v-mobile $p-mobile;
 
-    &::after {
-        @include pseudo(1px, calc(100vh - 100px), 70px, 50%, $color-accent, 1);
+    i {
+        position: absolute;
+        width: 1px;
+        height: calc(100vh - 100px);
+        left: 50%;
+        top: 70px;
+        background-color: $color-accent;
+        z-index: 1;
         transform: scaleY(0);
         transform-origin: left top;
-        transition: transform $time ease-in-out;
+        // transition: transform $time ease-in-out;
 
-        .is-aside-open & {
-            transform: scaleY(1);
-        }
+        // .is-aside-open & {
+        //     transform: scaleY(1);
+        // }
     }
 
     @include breakpoint(desktop) {
@@ -43,8 +49,12 @@
         transition: transform $time-fast ease-in-out;
         border-radius: 15px;
 
-        &:first-child { margin-top: 0; }
-        &:last-child { margin-bottom: 0; }
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
 
         @include breakpoint(desktop) {
             width: 27px;
@@ -52,23 +62,36 @@
         }
     }
 
-
     &.is-open {
-        span:nth-child(1) { transform: translateY(8px) rotate(-45deg); }
-        span:nth-child(2) { transform: scaleX(0); }
-        span:nth-child(3) { transform: translateY(-8px) rotate(45deg); }
+        span:nth-child(1) {
+            transform: translateY(8px) rotate(-45deg);
+        }
+        span:nth-child(2) {
+            transform: scaleX(0);
+        }
+        span:nth-child(3) {
+            transform: translateY(-8px) rotate(45deg);
+        }
     }
 
     &:hover {
-        span:nth-child(1) { transform: rotate(0) translateY(2px); }
-        span:nth-child(3) { transform: rotate(0) translateY(-2px); }
+        span:nth-child(1) {
+            transform: rotate(0) translateY(2px);
+        }
+        span:nth-child(3) {
+            transform: rotate(0) translateY(-2px);
+        }
         // span:nth-child(1),
         // span:nth-child(2),
         // span:nth-child(3) { transform: rotate(0) scaleX(16 / 20 * 1); }
     }
 
     &.is-open:hover {
-        span:nth-child(1) { transform: translateY(8px) rotate(-135deg); }
-        span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        span:nth-child(1) {
+            transform: translateY(8px) rotate(-135deg);
+        }
+        span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
     }
 }
