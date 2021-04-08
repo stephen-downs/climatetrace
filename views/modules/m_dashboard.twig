@@ -302,8 +302,8 @@
                         </div>
                         <div class="rank">
                             <div class="rank__wrapper">
-                                <table class="rank__table">
-                                    <tr class="rank__row rank__row--header">
+                                <table class="rank__table" data-animation="itemsFade" data-y="true" data-uncache data-elements="js-row" data-stagger="0.1">
+                                    <tr class="rank__row js-row rank__row--header">
                                         <th class="rank__header rank__cell--id"></th>
                                         <th class="rank__header rank__cell--country">Country</th>
                                         <th class="rank__header rank__cell--quality">data quality</th>
@@ -312,7 +312,7 @@
                                         <th class="rank__header rank__cell--capita">emissions / capita</th>
                                         <th class="rank__header rank__cell--global">global</th>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Iran">
+                                    <tr class="rank__row js-row" data-country-data="Iran">
                                         <td class="rank__position rank__position--id rank__cell--id">1</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Iran"><img src="media/iran.jpg" alt="" class="flag"> Iran</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="3">
@@ -327,7 +327,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Korea">
+                                    <tr class="rank__row js-row" data-country-data="South Korea">
                                         <td class="rank__position rank__position--id rank__cell--id">2</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Korea"><img src="media/southkorea.jpg" alt="" class="flag"> South Korea</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="1">
@@ -342,7 +342,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Saudi Arabia">
+                                    <tr class="rank__row js-row" data-country-data="Saudi Arabia">
                                         <td class="rank__position rank__position--id rank__cell--id">3</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Saudi Arabia"><img src="media/saudiarabia.jpg" alt="" class="flag"> Saudi Arabia</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -357,7 +357,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Indonesia">
+                                    <tr class="rank__row js-row" data-country-data="Indonesia">
                                         <td class="rank__position rank__position--id rank__cell--id">3</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Indonesia"><img src="media/indonesia.jpg" alt="" class="flag"> Indonesia</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -372,7 +372,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Canada">
+                                    <tr class="rank__row js-row" data-country-data="Canada">
                                         <td class="rank__position rank__position--id rank__cell--id">4</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Canada"><img src="media/canada.jpg" alt="" class="flag"> Canada</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -387,7 +387,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Mexico">
+                                    <tr class="rank__row js-row" data-country-data="Mexico">
                                         <td class="rank__position rank__position--id rank__cell--id">5</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Mexico"><img src="media/mexico.jpg" alt="" class="flag"> Mexico</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="0">
@@ -402,7 +402,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">6</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -417,7 +417,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">7</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -432,7 +432,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">8</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -447,7 +447,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">9</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">

@@ -741,7 +741,7 @@ export class Scroll {
                 }
 
                 if (shiftYAxis) {
-                    gsap.fromTo(elements, { duration: 1, opacity: 0, y: -10}, { y: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                    gsap.fromTo(elements, { duration: 1, opacity: 0, y: 10}, { y: 0, opacity: 1, stagger: staggerEl, delay: delay });
                 } else {
                     gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
                 }
