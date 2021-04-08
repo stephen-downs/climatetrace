@@ -111,8 +111,8 @@ export class PushStates extends Handler {
         }
     }
 
-    public static asideToggle = (e): void => {
-        let el = $(e.currentTarget);
+    public static asideToggle = (e?): void => {
+        let el = e ? $(e.currentTarget) : $('[data-hamburger]');
 
         el.toggleClass('is-open');
         $body.toggleClass('is-aside-open');
@@ -335,7 +335,9 @@ export class PushStates extends Handler {
     private onClick = (e: JQueryEventObject): void => {
 
         e.preventDefault();
-
+        if ($body.hasClass('is-aside-open')) {
+            PushStates.asideToggle();
+        }
         let $self: JQuery = $(e.currentTarget as HTMLElement),
             state: string = $self.attr('href').replace('http://' + window.location.host, ''),
             type: string = $self.attr('data-history');
@@ -357,7 +359,15 @@ export class PushStates extends Handler {
         e.preventDefault();
         e.stopPropagation();
         console.log('click link');
-        Scroll.scrollToElement($(e.currentTarget.hash));
+        if ($body.hasClass('is-aside-open')) {
+            PushStates.asideToggle();
+
+            setTimeout( () => {
+                Scroll.scrollToElement($(e.currentTarget.hash));
+            }, 500);
+        } else {
+            Scroll.scrollToElement($(e.currentTarget.hash));
+        }
     }
 
 

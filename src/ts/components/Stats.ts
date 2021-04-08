@@ -47,7 +47,9 @@ export class Stats extends Component {
         this.hideCurrent().then(() => {
             this.show(this.tabToShow);
             this.tabToShow = null;
+            this.cleanCachedAnim();
             $window.resize();
+
         });
     }
 
@@ -68,7 +70,13 @@ export class Stats extends Component {
         })
     }
 
+    private cleanCachedAnim(): void {
+        const anim = this.view.find('[data-uncache]');
+        const uncaches = this.view.find('.uncached');
+        uncaches.removeAttr('style');
+        anim.removeClass('animated');
 
+    }
 
     private show(index: number): Promise<void> {
         return new Promise<void>((resolve, reject) => {

@@ -96,41 +96,41 @@
         <div class="dashboard__footer js-dashboard-footer">
             <div class="dashboard__wrapper dashboard__wrapper--flex">
                 <div class="dashboard__country">
-                    <div class="dashboard__countryname">
+                    <div class="dashboard__countryname" data-animation="fadeRight">
                         <img src="media/Indonesia.jpg" alt="" class="icon-img-flag">
                         <span class="js-country-name">Indonesia</span>
                     </div>
-                    <div class="dashboard__emission js-emission">1.67 billion tonnes</div>
-                    <span class="dashboard__updatetime">Last updated <span class="js-time-update">3d</span></span>
+                    <div class="dashboard__emission js-emission" data-animation="number" data-time="1.5"><span data-num="1.67">1.67</span><span data-text> billion tonnes</span></div>
+                    <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                 </div>
                 <div class="dashboard__details">
                     <div class="dashboard__flex">
                         <div class="dashboard__percentage">
-                            <strong class="js-global-percentage">0.03%</strong>
+                            <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
                             <span>of total global emissions</span>
                         </div>
                         <div class="dashboard__rank">
                             <div class="dashboard__position">
-                                <img src="media/arrow-down-red.png" alt="" class="icon-img-position">
-                                <div class="dashboard__number js-rank-position">78</div>
+                                <img src="media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
                                 <div>global rank</div>
                             </div>
                             <div class="dashboard__change">
-                                <img src="media/arrow-up-green.png" alt="" class="icon-img-position">
-                                <div class="dashboard__number js-emission-change">21.2%</div>
+                                <img src="media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
+                                <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2<span data-text>%</span></div>
                                 <div>change</div>
                             </div>
                         </div>
                     </div>
-                    <div class="dashboard__share">
-                        <div class="dashboard__share-icon">
+                    <div class="dashboard__share" data-animation="itemsFade" data-elements="js-share-element" data-delay="2" data-stagger="0.05">
+                        <div class="dashboard__share-icon js-share-element">
                             <img src="media/share-icon.png" class="icon-img-share" alt=""><span>share dashboard</span>
                         </div>
                         <div class="dashboard__link">
-                            <a href="" data-share>[[svg::full-icon]]</a>
-                            <a href="" data-share>[[svg::csv-icon]]</a>
-                            <a href="" data-share>[[svg::pdf-icon]]</a>
-                            <a href="" data-share>[[svg::json-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::full-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::csv-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::pdf-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::json-icon]]</a>
                         </div>
                     </div>
                 </div>
@@ -193,58 +193,58 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="masonry" data-component="Masonry">
+                        <div class="masonry" data-component="Masonry" data-animation="itemsFade" data-elements="js-masonry-tile" data-elements-in="js-wrapper" data-stagger="0.1" data-uncache data-delay="0" data-scale="true">
                             <div class="masonry__tile js-masonry-tile" data-tile="forestry" data-value="66.3" data-color="#4FDBC5">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">forestry</h4>
                                     <div class="masonry__data">1.517 billion tonnes</div>
                                     <div class="masonry__number">66.3%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile js-masonry-tile" data-tile="agriculture" data-value="7.5" data-color="#26BBE3">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">agriculture</h4>
                                     <div class="masonry__data">172.4 million tonnes</div>
                                     <div class="masonry__number">7.5%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile js-masonry-tile" data-tile="electricity" data-value="7.4" data-color="#FC8C59">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">Electricity Generation</h4>
                                     <div class="masonry__data">168.8 million tonnes</div>
                                     <div class="masonry__number">7.4%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#FDD49E">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">buildings</h4>
                                     <div class="masonry__data">121.8 million tonnes</div>
                                     <div class="masonry__number">5.35%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#5877CC">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">transportation</h4>
                                     <div class="masonry__data">110 MILLION TONNES</div>
                                     <div class="masonry__number">4.85%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#E75040">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">manufacturing</h4>
                                     <div class="masonry__data">84.3 million tonnes</div>
                                     <div class="masonry__number">3.7%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#B60E63">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">Extractive Industries</h4>
                                     <div class="masonry__data">60.1 million tonnes</div>
                                     <div class="masonry__number">2.64%</div>
                                 </div>
                             </div>
                             <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="other" data-value="2.15" data-color="#888788">
-                                <div class="masonry__wrapper">
+                                <div class="masonry__wrapper js-wrapper">
                                     <h4 class="masonry__sector">other</h4>
                                     <div class="masonry__data">48.9 m tonnes</div>
                                     <div class="masonry__number">2.15%</div>
@@ -302,8 +302,8 @@
                         </div>
                         <div class="rank">
                             <div class="rank__wrapper">
-                                <table class="rank__table">
-                                    <tr class="rank__row rank__row--header">
+                                <table class="rank__table" data-animation="itemsFade" data-y="true" data-uncache data-elements="js-row" data-stagger="0.1">
+                                    <tr class="rank__row js-row rank__row--header">
                                         <th class="rank__header rank__cell--id"></th>
                                         <th class="rank__header rank__cell--country">Country</th>
                                         <th class="rank__header rank__cell--quality">data quality</th>
@@ -312,7 +312,7 @@
                                         <th class="rank__header rank__cell--capita">emissions / capita</th>
                                         <th class="rank__header rank__cell--global">global</th>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Iran">
+                                    <tr class="rank__row js-row" data-country-data="Iran">
                                         <td class="rank__position rank__position--id rank__cell--id">1</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Iran"><img src="media/iran.jpg" alt="" class="flag"> Iran</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="3">
@@ -327,7 +327,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Korea">
+                                    <tr class="rank__row js-row" data-country-data="South Korea">
                                         <td class="rank__position rank__position--id rank__cell--id">2</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Korea"><img src="media/southkorea.jpg" alt="" class="flag"> South Korea</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="1">
@@ -342,7 +342,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Saudi Arabia">
+                                    <tr class="rank__row js-row" data-country-data="Saudi Arabia">
                                         <td class="rank__position rank__position--id rank__cell--id">3</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Saudi Arabia"><img src="media/saudiarabia.jpg" alt="" class="flag"> Saudi Arabia</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -357,7 +357,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Indonesia">
+                                    <tr class="rank__row js-row" data-country-data="Indonesia">
                                         <td class="rank__position rank__position--id rank__cell--id">3</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Indonesia"><img src="media/indonesia.jpg" alt="" class="flag"> Indonesia</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -372,7 +372,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Canada">
+                                    <tr class="rank__row js-row" data-country-data="Canada">
                                         <td class="rank__position rank__position--id rank__cell--id">4</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Canada"><img src="media/canada.jpg" alt="" class="flag"> Canada</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -387,7 +387,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="Mexico">
+                                    <tr class="rank__row js-row" data-country-data="Mexico">
                                         <td class="rank__position rank__position--id rank__cell--id">5</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="Mexico"><img src="media/mexico.jpg" alt="" class="flag"> Mexico</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="0">
@@ -402,7 +402,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">6</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -417,7 +417,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">7</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -432,7 +432,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">8</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -447,7 +447,7 @@
                                         <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
                                         <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
                                     </tr>
-                                    <tr class="rank__row" data-country-data="South Africa">
+                                    <tr class="rank__row js-row" data-country-data="South Africa">
                                         <td class="rank__position rank__position--id rank__cell--id">9</td>
                                         <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="media/southafrica.jpg" alt="" class="flag"> South Africa</td>
                                         <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
@@ -554,7 +554,7 @@
                     </div>
                     <div class="stats__content">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
                                 Quality
                                 <span class="stats__subhead">Data quality score based on:</span>
                             </h3>
@@ -563,8 +563,8 @@
                             </div>
                         </div>
                         <div class="quality">
-                            <div class="quality__wrapper quality__wrapper--flex">
-                                <div class="quality__area">
+                            <div class="quality__wrapper quality__wrapper--flex" data-animation="itemsFade" data-uncache data-delay="0" data-elements="js-area">
+                                <div class="quality__area js-area">
                                     <div class="evaluation" data-quality="2">
                                         <span></span>
                                         <span></span>
@@ -573,7 +573,7 @@
                                     <h3 class="quality__h3">Completeness</h3>
                                     <p class="quality__info">74% coverage from source X, Y</p>
                                 </div>
-                                <div class="quality__area">
+                                <div class="quality__area js-area">
                                     <div class="evaluation" data-quality="3">
                                         <span></span>
                                         <span></span>
@@ -583,7 +583,7 @@
                                     <p class="quality__info">All sources are verified</p>
                                     <img src="media/dotted-line.png" alt="" class="dotted-line">
                                 </div>
-                                <div class="quality__area">
+                                <div class="quality__area js-area">
                                     <div class="evaluation" data-quality="3">
                                         <span></span>
                                         <span></span>
@@ -598,20 +598,19 @@
                     </div>
                     <div class="stats__content stats__content--space">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
                                 Methodology
                                 <span class="stats__subhead">Duis aute irure dolor in reprehenderit in voluptate velit<br> esse cillum dolore eu fugiat nulla pariatur.</span>
                             </h3>
                             <div class="stats__calendar">
                                 <span>About data quality</span>
-                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
                             </div>
                         </div>
                         <div class="quality">
                             <div class="quality__wrapper">
                                 <div class="table">
 
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                             <span class="table__th">subsector</span>
                                         </div>
@@ -628,7 +627,7 @@
                                             <span class="table__th">data frequency</span>
                                         </div>
                                     </div>
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                            <p class="table__p"><strong>CAFOs</strong> Concentrated animal feeding operation</p>
                                         </div>
@@ -649,7 +648,7 @@
                                            <p class="table__p">Updated every 3 weeks</p>
                                         </div>
                                     </div>
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                            <p class="table__p"><strong>Manure Management</strong></p>
                                         </div>
@@ -669,7 +668,7 @@
                                            <p class="table__p">Updated every 3 weeks</p>
                                         </div>
                                     </div>
-                                    <div class="table__row">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
                                         <div class="table__col table__col--sub">
                                            <p class="table__p"><strong>Rice Cultivation</strong></p>
                                         </div>
@@ -695,18 +694,17 @@
                     </div>
                     <div class="stats__content stats__content--space">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
                                 Coverage
                                 <span class="stats__subhead">If you have an emissions dataset that would benefit our coverage and quality of work at Climate TRACE, check out the library of data below and contact us with your contribution</span>
                             </h3>
                             <div class="stats__calendar">
                                 <span>About data quality</span>
-                                <img class="icon-img-triangle" src="media/triangle-icon.png" alt="">
                             </div>
                         </div>
                         <div class="quality">
-                            <div class="quality__wrapper coverage">
-                                <div class="coverage__tile">
+                            <div class="quality__wrapper coverage" data-animation="itemsFade" data-elements="js-tile" data-uncache data-delay="0">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">12%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -719,7 +717,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">12%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -732,7 +730,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">98%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -745,7 +743,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">98%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>
@@ -758,7 +756,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="coverage__tile">
+                                <div class="coverage__tile js-tile">
                                     <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
                                     <div class="coverage__number">98%</div>
                                     <p class="coverage__text">of known cattle<br> operations are<br> represented</p>

@@ -158,7 +158,7 @@ export class Scroll {
         this.ignoreCache = !!browser.safari;
 
         $(window).on('scroll', this.onScroll);
-        $('a[href^="#"]:not(".js-nav-item, [data-lightbox]")').on('click', this.onHashClickHandler);
+        // $('a[href^="#"]:not(".js-nav-item, [data-lightbox]")').on('click', this.onHashClickHandler);
         this.backgrounds = this.buildBackgrounds();
         // Scroll.isCustomScroll = $('#wpbs').data('scrollbar');
 
@@ -220,23 +220,23 @@ export class Scroll {
         $window.off('.scrolling');
     }
 
-    private onHashClickHandler = (e): void => {
-        e.preventDefault();
-        // e.stopPropagation();
+    // private onHashClickHandler = (e): void => {
+    //     e.preventDefault();
+    //     // e.stopPropagation();
 
-        if ($(e.target).attr('data-offset')) {
-            let offset = parseInt($(e.target).attr('data-offset'), 10);
+    //     if ($(e.target).attr('data-offset')) {
+    //         let offset = parseInt($(e.target).attr('data-offset'), 10);
 
-            if ( typeof $(e.target).attr('data-offset') === 'string' ) {
-                const off = $(e.target).attr('data-offset').replace('vh', '');
-                offset = $(window).height() * (parseInt(off, 10) / 100);
-            }
+    //         if ( typeof $(e.target).attr('data-offset') === 'string' ) {
+    //             const off = $(e.target).attr('data-offset').replace('vh', '');
+    //             offset = $(window).height() * (parseInt(off, 10) / 100);
+    //         }
 
-            Scroll.scrollToElement($(e.currentTarget.hash), offset);
-        } else {
-            Scroll.scrollToElement($(e.currentTarget.hash));
-        }
-    };
+    //         Scroll.scrollToElement($(e.currentTarget.hash), offset);
+    //     } else {
+    //         Scroll.scrollToElement($(e.currentTarget.hash));
+    //     }
+    // };
 
 
     private buildBackgrounds(): {[key: string]: Background } {
@@ -509,12 +509,20 @@ export class Scroll {
                 gsap.killTweensOf($el, { opacity: true });
                 gsap.fromTo($el, { opacity: 0 },
                     { duration: time, opacity: 1, ease: 'sine', delay: delay });
+
+                if ($el.data('uncache') === '') {
+                    $el.addClass('uncached');
+                }
                 break;
 
             case 'fadeUp':
                 gsap.killTweensOf($el, { opacity: true, y: true });
                 gsap.fromTo($el, { opacity: 0, y: 40 },
                     { duration: time, opacity: 1, y: 0, ease: 'sine', delay: delay });
+
+                if ($el.data('uncache') === '') {
+                    $el.addClass('uncached');
+                }
                 break;
 
             case 'fadeDown':
@@ -628,18 +636,35 @@ export class Scroll {
                 break;
 
             case 'hero':
+                gsap.set($el, { opacity: 1 });
 
-                gsap.to($el, { duration: 1, opacity: 1, pointerEvents: 'none', delay: 0.5 });
+                const map = $el.find('[data-item="0"] .js-map');
+                const heroEl = $el.find('[data-caption="0"] .js-el');
+                const heroCaption = $el.find('[data-caption="0"]');
+                const heroNav = $el.find('.js-navigation');
 
-                const heroElements = $el.find('.hero-image:not(.js-tiny)');
-                const tiny = $el.find('.js-tiny');
+                gsap.set([map, heroEl, heroNav], { opacity: 0});
 
-                gsap.from(tiny, { duration: 1.5, opacity: 0, stagger: -0.05, delay: 0.5});
-
-                gsap.from(heroElements, {
-                    duration: 1.5, x: '-50%', y: '50%', stagger: -0.05,
+                gsap.fromTo(map, 1.5, {duration: 1.5, opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, 
                     onComplete: () => {
-                        gsap.set($el, { pointerEvents: 'all' });
+                        map.addClass('is-active');
+                        map.removeAttr('style');
+                    },
+                });
+                gsap.to(heroCaption, {duration: 1, opacity: 1, delay: 0.5,
+                    onComplete: () => {
+                        heroCaption.removeAttr('style');
+                        heroCaption.addClass('is-active');
+                    },
+                });
+                gsap.fromTo(heroEl, 1, {duration: 1, opacity: 0, x: -20}, {opacity: 1, x: 0, delay: 1.25, stagger: 0.2,
+                    onComplete: () => {
+                    }
+                });
+                gsap.to(heroNav, 1, {duration: 1, opacity: 1, delay: 1.5,
+                    onComplete: () => {
+                        heroEl.removeAttr('style');
+                        $el.addClass('is-ready');
                     }
                 });
 
@@ -677,19 +702,63 @@ export class Scroll {
                 const splittxt = new SplitText(txt, { type: 'words, chars' });
 
                 gsap.fromTo(splittxt.chars, { duration: 1, opacity: 0 }, {  opacity: 1, stagger: 0.05 });
+                
+                if ($el.data('uncache') === '') {
+                    for ( let i = 0; i <  splittxt.chars.length; i++) {
+                        splittxt.chars[i].classList.add('uncached');
+                    }
+                }
 
+                break;
+
+        
+            case 'upDown':
+                gsap.set($el, { opacity: 1 });
+
+                const yShift = $el.data('shift') === 'up' ? 10 : -10;
+
+                gsap.fromTo($el, { duration: 0.5, y: 0, opacity: 1}, {opacity: 0.2, y: yShift, repeat: 2, ease: 'none', yoyo: true, delay: delay,
+                    onComplete: () => {
+                        gsap.to($el, { duration: 0.5, y: 0, opacity: 1});
+                    }
+                });
 
                 break;
 
             case 'itemsFade':
                 const elements = $el.find('.' + $el.data('elements') + '');
+                const elementsIn = $el.data('elements-in') ? $el.find('.' + $el.data('elements-in') + '') : null;
                 const staggerEl = $el.data('stagger') ? $el.data('stagger') : 0.2;
+                const del = delay ? delay : 0.2;
+                const shiftYAxis = $el.data('y') ? true : false;
+                const elScale =  $el.data('scale') ? true : false;
 
                 gsap.set($el, { opacity: 1 });
                 gsap.set(elements, { opacity: 0 });
 
+                if ($el.data('uncache') === '') {
+                    for ( let i = 0; i <  elements.length; i++) {
+                        elements[i].classList.add('uncached');
+                    }
 
-                gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: 0.2});
+                    if (elementsIn) {
+                        for ( let i = 0; i <  elementsIn.length; i++) {
+                            elementsIn[i].classList.add('uncached');
+                        }
+                    }
+                }
+
+                if (elScale) {
+                    gsap.fromTo(elements, 0.8, { duration: 1, opacity: 0, scale: 0.9}, { scale: 1, opacity: 1, stagger: staggerEl, delay: delay });
+                    gsap.fromTo(elementsIn, 0.8, { duration: 1, opacity: 0}, { opacity: 1, stagger: staggerEl, delay: delay + 0.4 });
+                } else {
+                    if (shiftYAxis) {
+                        gsap.fromTo(elements, { duration: 1, opacity: 0, y: 10}, { y: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                    } else {
+                        gsap.fromTo(elements, { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: staggerEl, delay: delay });
+                    }
+                }
+
 
                 break;
 
@@ -750,6 +819,44 @@ export class Scroll {
                 gsap.fromTo([htime, shareText, socialD], { duration: 1, opacity: 0, x: -10}, { x: 0, opacity: 1, stagger: 0.1});
                 gsap.fromTo(hHr, { scaleX: 0}, { scaleX: 1});
 
+                break;
+
+
+            case 'number':
+                const numEl = $el.find('[data-num]');
+                const num = $el.find('[data-num]').data('num');
+                const dur = $el.data('time') ? $el.data('time') * 1000 : 2000;
+                const numText = $el.find('[data-text]').length > 0 ? $el.find('[data-text]') : null;
+                let fixed = num.toString().indexOf('.') > -1 ? num.toString().length - num.toString().indexOf('.') - 1 : null;
+
+                numEl.css({
+                    'width': numEl.width(),
+                    'display': 'inline-block'
+                });
+
+                gsap.fromTo($el, { duration: 0.5, opacity: 0}, { opacity: 1});
+                if (numText) {
+                    gsap.set(numText, { opacity: 0});
+                    gsap.to(numText, 1,{duration: 1, opacity: 1, delay: dur/1000});
+                }
+
+                numEl.prop('Counter', 0).animate({
+                    Counter: num,
+                }, {
+                    duration: dur,
+                    easing: 'swing',
+                    step: (now): void => {
+                        if (fixed && fixed > 0) {
+                            if (numEl.data('replace')) {
+                                numEl.text((now.toFixed(fixed).toString().replace('.', ',')));
+                            } else {
+                                numEl.text(now.toFixed(fixed));
+                            }
+                        } else {
+                            numEl.text(Math.ceil(now));
+                        }
+                    },
+                });
                 break;
 
             default:

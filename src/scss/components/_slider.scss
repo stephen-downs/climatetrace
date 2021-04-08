@@ -12,7 +12,8 @@
         left: 0;
         width: 100%;
         opacity: 0;
-        transition: opacity $time $easing;
+        transform: scale(0.85);
+        transition: opacity 1s $easing, transform 1.75s $easing;
 
         &:first-of-type {
             position: relative;
@@ -20,13 +21,16 @@
 
         &.is-active {
             opacity: 1;
+            transform: scale(1);
         }
     }
 
     &__map {
+        position: relative;
         // margin-top: 50px;
 
-        svg {
+        svg,
+        img {
             height: auto;
             width: 100%;
         }
@@ -34,27 +38,39 @@
 
     &__nav {
         position: relative;
-        height: 4px;
+        height: 30px;
+        margin-bottom: 12px;
         @include flex(row, flex-start, center);
         display: inline-flex;
-        margin-bottom: 25px;
+        z-index: 3;
     }
 
     &__point {
         display: block;
         margin-right: 23px;
         height: 100%;
+        padding: 13px 0;
         width: 52px;
-        background-color: rgba($color-white, 0.25);
-        transition: background $time $easing;
+        cursor: pointer;
+
+        span {
+            display: block;
+            transition: background $time $easing;
+            width: 100%;
+            background-color: rgba($color-white, 0.25);
+            height: 4px;
+        }
 
         &.is-active {
-            background-color: rgba($color-white, 1);
+            span {
+                background-color: rgba($color-white, 1);
+            }
         }
     }
 
     &__elements {
         position: absolute;
+        width: 100%;
         bottom: -10vh;
         text-align: left;
     }
@@ -62,6 +78,18 @@
     &__sup {
         @include font-size(26, 30);
         text-transform: uppercase;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition-delay: 0;
+
+        .is-ready & {
+            transition: opacity $time $easing, transform $time $easing;
+        }
+
+        .is-active & {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     &__stat {
@@ -70,12 +98,36 @@
         animation-play-state: paused;
         display: none;
         animation: glow 2s $ease-in-out infinite alternate;
+        opacity: 0;
+        transform: translateX(-20px);
+
+        .is-ready & {
+            transition: opacity $time $easing, transform $time $easing;
+            transition-delay: 0.1s;
+        }
+
+        .is-active & {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     &__sub {
         margin-top: 20px;
         @include font-size(20, 24);
         @include flex(row, flex-start, center);
+        opacity: 0;
+        transform: translateX(-20px);
+
+        .is-ready & {
+            transition: opacity $time $easing, transform $time $easing;
+            transition-delay: 0.2s;
+        }
+
+        .is-active & {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
         span {
             width: 369px;
