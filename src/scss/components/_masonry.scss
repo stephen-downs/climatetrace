@@ -132,11 +132,27 @@
         .masonry__tile--s & {
             @include font-size(24, 24);
             margin-bottom: 5px;
+
+            @media (max-width: 1300px) {
+                @include font-size(22, 22);
+            }
+
+            @media (max-width: 1170px) {
+                @include font-size(16, 16);
+            }
         }
 
         .masonry__tile--xs & {
             @include font-size(21, 21);
             margin-bottom: 3px;
+
+            @media (max-width: 1300px) {
+                @include font-size(18, 18);
+            }
+
+            @media (max-width: 1170px) {
+                @include font-size(16, 16);
+            }
         }
     }
 

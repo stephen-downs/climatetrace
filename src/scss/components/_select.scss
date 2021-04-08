@@ -17,6 +17,23 @@
         line-height: 40px;
         padding: 0 11px 0 7px;
         cursor: pointer;
+
+        transition: border $time $easing, color $time $easing;
+
+        svg * {
+            transition: fill $time $easing;
+        }
+
+        @include hover {
+            border: 1px solid $color-blue;
+            color: $color-blue;
+
+            svg {
+                * {
+                    fill: $color-blue;
+                }
+            }
+        }
     }
 
     &__label {
