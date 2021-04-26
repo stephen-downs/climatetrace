@@ -11,7 +11,7 @@
     transition: transform $time-fast ease-in-out;
     cursor: pointer;
     pointer-events: all;
-    color: $color-white;
+    color: $color-black;
     padding: $p-v-mobile $p-mobile;
 
     i {
@@ -39,8 +39,9 @@
     span {
         display: block;
         position: relative;
-        height: 2px;
-        width: 20px;
+        @include circle(4);
+        // height: 2px;
+        // width: 20px;
         background: currentColor;
         opacity: 1;
         margin: 6px auto;
@@ -57,20 +58,20 @@
         }
 
         @include breakpoint(desktop) {
-            width: 27px;
-            height: 2px;
+            // width: 27px;
+            // height: 2px;
         }
     }
 
     &.is-open {
         span:nth-child(1) {
-            transform: translateY(8px) rotate(-45deg);
+            transform: translateY(3px);
         }
         span:nth-child(2) {
-            transform: scaleX(0);
+            transform: translateY(0);
         }
         span:nth-child(3) {
-            transform: translateY(-8px) rotate(45deg);
+            transform: translateY(-3px);
         }
     }
 

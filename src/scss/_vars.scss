@@ -32,7 +32,9 @@ $color-tundora: #414041;
 $color-gray: #363636;
 $color-silver: #a4a4a4;
 $color-gray-light: #979797;
+$color-pale: #e8eaee;
 $color-blue: #02b3fd;
+
 $color-theme: $color-dark;
 $color-accent: $color-blue;
 
@@ -45,7 +47,9 @@ $color-cinnabar: #e75040;
 $color-pink: #b60e63;
 $color-cement: #888788;
 
-$color-bg: $color-theme;
+$color-gray: #585858;
+
+$color-bg: $color-pale;
 $color-text: $color-white;
 
 $gutter-width: 32px;
@@ -55,7 +59,7 @@ $aside-width: 350px;
 $aside-width-margin: 385px;
 $m-aside-width: 100vw;
 
-$radius: 12px;
+$radius: 10px;
 
 $time: 0.5s;
 $time-fast: 0.25s;

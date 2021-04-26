@@ -1,17 +1,19 @@
 .panel {
+    position: absolute;
+    top: -20px;
     width: 100%;
-    position: relative;
 
     &__bar {
         position: relative;
         height: 60px;
-        @include flex(row, space-between, center);
+        // @include flex(row, space-between, center);
+        @include flex(row, center, flex-end);
 
-        &::after {
-            @include pseudo(100vw, 1px, auto, 50%, $color-silver, 1);
-            bottom: 0;
-            transform: translateX(-50%);
-        }
+        // &::after {
+        //     @include pseudo(100vw, 1px, auto, 50%, $color-silver, 1);
+        //     bottom: 0;
+        //     transform: translateX(-50%);
+        // }
     }
 
     &__filters {
@@ -19,6 +21,9 @@
         @include font-size(14, 30);
         position: relative;
         left: -15px;
+
+        /// NEW LAYout
+        display: none;
 
         span {
             position: relative;
@@ -35,14 +40,53 @@
     }
 
     &__button {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 0;
         @include flex(row, flex-end, center);
         @include font-size(14, 30);
         text-transform: uppercase;
-        transition: color $time $easing;
-        color: $color-silver;
+        transition: color $time $easing, background $time $easing;
+        color: $color-gray;
+        padding: 10px 30px 5px;
+        border-radius: 23px;
+        background-color: $color-bg;
+        z-index: 2;
+
+        .is-toggled & {
+            color: $color-white;
+            background-color: $color-gray;
+
+            span,
+            .icon-arr-down {
+                color: $color-white;
+            }
+
+            .icon-filter i {
+                background-color: $color-white;
+
+                &::after {
+                    border: 1px solid $color-white;
+                    background-color: $color-gray;
+                }
+            }
+
+            .icon-arr-down {
+                transform: scaleY(-1) rotate(-45deg) translate(3px, -3px);
+            }
+        }
+
+        #main & {
+            font-family: $font-second;
+        }
 
         span {
-            color: currentColor;
+            color: $color-gray;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color $time $easing;
         }
 
         @include hover {
@@ -50,8 +94,18 @@
                 @extend %icon-filter-hover;
             }
             span {
-                color: $color-accent;
+                color: $color-white;
             }
+            .icon-arr-down {
+                color: $color-white;
+                transform: scaleY(-1) rotate(-45deg) translate(3px, -3px);
+            }
+        }
+
+        .icon-arr-down {
+            color: $color-gray;
+            margin-left: 10px;
+            margin-bottom: 7px;
         }
     }
 }

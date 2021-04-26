@@ -70,9 +70,9 @@ export class Filters extends Component {
 
 
     public resize = (wdt: number, hgt: number, breakpoint?: IBreakpoint, bpChanged?: boolean): void => {
-        setTimeout(() => {
-            this.$clear.css('height', this.$panel.outerHeight());
-        });
+        // setTimeout(() => {
+        //     this.$clear.css('height', this.$panel.outerHeight());
+        // });
     };
 
 

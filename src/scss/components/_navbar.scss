@@ -5,7 +5,7 @@
     height: $nav-height-m;
     position: fixed;
     top: 0;
-    background-color: $color-theme;
+    background-color: $color-bg;
     z-index: 3;
     transition: transform $time-fast, opacity $time-fast $easing;
     transform: translateY(38px);
@@ -16,12 +16,12 @@
     }
 
     &::before {
-        @include pseudo(100%, 100px, 0, 0, $color-theme, 2);
+        @include pseudo(100%, 100px, 0, 0, $color-bg, 2);
         transform: translateY(-70px);
     }
 
     &::after {
-        @include pseudo(350px, 100%, 0, auto, $color-theme, -1);
+        @include pseudo(350px, 100%, 0, auto, $color-bg, -1);
         right: 0;
         transform: translateX(340px);
         transition: background $time-fast $easing;
@@ -29,7 +29,7 @@
 
     @include breakpoint(not-desktop) {
         &::after {
-            @include pseudo(100vw, 100%, 0, auto, $color-theme, -1);
+            @include pseudo(100vw, 100%, 0, auto, $color-bg, -1);
             transform: translateX(calc(100vw - 10px));
         }
     }
@@ -65,8 +65,6 @@
     //     }
     // }
 
-
-
     &__wrapper {
         position: relative;
         // max-width: get-grid-width(12, 1);
@@ -77,6 +75,7 @@
         padding-left: margin(phone);
         @include flex(row, space-between, center);
         margin: auto;
+        color: $color-black;
 
         @include breakpoint(desktop) {
             // padding-left: margin();
@@ -86,8 +85,6 @@
             display: block;
         }
     }
-
-
 
     &__utils {
         position: relative;
@@ -116,14 +113,12 @@
         width: round($nav-height * 1098 / 537);
     }
 
-
-
     &__item {
         height: 100%;
         position: relative;
         // padding: 0 15px;
         @include flex(row, center, center);
-        color: $color-white;
+        color: $color-black;
         @include font-size(16, 24);
         font-weight: 700;
 

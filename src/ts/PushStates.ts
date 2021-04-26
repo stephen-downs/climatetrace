@@ -119,10 +119,10 @@ export class PushStates extends Handler {
 
         if (el.hasClass('is-open')) {
             gsap.set($article, {'will-change': 'transform'});
-            Utils.enableBodyScrolling(Scroll.scrollTop);
+            Utils.disableBodyScrolling(Scroll.scrollTop);
         } else {
             gsap.set($article, { clearProps: 'will-change'});
-            Utils.disableBodyScrolling(Scroll.scrollTop);
+            Utils.enableBodyScrolling(Scroll.scrollTop);
         }
         Aside.asideAnimation();
 

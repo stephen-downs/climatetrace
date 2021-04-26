@@ -1,14 +1,16 @@
 .filters {
     position: relative;
     width: 100%;
-    @include flex(row, flex-start, flex-start);
+    // @include flex(row, flex-start, flex-start);
     height: 100%;
+    padding-bottom: 24px;
 
     %inside {
         height: 100%;
         border-radius: $radius;
-        background-color: $color-mine-shaft;
-        border: 1px solid rgba($color-white, 0.5);
+        background-color: $color-gray;
+        // border: 1px solid rgba($color-white, 0.5);e
+        color: $color-white;
     }
 
     &__label {
@@ -19,51 +21,53 @@
     &__panel {
         @extend %inside;
         position: relative;
-        width: calc(100% - 92px);
+        width: 100%;
         margin-right: 12px;
         padding: 16px 10px 13px 4px;
         @include flex(row, flex-start, flex-start);
 
-        &::after,
-        &::before {
-            @include pseudo(0, 0, auto, 50px, transparent, 1);
-            bottom: -20px;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid $color-mine-shaft;
-            transition: transform $time-fast $easing, opacity $time-fast $easing;
-            transform: translateY(-10px);
+        // &::after,
+        // &::before {
+        //     @include pseudo(0, 0, auto, 50px, transparent, 1);
+        //     bottom: -20px;
+        //     border-left: 20px solid transparent;
+        //     border-right: 20px solid transparent;
+        //     border-top: 20px solid $color-gray;
+        //     transition: transform $time-fast $easing, opacity $time-fast $easing;
+        //     transform: translateY(-10px);
 
-            .is-toggled & {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+        //     .is-toggled & {
+        //         transform: translateY(0);
+        //         opacity: 1;
+        //     }
+        // }
 
-        &::before {
-            border-top: 20px solid $color-silver;
-            bottom: -21px;
-            opacity: 0;
-        }
+        // &::before {
+        //     border-top: 20px solid $color-silver;
+        //     bottom: -21px;
+        //     opacity: 0;
+        // }
     }
 
     &__clear {
-        @extend %inside;
-        min-height: 131px;
-        height: 100%;
-
-        font-family: $font-second;
-        @include font-size(10, 13);
-        @include flex(column, center, center);
-        width: 80px;
-        border: 1px solid rgba($color-white, 0.5);
+        height: 48px;
+        margin-left: auto;
+        margin-right: 0;
+        @include font-size(11, 13);
+        @include flex(row, center, center);
+        width: auto;
         transition: all $time $easing;
-        font-weight: 500;
+        color: $color-white;
+        width: 160px;
 
         span {
+            font-family: $font-second;
+            font-weight: 400;
             display: block;
-            margin-top: 9px;
             text-transform: uppercase;
+            color: $color-white;
+            margin: 0 0 0 10px;
+            letter-spacing: 0.5px;
         }
 
         .icon-img-return {
@@ -74,8 +78,6 @@
             .icon-img-return {
                 transform: rotate(359deg);
             }
-
-            background-color: $color-accent;
         }
     }
 
@@ -87,10 +89,16 @@
 
     &__section {
         position: relative;
-        height: 100%;
-        border-right: 1px solid rgba($color-white, 0.5);
+        height: auto;
+        // border-right: 1px solid rgba($color-white, 0.5);
         padding-left: 21px;
         flex: 3;
+
+        &::after {
+            @include pseudo(1px, 100%, 50%, auto, $color-white, 1);
+            right: 0;
+            transform: translate(0, -50%);
+        }
 
         &:first-of-type {
             max-width: 496px;
@@ -102,9 +110,13 @@
         }
 
         &:last-of-type {
-            border: none;
+            // border: none;
             flex: 1;
             max-width: 276px;
+
+            &::after {
+                display: none;
+            }
         }
     }
 
@@ -134,7 +146,7 @@
         border-radius: 20px;
         border: 2px solid rgba($color-white, 0.5);
         transition: background 0.3s $easing;
-        background-color: $color-mine-shaft;
+        background-color: $color-gray;
         z-index: 1;
         text-transform: uppercase;
         min-width: 47px;
