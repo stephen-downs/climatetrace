@@ -64,6 +64,10 @@
         text-transform: uppercase;
     }
 
+    &__details {
+        margin-top: 40px;
+    }
+
     &__country {
         width: 60%;
         padding-right: 20px;
@@ -71,7 +75,7 @@
     }
 
     &__countryname {
-        @include font-size(30, 1);
+        @include font-size(24, 30);
         font-weight: 300;
         margin-bottom: 30px;
 
@@ -81,12 +85,17 @@
     }
 
     &__emission {
-        @include font-size(68, 1);
+        @include font-size(50, 1);
         font-weight: 500;
 
-        @media (max-width: 1280px) {
-            @include font-size(60, 1);
+        .num {
+            @include font-size(100, 1);
+            font-weight: 700;
         }
+
+        // @media (max-width: 1280px) {
+        //     @include font-size(50, 1);
+        // }
     }
 
     &__updatetime {

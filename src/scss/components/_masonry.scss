@@ -9,6 +9,7 @@
     grid-template-rows: repeat(20, 1fr);
     gap: 2px 2px;
     justify-items: stretch;
+    color: $color-white;
 
     &__tile {
         position: relative;

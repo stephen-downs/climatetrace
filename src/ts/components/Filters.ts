@@ -12,6 +12,7 @@ export class Filters extends Component {
     private $itemSector: JQuery;
     private $itemTime: JQuery;
     private $timelineItem: JQuery;
+    private $itemCountry: JQuery;
     private $allSectors: JQuery;
     private $picked: JQuery;
     private $selectedCountry: JQuery;
@@ -23,7 +24,7 @@ export class Filters extends Component {
     public static showPickedFilters(country?: string): void {
         let pickedSectors = Filters.instance.$itemSector.filter('.is-active').length > 0 ? Filters.instance.$itemSector.filter('.is-active') : null;
         let pickedTime = Filters.instance.$itemTime.filter('.is-active').length > 0 ? Filters.instance.$itemTime.filter('.is-active') : null;
-        let pickedCountry = country ? country : Filters.instance.$selectedCountry.text();
+        let pickedCountry = Filters.instance.$itemCountry.filter('.is-active').length > 0 ? Filters.instance.$itemCountry.filter('.is-active').text() : Filters.instance.$selectedCountry.val();
 
 
         Filters.instance.$picked.find('span').remove();
@@ -35,8 +36,14 @@ export class Filters extends Component {
                 console.log('aal', Filters.instance.$allSectors);
                 Filters.instance.$picked.append('<span>' + Filters.instance.$allSectors.text() + '</span>');
             } else {
+                let coma = ',';
+                let cls = 'tag';
                 pickedSectors.each((i, el) => {
-                    Filters.instance.$picked.append('<span>' + $(el).text() + '</span>');
+                    if (i == pickedSectors.length - 1) {
+                        coma = '';
+                        cls = 'tag-last';
+                    }
+                    Filters.instance.$picked.append('<span class=' + cls + '>' + $(el).text() + coma + '</span>');
                 });
             }
         }
@@ -61,11 +68,13 @@ export class Filters extends Component {
         this.$timelineItem = this.view.find('[data-time]');
         this.$allSectors = this.view.find('.js-item-all');
         this.$picked = $('.js-picked-filter');
-        this.$selectedCountry = this.view.find('[data-select]');
+        this.$selectedCountry = this.view.find('#search-country');
+        this.$itemCountry = this.view.find('.js-item-country');
 
         Filters.instance = this;
         console.log(Filters.instance.$itemSector, Filters.instance.view.find('[data-selected]').data('selected'));
         this.bind();
+        this.setDefaultSelection();
     }
 
 
@@ -79,12 +88,13 @@ export class Filters extends Component {
     private bind(): void {
         this.$itemSector.off('.sector').on('click.sector', this.toggleSector);
         this.$itemTime.off('.time').on('click.time', this.toggleTime);
+        this.$itemCountry.off('.country').on('click.country', this.toggleCountry);
         this.$clear.off('.clear').on('click.clear', this.clearArray);
         this.$allSectors.off('.all').on('click.all', this.markAllSectors);
     }
 
 
-    private markAllSectors = (): void => {
+    private markAllSectors(): void {
         const timeChecked = this.$itemTime.filter('.is-active').length > 0 ? this.$itemTime.filter('.is-active') : null;
 
         this.clearArray();
@@ -110,6 +120,22 @@ export class Filters extends Component {
         this.$allSectors.removeClass('is-active');
         this.isAllChecked = false;
         this.unmarkTimeline();
+        Filters.instance.$selectedCountry.val('');
+        this.setDefaultSelection();
+        Filters.showPickedFilters();
+    }
+
+    // DEFAULT SELECTION: ALL FILTERS (ALL SECTORS/ALL COUNTRIES/ALL TIME)
+    private setDefaultSelection(): void {
+        this.addElementToArray(this.$itemTime.filter('[data-item="all-time"]'), this.filters);
+        this.addElementToArray(this.$itemCountry, this.filters);
+
+        this.$itemSector.each((i, el) => {
+            this.addElementToArray($(el), this.filters);
+        });
+        this.$allSectors.addClass('is-active');
+        this.isAllChecked = true;
+
         Filters.showPickedFilters();
     }
 
@@ -119,7 +145,7 @@ export class Filters extends Component {
 
         if (current.hasClass('is-active')) {
             this.removeElementFromArray(current, this.filters);
-            
+
             if (this.isAllChecked) {
                 this.$allSectors.removeClass('is-active');
                 this.isAllChecked = false;
@@ -149,6 +175,19 @@ export class Filters extends Component {
         }
 
         Filters.showPickedFilters();
+    }
+
+
+    private toggleCountry = (e) => {
+        const current = $(e.currentTarget);
+
+        if (current.hasClass('is-active')) {
+            this.removeElementFromArray(current, this.filters);
+        } else {
+            this.addElementToArray(current, this.filters);
+        }
+
+        Filters.showPickedFilters(current.data('item'));
     }
 
 

@@ -54,7 +54,7 @@
     &__clear {
         height: 48px;
         margin-left: auto;
-        margin-right: 0;
+        margin-right: 45px;
         @include font-size(11, 13);
         @include flex(row, center, center);
         width: auto;

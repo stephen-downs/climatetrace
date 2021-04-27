@@ -2,18 +2,12 @@
     position: absolute;
     top: -20px;
     width: 100%;
+    height: 50px;
 
     &__bar {
         position: relative;
         height: 60px;
-        // @include flex(row, space-between, center);
-        @include flex(row, center, flex-end);
-
-        // &::after {
-        //     @include pseudo(100vw, 1px, auto, 50%, $color-silver, 1);
-        //     bottom: 0;
-        //     transform: translateX(-50%);
-        // }
+        @include flex(row, flex-start, flex-end);
     }
 
     &__filters {
@@ -21,20 +15,44 @@
         @include font-size(14, 30);
         position: relative;
         left: -15px;
+        font-family: $font-sans;
+        font-weight: 500;
+
+        &::after {
+            @include pseudo(10px, 10px, 50%, auto, $color-white, 1);
+            transform: translateY(-50%);
+            right: 0;
+        }
 
         /// NEW LAYout
-        display: none;
+        // display: none;
 
         span {
             position: relative;
-            padding: 0 15px;
+            padding: 0 15px 0 8px;
 
             &::after {
-                content: "/";
+                content: "+";
                 position: absolute;
                 right: 0;
                 top: 50%;
                 transform: translateY(-50%);
+                color: $color-winter;
+            }
+        }
+
+        .tag {
+            &::after {
+                display: none;
+            }
+
+            padding-right: 0;
+        }
+        .tag-last {
+            padding-right: 15px;
+
+            &::after {
+                display: block;
             }
         }
     }
@@ -44,7 +62,7 @@
         left: 0;
         right: 0;
         margin: 0 auto;
-        bottom: 0;
+        bottom: 50px;
         @include flex(row, flex-end, center);
         @include font-size(14, 30);
         text-transform: uppercase;

@@ -28,7 +28,7 @@
             <div class="filters" data-component="Filters">
                 <button class="filters__clear js-clear">
                     <img src="./media/return-icon.png" alt="" class="icon-img-return">
-                    <span>clear section</span>
+                    <span>clear selection</span>
                 </button>
                 <div class="filters__panel js-panel">
                     <div class="filters__section">
@@ -40,7 +40,7 @@
                                 [[svg::pin-icon]]
                             </div>
                         </form>
-                        <div class="filters__item filters__item--static js-item" data-item="all-country">all</div>
+                        <div class="filters__item filters__item--static js-item-country" data-item="all-country">all countries</div>
                     </div>
                     <div class="filters__section filters__section--sector">
                         <h4 class="filters__label">Choose sector</h4>
@@ -94,22 +94,22 @@
                         <span>Filter</span>
                         <i class="icon-arr-down"></i>
                     </button>
-                    {# <div class="panel__bar">
-                        <div class="panel__filters js-picked-filter"> #}
+                    <div class="panel__bar">
+                        <div class="panel__filters js-picked-filter">
                             {# <span>Home</span>
                             <span>Agriculture</span>
                             <span>indonesia</span>
                             <span>last 1 year</span> #}
-                        {# </div>
-                    </div> #}
+                        </div>
+                    </div>
                 </div>
                 <div class="dashboard__country">
+                    <div class="dashboard__emission js-emission" data-animation="number" data-time="1.5"><span class="num" data-num="1.67">1.67</span><span data-text> billion tonnes</span></div>
+                    <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                     <div class="dashboard__countryname" data-animation="fadeRight">
                         <img src="./media/Indonesia.jpg" alt="" class="icon-img-flag">
                         <span class="js-country-name">Indonesia</span>
                     </div>
-                    <div class="dashboard__emission js-emission" data-animation="number" data-time="1.5"><span data-num="1.67">1.67</span><span data-text> billion tonnes</span></div>
-                    <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                 </div>
                 <div class="dashboard__details">
                     <div class="dashboard__flex">
