@@ -25,7 +25,7 @@
 
     &__wrapper {
         position: relative;
-        max-width: get-grid-width(12);
+        max-width: get-grid-width(11);
         margin: auto;
         width: 100%;
 
@@ -167,7 +167,7 @@
         }
 
         a:hover {
-            color: $color-blue;
+            color: $color-winter;
         }
     }
 }

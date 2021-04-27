@@ -14,8 +14,10 @@
     }
 
     &__label {
+        font-family: $font-second;
+        font-weight: 500;
         @include font-size(16, 27);
-        margin-bottom: 6px;
+        margin-bottom: 19px;
     }
 
     &__panel {
@@ -23,8 +25,8 @@
         position: relative;
         width: 100%;
         margin-right: 12px;
-        padding: 16px 10px 13px 4px;
-        @include flex(row, flex-start, flex-start);
+        padding: 30px margin(desktop) 13px;
+        @include flex(row, center, flex-start);
 
         // &::after,
         // &::before {
@@ -81,9 +83,9 @@
         }
     }
 
-    &__select {
+    &__search {
         position: relative;
-        user-select: none;
+        // user-select: none;
         width: 100%;
     }
 
@@ -91,7 +93,7 @@
         position: relative;
         height: auto;
         // border-right: 1px solid rgba($color-white, 0.5);
-        padding-left: 21px;
+        padding-left: margin(desktop);
         flex: 3;
 
         &::after {
@@ -100,23 +102,27 @@
             transform: translate(0, -50%);
         }
 
-        &:first-of-type {
-            max-width: 496px;
-        }
-        &:nth-of-type(2) {
-            width: 294px;
-            flex: none;
-            padding-right: 17px;
+        &:nth-of-type(1) {
+            flex: 1;
+            max-width: 276px;
+            width: 100%;
+            padding-right: margin(desktop);
+            padding-left: 0;
         }
 
         &:last-of-type {
+            width: 294px;
+            flex: none;
+            padding-right: 17px;
             // border: none;
-            flex: 1;
-            max-width: 276px;
-
             &::after {
                 display: none;
             }
+        }
+
+        &--sector {
+            max-width: 521px;
+            padding: 0 margin(desktop);
         }
     }
 
@@ -125,7 +131,7 @@
     }
 
     &__group {
-        @include flex(row, flex-start, flex-start);
+        @include flex(row, space-between, flex-start);
         flex-wrap: wrap;
         margin-left: -6px;
         padding-right: 20px;
@@ -136,6 +142,10 @@
             padding-right: 0;
             margin-left: -3px;
         }
+
+        .filters__section--sector & {
+            padding-right: 0;
+        }
     }
 
     &__item {
@@ -144,8 +154,8 @@
         font-weight: 700;
         padding: 7px 13px;
         border-radius: 20px;
-        border: 2px solid rgba($color-white, 0.5);
-        transition: background 0.3s $easing;
+        border: 1px solid rgba($color-white, 0.5);
+        transition: background 0.3s $easing, color 0.3s $easing;
         background-color: $color-gray;
         z-index: 1;
         text-transform: uppercase;
@@ -161,14 +171,14 @@
 
         &--static {
             position: absolute;
-            top: -3px;
+            top: 0;
             right: 0;
             flex: none;
             align-self: center;
-            margin-right: 20px;
+            margin-right: 37px;
 
             .filters__group--nowrap & {
-                right: 17px;
+                right: 11px;
             }
         }
 
@@ -176,16 +186,18 @@
             @include pseudo(calc(100% + 2px), calc(100% + 2px), -1px, -1px, transparent, -1);
             opacity: 0;
             transition: opacity $time $easing;
-            border: 2px solid rgba($color-white, 1);
+            border: 2px solid rgba($color-winter, 1);
             border-radius: 20px;
         }
 
         @include hover {
-            background-color: $color-accent;
+            background-color: rgba($color-accent, 1);
+            color: $color-gray;
         }
 
         &.is-active {
-            background-color: $color-dark;
+            // background-color: $color-dark;
+            color: $color-winter;
 
             &::after {
                 opacity: 1;
@@ -222,7 +234,7 @@
         margin-left: 46px;
 
         &::after {
-            @include pseudo(15px, 15px, 50%, 50%, rgba($color-white, 0.4), -1);
+            @include pseudo(15px, 15px, 50%, 50%, rgba($color-winter, 0.4), -1);
         }
 
         &::after,
@@ -234,7 +246,7 @@
         }
 
         &::before {
-            @include pseudo(21px, 21px, 50%, 50%, rgba($color-white, 0.4), -1);
+            @include pseudo(21px, 21px, 50%, 50%, rgba($color-winter, 0.4), -1);
         }
 
         &:first-of-type {

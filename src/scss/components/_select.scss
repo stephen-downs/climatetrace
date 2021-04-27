@@ -25,12 +25,12 @@
         }
 
         @include hover {
-            border: 1px solid $color-blue;
-            color: $color-blue;
+            border: 1px solid $color-winter;
+            color: $color-winter;
 
             svg {
                 * {
-                    fill: $color-blue;
+                    fill: $color-winter;
                 }
             }
         }

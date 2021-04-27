@@ -32,6 +32,17 @@
                 </button>
                 <div class="filters__panel js-panel">
                     <div class="filters__section">
+                        <h4 class="filters__label">Select country</h4>
+                        <form class="filters__search">
+                            <div class="search">
+                                <label class="search__info" for="search-country">Enter country name</label>
+                                <input class="search__input" id="search-country" name="search-country" autocomplete="off">
+                                [[svg::pin-icon]]
+                            </div>
+                        </form>
+                        <div class="filters__item filters__item--static js-item" data-item="all-country">all</div>
+                    </div>
+                    <div class="filters__section filters__section--sector">
                         <h4 class="filters__label">Choose sector</h4>
                         <div class="filters__flex">
                             <div class="filters__item filters__item--static js-item-all">All sectors</div>
@@ -67,30 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="filters__section">
-                        <h4 class="filters__label">Select location</h4>
-                        <div class="filters__select">
-                            <div class="select" data-component="Dropdown">
-                                <div class="select__trigger js-trigger">
-                                    {# <img class="icon-img-pin " src="./media/pin-icon.png" alt=""> #}
-                                    [[svg::pin-icon]]
-                                    <span class="select__label" data-select>indonesia</span>
-                                    <img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
-                                </div>
-                                <ul class="select__list">
-                                    <li class="select__item" data-value="australia">australia</li>
-                                    <li class="select__item" data-value="bahrajn">bahrajn</li>
-                                    <li class="select__item" data-value="colombia">colombia</li>
-                                    <li class="select__item" data-value="dennmark">dennmark</li>
-                                    <li class="select__item" data-value="england">england</li>
-                                    <li class="select__item" data-value="finland">finland</li>
-                                    <li class="select__item" data-value="ghana">ghana</li>
-                                    <li class="select__item" data-value="honduras">honduras</li>
-                                    <li class="select__item" data-value="iran">iran</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
