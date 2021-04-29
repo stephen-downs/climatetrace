@@ -34,6 +34,7 @@ export class Aside extends Component {
         Aside.instance = this;
         
         this.bind();
+        Aside.instance.isOpen = false;
     }
 
 

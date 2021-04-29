@@ -33,14 +33,37 @@
                 <div class="filters__panel js-panel">
                     <div class="filters__section">
                         <h4 class="filters__label">Select country</h4>
-                        <form class="filters__search">
-                            <div class="search">
-                                <label class="search__info" for="search-country">Enter country name</label>
-                                <input class="search__input" id="search-country" name="search-country" autocomplete="off">
-                                [[svg::pin-icon]]
+                        <div data-component="Search">
+                        
+                            <form class="filters__search">
+                                <div class="search">
+                                    <label class="search__info" for="search-country">Enter country name</label>
+                                    <input class="search__input" id="search-country" name="search-country" autocomplete="off">
+                                    [[svg::pin-icon]]
+                                </div>
+                            </form>
+                            <div class="livesearch js-search-live">
+                                <div class="livesearch__wrapper js-live-list">
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/haiti.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">Haiti</span>
+                                    </div>
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/honduras.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">honduras</span>
+                                    </div>
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">hongkong</span>
+                                    </div>
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/hungary.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">hungary</span>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
-                        <div class="filters__item filters__item--static js-item-country" data-item="all-country">all countries</div>
+                            <div class="filters__item filters__item--static js-item-country" data-item="all-country">all countries</div>
+                        </div>
                     </div>
                     <div class="filters__section filters__section--sector">
                         <h4 class="filters__label">Choose sector</h4>
@@ -116,12 +139,12 @@
                             <div class="dashboard__position">
                                 <img src="./media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
                                 <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
-                                <div>global rank <i class="info">!<span></span></i></div>
+                                <div>global rank <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
                             </div>
                             <div class="dashboard__change">
                                 <img src="./media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
                                 <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
-                                <div>change <i class="info">!<span></span></i></div>
+                                <div>change <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
                             </div>
                         </div>
                         
@@ -154,119 +177,28 @@
         <div class="dashboard__wrapper">
             <div class="tabs">
                 <div class="tab" data-tab="0">
-                    <span>Sector</span>
-                    <img src="./media/triangle-dots.png" alt="" class="icon-img-dots">
+                    <i>Explore emissions by</i>
+                    <span>Country</span>
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
                 </div>
                 <div class="tab" data-tab="1">
-                    <span>Country</span>
-                    <img src="./media/triangle-dots.png" alt="" class="icon-img-dots">
+                    <i>Explore emissions by</i>
+                    <span>Sector</span>
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
                 </div>
                 <div class="tab" data-tab="2">
+                    <i>Explore emissions by</i>
                     <span>Time</span>
-                    <img src="./media/triangle-dots.png" alt="" class="icon-img-dots">
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
                 </div>
                 <div class="tab" data-tab="3">
+                    <i>Explore emissions by</i>
                     <span>Data</span>
-                    <img src="./media/triangle-dots.png" alt="" class="icon-img-dots">
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
                 </div>
             </div>
             <div class="stats__group js-tabs-wrapper">
                 <div class="stats__item" data-view="0">
-                    <div class="stats__heading">
-                        Compare country data
-                        <em class="stats__heading-em">by Sector</em>
-                    </div>
-                    <div class="stats__content">
-                        <div class="stats__topbar">
-                            <h3 class="stats__h3">Total Emissions</h3>
-                            <div class="stats__calendar compare compare--sector" data-component="Range">
-                                <button class="compare__button js-trigger">
-                                    <span><span data-selected>Last year</span></span>
-                                    <img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
-                                </button>
-                                <div class="compare__toggle">
-                                    <form>
-                                        <div class="compare__option">
-                                            <label class="compare__label">ALL</label>
-                                            <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">Last year</label>
-                                            <input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">Last 5 years</label>
-                                            <input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">Last 10 years</label>
-                                            <input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="masonry" data-component="Masonry" data-animation="itemsFade" data-elements="js-masonry-tile" data-elements-in="js-wrapper" data-stagger="0.1" data-uncache data-delay="0" data-scale="true">
-                            <div class="masonry__tile js-masonry-tile" data-tile="forestry" data-value="66.3" data-color="#4FDBC5">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">forestry</h4>
-                                    <div class="masonry__data">1.517 billion tonnes</div>
-                                    <div class="masonry__number">66.3%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="agriculture" data-value="7.5" data-color="#26BBE3">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">agriculture</h4>
-                                    <div class="masonry__data">172.4 million tonnes</div>
-                                    <div class="masonry__number">7.5%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile js-masonry-tile" data-tile="electricity" data-value="7.4" data-color="#FC8C59">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">Electricity Generation</h4>
-                                    <div class="masonry__data">168.8 million tonnes</div>
-                                    <div class="masonry__number">7.4%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#FDD49E">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">buildings</h4>
-                                    <div class="masonry__data">121.8 million tonnes</div>
-                                    <div class="masonry__number">5.35%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#5877CC">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">transportation</h4>
-                                    <div class="masonry__data">110 MILLION TONNES</div>
-                                    <div class="masonry__number">4.85%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#E75040">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">manufacturing</h4>
-                                    <div class="masonry__data">84.3 million tonnes</div>
-                                    <div class="masonry__number">3.7%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#B60E63">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">Extractive Industries</h4>
-                                    <div class="masonry__data">60.1 million tonnes</div>
-                                    <div class="masonry__number">2.64%</div>
-                                </div>
-                            </div>
-                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="other" data-value="2.15" data-color="#888788">
-                                <div class="masonry__wrapper js-wrapper">
-                                    <h4 class="masonry__sector">other</h4>
-                                    <div class="masonry__data">48.9 m tonnes</div>
-                                    <div class="masonry__number">2.15%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stats__item" data-view="1">
                     <div class="stats__heading">
                         Compare country data
                         <em class="stats__heading-em">by Country</em>
@@ -480,6 +412,102 @@
                         </div>
                     </div>
                 </div>
+                <div class="stats__item" data-view="1">
+                    <div class="stats__heading">
+                        Compare country data
+                        <em class="stats__heading-em">by Sector</em>
+                    </div>
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Total Emissions</h3>
+                            <div class="stats__calendar compare compare--sector" data-component="Range">
+                                <button class="compare__button js-trigger">
+                                    <span><span data-selected>Last year</span></span>
+                                    <img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
+                                </button>
+                                <div class="compare__toggle">
+                                    <form>
+                                        <div class="compare__option">
+                                            <label class="compare__label">ALL</label>
+                                            <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last year</label>
+                                            <input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 5 years</label>
+                                            <input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 10 years</label>
+                                            <input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="masonry" data-component="Masonry" data-animation="itemsFade" data-elements="js-masonry-tile" data-elements-in="js-wrapper" data-stagger="0.1" data-uncache data-delay="0" data-scale="true">
+                            <div class="masonry__tile js-masonry-tile" data-tile="forestry" data-value="66.3" data-color="#4FDBC5">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">forestry</h4>
+                                    <div class="masonry__data">1.517 billion tonnes</div>
+                                    <div class="masonry__number">66.3%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="agriculture" data-value="7.5" data-color="#26BBE3">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">agriculture</h4>
+                                    <div class="masonry__data">172.4 million tonnes</div>
+                                    <div class="masonry__number">7.5%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="electricity" data-value="7.4" data-color="#FC8C59">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">Electricity Generation</h4>
+                                    <div class="masonry__data">168.8 million tonnes</div>
+                                    <div class="masonry__number">7.4%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#FDD49E">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">buildings</h4>
+                                    <div class="masonry__data">121.8 million tonnes</div>
+                                    <div class="masonry__number">5.35%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#5877CC">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">transportation</h4>
+                                    <div class="masonry__data">110 MILLION TONNES</div>
+                                    <div class="masonry__number">4.85%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#E75040">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">manufacturing</h4>
+                                    <div class="masonry__data">84.3 million tonnes</div>
+                                    <div class="masonry__number">3.7%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#B60E63">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">Extractive Industries</h4>
+                                    <div class="masonry__data">60.1 million tonnes</div>
+                                    <div class="masonry__number">2.64%</div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="other" data-value="2.15" data-color="#888788">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">other</h4>
+                                    <div class="masonry__data">48.9 m tonnes</div>
+                                    <div class="masonry__number">2.15%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="stats__item" data-view="2">
                     <div class="stats__heading">
                         Compare country data

@@ -1,21 +1,15 @@
 .rank {
     padding-top: 20px;
 
-
-
     &__wrapper {
         overflow-y: scroll;
         max-height: 376px;
     }
 
-
-
     &__table {
         border-collapse: collapse;
         width: 100%;
     }
-
-
 
     &__header {
         @include font-size(12, 32);
@@ -27,8 +21,6 @@
         text-align: left;
         font-weight: normal;
     }
-
-
 
     &__cell {
         &--id {
@@ -60,8 +52,6 @@
         }
     }
 
-
-
     &__row {
         border-bottom: 1px solid rgba(#979797, 0.3);
         @include flex(row, flex-start, center);
@@ -69,10 +59,12 @@
         position: relative;
         z-index: 0;
 
-        &:last-of-type { border-bottom-color: transparent; }
+        &:last-of-type {
+            border-bottom-color: transparent;
+        }
 
         &--header {
-            background: $color-gray;
+            background: $color-white;
             position: sticky;
             top: 0;
             z-index: 1;
@@ -81,7 +73,7 @@
         &::before {
             content: "";
             @include full(absolute, 4);
-            background: #414041;
+            background: rgba($color-black, 0.2);
             opacity: 0;
             z-index: -1;
             transition: opacity 0.1s;
@@ -92,8 +84,6 @@
             opacity: 1;
         }
     }
-
-
 
     &__position {
         padding: 11px 0;
@@ -120,16 +110,12 @@
         }
     }
 
-
-
     .flag {
         height: 20px;
         width: auto;
         display: inline-block;
         margin-right: 17px;
     }
-
-
 
     .curve {
         max-width: 70px;

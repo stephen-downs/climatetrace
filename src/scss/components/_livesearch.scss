@@ -1,0 +1,53 @@
+.livesearch {
+    position: absolute;
+    // height: 132px;
+    width: 242px;
+    background-color: $color-accent;
+    z-index: 3;
+    height: 0;
+    opacity: 0;
+    transition: height $time $easing, opacity $time $easing;
+    overflow: hidden;
+
+    .is-livesearching & {
+        height: 132px;
+    }
+
+    .is-focus & {
+        opacity: 1;
+    }
+
+    &__item {
+        cursor: pointer;
+        padding: 4px 24px;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            @include pseudo(100%, 100%, 0, 0, rgba($color-black, 0.2), 1);
+            opacity: 0;
+            transition: opacity $time $easing;
+            backface-visibility: hidden;
+        }
+
+        @include hover {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__flag {
+        height: 10px;
+        margin-right: 11px;
+    }
+
+    &__country {
+        position: relative;
+        z-index: 2;
+        font-family: $font-second;
+        @include font-size(14, 26);
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+}

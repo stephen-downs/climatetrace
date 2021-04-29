@@ -9,6 +9,26 @@
     transition: border $time $easing, color $time $easing;
     cursor: pointer;
 
+    &::after {
+        @include pseudo(calc(100% + 2px), 3px, auto, -1px, $color-accent, 1);
+        transition: transform $time $easing;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: left bottom;
+        border-radius: 1px;
+    }
+
+    .is-focus & {
+        border-top: 1px solid rgba($color-white, 0);
+        border-left: 1px solid rgba($color-white, 0);
+        border-right: 1px solid rgba($color-white, 0);
+        border-bottom: 1px solid rgba($color-accent, 1);
+
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+
     &__info {
         position: absolute;
         top: -30px;
@@ -23,7 +43,7 @@
         height: 100%;
         background: transparent;
         border: none;
-        color: currentColor;
+        color: $color-accent;
         @include font-size(15, 30);
         font-weight: 400;
         text-transform: uppercase;

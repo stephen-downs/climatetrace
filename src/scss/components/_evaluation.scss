@@ -10,22 +10,22 @@
         &[data-quality="#{$i}"] {
             @if ($i == 1) {
                 span:first-of-type {
-                    background-color: $color-orange;
+                    background-color: $color-accent;
                 }
             }
 
             @if ($i == 2) {
                 span:first-of-type {
-                    background-color: $color-orange;
+                    background-color: $color-accent;
                 }
                 span:nth-of-type(#{$i}) {
-                    background-color: $color-orange;
+                    background-color: $color-accent;
                 }
             }
 
             @if ($i == 3) {
                 span {
-                    background-color: $color-orange;
+                    background-color: $color-accent;
                 }
             }
         }

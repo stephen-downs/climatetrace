@@ -25,6 +25,7 @@
 
         &::after {
             @include pseudo(100%, calc(100% - 10px), 0, 0, rgba($color-black, 0.3), 0);
+            border-radius: 5px;
         }
 
         &:nth-child(1) {

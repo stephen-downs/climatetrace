@@ -38,6 +38,7 @@
             background-color: $color-white;
             padding: 0 margin(desktop);
             color: $color-gray;
+            box-shadow: 0 5px 20px rgba($color-gray, 0.2);
         }
     }
 
@@ -57,7 +58,7 @@
         background-color: $color-gray;
         border-radius: $radius;
 
-        &.is-toggled {
+        .is-toggled & {
             overflow: visible;
         }
     }
@@ -72,7 +73,6 @@
         margin-top: 40px;
         @include flex(column, center, center);
         width: 307px;
-        overflow: hidden;
     }
 
     &__country {
@@ -145,7 +145,7 @@
 
     &__place {
         @include flex(row, flex-start, center);
-        padding-top: 20px;
+        padding-bottom: 19px;
     }
 
     &__number {
@@ -164,7 +164,7 @@
         }
 
         &::after {
-            @include pseudo(1px, 100%, 50%, auto, $color-silver, 1);
+            @include pseudo(1px, 100%, 50%, auto, $color-silver, 0);
             transform: translateY(-50%);
             right: -15px;
         }
@@ -184,6 +184,7 @@
         z-index: 1;
         @include font-size(10, 1);
         cursor: pointer;
+        transition: background $time $easing, transform $time $easing;
 
         // &::after {
         //     @include pseudo(12px, 12px, 50%, 50%, rgba($color-gray, 0.5), 0);
@@ -192,6 +193,48 @@
 
         span {
             position: absolute;
+            top: auto;
+            bottom: 22px;
+            left: -40px;
+            width: 131px;
+            height: 81px;
+            padding: 13px;
+            @include font-size(10, 12);
+            font-weight: 400;
+            background-color: $color-gray;
+            z-index: 4;
+            pointer-events: none;
+            transition: opacity $time $easing, transform $time $easing;
+            opacity: 0;
+            transform: translateY(10px);
+            border-bottom: 5px solid $color-accent;
+            text-transform: none;
+
+            i {
+                color: $color-accent;
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -12px;
+                left: 42px;
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 10px solid $color-accent;
+            }
+        }
+
+        @include hover {
+            background: $color-black;
+            span {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     }
 

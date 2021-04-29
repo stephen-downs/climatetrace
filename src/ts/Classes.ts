@@ -9,6 +9,7 @@ import { Range } from './components/Range';
 import { Chart } from './components/Chart';
 import { Aside } from './components/Aside';
 import { Parallax } from './components/Parallax';
+import { Search } from './components/Search';
 
 import { Page } from './pages/Page';
 
@@ -22,8 +23,9 @@ export const components = {
     Masonry,
     Range,
     Chart,
+    Aside,
     Parallax,
-    Aside
+    Search,
 };
 
 
