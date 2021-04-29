@@ -42,7 +42,11 @@
     }
 
     &__flex {
-        @include flex(row, center, center);
+        @include flex(row, space-between, flex-end);
+
+        &--border {
+            border-bottom: 1px solid $color-gray;
+        }
     }
 
     &__body {
@@ -66,18 +70,21 @@
 
     &__details {
         margin-top: 40px;
+        @include flex(column, center, center);
+        width: 307px;
+        overflow: hidden;
     }
 
     &__country {
-        width: 60%;
-        padding-right: 20px;
+        width: 65%;
+        padding: 0 20px 15px 0;
         margin-right: auto;
     }
 
     &__countryname {
         @include font-size(24, 30);
         font-weight: 300;
-        margin-bottom: 30px;
+        margin-right: 20px;
 
         img {
             margin-right: 15px;
@@ -100,78 +107,128 @@
 
     &__updatetime {
         text-transform: none;
-        @include font-size(16, 1);
-        font-family: $font-sans;
+        @include font-size(14, 1);
+        padding: 7px 10px;
+        background-color: rgba($color-gray, 0.5);
+        color: $color-white;
+        border-radius: 4px;
+        font-weight: 400;
     }
 
     &__percentage {
-        width: 128px;
-        @include font-size(18, 24);
-        font-weight: 300;
+        width: 100%;
+        @include font-size(14, 16);
+        font-weight: 400;
+        text-align: center;
+        border-bottom: 1px solid $color-silver;
+        padding-bottom: 15px;
 
         strong {
             font-weight: 500;
             @include font-size(30, 1);
-            display: block;
-            margin-bottom: 5px;
+            margin-right: 15px;
         }
     }
 
     &__rank {
         position: relative;
-        width: 202px;
-        padding-left: 36px;
-        font-weight: 300;
+        width: 100%;
+        padding: 23px 0 27px;
+        font-weight: 400;
         @include font-size(18, 30);
+        @include flex(row, center, center);
 
-        &::after {
-            @include pseudo(2px, 100%, 0, 0, $color-silver, 1);
-        }
+        // &::after {
+        //     @include pseudo(2px, 100%, 0, 0, $color-silver, 1);
+        // }
+    }
+
+    &__place {
+        @include flex(row, flex-start, center);
+        padding-top: 20px;
     }
 
     &__number {
         @include font-size(30, 30);
+        font-weight: 500;
+        padding-bottom: 6px;
     }
 
     &__position {
-        padding-bottom: 18px;
         position: relative;
+        @include font-size(14, 16);
+        flex: 1;
 
         img {
             margin-top: 5px;
         }
 
         &::after {
-            @include pseudo(85%, 2px, auto, 0, $color-silver, 1);
-            bottom: 0;
+            @include pseudo(1px, 100%, 50%, auto, $color-silver, 1);
+            transform: translateY(-50%);
+            right: -15px;
+        }
+    }
+
+    .info {
+        display: inline-block;
+        position: relative;
+        width: 13px;
+        height: 13px;
+        background: rgba($color-gray, 0.5);
+        padding: 2px 6px 2px;
+        font-style: normal;
+        margin-left: 2px;
+        border-radius: 50%;
+        color: $color-white;
+        z-index: 1;
+        @include font-size(10, 1);
+        cursor: pointer;
+
+        // &::after {
+        //     @include pseudo(12px, 12px, 50%, 50%, rgba($color-gray, 0.5), 0);
+        //     transform: translate(-50%, -50%);
+        // }
+
+        span {
+            position: absolute;
         }
     }
 
     &__change {
-        padding-top: 22px;
+        position: relative;
+        left: 30px;
+        @include font-size(14, 16);
+        flex: 1;
+
         img {
             margin-top: 5px;
         }
     }
 
     &__share {
-        border-top: 2px solid $color-silver;
-        margin-top: 20px;
-        padding-top: 10px;
+        // padding-top: 20px;
         @include flex(row, center, center);
     }
 
     &__share-icon {
         @include flex(row, flex-start, center);
         padding: 0 20px;
+        @include font-size(12, 1);
+
+        span {
+            color: rgba($color-gray, 0.6);
+            letter-spacing: 0.08px;
+        }
     }
 
     &__link {
-        padding: 10px;
-        width: 190px;
+        padding: 20px 10px;
+        // width: 190px;
         @include flex(row, space-between, center);
 
         a {
+            padding: 0 5px;
             transition: color 0.2s;
         }
 

@@ -2,7 +2,6 @@ svg {
     vertical-align: middle;
 }
 
-
 .svg-ct-logo g[fill="#000"] *,
 .svg-csv-icon *,
 .svg-pdf-icon *,
@@ -14,8 +13,6 @@ svg {
 .svg-ct-logo g[stroke="#000"] * {
     stroke: currentColor;
 }
-
-
 
 .svg-volume {
     width: 22px;
@@ -241,7 +238,7 @@ button {
 .svg-csv-icon,
 .svg-pdf-icon,
 .svg-json-icon {
-    height: 32px;
+    height: 26px;
 }
 .svg-calendar {
     position: absolute;
