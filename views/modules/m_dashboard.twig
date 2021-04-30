@@ -136,13 +136,15 @@
                             <span>of total global emissions</span>
                         </div>
                         <div class="dashboard__rank">
-                            <div class="dashboard__position">
-                                <img src="./media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
+                            <div class="dashboard__position is-down">
+                                <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
                                 <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
                                 <div>global rank <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
                             </div>
-                            <div class="dashboard__change">
-                                <img src="./media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
+                            <div class="dashboard__change is-up">
+                                <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
                                 <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
                                 <div>change <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
                             </div>
@@ -198,216 +200,349 @@
                 </div>
             </div>
             <div class="stats__group js-tabs-wrapper">
-                <div class="stats__item" data-view="0">
-                    <div class="stats__heading">
+                <div class="stats__item stats__item--country" data-view="0">
+                    {# <div class="stats__heading js-heading">
                         Compare country data
-                        <em class="stats__heading-em">by Country</em>
-                    </div>
+                    </div> #}
                     <div class="stats__content">
                         <div class="stats__topbar">
-                            <h3 class="stats__h3">Relative Rank</h3>
-                            <div class="stats__calendar compare" data-component="Range">
-                                <button class="compare__button js-trigger">
-                                    <span>Compare to: <span data-selected>ALL</span></span>
-                                    <img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
-                                </button>
-                                <div class="compare__toggle">
-                                    <form>
-                                        <div class="compare__date">
-                                            <div class="compare__calendar">
-                                                <label>Start date</label>
-                                                <input type="date" name="from" pattern="mm-dd-yyyy" class="compare__input compare__input--date">
-                                                [[svg::calendar]]
+                            <h3 class="stats__h3 js-h3">Relative Rank</h3>
+                            <div class="compare-wrapper">
+                                <div class="compare compare--view">
+                                    <button class="button--sort" data-rank="comparison">
+                                        <span>comparison view</span>
+                                        <img src="./media/sort-grid.png" alt="">
+                                    </button>
+                                    <hr class="hr--v">
+                                    <button class="button--sort is-active" data-rank="list">
+                                        <img src="./media/sort-list.png" alt="">
+                                        <span>list view</span>
+                                    </buton>
+                                </div>
+                                <div class="stats__calendar compare" data-component="Range">
+                                    <button class="compare__button js-trigger">
+                                        <span>Compare to: <span data-selected>ALL</span></span>
+                                        <i class="icon-arr-down"></i>
+                                    </button>
+                                    <div class="compare__toggle">
+                                        <form>
+                                            <div class="compare__option">
+                                                <label class="compare__label">ALL</label>
+                                                <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
                                             </div>
-                                            <div class="compare__calendar">
-                                                <label>End date</label>
-                                                <input type="date" name="to" pattern="mm-dd-yyyy" class="compare__input compare__input--date">
-                                                [[svg::calendar]]
+                                            <div class="compare__option">
+                                                <label class="compare__label">Top 10</label>
+                                                <input type="radio" name="option" value="Top 10" class="compare__input compare__input--option">
                                             </div>
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">ALL</label>
-                                            <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">Top 10</label>
-                                            <input type="radio" name="option" value="Top 10" class="compare__input compare__input--option">
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">Relative</label>
-                                            <input type="radio" name="option" value="Relative" class="compare__input compare__input--option">
-                                        </div>
-                                        <div class="compare__option">
-                                            <label class="compare__label">Nearby Geographies</label>
-                                            <input type="radio" name="option" value="Nearby Geographies" class="compare__input compare__input--option">
-                                        </div>
-                                    </form>
+                                            <div class="compare__option">
+                                                <label class="compare__label">Relative</label>
+                                                <input type="radio" name="option" value="Relative" class="compare__input compare__input--option">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="rank">
-                            <div class="rank__wrapper">
-                                <table class="rank__table" data-animation="itemsFade" data-y="true" data-uncache data-elements="js-row" data-stagger="0.1">
-                                    <tr class="rank__row js-row rank__row--header">
-                                        <th class="rank__header rank__cell--id"></th>
-                                        <th class="rank__header rank__cell--country">Country</th>
-                                        <th class="rank__header rank__cell--quality">data quality</th>
-                                        <th class="rank__header rank__cell--emission">emissions est.</th>
-                                        <th class="rank__header rank__cell--trend">1 yr trend</th>
-                                        <th class="rank__header rank__cell--capita">emissions / capita</th>
-                                        <th class="rank__header rank__cell--global">global</th>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="Iran">
-                                        <td class="rank__position rank__position--id rank__cell--id">1</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="Iran"><img src="./media/Iran.jpg" alt="" class="flag"> Iran</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="3">
-                                            <div class="evaluation" data-quality="1">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                        <div class="compare__views" data-component="Compare">
+                            <div class="rank stats__item is-active" data-compare="list">
+                                <div class="rank__wrapper">
+                                    <table class="rank__table" data-animation="itemsFade" data-y="true" data-uncache data-elements="js-row" data-stagger="0.1">
+                                        <tr class="rank__row js-row rank__row--header">
+                                            <th class="rank__header rank__cell--id"></th>
+                                            <th class="rank__header rank__cell--country">Country</th>
+                                            <th class="rank__header rank__cell--quality">data quality</th>
+                                            <th class="rank__header rank__cell--emission">emissions est.</th>
+                                            <th class="rank__header rank__cell--trend">1 yr trend</th>
+                                            <th class="rank__header rank__cell--capita">emissions / capita</th>
+                                            <th class="rank__header rank__cell--global">global</th>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Iran">
+                                            <td class="rank__position rank__position--id rank__cell--id">1</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Iran"><img src="./media/Iran.jpg" alt="" class="flag"> Iran</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="3">
+                                                <div class="evaluation" data-quality="1">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Korea">
+                                            <td class="rank__position rank__position--id rank__cell--id">2</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Korea"><img src="./media/SouthKorea.jpg" alt="" class="flag"> South Korea</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="1">
+                                                <div class="evaluation" data-quality="2">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Saudi Arabia">
+                                            <td class="rank__position rank__position--id rank__cell--id">3</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Saudi Arabia"><img src="./media/SaudiArabia.jpg" alt="" class="flag"> Saudi Arabia</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Indonesia">
+                                            <td class="rank__position rank__position--id rank__cell--id">3</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Indonesia"><img src="./media/Indonesia.jpg" alt="" class="flag"> Indonesia</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="2">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Canada">
+                                            <td class="rank__position rank__position--id rank__cell--id">4</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Canada"><img src="./media/Canada.jpg" alt="" class="flag"> Canada</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="1">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Mexico">
+                                            <td class="rank__position rank__position--id rank__cell--id">5</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Mexico"><img src="./media/Mexico.jpg" alt="" class="flag"> Mexico</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="0">
+                                                <div class="evaluation" data-quality="1">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">6</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">7</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">8</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">9</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="comparison stats__item" data-compare="comparison">
+                                <div class="comparison__col">
+                                    <div class="comparison__tile comparison__tile--main js-item-main is-higher">
+                                        <span class="comparison__number js-comp-num">1.67</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/Indonesia.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">Indonesia</span>
+                                                </div>
+                                                <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="South Korea">
-                                        <td class="rank__position rank__position--id rank__cell--id">2</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="South Korea"><img src="./media/SouthKorea.jpg" alt="" class="flag"> South Korea</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="1">
-                                            <div class="evaluation" data-quality="2">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
+                                                    <div>global rank <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
+                                                    <div>change <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="Saudi Arabia">
-                                        <td class="rank__position rank__position--id rank__cell--id">3</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="Saudi Arabia"><img src="./media/SaudiArabia.jpg" alt="" class="flag"> Saudi Arabia</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="3">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                        </div>
+                                        <div class="comparison__vs">
+                                            <span>vs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comparison__col">
+                                  <div class="comparison__tile js-item">
+                                        <button class="comparison__delete js-delete"></button>
+                                        <span class="comparison__number js-comp-num">0.47</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/thailand.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">thailand</span>
+                                                </div>
+                                                <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="Indonesia">
-                                        <td class="rank__position rank__position--id rank__cell--id">3</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="Indonesia"><img src="./media/Indonesia.jpg" alt="" class="flag"> Indonesia</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="2">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.01">0.01</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position is-down">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="106">106</span></div>
+                                                    <div>global rank <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change is-up">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="7.3">7.3</span><span data-text>%</span></div>
+                                                    <div>change <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="Canada">
-                                        <td class="rank__position rank__position--id rank__cell--id">4</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="Canada"><img src="./media/Canada.jpg" alt="" class="flag"> Canada</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="1">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="comparison__tile js-item ">
+                                        <button class="comparison__delete js-delete"></button>
+                                        <span class="comparison__number js-comp-num">11.8</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/australia.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">Australia</span>
+                                                </div>
+                                                <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="Mexico">
-                                        <td class="rank__position rank__position--id rank__cell--id">5</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="Mexico"><img src="./media/Mexico.jpg" alt="" class="flag"> Mexico</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="0">
-                                            <div class="evaluation" data-quality="1">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.21">0.21</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position is-up">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="37">37</span></div>
+                                                    <div>global rank <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change is-down">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="-1.1%">-1.1%</span><span data-text>%</span></div>
+                                                    <div>change <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="South Africa">
-                                        <td class="rank__position rank__position--id rank__cell--id">6</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="3">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="comparison__tile js-item">
+                                        <button class="comparison__delete js-delete"></button>
+                                        <span class="comparison__number js-comp-num">2.05</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/hungary.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">hungary</span>
+                                                </div>
+                                                <span class="dashboard__updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="South Africa">
-                                        <td class="rank__position rank__position--id rank__cell--id">7</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="3">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position is-down">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="68">68</span></div>
+                                                    <div>global rank <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change is-up">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.4">21.4</span><span data-text>%</span></div>
+                                                    <div>change <i class="info">!<span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="South Africa">
-                                        <td class="rank__position rank__position--id rank__cell--id">8</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="3">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                    <tr class="rank__row js-row" data-country-data="South Africa">
-                                        <td class="rank__position rank__position--id rank__cell--id">9</td>
-                                        <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-                                        <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-                                            <div class="evaluation" data-quality="3">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                        </td>
-                                        <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-                                        <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-                                        <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-                                        <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-                                    </tr>
-                                </table>
+                                        </div>
+                                    </div>
+                                  
+                                </div>
                             </div>
                         </div>
                     </div>

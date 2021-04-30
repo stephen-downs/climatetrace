@@ -3,7 +3,7 @@
         @include flex(row, center, center);
     }
     &__hr {
-        @include hr(calc(50% - 11px), 1px, $color-white);
+        @include hr(calc(50% - 11px), 1px, $color-gray);
         position: relative;
 
         &:first-of-type {

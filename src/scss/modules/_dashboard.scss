@@ -85,9 +85,15 @@
         @include font-size(24, 30);
         font-weight: 300;
         margin-right: 20px;
+        text-transform: uppercase;
 
         img {
             margin-right: 15px;
+        }
+
+        .comparison & {
+            @include font-size(18, 30);
+            @include flex(row, flex-start, center);
         }
     }
 
@@ -112,7 +118,7 @@
         background-color: rgba($color-gray, 0.5);
         color: $color-white;
         border-radius: 4px;
-        font-weight: 400;
+        font-weight: 600;
     }
 
     &__percentage {
@@ -127,6 +133,14 @@
             font-weight: 500;
             @include font-size(30, 1);
             margin-right: 15px;
+        }
+
+        .comparison & {
+            flex: 1;
+            border: 0;
+            max-width: 151px;
+            text-align: left;
+            padding-bottom: 0;
         }
     }
 
@@ -146,6 +160,12 @@
     &__place {
         @include flex(row, flex-start, center);
         padding-bottom: 19px;
+
+        .comparison & {
+            justify-content: space-between;
+            border-bottom: 1px solid rgba($color-gray, 0.5);
+            padding-bottom: 10px;
+        }
     }
 
     &__number {
@@ -158,15 +178,33 @@
         position: relative;
         @include font-size(14, 16);
         flex: 1;
+        text-transform: uppercase;
 
         img {
             margin-top: 5px;
         }
 
-        &::after {
+        &::after,
+        &::before {
             @include pseudo(1px, 100%, 50%, auto, $color-silver, 0);
             transform: translateY(-50%);
             right: -15px;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        .comparison & {
+            &::before {
+                display: block;
+                right: auto;
+                left: -30px;
+            }
+
+            &::after {
+                right: -8px;
+            }
         }
     }
 
@@ -176,7 +214,7 @@
         width: 13px;
         height: 13px;
         background: rgba($color-gray, 0.5);
-        padding: 2px 6px 2px;
+        padding: 2px 5px 2px;
         font-style: normal;
         margin-left: 2px;
         border-radius: 50%;
@@ -243,6 +281,7 @@
         left: 30px;
         @include font-size(14, 16);
         flex: 1;
+        text-transform: uppercase;
 
         img {
             margin-top: 5px;

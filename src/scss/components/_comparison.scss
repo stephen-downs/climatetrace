@@ -1,0 +1,106 @@
+.comparison {
+    @include flex(row, space-between, flex-start);
+    font-family: $font-second;
+
+    &__col {
+        width: calc(50% - 10px);
+        @include flex(column, flex-start, center);
+    }
+
+    &__tile {
+        position: relative;
+        width: 100%;
+        max-width: 595px;
+        border-radius: 7px;
+        background-color: $color-white;
+        padding: 50px 40px 30px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        box-shadow: 0 0 18px rgba($color-gray, 0.2);
+        transition: box-shadow $time $easing;
+
+        &--main {
+            z-index: 2;
+        }
+
+        @include hover {
+            box-shadow: 0 0 10px rgba($color-gray, 0.5);
+
+            .comparison__delete {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__number {
+        @include font-size(100, 1);
+        font-weight: 700;
+        display: block;
+        margin-bottom: -10px;
+
+        .is-higher & {
+            color: $color-red;
+        }
+
+        .is-lower & {
+            color: $color-green;
+        }
+    }
+
+    &__unit {
+        font-weight: 200;
+        @include font-size(32, 1);
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 22px;
+    }
+
+    &__flex {
+        padding-top: 15px;
+        @include flex(row, center, center);
+    }
+
+    &__vs {
+        position: absolute;
+        @include circle(58);
+        border: 5px solid $color-white;
+        background: $color-gray;
+        color: $color-white;
+        text-transform: uppercase;
+        @include font-size(24, 30);
+        font-weight: 700;
+        text-align: center;
+        @include flex();
+        box-shadow: 0 0 10px rgba($color-gray, 0.35);
+        top: 50%;
+        right: -10px;
+        transform: translate(50%, -50%);
+        z-index: 2;
+    }
+
+    &__delete {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        @include circle(30);
+        background-color: $color-gray;
+        border: 2px solid rgba($color-white, 0.95);
+        transition: opacity $time $easing, transform $time $easing;
+        opacity: 0;
+
+        &::after,
+        &::before {
+            @include pseudo(15px, 2px, 50%, 50%, $color-white, 1);
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        @include hover {
+            transform: translate(50%, -50%) scale(1.1);
+        }
+    }
+}

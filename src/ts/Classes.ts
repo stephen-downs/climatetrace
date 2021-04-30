@@ -10,6 +10,7 @@ import { Chart } from './components/Chart';
 import { Aside } from './components/Aside';
 import { Parallax } from './components/Parallax';
 import { Search } from './components/Search';
+import { Compare } from './components/Compare';
 
 import { Page } from './pages/Page';
 
@@ -26,6 +27,7 @@ export const components = {
     Aside,
     Parallax,
     Search,
+    Compare,
 };
 
 

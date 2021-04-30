@@ -1,0 +1,7 @@
+.hr {
+    &--v {
+        @include hr(1px, 20px, rgba($color-gray, 0.5));
+        margin: 0 20px;
+        display: block;
+    }
+}

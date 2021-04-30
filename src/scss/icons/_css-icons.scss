@@ -599,6 +599,8 @@ button {
 }
 
 .icon-arr-down {
+    display: inline-block;
+    color: currentColor;
     width: 10px;
     height: 10px;
     border-left: 2px solid currentColor;
@@ -729,4 +731,18 @@ button {
 
 .icon-img-curve {
     width: 23px;
+}
+
+.icon-up {
+    // display: block;
+    .is-down & {
+        display: none;
+    }
+}
+
+.icon-down {
+    // display: block;
+    .is-up & {
+        display: none;
+    }
 }

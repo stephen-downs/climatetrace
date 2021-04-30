@@ -10,7 +10,9 @@ export class Stats extends Component {
     private $wrap: JQuery;
     private $current: JQuery;
     private tabToShow: number; // for async switch
+    private $viewSwitcher: JQuery;
 
+    private $subviews: JQuery;
 
 
     constructor(protected view: JQuery, protected options?) {
@@ -19,6 +21,8 @@ export class Stats extends Component {
         this.$tab = this.view.find('[data-tab]');
         this.$item = this.view.find('[data-view]');
         this.$wrap = this.view.find('.js-tabs-wrapper');
+        this.$viewSwitcher = this.view.find('[data-rank]');
+        this.$subviews = this.view.find('[data-compare]');
 
         this.bind();
         this.setActiveView(parseInt(Utils.getParams(window.location.search).tab, 10) || 0);
@@ -28,8 +32,19 @@ export class Stats extends Component {
 
     private bind(): void {
         this.$tab.off('.tab').on('click.tab', this.onTabClick);
+        this.$viewSwitcher.off('.switch').on('click.switch', this.onViewSwitch);
     }
 
+
+    private onViewSwitch = (e): void => {
+        const current = $(e.currentTarget);
+        const view = current.data('rank');
+
+        this.$viewSwitcher.removeClass('is-active');
+        current.addClass('is-active');
+
+        this.setActiveSubview(view);
+    }
 
 
     private onTabClick = (e): void => {
@@ -38,6 +53,16 @@ export class Stats extends Component {
         this.setActiveView(index);
     }
 
+
+    private setActiveSubview(view: string): void {
+        const current = this.$subviews.filter('.is-active');
+        
+        this.hideCurrent(current).then(() => {
+            this.cleanCachedAnim();
+            this.show(null, view);
+            $window.resize();
+        });
+    }
 
 
     private setActiveView(index: number): void {
@@ -49,21 +74,21 @@ export class Stats extends Component {
             this.show(this.tabToShow);
             this.tabToShow = null;
             $window.resize();
-
         });
     }
 
 
 
-    private hideCurrent(): Promise<void> {
+    private hideCurrent(element?: JQuery): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (!this.$current) { resolve(); return; }
-            gsap.to(this.$current, {
+            const current = element ? element : this.$current;
+            if (!current) { resolve(); return; }
+            gsap.to(current, {
                 opacity: 0,
                 duration: 0.3,
                 ease: 'sine',
                 onComplete: () => {
-                    this.$current.removeClass('is-active');
+                    current.removeClass('is-active');
                     resolve();
                 },
             });
@@ -83,11 +108,17 @@ export class Stats extends Component {
         });
     }
 
-    private show(index: number): Promise<void> {
+    private show(index?: number, type?: string): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            this.$current = this.$item.filter('[data-view=' + index + ']');
-            this.$current.addClass('is-active');
-            gsap.fromTo(this.$current, {
+            console.log(index, 'index');
+
+            if (typeof index != undefined && index != null ) {
+                this.$current = this.$item.filter('[data-view=' + index + ']');
+            }
+            const current = typeof index != undefined && index != null ? this.$current : this.$subviews.filter('[data-compare=' + type + ']');
+            current.addClass('is-active');
+
+            gsap.fromTo(current, {
                 opacity: 0,
             }, {
                 opacity: 1,
@@ -97,7 +128,7 @@ export class Stats extends Component {
             });
 
 
-            this.$current.find('[data-component]').each((i, el) => {
+            current.find('[data-component]').each((i, el) => {
                 const comp = $(el).data('comp') as Component;
                 if (comp && typeof comp['enable'] !== 'undefined') {
                     comp['enable']();
