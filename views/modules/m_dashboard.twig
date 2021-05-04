@@ -445,7 +445,7 @@
                                     </div>
                                 </div>
                                 <div class="comparison__col">
-                                  <div class="comparison__tile js-item">
+                                    <div class="comparison__tile js-item">
                                         <button class="comparison__delete js-delete"></button>
                                         <span class="comparison__number js-comp-num">0.47</span>
                                         <span class="comparison__unit">BILLION TONNES CO2e</span>
@@ -477,7 +477,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="comparison__tile js-item ">
+                                    <div class="comparison__tile js-item">
                                         <button class="comparison__delete js-delete"></button>
                                         <span class="comparison__number js-comp-num">11.8</span>
                                         <span class="comparison__unit">BILLION TONNES CO2e</span>
@@ -541,7 +541,46 @@
                                             </div>
                                         </div>
                                     </div>
-                                  
+                                    <div class="comparison__add js-add-item">
+                                        <button class="comparison__button">
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                        <div class="comparison__adding">
+                                            <p>Add another country</p>
+                                            <div data-component="Search">
+                                                <form class="filters__search">
+                                                    <div class="search search--add">
+                                                        {# <label class="search__info" for="search-country">Enter country name</label> #}
+                                                        <input class="search__input" id="search-country" name="search-country" autocomplete="off">
+                                                        [[svg::pin-icon]]
+                                                    </div>
+                                                </form>
+                                                <div class="livesearch js-search-live">
+                                                    <div class="livesearch__wrapper js-live-list">
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/haiti.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">Haiti</span>
+                                                        </div>
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/honduras.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">honduras</span>
+                                                        </div>
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">hongkong</span>
+                                                        </div>
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/hungary.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">hungary</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comparison__or">or</div>
+                                        <button class="comparison__global js-add-global">global</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

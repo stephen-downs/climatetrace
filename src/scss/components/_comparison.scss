@@ -1,4 +1,6 @@
 .comparison {
+    $radius: 7px;
+
     @include flex(row, space-between, flex-start);
     font-family: $font-second;
 
@@ -11,7 +13,7 @@
         position: relative;
         width: 100%;
         max-width: 595px;
-        border-radius: 7px;
+        border-radius: $radius;
         background-color: $color-white;
         padding: 50px 40px 30px;
         margin-bottom: 20px;
@@ -35,15 +37,20 @@
     &__number {
         @include font-size(100, 1);
         font-weight: 700;
-        display: block;
+        display: inline-block;
         margin-bottom: -10px;
+        transition: color $time $easing, transform $time-fast $easing;
 
         .is-higher & {
             color: $color-red;
+            animation: scaling 1s $ease-in-out;
+            animation-iteration-count: 1;
         }
 
         .is-lower & {
             color: $color-green;
+            animation: fadeing 1s $ease-in-out;
+            animation-iteration-count: 1;
         }
     }
 
@@ -101,6 +108,67 @@
 
         @include hover {
             transform: translate(50%, -50%) scale(1.1);
+        }
+
+        .is-remove-blocking & {
+            display: none;
+        }
+    }
+
+    &__button {
+        @include circle(60);
+        position: relative;
+        border: 2px dotted $color-alto;
+        margin-right: 24px;
+
+        span {
+            width: 3px;
+            height: 31px;
+            background-color: $color-alto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &:first-of-type {
+                transform: translate(-50%, -50%) rotate(-90deg);
+            }
+        }
+    }
+
+    &__add {
+        background-color: $color-gray;
+        border-radius: $radius;
+        padding: 25px 44px;
+        @include flex(row, flex-start, center);
+        width: 100%;
+    }
+
+    &__adding {
+        color: $color-white;
+        margin-right: 19px;
+        @include font-size(14);
+    }
+
+    &__or {
+        color: $color-white;
+        margin: 13px 20px 0 0;
+    }
+
+    &__global {
+        @include font-size(11, 1);
+        text-transform: uppercase;
+        color: rgba($color-white, 0.7) !important;
+        border: 1px solid rgba($color-white, 0.3);
+        border-radius: 15px;
+        padding: 8px 18px;
+        margin-top: 18px;
+        transition: border $time $easing, background $time $easing, color $time $easing;
+
+        @include hover {
+            border: 1px solid $color-white;
+            color: $color-gray !important;
+            background-color: $color-white;
         }
     }
 }

@@ -1,6 +1,7 @@
 import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
-import { $doc  } from '../Site';
+import { $doc, $window } from '../Site';
+import { Scroll } from '../Scroll';
 
 
 export class Compare extends Component {
@@ -9,6 +10,7 @@ export class Compare extends Component {
     private $item: JQuery;
     private $itemMain: JQuery;
     private $delete: JQuery;
+    private $addItem: JQuery;
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
@@ -16,6 +18,7 @@ export class Compare extends Component {
         this.$item = this.view.find('.js-item');
         this.$itemMain = this.view.find('.js-item-main');
         this.$delete = this.view.find('.js-delete');
+        this.$addItem = this.view.find('.js-add-item');
 
         this.bind();
 
@@ -25,13 +28,13 @@ export class Compare extends Component {
 
 
     private bind(): void {
-        this.$item.on('click', this.onCompare);
+        this.$item.on('click', (e) => this.onCompare(e));
         this.$delete.on('click', this.removeItem);
     }
 
 
-    private onCompare = (e): void => {
-        const current = $(e.currentTarget);
+    private onCompare(e, element?: JQuery): void {
+        const current = element ? element : $(e.currentTarget);
         const index = current.index();
         this.$item.removeClass('is-compare');
         current.addClass('is-compare');
@@ -61,8 +64,27 @@ export class Compare extends Component {
 
 
     private removeItem = (e): void => {
+        e.stopPropagation();
         const current = $(e.currentTarget).parent();
+        let elCompare = current.hasClass('is-compare') ? true : false;
+        let el = current.next().length > 0 ? current.next() : current.prev();
+        
+        if (el.hasClass('js-add-item')) {
+            el = current.prev();
+        }
 
-        current.hide();
+        current.remove();
+        setTimeout( () => {
+            $window.resize();
+            this.$item = this.view.find('.js-item');
+
+            if (this.$item.length < 2) {
+                this.$item.addClass('is-remove-blocking');
+            }
+
+            if (elCompare) {
+                this.onCompare(e, el);
+            }
+        }, 10);
     }
 }
