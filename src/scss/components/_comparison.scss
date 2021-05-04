@@ -120,6 +120,16 @@
         position: relative;
         border: 2px dotted $color-alto;
         margin-right: 24px;
+        transition: transform $time $easing, border $time $easing;
+
+        @include hover {
+            transform: rotate(90deg);
+            border: 2px solid $color-accent;
+
+            span {
+                background-color: $color-accent;
+            }
+        }
 
         span {
             width: 3px;
@@ -129,6 +139,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            transition: background $time $easing;
 
             &:first-of-type {
                 transform: translate(-50%, -50%) rotate(-90deg);

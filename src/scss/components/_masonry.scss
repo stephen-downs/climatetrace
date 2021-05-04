@@ -17,15 +17,25 @@
         min-height: 91px;
         width: 100%;
         height: 100%;
-        background-color: $color-orange;
+        // background-color: $color-orange;
         margin: 3px 3px 0 0;
         border-radius: 5px;
-        transition: background-color 0.2s;
+        transition: background-color 0.2s, z-index 0.25s;
         opacity: 0;
 
+        @include hover {
+            z-index: 1;
+
+            .masonry__tooltip {
+                transform: translate(-50%, -100%);
+                opacity: 1;
+            }
+        }
+
         &::after {
-            @include pseudo(100%, calc(100% - 10px), 0, 0, rgba($color-black, 0.3), 0);
-            border-radius: 5px;
+            @include pseudo(100%, 10px, auto, 0, rgba($color-black, 0.2), 0);
+            border-radius: 0 0 5px 5px;
+            bottom: 0;
         }
 
         &:nth-child(1) {
@@ -33,9 +43,9 @@
             grid-column-end: span 12;
             grid-row-start: 1;
             grid-row-end: 21;
-            background-color: $color-mint;
+            background-color: $havelock-blue-lighten;
             &:hover {
-                background-color: lighten($color-mint, 5%);
+                background-color: lighten($havelock-blue, 5%);
             }
         }
 
@@ -44,9 +54,9 @@
             grid-column-end: 17;
             grid-row-start: 1;
             grid-row-end: span 10;
-            background-color: $color-sea;
+            background-color: $indigo-lighten;
             &:hover {
-                background-color: lighten($color-sea, 5%);
+                background-color: lighten($indigo, 5%);
             }
         }
 
@@ -55,9 +65,9 @@
             grid-column-end: 21;
             grid-row-start: 1;
             grid-row-end: span 10;
-            background-color: $color-orange;
+            background-color: $blue-violet-lighten;
             &:hover {
-                background-color: lighten($color-orange, 5%);
+                background-color: lighten($blue-violet, 5%);
             }
         }
 
@@ -66,9 +76,9 @@
             grid-column-end: 15;
             grid-row-start: 11;
             grid-row-end: 21;
-            background-color: $color-beige;
+            background-color: $wild-willow-lighten;
             &:hover {
-                background-color: lighten($color-beige, 5%);
+                background-color: lighten($wild-willow, 5%);
             }
         }
 
@@ -77,9 +87,9 @@
             grid-column-end: 21;
             grid-row-start: 11;
             grid-row-end: 13;
-            background-color: $color-darkblue;
+            background-color: $viking-lighten;
             &:hover {
-                background-color: lighten($color-darkblue, 5%);
+                background-color: lighten($viking, 5%);
             }
         }
 
@@ -88,9 +98,9 @@
             grid-column-end: 18;
             grid-row-start: 14;
             grid-row-end: 21;
-            background-color: $color-cinnabar;
+            background-color: $shamrock-lighten;
             &:hover {
-                background-color: lighten($color-cinnabar, 5%);
+                background-color: lighten($shamrock, 5%);
             }
         }
 
@@ -99,9 +109,9 @@
             grid-column-end: 21;
             grid-row-start: 14;
             grid-row-end: 18;
-            background-color: $color-pink;
+            background-color: $picton-blue-lighten;
             &:hover {
-                background-color: lighten($color-pink, 5%);
+                background-color: lighten($picton-blue, 5%);
             }
         }
 
@@ -110,9 +120,9 @@
             grid-column-end: 21;
             grid-row-start: 18;
             grid-row-end: 21;
-            background-color: $color-cement;
+            background-color: $gull-gray-lighten;
             &:hover {
-                background-color: lighten($color-cement, 5%);
+                background-color: lighten($gull-gray, 5%);
             }
         }
     }
@@ -165,5 +175,68 @@
 
     &__number {
         @include font-size(20, 1);
+    }
+
+    &__tooltip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -95%);
+        @include font-size(14, 1);
+        font-weight: 400;
+        height: auto;
+        width: 386px;
+        z-index: 3;
+        box-shadow: 0 0 10px rgba($color-gray, 0.5);
+        color: $color-gray;
+        font-family: $font-second;
+        transition: transform $time $easing, opacity $time-fast $easing;
+        opacity: 0;
+        pointer-events: none;
+
+        &::after {
+            @include pseudo(0, 0, auto, calc(50% - 5px), transparent, 1);
+            bottom: -10px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid $color-white;
+            transition: transform $time $easing;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        h4 {
+            @include font-size(20, 22);
+            font-weight: 300;
+            margin-bottom: 13px;
+        }
+
+        li {
+            position: relative;
+            padding: 3px 0 3px 15px;
+
+            &::after {
+                @include pseudo(5px, 5px, 50%, 0, $color-gray, 1);
+                transform: translate(0, -50%);
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__tooltip-wrapper {
+        position: relative;
+        padding: 21px;
+        background-color: $color-white;
+        border-radius: 5px;
+    }
+
+    &__hr {
+        width: 100%;
+        height: 3px;
+        background-color: $havelock-blue;
+        margin-bottom: 13px;
+        border: none;
     }
 }

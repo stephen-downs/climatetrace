@@ -36,15 +36,17 @@ export class Chart extends Component {
     };
 
     private colors: any = {
-        gray: 'rgba(97,97,97,0.5)',
-        orange: '#fc8c59',
-        mint: '#4fdbc5',
-        blue: '#5877cc',
-        pink: '#B60E63',
+        blue: '#427fd9',
+        indigo: '#3c5bbc',
+        violet: '#4c49b0',
+        green: '#94c840',
+        viking: '#4acfdc',
+        winter: '#3cabe3',
+        shamrock: '#3dd5a2',
         white: '#fff',
-        beige: '#fdd49e',
-        cinnabar: '#e75040',
-        sea: '#26bbe3',
+        gray: '#585858',
+        line: 'rgba(216, 216, 216, 1)',
+
     }
 
     private graphsData: Array<IChartSettings> = [];
@@ -238,7 +240,7 @@ export class Chart extends Component {
         this.ctx.beginPath();
         this.ctx.lineWidth = 1;
 
-        this.ctx.strokeStyle = this.colors.white;
+        this.ctx.strokeStyle = this.colors.gray;
         this.ctx.moveTo(this.graph.left, this.graph.bottom);
         this.ctx.lineTo(this.graph.right + 20, this.graph.bottom);
         this.ctx.stroke();
@@ -249,11 +251,11 @@ export class Chart extends Component {
         let val;
         const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021];
 
-        this.ctx.strokeStyle = this.colors.gray;
+        this.ctx.strokeStyle = this.colors.line;
         this.ctx.lineJoin = 'round';
         this.ctx.font = '500 12px Quicksand, sans-serif';
         this.ctx.lineWidth = 1;
-        this.ctx.fillStyle = this.colors.blue;
+        this.ctx.fillStyle = this.colors.gray;
 
         for (let i = 0; i <= helpersLine; i++) {
             val = 50 - step * i;
@@ -272,7 +274,7 @@ export class Chart extends Component {
             this.ctx.lineWidth = 1;
             this.ctx.lineJoin = 'round';
             this.ctx.font = '500 12px Quicksand, sans-serif';
-            this.ctx.fillStyle = this.colors.white;
+            this.ctx.fillStyle = this.colors.gray;
             this.ctx.fillText('' + years[j] + '', this.graph.width / years.length * j + this.margin.left, this.canvas.height - textTransform * 2);
             this.ctx.stroke();
         }

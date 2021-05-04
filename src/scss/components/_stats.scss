@@ -1,5 +1,6 @@
 .stats {
     padding: 0 margin(desktop);
+    overflow: hidden;
 
     &__heading {
         @include font-size(30, 30);
