@@ -8,10 +8,17 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
+
+        .icon-arr-down {
+            position: absolute;
+            top: 19%;
+            left: 37%;
+            transform: rotate(-135deg) translate(-50%, -50%);
+        }
     }
 
     &::after {
-        @include pseudo(100%, 100%, 50%, 50%, $color-accent, 1);
+        @include pseudo(100%, 100%, 50%, 50%, $color-white, -1);
         transform: translate(-50%, -50%) scale(0.2);
         opacity: 0;
         transition: opacity $time-fast $easing, transform $time-fast $easing;
@@ -24,8 +31,12 @@
 
     @include hover {
         &::after {
-            opacity: 0.7;
+            opacity: 1;
             transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .icon-arr-down {
+            color: $color-accent;
         }
 
         .oval-icon {
