@@ -48,6 +48,8 @@ $tab-colors: (
         border-radius: 5px;
         padding: 10px;
         cursor: pointer;
+        font-family: $font-main;
+        @include flex(column, flex-end, flex-start);
         // transition: transform 0.4s $easing 0.05s;
 
         &:last-child {
@@ -127,6 +129,7 @@ $tab-colors: (
         z-index: 2;
         transition: transform 0.5s $easing, opacity 0.5s $easing;
         backface-visibility: hidden;
+        margin: 0 0 auto 0;
         color: $color-white;
 
         .is-on-chart & {
@@ -136,7 +139,7 @@ $tab-colors: (
 
     &__number {
         @include font-size(24, 28);
-        font-family: $font-second;
+        font-family: $font-main;
         font-weight: 700;
         position: relative;
         opacity: 0.5;
@@ -159,6 +162,7 @@ $tab-colors: (
         backface-visibility: hidden;
         transition: transform 0.5s $easing, opacity 0.5s $easing;
         color: $color-white;
+        margin-bottom: 7px;
 
         .is-on-chart & {
             opacity: 1;

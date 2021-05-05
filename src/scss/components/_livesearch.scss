@@ -45,7 +45,7 @@
     &__country {
         position: relative;
         z-index: 2;
-        font-family: $font-second;
+        font-family: $font-main;
         @include font-size(14, 26);
         text-transform: uppercase;
         font-weight: 400;

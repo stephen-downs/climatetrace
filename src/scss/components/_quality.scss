@@ -10,11 +10,11 @@
 
     &__area {
         position: relative;
-        padding: 0 72px 10px 72px;
+        padding: 0 30px 10px 30px;
     }
 
     &__h3 {
-        font-family: $font-second;
+        font-family: $font-main;
         @include font-size(20, 37);
         letter-spacing: 0.4px;
         font-weight: 400;
@@ -22,7 +22,8 @@
     }
 
     &__info {
-        @include font-size(15, 37);
+        @include font-size(15, 30);
+        font-weight: 200;
     }
 
     .dotted-line {

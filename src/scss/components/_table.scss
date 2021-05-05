@@ -11,7 +11,7 @@
 
     &__th {
         @include font-size(12, 32);
-        font-family: $font-second;
+        font-family: $font-main;
         text-transform: uppercase;
     }
 
@@ -40,15 +40,22 @@
     }
 
     &__p {
-        font-family: $font-second;
-        font-weight: 300;
+        font-family: $font-main;
+        font-weight: 200;
         @include font-size(14, 15);
         letter-spacing: 0.3px;
         padding-bottom: 18px;
 
         strong {
+            @include font-size(18, 20);
+            font-weight: 500;
             display: block;
             margin-bottom: 10px;
+            color: $color-accent;
+        }
+
+        .table__col--data & {
+            font-weight: 400;
         }
     }
 

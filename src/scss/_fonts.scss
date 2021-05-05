@@ -3,6 +3,7 @@
 @import "fonts/quicksand/500";
 @import "fonts/quicksand/700";
 @import "fonts/poiretone/400";
+@import "fonts/kanit/100";
 @import "fonts/kanit/200";
 @import "fonts/kanit/300";
 @import "fonts/kanit/400";
@@ -11,5 +12,5 @@
 
 $font-poiret: "Poiret One", sans-serif;
 $font-sans: "Quicksand", sans-serif;
-$font-second: "Kanit", sans-serif;
-$font-text: $font-sans;
+$font-main: "Kanit", sans-serif;
+$font-text: $font-main;

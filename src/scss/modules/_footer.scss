@@ -2,6 +2,15 @@
     width: 100%;
     position: relative;
 
+    &__logo {
+        width: 192px;
+        svg {
+            width: 100%;
+            height: auto;
+        }
+        color: $color-gray;
+    }
+
     &__menu {
         @include flex(row, flex-start, flex-start);
     }

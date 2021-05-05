@@ -4,10 +4,19 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: $color-mirage;
+    background-color: $color-white;
+    border-radius: 7px;
+    box-shadow: $box-shadow;
 
     &--about {
         background: none;
+    }
+
+    &__container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 
     &__wrapper {
@@ -16,43 +25,78 @@
         height: 100%;
         @include flex(column, flex-end, flex-start);
         z-index: 1;
+        // transform: translateY(100%);
 
-        &::after {
-            @include pseudo(100%, 100%, 0, 0, transparent, -1);
-            opacity: 0;
-            box-shadow: 0 0 25px rgba($color-white, 0.2);
-            transition: opacity $time $easing;
-            backface-visibility: hidden;
-        }
+        // &::after {
+        //     @include pseudo(100%, 100%, 0, 0, transparent, -1);
+        //     opacity: 0;
+        //     box-shadow: 0 0 25px rgba($color-white, 0.2);
+        //     transition: opacity $time $easing;
+        //     backface-visibility: hidden;
+        // }
 
-        &::before {
-            @include pseudo(100%, 100%, 0, 0, transparent, -1);
-            transition: opacity $time $easing;
-            backface-visibility: hidden;
-            opacity: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
-        }
+        // &::before {
+        //     @include pseudo(100%, 100%, 0, 0, transparent, -1);
+        //     transition: opacity $time $easing;
+        //     backface-visibility: hidden;
+        //     opacity: 0;
+        //     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+        // }
+    }
+
+    &__hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(25%);
+        opacity: 0;
+        transition: transform $time $easing, opacity $time $easing;
+        padding: 27px;
+        @include flex(column, flex-end, flex-start);
     }
 
     &__h3 {
-        font-weight: 400;
+        font-weight: 200;
         @include font-size(28, 36);
         margin-bottom: 20px;
+        transition: opacity $time $easing;
 
         @media (max-width: 1400px) {
             font-size: 1.9vw;
         }
+
+        &--hover {
+            @include font-size(24, 26);
+            font-weight: 400;
+
+            .tile__hover & {
+                max-width: 264px;
+                margin-left: 0;
+            }
+        }
     }
 
     &__text {
-        @include font-size(16, 24);
-        padding-bottom: 10px;
+        @include font-size(14, 18);
+        // padding-bottom: 10px;
+        font-family: $font-sans;
+        transition: transform $time $easing 0.2s;
+        transform: translateY(10px);
+
+        .tile__hover & {
+            max-width: 230px;
+            margin-left: 0;
+        }
 
         &--about {
             @include font-size(28, 30);
             letter-spacing: 0.56px;
             margin-top: 20px;
-            transition: color $time $easing;
+            height: auto;
+            padding-bottom: 10px;
+            // transition: color $time $easing, height $time $easing;
         }
     }
 
@@ -65,22 +109,40 @@
         z-index: 2;
 
         @include hover {
-            ~ .tile__bg {
-                opacity: 1;
-            }
+            // ~ .tile__bg {
+            //     opacity: 0.2;
+            // }
             ~ .tile__wrapper {
+                .tile__h3 {
+                    opacity: 0;
+                }
+                .tile__bg {
+                    opacity: 0.2;
+                }
                 &::after,
                 &::before {
                     opacity: 1;
                 }
+            }
+
+            ~ .tile__wrapper ~ .tile__hover {
+                transform: translateY(0%);
+                opacity: 1;
+
+                .tile__text {
+                    transform: translateY(0);
+                }
+
                 .tile__button {
-                    &::after {
-                        opacity: 0.7;
-                        transform: translate(-50%, -50%) scale(0.8);
+                    width: 80px;
+
+                    .icon-arr-down,
+                    span {
+                        opacity: 1;
                     }
 
-                    .arr-down-icon {
-                        transform: scaleY(-1) translateY(-1px);
+                    .tile__button {
+                        width: 80px;
                     }
 
                     .oval-icon {
@@ -105,7 +167,7 @@
     }
 
     &__bg {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         z-index: 0;
@@ -113,31 +175,50 @@
         height: 100%;
         object-fit: cover;
         transition: opacity $time $easing;
-        opacity: 0.3;
+        opacity: 1;
         backface-visibility: hidden;
 
         .highlights__col--big & {
-            width: 80%;
+            top: 0;
+            width: auto;
             height: 80%;
             left: auto;
-            right: -20px;
-            top: 10%;
+            right: 20px;
+            margin: auto 0 0 auto;
         }
 
         &--contain {
-            width: 80%;
-            height: 80%;
+            // width: 80%;
+            // height: 80%;
             object-fit: contain;
-            bottom: 30px;
+            // bottom: 30px;
             right: 0;
-            margin: auto;
+            margin: 0 auto 20px;
+        }
+
+        &--custom {
+            width: 70%;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto 20px;
         }
     }
 
     &__button {
-        position: relative;
-        width: $button-size;
-        height: $button-size;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: 36px;
+        height: 36px;
+        border: 2px dotted $color-accent;
+        border-radius: 18px;
+        color: $color-accent !important;
+        @include flex();
+        font-weight: 700;
+        text-transform: uppercase;
+        @include font-size(12, 1);
+        transition: width $time-fast $easing;
+        transition-delay: 0.25s;
 
         &::after {
             @include pseudo(100%, 100%, 50%, 50%, $color-accent, 1);
@@ -145,6 +226,18 @@
             opacity: 0;
             transition: opacity $time-fast $easing, transform $time-fast $easing;
             border-radius: 50%;
+        }
+
+        .icon-arr-down,
+        span {
+            opacity: 0;
+            transition: opacity $time $easing;
+            transition-delay: 0.35s;
+        }
+
+        .icon-arr-down {
+            transform: rotate(-135deg) translate(-2px, 2px);
+            transition-delay: 0.45s;
         }
     }
 

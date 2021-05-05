@@ -14,8 +14,8 @@
         display: inline-block;
         padding: 5px 0;
         @include font-size(24, 32);
-        color: $color-white;
         transition: color $time $easing;
+        font-weight: 200;
 
         &::after {
             @include pseudo(100%, 2px, auto, 0, $color-accent, 1);
@@ -36,12 +36,14 @@
         .list--small & {
             @include font-size(14, 30);
 
+            font-weight: 400;
+
             padding: 0 15px;
             margin: 0 15px;
 
             &::after,
             &::before {
-                @include pseudo(1px, 15px, 50%, 0, $color-white, 1);
+                @include pseudo(1px, 15px, 50%, 0, $color-gray, 1);
                 transform: translateY(-50%);
             }
 

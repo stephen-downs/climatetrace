@@ -2,7 +2,7 @@
     $radius: 7px;
 
     @include flex(row, space-between, flex-start);
-    font-family: $font-second;
+    font-family: $font-main;
 
     &__col {
         width: calc(50% - 10px);

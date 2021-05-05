@@ -4,7 +4,7 @@
     // max-width: 242px;
     width: 100%;
     @include flex(column, flex-start, flex-start);
-    font-family: $font-second;
+    font-family: $font-main;
     font-weight: 300;
     @include font-size(13, 1);
 

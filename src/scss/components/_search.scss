@@ -14,7 +14,7 @@
     }
 
     &::after {
-        @include pseudo(calc(100% + 2px), 3px, auto, -1px, $color-accent, 1);
+        @include pseudo(calc(100% + 2px), 2px, auto, -1px, $color-accent, 1);
         transition: transform $time $easing;
         bottom: 0;
         transform: scaleX(0);
@@ -38,7 +38,7 @@
         top: -30px;
         left: 0;
         @include font-size(14, 30);
-        font-family: $font-second;
+        font-family: $font-main;
         font-weight: 200;
     }
 

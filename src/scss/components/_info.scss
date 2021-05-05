@@ -1,0 +1,81 @@
+.info {
+    display: inline-block;
+    position: relative;
+    width: 13px;
+    height: 13px;
+    background: rgba($color-gray, 0.5);
+    padding: 2px 5px 2px;
+    font-style: normal;
+    margin-left: 2px;
+    border-radius: 50%;
+    color: $color-white;
+    z-index: 4;
+    @include font-size(10, 1);
+    cursor: pointer;
+    transition: background $time $easing, transform $time $easing;
+
+    // &::after {
+    //     @include pseudo(12px, 12px, 50%, 50%, rgba($color-gray, 0.5), 0);
+    //     transform: translate(-50%, -50%);
+    // }
+    em {
+        font-style: normal;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 500;
+    }
+
+    span {
+        position: absolute;
+        top: auto;
+        bottom: 22px;
+        left: -40px;
+        width: 131px;
+        height: 81px;
+        padding: 13px;
+        @include font-size(10, 12);
+        font-weight: 400;
+        background-color: $color-gray;
+        z-index: 4;
+        pointer-events: none;
+        transition: opacity $time $easing, transform $time $easing;
+        opacity: 0;
+        transform: translateY(10px);
+        border-bottom: 5px solid $color-accent;
+        text-transform: none;
+
+        i {
+            color: $color-accent;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 42px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid $color-accent;
+        }
+    }
+
+    @include hover {
+        background: $color-black;
+        span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &--big {
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+    }
+}

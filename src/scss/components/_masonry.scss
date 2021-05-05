@@ -44,6 +44,17 @@
             grid-row-start: 1;
             grid-row-end: 21;
             background-color: $havelock-blue-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $havelock-blue-lighten;
+                }
+
+                hr {
+                    background-color: $havelock-blue-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($havelock-blue, 5%);
             }
@@ -55,6 +66,17 @@
             grid-row-start: 1;
             grid-row-end: span 10;
             background-color: $indigo-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $indigo-lighten;
+                }
+
+                hr {
+                    background-color: $indigo-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($indigo, 5%);
             }
@@ -66,6 +88,17 @@
             grid-row-start: 1;
             grid-row-end: span 10;
             background-color: $blue-violet-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $blue-violet-lighten;
+                }
+
+                hr {
+                    background-color: $blue-violet-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($blue-violet, 5%);
             }
@@ -77,6 +110,17 @@
             grid-row-start: 11;
             grid-row-end: 21;
             background-color: $wild-willow-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $wild-willow-lighten;
+                }
+
+                hr {
+                    background-color: $wild-willow-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($wild-willow, 5%);
             }
@@ -88,6 +132,17 @@
             grid-row-start: 11;
             grid-row-end: 13;
             background-color: $viking-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $viking-lighten;
+                }
+
+                hr {
+                    background-color: $viking-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($viking, 5%);
             }
@@ -99,6 +154,17 @@
             grid-row-start: 14;
             grid-row-end: 21;
             background-color: $shamrock-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $shamrock-lighten;
+                }
+
+                hr {
+                    background-color: $shamrock-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($shamrock, 5%);
             }
@@ -110,6 +176,17 @@
             grid-row-start: 14;
             grid-row-end: 18;
             background-color: $picton-blue-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $picton-blue-lighten;
+                }
+
+                hr {
+                    background-color: $picton-blue-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($picton-blue, 5%);
             }
@@ -121,6 +198,17 @@
             grid-row-start: 18;
             grid-row-end: 21;
             background-color: $gull-gray-lighten;
+
+            .masonry__tooltip {
+                strong {
+                    color: $gull-gray-lighten;
+                }
+
+                hr {
+                    background-color: $gull-gray-lighten;
+                }
+            }
+
             &:hover {
                 background-color: lighten($gull-gray, 5%);
             }
@@ -131,7 +219,7 @@
         position: relative;
         z-index: 1;
         padding: 10px;
-        font-family: $font-second;
+        font-family: $font-main;
         font-weight: 500;
         text-transform: uppercase;
         backface-visibility: hidden;
@@ -170,11 +258,13 @@
 
     &__sector {
         @include font-size(14, 15);
-        margin-bottom: 5px;
+        font-weight: 300;
+        // margin-bottom: 5px;
     }
 
     &__number {
         @include font-size(20, 1);
+        font-weight: 300;
     }
 
     &__tooltip {
@@ -189,7 +279,7 @@
         z-index: 3;
         box-shadow: 0 0 10px rgba($color-gray, 0.5);
         color: $color-gray;
-        font-family: $font-second;
+        font-family: $font-main;
         transition: transform $time $easing, opacity $time-fast $easing;
         opacity: 0;
         pointer-events: none;

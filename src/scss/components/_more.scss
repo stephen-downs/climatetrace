@@ -1,0 +1,56 @@
+.more {
+    @include flex(row, flex-start, center);
+    margin-left: 10px;
+    height: 20px;
+    font-family: $font-sans;
+    @include font-size(12, 1);
+
+    &--all {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        margin-left: 0;
+    }
+
+    i {
+        font-style: normal;
+        margin-right: 10px;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: color $time $easing;
+    }
+
+    span {
+        @include circle(5);
+        margin-right: 3px;
+        background-color: $color-gray;
+        transition: background $time $easing;
+    }
+
+    @include hover {
+        i {
+            color: $color-accent;
+        }
+        span {
+            background: $color-accent;
+
+            &:nth-of-type(1) {
+                animation: upDown 0.8s;
+                animation-iteration-count: 1;
+                animation-delay: 0;
+            }
+
+            &:nth-of-type(2) {
+                animation: upDown 0.8s;
+                animation-iteration-count: 1;
+                animation-delay: 0.1s;
+            }
+
+            &:nth-of-type(3) {
+                animation: upDown 0.8s;
+                animation-iteration-count: 1;
+                animation-delay: 0.2s;
+            }
+        }
+    }
+}

@@ -570,6 +570,16 @@ export class Scroll {
                 });
 
                 break;
+        
+            case 'percentBox':
+                gsap.set($el, { opacity: 1 });
+
+                const per = parseInt($el.find('.js-cover-num').text().split('%')[0], 10) / 100;
+                const level = $el.find('.js-cover-percent');
+
+                gsap.fromTo(level, 1, { duration: 1, scaleY: 0}, { scaleY: per});
+
+                break;
 
             case 'fact':
 

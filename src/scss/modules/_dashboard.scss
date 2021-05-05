@@ -1,6 +1,9 @@
 .dashboard {
+    $gradient: linear-gradient(180deg, rgba(232, 234, 238, 1) 0%, rgba(255, 255, 255, 1) 100%);
+
     position: relative;
-    margin-top: #{$nav-height + 45px};
+    padding-top: #{$nav-height + 45px};
+    background: $gradient;
 
     &__top {
         // padding: 0 margin(desktop);
@@ -38,7 +41,7 @@
             background-color: $color-white;
             padding: 0 margin(desktop);
             color: $color-gray;
-            box-shadow: 0 5px 20px rgba($color-gray, 0.2);
+            box-shadow: $box-shadow;
         }
     }
 
@@ -64,7 +67,7 @@
     }
 
     &__footer {
-        font-family: $font-second;
+        font-family: $font-main;
         padding: 40px 0 30px;
         text-transform: uppercase;
     }
@@ -204,74 +207,6 @@
 
             &::after {
                 right: -8px;
-            }
-        }
-    }
-
-    .info {
-        display: inline-block;
-        position: relative;
-        width: 13px;
-        height: 13px;
-        background: rgba($color-gray, 0.5);
-        padding: 2px 5px 2px;
-        font-style: normal;
-        margin-left: 2px;
-        border-radius: 50%;
-        color: $color-white;
-        z-index: 1;
-        @include font-size(10, 1);
-        cursor: pointer;
-        transition: background $time $easing, transform $time $easing;
-
-        // &::after {
-        //     @include pseudo(12px, 12px, 50%, 50%, rgba($color-gray, 0.5), 0);
-        //     transform: translate(-50%, -50%);
-        // }
-
-        span {
-            position: absolute;
-            top: auto;
-            bottom: 22px;
-            left: -40px;
-            width: 131px;
-            height: 81px;
-            padding: 13px;
-            @include font-size(10, 12);
-            font-weight: 400;
-            background-color: $color-gray;
-            z-index: 4;
-            pointer-events: none;
-            transition: opacity $time $easing, transform $time $easing;
-            opacity: 0;
-            transform: translateY(10px);
-            border-bottom: 5px solid $color-accent;
-            text-transform: none;
-
-            i {
-                color: $color-accent;
-                font-style: normal;
-                font-weight: 600;
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: -12px;
-                left: 42px;
-                width: 0;
-                height: 0;
-                border-left: 5px solid transparent;
-                border-right: 5px solid transparent;
-                border-top: 10px solid $color-accent;
-            }
-        }
-
-        @include hover {
-            background: $color-black;
-            span {
-                opacity: 1;
-                transform: translateY(0);
             }
         }
     }

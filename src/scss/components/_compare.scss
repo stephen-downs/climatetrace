@@ -45,7 +45,7 @@
     //     display: block;
     //     margin-bottom: 4px;
     //     @include font-size(12, 12);
-    //     font-family: $font-second;
+    //     font-family: $font-main;
     //     font-weight: 500;
     //     letter-spacing: 0.5px;
     // }
@@ -55,7 +55,7 @@
         height: 40px;
         background-color: $color-tundora;
         border: 0;
-        font-family: $font-second;
+        font-family: $font-main;
         color: $color-white;
         padding: 0 8px;
         @include font-size(10, 12);
@@ -98,7 +98,7 @@
         min-width: 150px;
         text-align: right;
         padding-right: 25px;
-        font-family: $font-second;
+        font-family: $font-main;
         @include font-size(12, 1);
 
         span {

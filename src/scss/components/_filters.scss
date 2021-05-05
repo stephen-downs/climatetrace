@@ -14,7 +14,7 @@
     }
 
     &__label {
-        font-family: $font-second;
+        font-family: $font-main;
         font-weight: 500;
         @include font-size(16, 27);
         margin-bottom: 19px;
@@ -63,7 +63,7 @@
         width: 160px;
 
         span {
-            font-family: $font-second;
+            font-family: $font-main;
             font-weight: 400;
             display: block;
             text-transform: uppercase;

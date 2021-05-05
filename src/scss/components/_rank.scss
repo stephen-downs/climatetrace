@@ -55,7 +55,7 @@
     &__row {
         border-bottom: 1px solid rgba(#979797, 0.3);
         @include flex(row, flex-start, center);
-        font-family: $font-second;
+        font-family: $font-main;
         position: relative;
         z-index: 0;
 

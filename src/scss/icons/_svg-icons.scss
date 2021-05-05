@@ -247,3 +247,11 @@ button {
     top: 28px;
     width: 14px;
 }
+
+.svg-pin-icon {
+    path {
+        .is-focus & {
+            fill: $color-accent;
+        }
+    }
+}

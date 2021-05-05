@@ -5,15 +5,21 @@
             {% for item in items %}
             <div class="highlights__col {% if item.big %}highlights__col--big{% endif %} js-tile">
                 <div class="tile">
-                    <a href="" class="tile__url"></a>
-                    <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
-                    <div class="tile__wrapper">
-                        <h3 class="tile__h3">{{item.title}}</h3>
-                        {% if item.text %}<p class="tile__text">{{item.text}}</p>{% endif %}
-                        <button class="tile__button">
-                            <img src="media/dotted-oval.png" alt="" class="oval-icon">
-                            <img src="media/arr-down.png" alt="" class="arr-down-icon">
-                        </button>
+                    <div class="tile__container">
+                        <a href="" class="tile__url"></a>
+                        <div class="tile__wrapper">
+                            <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
+                            <h3 class="tile__h3">{{item.title}}</h3>
+                        </div>
+                        <div class="tile__hover">
+                            <h3 class="tile__h3 tile__h3--hover">{{item.title}}</h3>
+                            <p class="tile__text">{{item.text}}</p>
+                            <button class="tile__button">
+                                {# <img src="media/dotted-oval.png" alt="" class="oval-icon"> #}
+                                <span>More</span>
+                                <i class="icon-arr-down"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -23,15 +29,21 @@
             {% for item in items_bottom %}
             <div class="highlights__col {% if item.big %}highlights__col--big{% endif %} js-tile">
                 <div class="tile">
-                    <a href="" class="tile__url"></a>
-                    <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
-                    <div class="tile__wrapper">
-                        <h3 class="tile__h3">{{item.title}}</h3>
-                        {% if item.text %}<p class="tile__text">{{item.text}}</p>{% endif %}
-                        <button class="tile__button">
-                            <img src="media/dotted-oval.png" alt="" class="oval-icon">
-                            <img src="media/arr-down.png" alt="" class="arr-down-icon">
-                        </button>
+                    <div class="tile__container">
+                        <a href="" class="tile__url"></a>
+                        <div class="tile__wrapper">
+                            <img src="{{item.src}}" alt="" class="tile__bg{% if item.img_class %} tile__bg--{{item.img_class}}{% endif %}">
+                            <h3 class="tile__h3">{{item.title}}</h3>
+                        </div>
+                        <div class="tile__hover">
+                            <h3 class="tile__h3 tile__h3--hover">{{item.title}}</h3>
+                            <p class="tile__text">{{item.text}}</p>
+                            <button class="tile__button">
+                                {# <img src="media/dotted-oval.png" alt="" class="oval-icon"> #}
+                                <span>More</span>
+                                <i class="icon-arr-down"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
