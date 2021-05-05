@@ -63,7 +63,7 @@ html {
         // will-change: transform;
 
         .is-aside-open & {
-            transform: translateX(-#{$aside-width-margin});
+            transform: translateX(-#{$aside-width});
         }
     }
 }

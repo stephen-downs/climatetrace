@@ -2,8 +2,9 @@
     position: relative;
     width: 100%;
     @include flex(row, space-between, center);
-    padding: 0 35px;
+    padding: 0 35px 10px;
     margin-top: 70px;
+    overflow: hidden;
 
     // &::after {
     //     @include pseudo(100%, 1px, auto, 0, $color-silver, 1);

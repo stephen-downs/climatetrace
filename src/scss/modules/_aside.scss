@@ -1,7 +1,7 @@
 .aside {
     $w: 350px;
     $w-mobile: 100vw;
-    $bg: var(--color-primary);
+    $bg: $color-bg;
 
     position: fixed;
     right: 0;
@@ -18,6 +18,10 @@
     background: $bg;
     overflow-y: scroll;
     display: none;
+
+    &::before {
+        @include pseudo(50px, 100%, 0, -48px, $color-bg, 1);
+    }
 
     @include breakpoint(tablet) {
         max-height: 1024px;
@@ -40,9 +44,9 @@
         display: block;
     }
 
-    .is-scroll-end & {
-        background: var(--color-secondary);
-    }
+    // .is-scroll-end & {
+    //     background: var(--color-secondary);
+    // }
 
     &__wrapper {
         position: relative;
