@@ -1,13 +1,11 @@
-<div class="share{% if social.circle_mobile %} share--circle{% endif %}" data-component="Tooltip">
-    {% if social.circle_mobile %}
-    <div class="share__title">Share this edition</div>
-    {% endif %}
+<div class="share" data-component="Tooltip">
+    <div class="share__title">Share dashboard</div>
+    <a href="" data-share class="js-share-element">[[svg::csv-icon]]</a>
+    <a href="" data-share class="js-share-element">[[svg::pdf-icon]]</a>
+    <a href="" data-share class="js-share-element">[[svg::json-icon]]</a>
+    <a href="" data-share class="js-share-element">[[svg::link-icon]]</a>
     <button class="share__button js-toggle">
-        <span class="icon icon--share">
-            [[svg::share]]
-        </span>
-        <span class="share__copy">Share</span>
-        <span class="share__border"></span>
+        [[svg::social-icon]]
     </button>
     <div class="share__tooltip">
         {% include '../components/social.twig' with social %}

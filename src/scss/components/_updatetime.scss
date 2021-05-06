@@ -1,0 +1,22 @@
+.updatetime {
+    text-transform: none;
+    @include font-size(14, 1);
+    padding: 7px 10px;
+    background-color: rgba($color-gray, 0.5);
+    color: $color-white;
+    border-radius: 4px;
+    font-weight: 600;
+
+    &--sector {
+        margin: 0 5px;
+        min-width: 130px;
+        color: $color-gray;
+        background-color: transparent;
+        font-weight: 400;
+    }
+
+    .explore__body & {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+}

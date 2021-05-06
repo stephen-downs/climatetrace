@@ -1,46 +1,39 @@
 <div class="social{% if static %}{% else %} social--toggle{% endif %}{% if dark %} social--dark{% endif %}">
-    {% if title %}<p class="social__title">{{title}}</p>{% endif %}
     <ul class="social__items">
         {% if facebook %}
         <a class="social__item" href="https://www.facebook.com/sharer/sharer.php?u={{facebook.link?:'>url<'}}" data-share="facebook" target="_blank">
-            <span>[[svg::xs-facebook]]</span>
+            <span>[[svg::facebook]]</span>
         </a>
         {% endif %}
         {% if twitter %}
         <a class="social__item" href="http://www.twitter.com/intent/tweet?text={{twitter.text}}&url={{twitter.link?:'>url<'}}" data-share="twitter" target="_blank">
-            <span>[[svg::xs-twitter]]</span>
+            <span>[[svg::twitter]]</span>
         </a>
         {% endif %}
         {% if linkedin %}
         <a class="social__item" href="http://www.linkedin.com/shareArticle?mini=true&url={{linkedin.link?:'>url<'}}" data-share="linkedin" target="_blank">
-            <span>[[svg::xs-linkedin]]</span>
+            <span>[[svg::linkedin]]</span>
         </a>
         {% endif %}
         {% if pinterest %}
         <a class="social__item" href="http://www.pinterest.com/shareArticle?mini=true&url={{pinterest.link?:'>url<'}}" data-share="pinterest" target="_blank">
-            <span>[[svg::xs-pinterest]]</span>
+            <span>[[svg::pinterest]]</span>
         </a>
         {% endif %}
         {% if instagram %}
         <a class="social__item" href="http://www.instagram.com/shareArticle?mini=true&url={{instagram.link?:'>url<'}}" data-share="instagram" target="_blank">
-            <span>[[svg::xs-instagram]]</span>
+            <span>[[svg::instagram]]</span>
+        </a>
+        {% endif %}
+        {% if tiktok %}
+        <a class="social__item" href="" data-share="tiktok" target="_blank">
+            <span>[[svg::tiktok]]</span>
         </a>
         {% endif %}
         {% if youtube %}
         <a class="social__item" href="http://www.youtube.com/shareArticle?mini=true&url={{youtube.link?:'>url<'}}" data-share="youtube" target="_blank">
-            <span>[[svg::xs-youtube]]</span>
+            <span>[[svg::youtube]]</span>
         </a>
-        {% endif %}
-        {% if mail %}
-        <a class="social__item" href="mailto:?subject={{mail.subject}}&body={{mail.text}}%0A{{mail.link?:'>url<'}}" data-share="mail">
-            <span>[[svg::xs-mail]]</span>
-        </a>
-        {% endif %}
-        {% if copy %}
-        <button class="social__item" data-copy>
-            <span>[[svg::xs-link]]</span>
-            <span class="copied">url copied</span>
-        </button>
         {% endif %}
     </ul>
     <span class="social__mobile-close js-close"></span>

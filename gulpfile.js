@@ -249,7 +249,7 @@ function svgStore() {
  * Insert the svgs into the build
  */
 function insertSVGs() {
-  const distFiles = ['index', 'dashboard'];
+  const distFiles = ['index', 'dashboard', 'explore', 'highlights', 'contribute'];
   const pattern = /\[\[svg::([0-9a-z-_]+)\]\]/gm;
 
   return Promise.all(distFiles.map((file) => {
@@ -338,7 +338,7 @@ function jsonLint() {
  * Process the Twig template for the build including any api fetches (global header/footer from WAPO)
  */
 async function twig() {
-  const dataFiles = ["data", "data-dashboard"];
+  const dataFiles = ["data", "data-dashboard", "data-explore", "data-highlights", "data-contribute"];
 
   await Promise.all(dataFiles.map((file) => {
       let data;

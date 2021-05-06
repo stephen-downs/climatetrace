@@ -1,0 +1,138 @@
+.sector {
+    &__list {
+        padding-top: 62px;
+    }
+
+    &__item {
+        position: relative;
+        border-radius: $radius;
+        box-shadow: $box-shadow;
+        padding: 35px;
+        margin-bottom: 50px;
+        background-color: $color-white;
+    }
+
+    &__body {
+        @include flex(row, space-between, center);
+    }
+
+    &__info {
+        max-width: 391px;
+        width: 100%;
+    }
+
+    &__stats {
+        max-width: 584px;
+        width: 100%;
+    }
+
+    &__name {
+        display: inline-block;
+        margin-left: 19px;
+        @include font-size(30, 1);
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+
+    &__icon {
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    &__text {
+        padding-top: 14px;
+        font-weight: 200;
+    }
+
+    &__num {
+        @include font-size(36, 1);
+        font-weight: 200;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+
+        strong {
+            @include font-size(60, 1);
+            color: $color-accent;
+            margin-right: 19px;
+        }
+    }
+
+    &__facts {
+        width: 100%;
+        height: 68px;
+        border-top: 1px solid rgba($color-gray, 0.5);
+        @include flex(row, space-between, center);
+    }
+
+    &__shortnumber {
+        width: 100%;
+        height: 100%;
+        border-left: 1px solid rgba($color-gray, 0.5);
+        @include flex(row, center, center);
+        @include font-size(14, 16);
+        text-transform: uppercase;
+
+        strong {
+            margin-right: 14px;
+            @include font-size(34, 1);
+            margin-bottom: 3px;
+        }
+    }
+
+    &__toggle {
+        font-family: $font-main;
+        position: absolute;
+        width: 180px;
+        left: 0;
+        bottom: -10px;
+        border-radius: $radius;
+        background-color: $color-white;
+        @include flex(row, flex-start, center);
+        padding: 5px 5px 5px 35px;
+        height: 40px;
+        box-shadow: 0 8px 12px -6px rgba($color-gray, 0.05);
+        @include font-size(14, 28);
+        text-transform: uppercase;
+        transition: box-shadow $time-fast $easing;
+
+        span {
+            margin-right: 18px;
+        }
+
+        .is-toggled & {
+            box-shadow: 0 0 0 rgba($color-gray, 0);
+        }
+    }
+
+    &__icon {
+        &--agriculture {
+            width: 69px;
+        }
+
+        &--buildings {
+            width: 56px;
+        }
+
+        &--electricity {
+            width: 36px;
+        }
+
+        &--extractive {
+            width: 55px;
+        }
+
+        &--forestry {
+            width: 67px;
+        }
+
+        &--manufacturing {
+            width: 70px;
+        }
+
+        &--transportation {
+            width: 68px;
+        }
+    }
+}

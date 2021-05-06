@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 12">
+    <rect class="rect_01" width="2" height="2" />
+    <rect class="rect_02" x="10" width="2" height="2" />
+    <rect class="rect_03" x="20" width="2" height="2" />
+    <rect class="rect_04" x="10" y="5" width="2" height="2" />
+    <rect class="rect_05" x="10" y="10" width="2" height="2" />
+    <rect class="rect_06" x="15" width="2" height="2" />
+    <rect class="rect_07" x="15" y="5" width="2" height="2" />
+    <rect class="rect_08" x="5" width="2" height="2" />
+    <rect class="rect_09" x="5" y="5" width="2" height="2" />
+</svg>

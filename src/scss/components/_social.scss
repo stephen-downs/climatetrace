@@ -19,6 +19,16 @@ $color-nav-mobile: rgba($color-dark, 0.4);
     &--toggle {
         display: block;
         position: relative;
+        border: 1px solid $color-accent;
+        border-radius: 20px;
+
+        &::after {
+            @include pseudo(0, 0, -5px, auto, transparent, 1);
+            right: 15px;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-bottom: 4px solid $color-accent;
+        }
     }
 
     &__items {
@@ -27,8 +37,9 @@ $color-nav-mobile: rgba($color-dark, 0.4);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 10px;
-            display: none;
+            padding: 6px 10px;
+            opacity: 0;
+            transition: opacity $time $easing;
 
             @include breakpoint(not-desktop) {
                 // flex-direction: column;
@@ -36,7 +47,7 @@ $color-nav-mobile: rgba($color-dark, 0.4);
             }
 
             .is-open & {
-                display: flex;
+                opacity: 1;
             }
         }
 
@@ -133,11 +144,11 @@ $color-nav-mobile: rgba($color-dark, 0.4);
         align-items: center;
         // background: $color-gray;
         border-radius: 50%;
-        color: $color-white;
+        color: $color-gray;
         display: inline-flex;
         font-size: 15px;
         height: $social-size-mobile;
-        width: $social-size-mobile;
+        // width: $social-size-mobile;
         justify-content: center;
         margin: 0 2px;
         text-align: center;
@@ -145,18 +156,20 @@ $color-nav-mobile: rgba($color-dark, 0.4);
         vertical-align: top;
 
         span {
+            height: 100%;
             color: currentColor;
             transition: color $time $easing;
         }
 
         @include breakpoint(desktop) {
-            height: $social-size;
-            width: $social-size;
+            height: 26px;
+            // width: $social-size;
             margin: 0 4px;
         }
 
         svg {
-            width: 100%;
+            height: 100%;
+            vertical-align: top;
         }
         svg path {
             transition: fill $time $easing 0.1s;
@@ -169,20 +182,20 @@ $color-nav-mobile: rgba($color-dark, 0.4);
         }
 
         .social--toggle & {
-            width: 26px;
-            height: 26px;
+            // width: 26px;
+            height: 14px;
             pointer-events: none;
-            color: rgba($color-white, 0.7);
+            color: rgba($color-gray, 0.7);
 
             span {
-                color: rgba($color-white, 0.7);
+                color: rgba($color-gray, 0.7);
             }
 
             @include hover {
-                color: $color-white;
+                color: rgba($color-gray, 1);
 
                 span {
-                    color: $color-white;
+                    color: rgba($color-gray, 1);
                 }
             }
         }

@@ -6,7 +6,16 @@ svg {
 .svg-csv-icon *,
 .svg-pdf-icon *,
 .svg-json-icon *,
-.svg-full-icon * {
+.svg-full-icon *,
+.svg-link-icon *,
+.svg-social-icon *,
+.svg-facebook *,
+.svg-twitter *,
+.svg-instagram *,
+.svg-pinterest *,
+.svg-linkedin *,
+.svg-tiktok *,
+.svg-youtube * {
     fill: currentColor;
 }
 
@@ -196,16 +205,13 @@ button {
     }
 }
 
-.svg-happen-logo {
-    @include breakpoint(not-desktop) {
-        width: 241px;
-    }
+.svg-social-icon {
+    width: 23px;
 }
 
-.svg-voices-logo {
-    @include breakpoint(not-desktop) {
-        width: 253px;
-    }
+.svg-link-icon {
+    width: 15px;
+    margin-bottom: 1px;
 }
 
 .svg-twitter-icon * {
@@ -252,6 +258,26 @@ button {
     path {
         .is-focus & {
             fill: $color-accent;
+        }
+    }
+}
+
+.svg-arrow-rects {
+    width: 22px;
+
+    * {
+        fill: $color-gray;
+        transition: opacity $time-fast $easing;
+    }
+
+    .rect_02,
+    .rect_04,
+    .rect_06,
+    .rect_08 {
+        opacity: 0;
+
+        .is-toggled & {
+            opacity: 1;
         }
     }
 }

@@ -1,8 +1,15 @@
 .heading {
     position: relative;
+
+    &--big {
+        position: relative;
+        text-align: center;
+    }
+
     &__decors {
         @include flex(row, center, center);
     }
+
     &__hr {
         @include hr(calc(50% - 11px), 1px, $color-gray);
         position: relative;
@@ -11,12 +18,14 @@
             transform-origin: right bottom;
         }
     }
+
     &__dots {
         position: relative;
         width: 22px;
         height: 12px;
         margin: 0 6px;
     }
+
     &__title {
         font-family: $font-text;
         @include font-size(30, 1);
@@ -24,5 +33,20 @@
         margin-bottom: 15px;
         text-align: center;
         font-weight: 200;
+
+        .heading--big & {
+            @include font-size(50, 62);
+            font-family: $font-sans;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+    }
+
+    &__subtitle {
+        @include font-size(18, 23);
+        font-family: $font-sans;
+        letter-spacing: 0.36px;
+        margin: 0 auto 42px;
+        max-width: 667px;
     }
 }

@@ -1,9 +1,13 @@
 .dashboard {
-    $gradient: linear-gradient(180deg, rgba(232, 234, 238, 1) 0%, rgba(255, 255, 255, 1) 100%);
-
     position: relative;
-    padding-top: #{$nav-height + 45px};
+    margin-top: $nav-height;
+    padding-top: 45px;
     background: $gradient;
+
+    &::after {
+        @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
+        transform: translateY(-99%);
+    }
 
     &__top {
         // padding: 0 margin(desktop);
@@ -46,10 +50,11 @@
     }
 
     &__flex {
-        @include flex(row, space-between, flex-end);
+        @include flex(row, space-between, center);
 
         &--border {
             border-bottom: 1px solid $color-gray;
+            align-items: flex-end;
         }
     }
 
@@ -114,16 +119,6 @@
         // }
     }
 
-    &__updatetime {
-        text-transform: none;
-        @include font-size(14, 1);
-        padding: 7px 10px;
-        background-color: rgba($color-gray, 0.5);
-        color: $color-white;
-        border-radius: 4px;
-        font-weight: 600;
-    }
-
     &__percentage {
         width: 100%;
         @include font-size(14, 16);
@@ -162,7 +157,7 @@
 
     &__place {
         @include flex(row, flex-start, center);
-        padding-bottom: 19px;
+        padding: 20px 0 19px;
 
         .comparison & {
             justify-content: space-between;

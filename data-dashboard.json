@@ -8,7 +8,40 @@
 		{
 			"modules": [
 				{
-					"type": "dashboard"
+					"type": "dashboard",
+					"social": {
+						"big": true,
+						"facebook": {
+							"link": ""
+						},
+						"twitter": {
+							"link": "",
+							"text": ""
+						},
+						"linkedin": {
+							"link": ""
+						},
+						"mail": {
+							"subject": "",
+							"text": "",
+							"link": ""
+						},
+						"copy": {
+							"link": ""
+						},
+						"pinterest": {
+							"link": ""
+						},
+						"instagram": {
+							"link": ""
+						},
+						"youtube": {
+							"link": ""
+						},
+						"tiktok": {
+							"link": ""
+						}
+					}
 				},
 				{
 					"type": "highlights",

@@ -25,9 +25,9 @@ export class Tooltip extends Component {
     private bind(): void {
         this.$button.on('click.tooltip', this.onButtonClickHandler);
 
-        this.view
-            .off('mouseon').on('mouseenter.mouseon', this.onMouseEnter)
-            .off('mouseoff').on('mouseleave.mouseoff', this.onMouseLeave);
+        // this.view
+        //     .off('mouseon').on('mouseenter.mouseon', this.onMouseEnter)
+        //     .off('mouseoff').on('mouseleave.mouseoff', this.onMouseLeave);
 
         $doc.on('click.tooltip', this.onClickAnywhereHandler);
         
@@ -87,11 +87,11 @@ export class Tooltip extends Component {
             this.view.closest('.header').addClass('is-toggled-share');
         }
 
-        setTimeout(() => {
-            if (this.isOpen) {
-                this.close();
-            }
-        }, 3000);
+        // setTimeout(() => {
+        //     if (this.isOpen) {
+        //         this.close();
+        //     }
+        // }, 3000);
     }
 
 

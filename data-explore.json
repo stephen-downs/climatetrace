@@ -1,0 +1,58 @@
+{
+  "progress": true,
+  "navigation": {
+    "logo": "./media/ct-logo.png"
+  },
+  "aside": {},
+  "sections": [
+    {
+      "modules": [
+        {
+          "type": "explore",
+          "title": "EXPLORE BY SECTOR",
+          "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "social": {
+            "big": true,
+            "facebook": {
+              "link": ""
+            },
+            "twitter": {
+              "link": "",
+              "text": ""
+            },
+            "linkedin": {
+              "link": ""
+            },
+            "mail": {
+              "subject": "",
+              "text": "",
+              "link": ""
+            },
+            "copy": {
+              "link": ""
+            },
+            "pinterest": {
+              "link": ""
+            },
+            "instagram": {
+              "link": ""
+            },
+            "youtube": {
+              "link": ""
+            },
+            "tiktok": {
+              "link": ""
+            }
+          }
+        },
+        {
+          "type": "subscribe"
+        },
+        {
+          "type": "footer",
+          "grid": true
+        }
+      ]
+    }
+  ]
+}

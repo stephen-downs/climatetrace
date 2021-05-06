@@ -1,0 +1,306 @@
+<div class="explore">
+	<div class="wrapper">
+			<div class="heading heading--big" data-animation="heading">
+					<h2 class="heading__title js-title">{{title}}</h2>
+					<p class="heading__subtitle js-subtitle">{{subtitle}}</p>
+					<div class="heading__decors">
+							<hr class="heading__hr js-heading-hr">
+							<img src="./media/dots-dark.png" alt="" class="heading__dots">
+							<hr class="heading__hr js-heading-hr">
+					</div>
+			</div>
+			<div class="explore__content">
+					<div class="explore__top">
+							<h3 class="explore__h3">
+									<span>Emissions</span>
+									Explore by Sector
+							</h3>
+							<div class="compare-wrapper">
+									<div class="compare compare--view">
+											<button class="button--sort" data-chart-type="circle">
+													<span>pie chart</span>
+													<img src="./media/circle-chart-icon.png" alt="">
+											</button>
+											<hr class="hr--v">
+											<button class="button--sort is-active" data-chart-type="bar">
+													<img src="./media/chart-icon.png" alt="">
+													<span>bar chart</span>
+											</buton>
+									</div>
+							</div>
+					</div>
+					<div class="explore__body">
+              <div class="explore__stat">
+                  <div class="explore__num">
+                      <strong data-animation="number" data-time="1"><span data-num="43.8">43.8</span></strong>
+                      <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                  </div>
+                  <span class="updatetime" data-animation="fadeUp" data-delay="0.4">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="explore__text" data-animation="fadeUp">
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+							  {% include '../components/share.twig' %}
+              </div>
+					</div>
+			</div>
+      <div class="sector">
+        <div class="heading" data-animation="heading">
+            <h2 class="heading__title js-title">Sectors</h2>
+            {# <a href="" class="more more--all"><i>view all</i><span></span><span></span><span></span></a> #}
+            <div class="heading__decors">
+                <hr class="heading__hr js-heading-hr">
+                <img src="./media/dots-dark.png" alt="" class="heading__dots">
+                <hr class="heading__hr js-heading-hr">
+            </div>
+        </div>
+        <div class="sector__list">
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/agriculture.png" alt="" class="sector__icon sector__icon--agriculture">
+                  <span class="sector__name">Agriculture</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/building.png" alt="" class="sector__icon sector__icon--buildings">
+                  <span class="sector__name">Buildings</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/electricity.png" alt="" class="sector__icon sector__icon--electricity">
+                  <span class="sector__name">Electricity</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/extractive.png" alt="" class="sector__icon sector__icon--extractive">
+                  <span class="sector__name">extractive industries</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/forestry.png" alt="" class="sector__icon sector__icon--forestry">
+                  <span class="sector__name">forestry</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/manufacturing.png" alt="" class="sector__icon sector__icon--manufacturing">
+                  <span class="sector__name">manufacturing</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+          <div class="sector__item" data-component="Sector">
+            <div class="sector__body">
+              <div class="sector__info">
+                <div class="sector__area">
+                  <img src="./media/transportation.png" alt="" class="sector__icon sector__icon--transportation">
+                  <span class="sector__name">transportation</span>
+                  <p class="sector__text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </div>
+              </div>
+              <div class="sector__stats">
+                <div class="sector__num">
+                    <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
+                    <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
+                </div>
+                <div class="sector__facts">
+                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber">
+                    <strong>19%</strong>
+                    <span>of total global<br> emissions</span>
+                  </div>
+                  <div class="sector__shortnumber">
+                    <strong>3rd</strong>
+                    <span>leading<br> contributor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sector__toggle">
+              <span>subsecotrs</span>
+              [[svg::arrow-rects]]
+            </button>
+            <div class="sector__hidden">
+              <div class="table"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+.explore {
+    position: relative;
+    margin-top: $nav-height;
+    padding-top: 45px;
+    background: $gradient;
+
+    &::after {
+        @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
+        transform: translateY(-99%);
+    }
+
+    &__content {
+        padding-top: 62px;
+    }
+
+    &__top {
+        @include flex(row, space-between, center);
+    }
+
+    &__h3 {
+        @include font-size(26, 30);
+        letter-spacing: 0.16px;
+        font-family: $font-sans;
+        font-weight: 400;
+
+        span {
+            display: block;
+            @include font-size(16, 28);
+        }
+    }
+
+    &__body {
+        width: 100%;
+        @include flex(row, space-between, flex-start);
+        padding: 79px 0 60px;
+    }
+
+    &__stat {
+        max-width: 374px;
+        width: 100%;
+    }
+
+    &__num {
+        font-weight: 200;
+        @include font-size(60, 55);
+        margin-bottom: 15px;
+
+        strong {
+            display: block;
+            @include font-size(120, 0.8);
+            // font-weight: /;
+        }
+    }
+
+    &__text {
+        @include font-size(20, 24);
+        letter-spacing: 0.4px;
+        font-weight: 200;
+
+        p {
+            padding-bottom: 20px;
+        }
+    }
+}
