@@ -8,6 +8,7 @@ import { Page, PageEvents } from './pages/Page';
 import { ComponentEvents, Component } from './components/Component';
 import { Browser, browser } from './Browser';
 import { Loader } from './Loader';
+import { Widgets } from './widgets/All';
 import { pages, components } from './Classes';
 import { Copy } from './Copy';
 import { Share } from './Share';
@@ -27,6 +28,7 @@ export let debug: boolean;
 export let easing: string;
 export let lang: string;
 export let fixedposition: number;
+export let $navbar: JQuery
 
 // declare let CustomEase;
 
@@ -75,7 +77,7 @@ export class Site {
         $body = $('body');
         $article = $('#article-main');
         $main = $('#main');
-
+        $navbar = $('#navbar');
 
         this.pushStates = new PushStates();
         this.pushStates.on(PushStatesEvents.CHANGE, this.onState);
@@ -214,7 +216,7 @@ export class Site {
     // deal with newly added elements
     private onPageAppend = (el: JQuery): void => {
         PushStates.bind(el[0]);
-        // Widgets.bind(el[0]);
+        Widgets.bind(el[0]);
         this.scroll.load();
     }
 
@@ -301,6 +303,8 @@ export class Site {
 
         // bind events:
         API.bind();
+        Widgets.bind();
+
         page.on(PageEvents.PROGRESS, this.onPageProgress);
         page.on(PageEvents.CHANGE, this.onPageAppend);
 

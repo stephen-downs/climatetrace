@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="sector__list">
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">
@@ -69,25 +69,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sector__item" data-component="Sector">
@@ -104,25 +210,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sector__item" data-component="Sector">
@@ -139,25 +351,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sector__item" data-component="Sector">
@@ -174,25 +492,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sector__item" data-component="Sector">
@@ -209,25 +633,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sector__item" data-component="Sector">
@@ -244,25 +774,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sector__item" data-component="Sector">
@@ -279,25 +915,131 @@
                     <strong data-animation="number" data-time="1"><span data-num="1.67">1.67</span></strong>
                     <span data-animation="fadeUp" data-delay="0.2">BILLION TONNES CO2e</span>
                 </div>
-                <div class="sector__facts">
-                  <span class="updatetime updatetime--sector">Last updated <span class="js-time-update">3d</span></span>
-                  <div class="sector__shortnumber">
+                <div class="sector__facts" data-animation="itemsFade" data-uncache data-elements="js-el" data-stagger="0.15" data-y="true">
+                  <span class="updatetime updatetime--sector js-el">Last updated <span class="js-time-update">3d</span></span>
+                  <div class="sector__shortnumber js-el">
                     <strong>19%</strong>
                     <span>of total global<br> emissions</span>
                   </div>
-                  <div class="sector__shortnumber">
+                  <div class="sector__shortnumber js-el">
                     <strong>3rd</strong>
                     <span>leading<br> contributor</span>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="sector__toggle">
-              <span>subsecotrs</span>
-              [[svg::arrow-rects]]
-            </button>
-            <div class="sector__hidden">
-              <div class="table"></div>
+            <div class="sector__trigger">
+              <button class="sector__toggle js-sector-toggle" aria-controls>
+                <span>subsecotrs</span>
+                [[svg::arrow-rects]]
+              </button>
+              <hr class="hr--sector">
+            </div>
+            <div class="sector__hidden" aria-hidden="true">
+              <div class="table table--sector">
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <span class="table__th">CO2 EMISSIONS</span>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <span class="table__th">subsector</span>
+                    </div>
+                    <div class="table__col table__col--def">
+                        <span class="table__th">definition</span>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <span class="table__th">source</span>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <span class="table__th">methodology</span>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <span class="table__th">data frequency</span>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium">CAFOs</span>
+                          Concentrated animal feeding operation
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Rice Cultivation</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                        
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+                <div class="table__row" data-animation="fadeUp" data-uncache>
+                    <div class="table__col table__col--em">
+                        <p class="table__em"><strong class="js-number">5.5</strong><em class="js-unit">billion tonnes</em></p>
+                        <p class="table__text"><strong class="js-percent">0.03%</strong>of total global emmisions</p>
+                    </div>
+                    <div class="table__col table__col--sub">
+                        <p class="table__p">
+                          <span class="table__medium js-subsector">Manure Management</span>
+                        </p>
+                    </div>
+                    <div class="table__col table__col--def">
+                      <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="table__col table__col--src">
+                        <div class="table__icons">
+                          <div class="icon"><img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite"><span class="icon__tooltip"><i>Satellite imagery</i></span></div>
+                          <div class="icon"><img src="./media/timer-icon-black.png" alt="" class="icon-img-time"><span class="icon__tooltip"><i>lorem ipsum</i></span></div>
+                        </div>
+                    </div>
+                    <div class="table__col table__col--met">
+                        <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="table__col table__col--data">
+                        <p class="table__p">Updated every<br> 3 weeks</p>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

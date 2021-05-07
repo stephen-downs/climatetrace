@@ -1,4 +1,8 @@
 .table {
+    &--sector {
+        padding: 60px 0 75px;
+    }
+
     &__row {
         @include flex(row, flex-start, flex-start);
         border-bottom: 1px solid $color-silver;
@@ -18,25 +22,90 @@
     &__col {
         padding-right: 45px;
 
+        &--em {
+            .sector & {
+                width: percent(161, 1093, 0);
+            }
+        }
+
         &--sub {
             width: percent(171, 1106, 0);
+
+            .sector & {
+                width: percent(156, 1093, 0);
+            }
         }
 
         &--def {
             width: percent(325, 1106, 0);
+
+            .sector & {
+                width: percent(252, 1093, 0);
+            }
         }
 
         &--src {
             width: percent(91, 1106, 0);
+
+            .sector & {
+                width: percent(82, 1093, 0);
+            }
         }
 
         &--met {
             width: percent(365, 1106, 0);
+
+            .sector & {
+                width: percent(315, 1093, 0);
+            }
         }
 
         &--data {
             width: percent(152, 1106, 0);
+
+            .sector & {
+                width: percent(116, 1093, 0);
+                padding-right: 10px;
+            }
         }
+    }
+
+    &__em {
+        font-style: normal;
+        color: $color-accent;
+
+        strong {
+            @include font-size(30, 0.8);
+            display: block;
+        }
+
+        em {
+            font-style: normal;
+            @include font-size(18, 1);
+            font-weight: 200;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+    }
+
+    &__text {
+        @include font-size(12, 13);
+        text-transform: uppercase;
+
+        strong {
+            @include font-size(18, 13);
+            display: block;
+            font-weight: 400;
+            margin: 7px 0;
+        }
+    }
+
+    &__medium {
+        font-weight: 500;
+        @include font-size(18, 20);
+        display: block;
+        margin-bottom: 10px;
+        color: $color-accent;
     }
 
     &__p {
@@ -45,6 +114,10 @@
         @include font-size(14, 15);
         letter-spacing: 0.3px;
         padding-bottom: 18px;
+
+        .sector & {
+            @include font-size(14, 18);
+        }
 
         strong {
             @include font-size(18, 20);
@@ -63,6 +136,10 @@
         img {
             margin-bottom: 16px;
             display: block;
+
+            .sector & {
+                margin: 0 auto 16px;
+            }
         }
     }
 }

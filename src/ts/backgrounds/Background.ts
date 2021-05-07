@@ -2,7 +2,6 @@ import { $window } from '../Site';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { Component } from '../components/Component';
 // import gsap from 'gsap';
-// import { Video } from '../components/Video';/
 import * as $ from 'jquery';
 
 export interface IBackgroundData {
@@ -60,11 +59,6 @@ export default abstract class Background extends Component {
         
         // $window.resize();
 
-        // if (this.view.find('[data-component="Video"]').length > 0) {
-        //     const playerEl = this.view.find('[data-component="Video"]');
-        //     const player: Video = playerEl.data('Video');
-        //     player.resize();
-        // }
 
         gsap.killTweensOf(this.view);
         gsap.killTweensOf(this.$wrap);
@@ -208,13 +202,6 @@ export default abstract class Background extends Component {
         moduleId = activeModule.attr('id');
 
         if (!!activeBg) {
-            if (activeBg.hasClass('background--videobg')) {
-
-                // const playerEl = activeBg.find('[data-component="Video"]');
-                // const player: Video = playerEl.data('Video');
-                // player.resize();
-                // player.play();
-            }
         }
 
         if (activeModule) {

@@ -123,22 +123,22 @@
                 &::before {
                     opacity: 1;
                 }
-            }
-
-            ~ .tile__wrapper ~ .tile__hover {
-                transform: translateY(0%);
-                opacity: 1;
-
-                .tile__text {
-                    transform: translateY(0);
-                }
 
                 .tile__button {
                     width: 80px;
+                    border: 2px dotted $color-accent;
 
-                    .icon-arr-down,
+                    &::after {
+                        transform: scaleX(0);
+                    }
+
                     span {
                         opacity: 1;
+                    }
+
+                    .icon-arr-down {
+                        transform: rotate(-135deg) translate(-14px, 14px);
+                        color: $color-accent;
                     }
 
                     .tile__button {
@@ -148,6 +148,15 @@
                     .oval-icon {
                         animation: spin 5s infinite alternate;
                     }
+                }
+            }
+
+            ~ .tile__wrapper ~ .tile__hover {
+                transform: translateY(0%);
+                opacity: 1;
+
+                .tile__text {
+                    transform: translateY(0);
                 }
             }
 
@@ -210,34 +219,39 @@
         bottom: 20px;
         width: 36px;
         height: 36px;
-        border: 2px dotted $color-accent;
+        border: 2px dotted $color-silver;
         border-radius: 18px;
         color: $color-accent !important;
         @include flex();
         font-weight: 700;
         text-transform: uppercase;
         @include font-size(12, 1);
-        transition: width $time-fast $easing;
+        transition: width $time-fast $easing, border $time-fast $easing;
         transition-delay: 0.25s;
+        overflow: hidden;
 
         &::after {
-            @include pseudo(100%, 100%, 50%, 50%, $color-accent, 1);
-            transform: translate(-50%, -50%) scale(0.2);
-            opacity: 0;
-            transition: opacity $time-fast $easing, transform $time-fast $easing;
+            @include pseudo(100%, 100%, 50%, 50%, $color-white, 1);
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            transition: opacity $time $easing, transform $time $easing;
             border-radius: 50%;
+            transform-origin: right center;
         }
 
-        .icon-arr-down,
         span {
             opacity: 0;
             transition: opacity $time $easing;
-            transition-delay: 0.35s;
+            transition-delay: 0.25s;
+            padding-right: 10px;
         }
 
         .icon-arr-down {
-            transform: rotate(-135deg) translate(-2px, 2px);
-            transition-delay: 0.45s;
+            position: absolute;
+            color: $color-silver;
+            z-index: 2;
+            transform: rotate(-135deg) translate(0, 0);
+            transition-delay: 0.1s;
         }
     }
 

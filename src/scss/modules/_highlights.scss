@@ -1,4 +1,16 @@
 .highlights {
+    &--subpage {
+        position: relative;
+        margin-top: $nav-height;
+        padding-top: 45px;
+        background: $gradient;
+
+        &::after {
+            @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
+            transform: translateY(-99%);
+        }
+    }
+
     &__row {
         height: 423px;
         width: 100%;
@@ -17,6 +29,20 @@
 
         &:last-of-type {
             margin-right: 0;
+        }
+
+        .wrapper__tiles & {
+            height: 423px;
+            max-width: percent(375, 1189, 0);
+            margin-bottom: 28px;
+
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+
+            // display: flex;
+            // flex-wrap: nowrap;
+            // width: 32%;
         }
     }
 }

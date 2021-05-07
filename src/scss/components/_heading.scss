@@ -4,6 +4,10 @@
     &--big {
         position: relative;
         text-align: center;
+
+        .highlights--subpage & {
+            padding-bottom: 46px;
+        }
     }
 
     &__decors {
@@ -47,6 +51,6 @@
         font-family: $font-sans;
         letter-spacing: 0.36px;
         margin: 0 auto 42px;
-        max-width: 667px;
+        max-width: 887px;
     }
 }

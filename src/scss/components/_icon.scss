@@ -1,0 +1,47 @@
+.icon {
+    position: relative;
+    cursor: pointer;
+
+    &__tooltip {
+        position: absolute;
+        width: auto;
+        top: 0;
+        left: auto;
+        right: 0;
+        transform: translate(0, -100%);
+        transition: opacity $time $easing, transform $time $easing;
+        opacity: 0;
+        @include font-size(10, 10);
+        text-transform: uppercase;
+        font-weight: 500;
+        background-color: $color-silver;
+        color: $color-white;
+        border-radius: 13px;
+        padding: 5px 10px;
+        backface-visibility: hidden;
+
+        &::after {
+            @include pseudo(0, 0, auto, auto, transparent, 1);
+            bottom: -6px;
+            right: 15px;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 6px solid $color-silver;
+        }
+
+        i {
+            position: relative;
+            font-style: normal;
+            width: auto;
+            white-space: nowrap;
+            backface-visibility: hidden;
+        }
+    }
+
+    @include hover {
+        .icon__tooltip {
+            opacity: 1;
+            transform: translate(0, -150%);
+        }
+    }
+}

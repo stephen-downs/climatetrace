@@ -9,10 +9,19 @@
 
         &--highlights {
             padding-top: 46px;
+
+            .highlights--subpage & {
+                padding-top: 0;
+            }
         }
     }
 
     &--subscribe {
         padding-left: 25px;
+    }
+
+    &__tiles {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
