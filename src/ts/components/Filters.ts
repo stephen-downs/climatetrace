@@ -3,6 +3,12 @@ import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc  } from '../Site';
 
 
+interface IFiltersSettings {
+    status: string,
+    tags: string,
+}
+
+
 export class Filters extends Component {
 
     public static instance: Filters;
@@ -17,11 +23,15 @@ export class Filters extends Component {
     private $picked: JQuery;
     private $selectedCountry: JQuery;
 
+    private selectedCountry: string;
+
     private filters: Array<string> = [];
     private isAllChecked: boolean;
+    private settings: IFiltersSettings;
 
 
     public static showPickedFilters(country?: string): void {
+        if (Filters.instance.settings.tags === 'hidden') { return ; }
         let pickedSectors = Filters.instance.$itemSector.filter('.is-active').length > 0 ? Filters.instance.$itemSector.filter('.is-active') : null;
         let pickedTime = Filters.instance.$itemTime.filter('.is-active').length > 0 ? Filters.instance.$itemTime.filter('.is-active') : null;
         let pickedCountry = Filters.instance.$itemCountry.filter('.is-active').length > 0 ? Filters.instance.$itemCountry.filter('.is-active').text() : Filters.instance.$selectedCountry.val();
@@ -50,12 +60,21 @@ export class Filters extends Component {
 
         if (pickedCountry) {
             console.log(pickedCountry);
+            Filters.instance.selectedCountry = pickedCountry;
             Filters.instance.$picked.append('<span>' + pickedCountry + '</span>');
         }
 
         if (pickedTime) {
             Filters.instance.$picked.append('<span>' + pickedTime.data('item-label') + '</span>');
         }
+    }
+
+
+    public static addCountryToFilters(country: string): void {
+        const countryName: string = country.split(' ').join('-').toLowerCase();
+
+        Filters.instance.selectedCountry = country;
+        console.log(countryName, 'country name');
     }
 
     constructor(protected view: JQuery, protected options?) {
@@ -70,6 +89,10 @@ export class Filters extends Component {
         this.$picked = $('.js-picked-filter');
         this.$selectedCountry = this.view.find('#search-country');
         this.$itemCountry = this.view.find('.js-item-country');
+
+        this.settings = $.extend({
+            status: '',
+        }, options || view.data('options') || {});
 
         Filters.instance = this;
         console.log(Filters.instance.$itemSector, Filters.instance.view.find('[data-selected]').data('selected'));
@@ -127,16 +150,24 @@ export class Filters extends Component {
 
     // DEFAULT SELECTION: ALL FILTERS (ALL SECTORS/ALL COUNTRIES/ALL TIME)
     private setDefaultSelection(): void {
-        this.addElementToArray(this.$itemTime.filter('[data-item="all-time"]'), this.filters);
-        this.addElementToArray(this.$itemCountry, this.filters);
 
-        this.$itemSector.each((i, el) => {
-            this.addElementToArray($(el), this.filters);
-        });
-        this.$allSectors.addClass('is-active');
-        this.isAllChecked = true;
+        if (this.settings.status === 'unchecked') {
+            this.filters = [];
+            this.isAllChecked = false;
 
-        Filters.showPickedFilters();
+        } else {
+
+            this.addElementToArray(this.$itemTime.filter('[data-item="all-time"]'), this.filters);
+            this.addElementToArray(this.$itemCountry, this.filters);
+    
+            this.$itemSector.each((i, el) => {
+                this.addElementToArray($(el), this.filters);
+            });
+            this.$allSectors.addClass('is-active');
+            this.isAllChecked = true;
+    
+            Filters.showPickedFilters();
+        }
     }
 
 
@@ -189,6 +220,9 @@ export class Filters extends Component {
 
         Filters.showPickedFilters(current.data('item'));
     }
+
+
+
 
 
     private markTimeline(el: JQuery): void {

@@ -792,14 +792,21 @@ export class Scroll {
 
             case 'heading':
                 const hTitle = $el.find('.js-title'),
-                    hr = $el.find('.js-heading-hr');
+                    hr = $el.find('.js-heading-hr'),
+                    subTitle = $el.find('.js-subtitle').length > 0 ? $el.find('.js-subtitle') : null;
 
                 const splitTitle = new SplitText(hTitle, { type: 'words, chars' });
 
                 gsap.set($el, { opacity: 1});
 
+
                 gsap.fromTo(splitTitle.chars, { duration: 1, opacity: 0 }, {  opacity: 1, stagger: 0.05 });
                 gsap.fromTo(hr, { duration: 1, scaleX: 0 }, { scaleX: 1, delay: 0.5 });
+                
+                if (subTitle) {
+                    gsap.set(subTitle, { opacity: 0, y: 20});
+                    gsap.to(subTitle, 0.5, { duration: 0.5, opacity: 1, y: 0});
+                }
 
                 break;
 

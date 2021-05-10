@@ -52,6 +52,7 @@ export class Search extends Component {
 
         this.$input.val(current.text());
         this.$itemCountry.removeClass('is-active');
+        Filters.addCountryToFilters(current.text());
         Filters.showPickedFilters();
     }
 }

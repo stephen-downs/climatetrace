@@ -13,6 +13,16 @@
         margin-top: 7px;
     }
 
+    &--highlights {
+        width: 268px;
+        margin: 0 0 0 6px;
+        border: 1px solid rgba($color-gray, 0.6);
+
+        .svg-pin-icon * {
+            fill: $color-gray;
+        }
+    }
+
     &::after {
         @include pseudo(calc(100% + 2px), 2px, auto, -1px, $color-accent, 1);
         transition: transform $time $easing;
@@ -52,6 +62,10 @@
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 0.8px;
+
+        .search--highlights & {
+            color: $color-gray;
+        }
     }
 
     .svg-pin-icon {

@@ -1,0 +1,50 @@
+<div class="contribute subpage">
+    <div class="wrapper">
+        <div class="heading heading--big" data-animation="heading">
+            <h2 class="heading__title js-title">{{title}}</h2>
+            <p class="heading__subtitle js-subtitle">{{subtitle}}</p>
+            <div class="heading__decors">
+                <hr class="heading__hr js-heading-hr">
+                <img src="./media/dots-dark.png" alt="" class="heading__dots">
+                <hr class="heading__hr js-heading-hr">
+            </div>
+        </div>
+        <section class="contribute__content">
+            <div class="contribute__tabs">
+                <div class="compare compare--view">
+                    <button class="button--sort" data-contribute="grid">
+                        <span>grid view</span>
+                        <img src="./media/grid-view.png" alt="">
+                    </button>
+                    <hr class="hr--v">
+                    <button class="button--sort is-active" data-contribute="list">
+                        <img src="./media/sort-list.png" alt="">
+                        <span>list view</span>
+                    </buton>
+                </div>
+            </div>
+            <aside class="filters filters--aside">
+                <form class="">
+                    <button class="filters__dropdown" aria-controls>
+                        <span>Sector</span>
+                        <i class="icon-arr-down"></i>
+                    </button>
+                    <div class="hidden" aria-hidden="true">
+
+                    </div>
+                    <button class="filters__dropdown" aria-controls>
+                        <span>Location</span>
+                        <i class="icon-arr-down"></i>
+                    </button>
+                    <div class="hidden" aria-hidden="true"></div>
+                    <button class="filters__dropdown" aria-controls>
+                        <span>Data Coverage</span>
+                        <i class="icon-arr-down"></i>
+                    </button>
+                    <div class="hidden" aria-hidden="true"></div>
+                </form>
+            </aside>
+            <div class="contribute__view"></div>
+        </section>
+    </div>
+</div>

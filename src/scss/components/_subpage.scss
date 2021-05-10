@@ -1,0 +1,11 @@
+.subpage {
+    position: relative;
+    margin-top: $nav-height;
+    padding-top: 45px;
+    background: $gradient;
+
+    &::after {
+        @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
+        transform: translateY(-99%);
+    }
+}

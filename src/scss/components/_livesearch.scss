@@ -9,6 +9,12 @@
     transition: height $time $easing, opacity $time $easing;
     overflow: hidden;
 
+    .filters--highlights & {
+        width: 268px;
+        right: 0;
+        overflow-y: scroll;
+    }
+
     .is-livesearching & {
         height: 132px;
     }
@@ -20,11 +26,12 @@
     &__item {
         cursor: pointer;
         padding: 4px 24px;
+        width: 100%;
         position: relative;
         z-index: 1;
 
         &::after {
-            @include pseudo(100%, 100%, 0, 0, rgba($color-black, 0.2), 1);
+            @include pseudo(calc(100% + 8px), 100%, 0, -4px, rgba($color-black, 0.2), 1);
             opacity: 0;
             transition: opacity $time $easing;
             backface-visibility: hidden;
@@ -49,5 +56,9 @@
         @include font-size(14, 26);
         text-transform: uppercase;
         font-weight: 400;
+    }
+
+    &__wrapper {
+        width: 100%;
     }
 }

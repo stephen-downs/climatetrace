@@ -24,6 +24,10 @@
         flex-direction: row;
     }
 
+    @include breakpoint(desktop) {
+        flex-direction: row;
+    }
+
     &--column {
         @include breakpoint(desktop) {
             flex-direction: column;
@@ -52,4 +56,8 @@
 
 #main img:not([alt]) {
     border: 5px dashed #c00;
+}
+
+.hidden {
+    display: none;
 }

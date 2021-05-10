@@ -1,0 +1,16 @@
+.contribute {
+    &__content {
+        position: relative;
+        margin-top: 74px;
+        @include flex(row, space-between, flex-start);
+    }
+
+    &__tabs {
+        position: absolute;
+        top: 0px;
+        right: 0;
+    }
+
+    &__aside {
+    }
+}

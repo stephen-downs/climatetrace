@@ -1,13 +1,13 @@
 .explore {
-    position: relative;
-    margin-top: $nav-height;
-    padding-top: 45px;
-    background: $gradient;
+    // position: relative;
+    // margin-top: $nav-height;
+    // padding-top: 45px;
+    // background: $gradient;
 
-    &::after {
-        @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
-        transform: translateY(-99%);
-    }
+    // &::after {
+    //     @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
+    //     transform: translateY(-99%);
+    // }
 
     &__content {
         padding-top: 62px;

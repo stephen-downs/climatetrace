@@ -1,14 +1,23 @@
 .highlights {
-    &--subpage {
-        position: relative;
-        margin-top: $nav-height;
-        padding-top: 45px;
-        background: $gradient;
+    // &--subpage {
+    //     position: relative;
+    //     margin-top: $nav-height;
+    //     padding-top: 45px;
+    //     background: $gradient;
 
-        &::after {
-            @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
-            transform: translateY(-99%);
-        }
+    //     &::after {
+    //         @include pseudo(100%, 116px, 0, 0, $color-pale, -1);
+    //         transform: translateY(-99%);
+    //     }
+    // }
+
+    &__records {
+        position: absolute;
+        top: -50px;
+        right: 10px;
+        font-family: $font-sans;
+        @include font-size(16, 30);
+        letter-spacing: 0.1px;
     }
 
     &__row {
@@ -43,6 +52,21 @@
             // display: flex;
             // flex-wrap: nowrap;
             // width: 32%;
+        }
+    }
+
+    &__load {
+        position: absolute;
+        bottom: 50px;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-transform: uppercase;
+        transition: color $time $easing;
+
+        @include hover {
+            color: $color-accent;
         }
     }
 }
