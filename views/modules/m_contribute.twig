@@ -24,24 +24,42 @@
                 </div>
             </div>
             <aside class="filters filters--aside">
-                <form class="">
-                    <button class="filters__dropdown" aria-controls>
-                        <span>Sector</span>
-                        <i class="icon-arr-down"></i>
-                    </button>
-                    <div class="hidden" aria-hidden="true">
-
+                <form class="" action="" novalidate>
+                    <div class="filters__subcategory">
+                        <button class="filters__dropdown" aria-controls="con-sector">
+                            <span>Sector</span>
+                            <i class="icon-arr-down"></i>
+                        </button>
+                        <div id="con-sector" class="hidden" aria-hidden="true">
+                            <div class="filters__checkbox">
+                                <input type="checkbox" name="sector-all" id="f-sector-all" value="all">
+                                <label for="f-sector-all">All</label>
+                            </div>
+                            <div class="filters__subdropdown">
+                                <button class="filters__toggle" aria-controls="con-agriculture">
+                                    <span class="filters__box"></span>
+                                    <span>Agriculture</span>
+                                    <i class="icon-plus"></i>
+                                <button>
+                                <div id="con-agriculture" class="hidden">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="filters__dropdown" aria-controls>
-                        <span>Location</span>
-                        <i class="icon-arr-down"></i>
-                    </button>
-                    <div class="hidden" aria-hidden="true"></div>
-                    <button class="filters__dropdown" aria-controls>
-                        <span>Data Coverage</span>
-                        <i class="icon-arr-down"></i>
-                    </button>
-                    <div class="hidden" aria-hidden="true"></div>
+                    <div class="filters__subcategory">
+                        <button class="filters__dropdown" aria-controls="con-location">
+                            <span>Location</span>
+                            <i class="icon-arr-down"></i>
+                        </button>
+                        <div id="con-location" class="hidden" aria-hidden="true"></div>
+                    </div>
+                    <div class="filters__subcategory">
+                        <button class="filters__dropdown" aria-controls="con-data">
+                            <span>Data Coverage</span>
+                            <i class="icon-arr-down"></i>
+                        </button>
+                        <div id="con-data" class="hidden" aria-hidden="true"></div>
+                    </div>
                 </form>
             </aside>
             <div class="contribute__view"></div>

@@ -21,7 +21,7 @@ export class Expand {
         const that = $(e.currentTarget);
         const id = that.attr('aria-controls');
         const isExpanded = that.attr('aria-expanded') === 'true';
-        const target = that.parent().next();
+        const target = $('#' + id);
         const currentScrollPosition = window.scrollY ? window.scrollY : $window.scrollTop();
 
         target.add(target.children()).css({
