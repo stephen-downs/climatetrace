@@ -1,0 +1,25 @@
+.loadmore {
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-transform: uppercase;
+    transition: color $time $easing;
+    @include flex(row, center, center);
+
+    @include hover {
+        color: $color-accent;
+    }
+
+    &__circle {
+        width: 36px;
+        height: 36px;
+        border: 2px dotted $color-silver;
+        border-radius: 50%;
+        @include flex(row, center, center);
+        transform: rotate(-90deg);
+        margin-left: 20px;
+    }
+}
