@@ -10,59 +10,411 @@
             </div>
         </div>
         <section class="contribute__content">
-            <div class="contribute__tabs">
-                <div class="compare compare--view">
-                    <button class="button--sort" data-contribute="grid">
-                        <span>grid view</span>
-                        <img src="./media/grid-view.png" alt="">
-                    </button>
-                    <hr class="hr--v">
-                    <button class="button--sort is-active" data-contribute="list">
-                        <img src="./media/sort-list.png" alt="">
-                        <span>list view</span>
-                    </buton>
-                </div>
-            </div>
             <aside class="filters filters--aside">
-                <form class="" action="" novalidate>
-                    <div class="filters__subcategory">
-                        <button class="filters__dropdown" aria-controls="con-sector">
+                <form class="form form--filters" action="" novalidate>
+                    <div class="form__subcategory">
+                        <button class="form__dropdown" aria-controls="con-sector">
                             <span>Sector</span>
                             <i class="icon-arr-down"></i>
                         </button>
                         <div id="con-sector" class="hidden" aria-hidden="true">
-                            <div class="filters__checkbox">
-                                <input type="checkbox" name="sector-all" id="f-sector-all" value="all">
-                                <label for="f-sector-all">All</label>
-                            </div>
-                            <div class="filters__subdropdown">
-                                <button class="filters__toggle" aria-controls="con-agriculture">
-                                    <span class="filters__box"></span>
-                                    <span>Agriculture</span>
-                                    <i class="icon-plus"></i>
-                                <button>
-                                <div id="con-agriculture" class="hidden">
+                            <div class="form__wrap">
+                                <label class="form__row">
+                                    <input type="checkbox" name="sector-all" id="f-sector-all" value="all">
+                                    <span class="form__checkbox"></span>
+                                    <span class="form__label">All</span>
+                                </label>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle" aria-controls="con-agriculture">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">Agriculture</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-agriculture" class="hidden">
+                                        <div class="form__subdropdown">
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-enteric-fermentation" id="f-sector-enteric-fermentation" value="enteric-fermentation">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Enteric Fermentation</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-rise-cultivation" id="f-sector-rise-cultivation" value="rise-cultivation">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Rise Cultivation</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-crop-residues" id="f-sector-crop-residues" value="crop-residues">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Crop Residues</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-cultivation-soils" id="f-sector-cultivation-soils" value="cultivation-of-organic-soils">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Cultivation of organic soils</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-synthetic-fertilizer" id="f-sector-synthetic-fertilizer" value="synthetic-fertilizer">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Synthetic fertilizer</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-manure-soils" id="f-sector-manure-soils" value="manure-applied-to-soils">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Manure applied to soils</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-manure-management" id="f-sector-manure-management" value="manure-management">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Manure management</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-pasture" id="f-sector-pasture" value="manure-left-on-pasture">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Manure left on pasture</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-burning" id="f-sector-burning" value="burning">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Burning</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle" aria-controls="con-forestry">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">forestry</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-forestry" class="hidden">
+                                        <div class="form__subdropdown">
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-enteric-fermentation" id="f-sector-enteric-fermentation" value="enteric-fermentation">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Enteric Fermentation</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-rise-cultivation" id="f-sector-rise-cultivation" value="rise-cultivation">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Rise Cultivation</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-crop-residues" id="f-sector-crop-residues" value="crop-residues">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Crop Residues</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-cultivation-soils" id="f-sector-cultivation-soils" value="cultivation-of-organic-soils">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Cultivation of organic soils</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-synthetic-fertilizer" id="f-sector-synthetic-fertilizer" value="synthetic-fertilizer">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Synthetic fertilizer</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-manure-soils" id="f-sector-manure-soils" value="manure-applied-to-soils">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Manure applied to soils</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-manure-management" id="f-sector-manure-management" value="manure-management">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Manure management</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-pasture" id="f-sector-pasture" value="manure-left-on-pasture">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Manure left on pasture</span>
+                                            </label>
+                                            <label class="form__row">
+                                                <input type="checkbox" name="sector-burning" id="f-sector-burning" value="burning">
+                                                <span class="form__checkbox"></span>
+                                                <span class="form__label">Burning</span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="filters__subcategory">
-                        <button class="filters__dropdown" aria-controls="con-location">
+                    <div class="form__subcategory">
+                        <button class="form__dropdown" aria-controls="con-location">
                             <span>Location</span>
+                            <small>Select Region or Country</small>
                             <i class="icon-arr-down"></i>
                         </button>
-                        <div id="con-location" class="hidden" aria-hidden="true"></div>
+                        <div id="con-location" class="hidden" aria-hidden="true">
+                            <div class="form__wrap form__wrap--spacetop">
+                                <label class="form__row">
+                                    <input type="checkbox" name="location-all" id="f-location-all" value="all">
+                                    <span class="form__checkbox"></span>
+                                    <span class="form__label">All</span>
+                                </label>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-asia">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">asia</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-asia" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-africa">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">africa</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-africa" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-europe">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">europe</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-europe" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-middle-east">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">middle east</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-middle-east" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-north-america">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">north america</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-north-america" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-south-central-america">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">south & central america</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-south-central-america" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row--sub">
+                                    <button class="form__toggle form__toggle--country" aria-controls="con-oceania">
+                                        <span class="form__checkbox"></span>
+                                        <span class="form__label">oceania</span>
+                                        <i class="icon-plus"></i>
+                                    </button>
+                                    <div id="con-oceania" class="hidden">
+                                        <div class="form__subdropdown form__subdropdown--country">
+                                            <div class="form__dropdownlist">
+                                                <span>Select country</span><i class="icon-arr-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="filters__subcategory">
-                        <button class="filters__dropdown" aria-controls="con-data">
+                    <div class="form__subcategory">
+                        <button class="form__dropdown" aria-controls="con-data">
                             <span>Data Coverage</span>
                             <i class="icon-arr-down"></i>
                         </button>
-                        <div id="con-data" class="hidden" aria-hidden="true"></div>
+                        <div id="con-data" class="hidden" aria-hidden="true">
+                            <div class="form__wrap">
+                                <label class="form__row">
+                                    <input type="radio" name="data-coverage" id="f-data-all" value="all">
+                                    <span class="form__checkbox form__checkbox--radio"></span>
+                                    <span class="form__label">All</span>
+                                </label>
+                                <label class="form__row">
+                                    <input type="radio" name="data-coverage" id="f-data-excellent" value="excellent">
+                                    <span class="form__checkbox form__checkbox--radio"></span>
+                                    <span class="form__label">Excellent</span>
+                                </label>
+                                <label class="form__row">
+                                    <input type="radio" name="data-coverage" id="f-data-good" value="good">
+                                    <span class="form__checkbox form__checkbox--radio"></span>
+                                    <span class="form__label">Good</span>
+                                </label>
+                                <label class="form__row">
+                                    <input type="radio" name="data-coverage" id="f-data-fair" value="fair">
+                                    <span class="form__checkbox form__checkbox--radio"></span>
+                                    <span class="form__label">Fair</span>
+                                </label>
+                                <label class="form__row">
+                                    <input type="radio" name="data-coverage" id="f-data-no-coverage" value="no-coverage">
+                                    <span class="form__checkbox form__checkbox--radio"></span>
+                                    <span class="form__label">no coverage</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__subcategory">
+                        <div class="form__dropdown form__dropdown--static">
+                            <span>Regular Updates</span>
+                            <small>Represents data updated in<br> the last 3 months</small>
+                            <label class="form__row form__row--radiozip">
+                                <input type="checkbox" name="regular-updates" id="f-regular-updates" value="regular-updates">
+                                <span class="form__checkbox form__checkbox--radiozip"></span>
+                            </label>
+                        </div>
                     </div>
                 </form>
             </aside>
-            <div class="contribute__view"></div>
+            <div class="contribute__view">
+                <div class="coverage coverage--contribute">
+                    <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                        <div class="coverage__country">
+                            <div class="evaluation evaluation--contribute" data-quality="2">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>Indonesia</p>
+                        </div>
+                        <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                        <div class="coverage__number js-cover-num">41%</div>
+                        <p class="coverage__text">of known cattle<br> operations are represented</p>
+                        <span class="coverage__supplier">DATA SUPPLIER</span>
+                        <div class="coverage__footer">
+                            <img src="./media/coverage-logo-3.png" alt="" class="coverage__logo">
+                            <div class="coverage__update">
+                                <p>Updated <span class="js-update">2/15/21</span></p>
+                                <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                            </div>
+                        </div>
+                        <span class="coverage__percent js-cover-percent"></span>
+                    </div>
+                    <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                        <div class="coverage__country">
+                            <div class="evaluation evaluation--contribute" data-quality="3">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>China</p>
+                        </div>
+                        <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                        <div class="coverage__number js-cover-num">13%</div>
+                        <p class="coverage__text">of known cattle<br> operations are represented</p>
+                        <span class="coverage__supplier">DATA SUPPLIER</span>
+                        <div class="coverage__footer">
+                            <img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
+                            <div class="coverage__update">
+                                <p>Updated <span class="js-update">2/15/21</span></p>
+                                <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                            </div>
+                        </div>
+                        <span class="coverage__percent js-cover-percent"></span>
+                    </div>
+                    <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                        <div class="coverage__country">
+                            <div class="evaluation evaluation--contribute" data-quality="1">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>SRI LANKA</p>
+                        </div>
+                        <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                        <div class="coverage__number js-cover-num">63%</div>
+                        <p class="coverage__text">of known cattle<br> operations are represented</p>
+                        <span class="coverage__supplier">DATA SUPPLIER</span>
+                        <div class="coverage__footer">
+                            <img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
+                            <div class="coverage__update">
+                                <p>Updated <span class="js-update">2/15/21</span></p>
+                                <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                            </div>
+                        </div>
+                        <span class="coverage__percent js-cover-percent"></span>
+                    </div>
+                    <div class="coverage__tile coverage__tile--nodata js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                        <div class="coverage__country">
+                            <div class="evaluation evaluation--contribute" data-quality="1">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>Japan</p>
+                        </div>
+                        <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                        <div class="coverage__number js-cover-num">data needed</div>
+                        <p class="coverage__text">of known cattle<br> operations are represented</p>
+                        <span class="coverage__supplier">DATA SUPPLIER</span>
+                        <div class="coverage__footer">
+                            <img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
+                            <div class="coverage__update">
+                                <p>Updated <span class="js-update">2/15/21</span></p>
+                                <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                            </div>
+                        </div>
+                        <span class="coverage__percent js-cover-percent"></span>
+                    </div>
+                    <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                        <div class="coverage__country">
+                            <div class="evaluation evaluation--contribute" data-quality="1">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>Thailand</p>
+                        </div>
+                        <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                        <div class="coverage__number js-cover-num">76%</div>
+                        <p class="coverage__text">of known cattle<br> operations are represented</p>
+                        <span class="coverage__supplier">DATA SUPPLIER</span>
+                        <div class="coverage__footer">
+                            <img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
+                            <div class="coverage__update">
+                                <p>Updated <span class="js-update">2/15/21</span></p>
+                                <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                            </div>
+                        </div>
+                        <span class="coverage__percent js-cover-percent"></span>
+                    </div>
+				</div>											
+            </div>
         </section>
     </div>
 </div>

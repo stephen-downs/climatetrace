@@ -10,6 +10,7 @@
 
     &--about {
         background: none;
+        box-shadow: none;
     }
 
     &__container {
@@ -91,11 +92,13 @@
         }
 
         &--about {
-            @include font-size(28, 30);
+            @include font-size(22, 24);
             letter-spacing: 0.56px;
             margin-top: 20px;
             height: auto;
             padding-bottom: 10px;
+            font-family: $font-main;
+            font-weight: 200;
             // transition: color $time $easing, height $time $easing;
         }
     }
@@ -260,6 +263,11 @@
         line-height: 0;
         overflow: hidden;
 
+        .tile--about & {
+            border-radius: 15px;
+            box-shadow: $box-shadow;
+        }
+
         img {
             max-width: 100%;
             transition: transform $time $easing;
@@ -267,9 +275,9 @@
     }
 
     &__hr {
-        @include hr(100%, 2px, $color-white);
+        @include hr(100%, 2px, $color-gray);
         transition: background $time $easing, transform $time $easing;
-        margin-top: 2px;
+        margin-top: 20px;
         transform: scaleX(0.22);
     }
 }

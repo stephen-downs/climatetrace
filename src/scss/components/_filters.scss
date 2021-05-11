@@ -288,42 +288,4 @@
             }
         }
     }
-
-    &__dropdown {
-        @include flex(row, space-between, center);
-        width: 100%;
-        padding: 18px 30px 0 0;
-        @include font-size(20, 27);
-        font-family: $font-main;
-    }
-
-    &__toggle {
-        display: block;
-        color: $color-gray;
-    }
-
-    &__checkbox {
-        position: relative;
-        @include font-size(14, 30);
-        font-weight: 300;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        label {
-            position: relative;
-            padding-left: 25px;
-
-            &::after {
-                @include pseudo(16px, 16px, 50%, 0, transparent, 1);
-                border: 1px solid rgba($color-gray, 0.7);
-                transform: translate(0, -50%);
-            }
-        }
-
-        input {
-            width: 0;
-            height: 0;
-            position: absolute;
-        }
-    }
 }

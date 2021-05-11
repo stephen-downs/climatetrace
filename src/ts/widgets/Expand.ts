@@ -48,7 +48,7 @@ export class Expand {
                 ease: easing,
                 onComplete: (): void => {
                     that.attr('aria-expanded', 'true');
-                    
+                    gsap.set(target, { height: 'auto'});
                 },
             });
 

@@ -1,31 +1,45 @@
 .evaluation {
     @include flex(row, flex-start, center);
+    color: $color-accent;
 
     span {
         @include circle(9);
         margin-right: 4px;
         background-color: $color-gray-light;
+
+        .evaluation--contribute & {
+            background-color: $gull-gray;
+        }
     }
+
+    &--contribute {
+        color: $color-white;
+
+        span {
+            background-color: $gull-gray;
+        }
+    }
+
     @for $i from 1 through 3 {
         &[data-quality="#{$i}"] {
             @if ($i == 1) {
                 span:first-of-type {
-                    background-color: $color-accent;
+                    background-color: currentColor;
                 }
             }
 
             @if ($i == 2) {
                 span:first-of-type {
-                    background-color: $color-accent;
+                    background-color: currentColor;
                 }
                 span:nth-of-type(#{$i}) {
-                    background-color: $color-accent;
+                    background-color: currentColor;
                 }
             }
 
             @if ($i == 3) {
                 span {
-                    background-color: $color-accent;
+                    background-color: currentColor;
                 }
             }
         }
