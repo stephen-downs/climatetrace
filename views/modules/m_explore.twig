@@ -9,7 +9,7 @@
 							<hr class="heading__hr js-heading-hr">
 					</div>
 			</div>
-			<div class="explore__content">
+			<div class="explore__content" data-component="Charts">
 					<div class="explore__top">
 							<h3 class="explore__h3">
 									<span>Emissions</span>
@@ -17,7 +17,7 @@
 							</h3>
 							<div class="compare-wrapper">
 									<div class="compare compare--view">
-											<button class="button--sort" data-chart-type="circle">
+											<button class="button--sort " data-chart-type="pie">
 													<span>pie chart</span>
 													<img src="./media/circle-chart-icon.png" alt="">
 											</button>
@@ -41,6 +41,18 @@
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   </div>
 							  {% include '../components/share.twig' %}
+              </div>
+              <div class="explore__charts chart">
+                <div class="chart__view" data-chart-app="pie">
+                  <div class="chart__canvas">
+                    <canvas id="pie-chart"></canvas>
+                  </div>
+                </div>
+                <div class="chart__view is-active" data-chart-app="bar">
+                  <div class="chart__canvas">
+                    <canvas id="bar-chart"></canvas>
+                  </div>
+                </div>
               </div>
 					</div>
 			</div>
@@ -196,7 +208,7 @@
               </div>
             </div>
           </div>
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">
@@ -337,7 +349,7 @@
               </div>
             </div>
           </div>
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">
@@ -478,7 +490,7 @@
               </div>
             </div>
           </div>
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">
@@ -619,7 +631,7 @@
               </div>
             </div>
           </div>
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">
@@ -760,7 +772,7 @@
               </div>
             </div>
           </div>
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">
@@ -901,7 +913,7 @@
               </div>
             </div>
           </div>
-          <div class="sector__item" data-component="Sector">
+          <div class="sector__item">
             <div class="sector__body">
               <div class="sector__info">
                 <div class="sector__area">

@@ -1,6 +1,8 @@
 .loadmore {
     position: absolute;
-    bottom: 50px;
+    font-family: $font-sans;
+    font-weight: 500;
+    bottom: 49px;
     text-align: center;
     left: 0;
     right: 0;
@@ -11,15 +13,38 @@
 
     @include hover {
         color: $color-accent;
+
+        .loadmore__oval {
+            border-color: $color-accent;
+            animation: spin-center 5s infinite alternate;
+        }
     }
 
     &__circle {
+        position: relative;
         width: 36px;
         height: 36px;
-        border: 2px dotted $color-silver;
-        border-radius: 50%;
+        // border: 2px dotted $color-silver;
+        // border-radius: 50%;
         @include flex(row, center, center);
         transform: rotate(-90deg);
         margin-left: 20px;
+    }
+
+    &__oval {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 2px dotted $color-silver;
+        transition: border $time $easing;
+    }
+
+    .icon-arr-down {
+        transition: color 0s $easing;
+        transition-delay: 0s;
     }
 }

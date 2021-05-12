@@ -4,6 +4,10 @@
     @include flex(row, flex-start, flex-start);
     flex-wrap: wrap;
 
+    &--contribute {
+        padding-bottom: 75px;
+    }
+
     &__tile {
         position: relative;
         height: 300px;

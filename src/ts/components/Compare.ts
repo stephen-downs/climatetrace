@@ -1,7 +1,5 @@
 import { Component } from './Component';
-import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
-import { $doc, $window } from '../Site';
-import { Scroll } from '../Scroll';
+import { $window } from '../Site';
 
 
 export class Compare extends Component {

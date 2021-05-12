@@ -1,7 +1,9 @@
 import { Component } from './Component';
 import * as Utils from '../Utils';
+import { GlobalVars } from './GlobalVars';
 
-interface IChartSettings {
+
+interface ILinechartSettings {
     id: number;
     xPercent: number;
     yPoints: Array<number>;
@@ -12,7 +14,7 @@ interface IChartSettings {
     labelY?: number;
 }
 
-export class Chart extends Component {
+export class Linechart extends Component {
 
     private $tab: JQuery;
     private $wrapper: JQuery;
@@ -35,21 +37,7 @@ export class Chart extends Component {
         width: 0,
     };
 
-    private colors: any = {
-        blue: '#427fd9',
-        indigo: '#3c5bbc',
-        violet: '#4c49b0',
-        green: '#94c840',
-        viking: '#4acfdc',
-        winter: '#3cabe3',
-        shamrock: '#3dd5a2',
-        white: '#fff',
-        gray: '#585858',
-        line: 'rgba(216, 216, 216, 1)',
-
-    }
-
-    private graphsData: Array<IChartSettings> = [];
+    private graphsData: Array<ILinechartSettings> = [];
 
     private bgLines: Array<{scaleX: number}>;
     private currentCharts: number[];
@@ -120,13 +108,13 @@ export class Chart extends Component {
     private createDataObject(): void {
         this.graphsData = this.$tab.toArray().map((el, i) => {
             const $el = $(el);
-            return <IChartSettings>{
+            return <ILinechartSettings>{
                 id: i,
                 xPercent: 0,
                 // yPoints: $el.data('points'),
                 // yPoints: this.getRandomPoints(Math.random() * 10 + 7, Math.random() * 30 + 18, 60, 0.3),
                 yPoints: this.getPoints(i),
-                color: this.colors[$el.data('color')],
+                color: GlobalVars.colors[$el.data('color')],
                 fill: i === 0 ? true : false,
                 shown: false,
             };
@@ -240,7 +228,7 @@ export class Chart extends Component {
         this.ctx.beginPath();
         this.ctx.lineWidth = 1;
 
-        this.ctx.strokeStyle = this.colors.gray;
+        this.ctx.strokeStyle = GlobalVars.colors.gray;
         this.ctx.moveTo(this.graph.left, this.graph.bottom);
         this.ctx.lineTo(this.graph.right + 20, this.graph.bottom);
         this.ctx.stroke();
@@ -251,11 +239,11 @@ export class Chart extends Component {
         let val;
         const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021];
 
-        this.ctx.strokeStyle = this.colors.line;
+        this.ctx.strokeStyle = GlobalVars.colors.graylight;
         this.ctx.lineJoin = 'round';
         this.ctx.font = '500 12px Quicksand, sans-serif';
         this.ctx.lineWidth = 1;
-        this.ctx.fillStyle = this.colors.gray;
+        this.ctx.fillStyle = GlobalVars.colors.gray;
 
         for (let i = 0; i <= helpersLine; i++) {
             val = 50 - step * i;
@@ -274,7 +262,7 @@ export class Chart extends Component {
             this.ctx.lineWidth = 1;
             this.ctx.lineJoin = 'round';
             this.ctx.font = '500 12px Quicksand, sans-serif';
-            this.ctx.fillStyle = this.colors.gray;
+            this.ctx.fillStyle = GlobalVars.colors.gray;
             this.ctx.fillText('' + years[j] + '', this.graph.width / years.length * j + this.margin.left, this.canvas.height - textTransform * 2);
             this.ctx.stroke();
         }
@@ -282,7 +270,7 @@ export class Chart extends Component {
 
 
 
-    private drawGraph = (data: IChartSettings): void => {
+    private drawGraph = (data: ILinechartSettings): void => {
         let lastVal: number;
         let lastY: number;
 
@@ -336,37 +324,37 @@ export class Chart extends Component {
         }
 
         // label:
-        if (data.xPercent > 0) {
-            // line:
-            this.ctx.globalAlpha = 1;
-            this.ctx.beginPath();
-            this.ctx.lineWidth = 1;
-            this.ctx.strokeStyle = data.color;
-            this.ctx.moveTo(this.graph.right, data.labelY);
-            this.ctx.lineTo(this.graph.right + 24, data.labelY);
-            this.ctx.stroke();
+        // if (data.xPercent > 0) {
+        //     // line:
+        //     this.ctx.globalAlpha = 1;
+        //     this.ctx.beginPath();
+        //     this.ctx.lineWidth = 1;
+        //     this.ctx.strokeStyle = data.color;
+        //     this.ctx.moveTo(this.graph.right, data.labelY);
+        //     this.ctx.lineTo(this.graph.right + 24, data.labelY);
+        //     this.ctx.stroke();
 
-            // pentagon:
-            this.ctx.beginPath();
-            this.ctx.strokeStyle = 'transparent';
-            this.ctx.fillStyle = data.color;
-            this.ctx.moveTo(this.graph.right + 20, data.labelY);
-            this.ctx.lineTo(this.graph.right + 40, data.labelY - 12);
-            this.ctx.lineTo(this.graph.right + 110, data.labelY - 12);
-            this.ctx.lineTo(this.graph.right + 110, data.labelY + 12);
-            this.ctx.lineTo(this.graph.right + 40, data.labelY + 12);
-            this.ctx.closePath();
-            this.ctx.fill();
+        //     // pentagon:
+        //     this.ctx.beginPath();
+        //     this.ctx.strokeStyle = 'transparent';
+        //     this.ctx.fillStyle = data.color;
+        //     this.ctx.moveTo(this.graph.right + 20, data.labelY);
+        //     this.ctx.lineTo(this.graph.right + 40, data.labelY - 12);
+        //     this.ctx.lineTo(this.graph.right + 110, data.labelY - 12);
+        //     this.ctx.lineTo(this.graph.right + 110, data.labelY + 12);
+        //     this.ctx.lineTo(this.graph.right + 40, data.labelY + 12);
+        //     this.ctx.closePath();
+        //     this.ctx.fill();
 
-            // text:
-            this.ctx.beginPath();
-            this.ctx.lineWidth = 1;
-            this.ctx.lineJoin = 'round';
-            this.ctx.font = '500 14px Quicksand, sans-serif';
-            this.ctx.fillStyle = this.colors.white;
-            this.ctx.fillText(lastVal + '', this.graph.right + 44, data.labelY + 4 );
-            this.ctx.stroke();
-        }
+        //     // text:
+        //     this.ctx.beginPath();
+        //     this.ctx.lineWidth = 1;
+        //     this.ctx.lineJoin = 'round';
+        //     this.ctx.font = '500 14px Quicksand, sans-serif';
+        //     this.ctx.fillStyle = GlobalVars.colors.white;
+        //     this.ctx.fillText(lastVal + '', this.graph.right + 44, data.labelY + 4 );
+        //     this.ctx.stroke();
+        // }
     }
 
 

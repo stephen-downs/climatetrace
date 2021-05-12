@@ -6,11 +6,12 @@ import { Dashboard } from './components/Dashboard';
 import { Stats } from './components/Stats';
 import { Masonry } from './components/Masonry';
 import { Range } from './components/Range';
-import { Chart } from './components/Chart';
+import { Linechart } from './components/Linechart';
 import { Aside } from './components/Aside';
 import { Parallax } from './components/Parallax';
 import { Search } from './components/Search';
 import { Compare } from './components/Compare';
+import { Charts } from './components/Charts';
 
 import { Page } from './pages/Page';
 
@@ -23,11 +24,12 @@ export const components = {
     Stats,
     Masonry,
     Range,
-    Chart,
+    Linechart,
     Aside,
     Parallax,
     Search,
     Compare,
+    Charts,
 };
 
 
