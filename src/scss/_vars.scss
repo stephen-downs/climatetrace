@@ -79,6 +79,8 @@ $color-gray: #585858;
 
 $color-gothic: #6ea0a3;
 
+$sky-blue: #78dfe8;
+
 $color-bg: $color-pale;
 $color-text: $color-white;
 
@@ -105,3 +107,38 @@ $ease-custom: cubic-bezier(0.5, 0, 0.1, 1);
 $easing: $ease-custom;
 
 $elements: "", content, options, progressbar, navigation, social, lightbox;
+
+$theme-colors: (
+    blue: (
+        $havelock-blue,
+        $havelock-blue-lighten,
+    ),
+    indigo: (
+        $indigo,
+        $indigo-lighten,
+    ),
+    violet: (
+        $blue-violet,
+        $blue-violet-lighten,
+    ),
+    green: (
+        $wild-willow,
+        $wild-willow-lighten,
+    ),
+    viking: (
+        $viking,
+        $viking-lighten,
+    ),
+    winter: (
+        $picton-blue,
+        $picton-blue-lighten,
+    ),
+    gray: (
+        $gull-gray,
+        $gull-gray-lighten,
+    ),
+    shamrock: (
+        $shamrock,
+        $shamrock-lighten,
+    ),
+);

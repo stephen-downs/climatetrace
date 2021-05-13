@@ -1,1159 +1,1159 @@
 <div class="dashboard subpage" data-component="Dashboard">
-		{# <div class="dashboard__top">
-				<div class="dashboard__header"> #}
-						{# <div class="panel">
-								<button class="panel__button js-button-toggle">
-										<span class="icon-filter">
-												<i></i>
-												<i></i>
-												<i></i>
-										</span>
-										<span>Filter</span>
-										<i class="icon-arr-down"></i>
-								</button>
-								{# <div class="panel__bar">
-										<div class="panel__filters js-picked-filter"> #}
-												{# <span>Home</span>
-												<span>Agriculture</span>
-												<span>indonesia</span>
-												<span>last 1 year</span> #}
-										{# </div>
-								</div>
-						</div>
-				{# </div>
-		</div> #}
-		<div class="dashboard__wrapper dashboard__wrapper--panel">
-				<div class="dashboard__body js-dashboard-body">
-						
-						<div class="filters" data-component="Filters">
-								<button class="filters__clear js-clear">
-										<img src="./media/return-icon.png" alt="" class="icon-img-return">
-										<span>clear selection</span>
-								</button>
-								<div class="filters__panel js-panel">
-										<div class="filters__section">
-												<h4 class="filters__label">Select country</h4>
-												<div data-component="Search">
-												
-														<form class="filters__search">
-																<div class="search">
-																		<label class="search__info" for="search-country">Enter country name</label>
-																		<input class="search__input" id="search-country" name="search-country" autocomplete="off">
-																		[[svg::pin-icon]]
-																</div>
-														</form>
-														<div class="livesearch js-search-live">
-																<div class="livesearch__wrapper js-live-list">
-																		<div class="livesearch__item js-live-item">
-																				<img src="/media/haiti.jpg" alt="" class="livesearch__flag">
-																				<span class="livesearch__country">Haiti</span>
-																		</div>
-																		<div class="livesearch__item js-live-item">
-																				<img src="/media/honduras.jpg" alt="" class="livesearch__flag">
-																				<span class="livesearch__country">honduras</span>
-																		</div>
-																		<div class="livesearch__item js-live-item">
-																				<img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
-																				<span class="livesearch__country">hongkong</span>
-																		</div>
-																		<div class="livesearch__item js-live-item">
-																				<img src="/media/hungary.jpg" alt="" class="livesearch__flag">
-																				<span class="livesearch__country">hungary</span>
-																		</div>
-																</div>
-														</div>
-														<div class="filters__item filters__item--static js-item-country" data-item="all-country">all countries</div>
-												</div>
-										</div>
-										<div class="filters__section filters__section--sector">
-												<h4 class="filters__label">Choose sector</h4>
-												<div class="filters__flex">
-														<div class="filters__item filters__item--static js-item-all">All sectors</div>
-														<div class="filters__group">
-																<div class="filters__item js-item" data-item="transportation">transportation</div>
-																<div class="filters__item js-item" data-item="agriculture">agriculture</div>
-																<div class="filters__item js-item" data-item="forestry">forestry</div>
-																<div class="filters__item js-item" data-item="buildings">buildings</div>
-																<div class="filters__item js-item" data-item="electricity">electricity generation</div>
-																<div class="filters__item js-item" data-item="manufacturing">manufacturing</div>
-																<div class="filters__item js-item" data-item="extractive">extractive industries</div>
-														</div>
-												</div>
-										</div>
-										<div class="filters__section">
-												<h4 class="filters__label">Select time</h4>
-												<div class="filters__centering">
-														<div class="filters__timeline">
-																<div class="filters__timedot" data-time="1w"></div>
-																<div class="filters__timedot" data-time="1m"></div>
-																<div class="filters__timedot" data-time="1y"></div>
-																<div class="filters__timedot" data-time="3y"></div>
-																<div class="filters__timedot" data-time="5y"></div>
-																{# <div class="filters__timedot" data-time="all-time"></div> #}
-														</div>
-														<div class="filters__group filters__group--nowrap">
-																<div class="filters__item js-time" data-item="1w" data-item-label="1 week">1w</div>
-																<div class="filters__item js-time" data-item="1m" data-item-label="1 month">1m</div>
-																<div class="filters__item js-time" data-item="1y" data-item-label="1 year">1y</div>
-																<div class="filters__item js-time" data-item="3y" data-item-label="3 years">3y</div>
-																<div class="filters__item js-time" data-item="5y" data-item-label="5 years">5y</div>
-																<div class="filters__item filters__item--static js-time" data-item="all-time" data-item-label="All time">all time</div>
-														</div>
-												</div>
-										</div>
-										
-								</div>
-						</div>
-				</div>
-				<div class="dashboard__footer js-dashboard-footer">
-						<div class="dashboard__wrapper">
-								<div class="panel">
-										<button class="panel__button js-button-toggle">
-												<span class="icon-filter">
-														<i></i>
-														<i></i>
-														<i></i>
-												</span>
-												<span>Filter</span>
-												<i class="icon-arr-down"></i>
-										</button>
-										<div class="panel__bar">
-												<div class="panel__filters js-picked-filter">
-														{# <span>Home</span>
-														<span>Agriculture</span>
-														<span>indonesia</span>
-														<span>last 1 year</span> #}
-												</div>
-										</div>
-								</div>
-								<div class="dashboard__flex dashboard__flex--border">
-										<div class="dashboard__country">
-												<div class="dashboard__emission js-emission" data-animation="number" data-time="1.5"><span class="num" data-num="1.67">1.67</span><span data-text> billion tonnes CO2e</span></div>
-										</div>
-										<div class="dashboard__details">
-												<div class="dashboard__percentage">
-														<strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
-														<span>of total global emissions</span>
-												</div>
-												<div class="dashboard__rank">
-														<div class="dashboard__position is-down">
-																<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																<div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
-																<div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-														</div>
-														<div class="dashboard__change is-up">
-																<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																<div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
-																<div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-														</div>
-												</div>
-												
-										</div>
-								</div>
-								<div class="dashboard__flex">
-										<div class="dashboard__place">
-												<div class="dashboard__countryname" data-animation="fadeRight">
-														<img src="./media/Indonesia.jpg" alt="" class="icon-img-flag">
-														<span class="js-country-name">Indonesia</span>
-												</div>
-												<span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
-										</div>
-										{% include '../components/share.twig' %}
-										{# <div class="dashboard__share" data-animation="itemsFade" data-elements="js-share-element" data-delay="2" data-stagger="0.05">
-												<div class="dashboard__share-icon js-share-element">
-														<img src="./media/share-icon.png" class="icon-img-share" alt=""><span>share dashboard</span>
-												</div>
-												<div class="dashboard__link">
-														<a href="" data-share class="js-share-element">[[svg::full-icon]]</a>
-														<a href="" data-share class="js-share-element">[[svg::csv-icon]]</a>
-														<a href="" data-share class="js-share-element">[[svg::pdf-icon]]</a>
-														<a href="" data-share class="js-share-element">[[svg::json-icon]]</a>
-												</div>
-										</div> #}
-								</div>
-						</div>
-				</div>
-		</div>
-		<div class="stats" data-component="Stats">
-				<div class="dashboard__wrapper">
-						<div class="tabs">
-								<div class="tab" data-tab="0">
-										<i>Explore emissions by</i>
-										<span>Country</span>
-										<img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
-								</div>
-								<div class="tab" data-tab="1">
-										<i>Explore emissions by</i>
-										<span>Sector</span>
-										<img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
-								</div>
-								<div class="tab" data-tab="2">
-										<i>Compare country</i>
-										<span>Trends</span>
-										<img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
-								</div>
-								<div class="tab" data-tab="3">
-										<i>About our</i>
-										<span>Data</span>
-										<img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
-								</div>
-						</div>
-						<div class="stats__group js-tabs-wrapper">
-								<div class="stats__item stats__item--country" data-view="0">
-										{# <div class="stats__heading js-heading">
-												Compare country data
-										</div> #}
-										<div class="stats__content">
-												<div class="stats__topbar">
-														<h3 class="stats__h3 js-h3">Relative Rank</h3>
-														<div class="compare-wrapper">
-																<div class="compare compare--view">
-																		<button class="button--sort" data-rank="comparison">
-																				<span>comparison view</span>
-																				<img src="./media/sort-grid.png" alt="">
-																		</button>
-																		<hr class="hr--v">
-																		<button class="button--sort is-active" data-rank="list">
-																				<img src="./media/sort-list.png" alt="">
-																				<span>list view</span>
-																		</buton>
-																</div>
-																<div class="stats__calendar compare" data-component="Range">
-																		<button class="compare__button js-trigger">
-																				<span>Compare to: <span data-selected>ALL</span></span>
-																				<i class="icon-arr-down"></i>
-																		</button>
-																		<div class="compare__toggle">
-																				<form>
-																						<div class="compare__option">
-																								<label class="compare__label">ALL</label>
-																								<input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
-																						</div>
-																						<div class="compare__option">
-																								<label class="compare__label">Top 10</label>
-																								<input type="radio" name="option" value="Top 10" class="compare__input compare__input--option">
-																						</div>
-																						<div class="compare__option">
-																								<label class="compare__label">Relative</label>
-																								<input type="radio" name="option" value="Relative" class="compare__input compare__input--option">
-																						</div>
-																				</form>
-																		</div>
-																</div>
-														</div>
-												</div>
-												<div class="compare__views" data-component="Compare">
-														<div class="rank stats__item is-active" data-compare="list">
-																<div class="rank__wrapper">
-																		<table class="rank__table" data-animation="itemsFade" data-y="true" data-uncache data-elements="js-row" data-stagger="0.1">
-																				<tr class="rank__row js-row rank__row--header">
-																						<th class="rank__header rank__cell--id"></th>
-																						<th class="rank__header rank__cell--country">Country</th>
-																						<th class="rank__header rank__cell--quality">data quality</th>
-																						<th class="rank__header rank__cell--emission">emissions est.</th>
-																						<th class="rank__header rank__cell--trend">1 yr trend</th>
-																						<th class="rank__header rank__cell--capita">emissions / capita</th>
-																						<th class="rank__header rank__cell--global">global</th>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="Iran">
-																						<td class="rank__position rank__position--id rank__cell--id">1</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="Iran"><img src="./media/Iran.jpg" alt="" class="flag"> Iran</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="3">
-																								<div class="evaluation" data-quality="1">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="South Korea">
-																						<td class="rank__position rank__position--id rank__cell--id">2</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="South Korea"><img src="./media/SouthKorea.jpg" alt="" class="flag"> South Korea</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="1">
-																								<div class="evaluation" data-quality="2">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="Saudi Arabia">
-																						<td class="rank__position rank__position--id rank__cell--id">3</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="Saudi Arabia"><img src="./media/SaudiArabia.jpg" alt="" class="flag"> Saudi Arabia</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="3">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="Indonesia">
-																						<td class="rank__position rank__position--id rank__cell--id">3</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="Indonesia"><img src="./media/Indonesia.jpg" alt="" class="flag"> Indonesia</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="2">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="Canada">
-																						<td class="rank__position rank__position--id rank__cell--id">4</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="Canada"><img src="./media/Canada.jpg" alt="" class="flag"> Canada</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="1">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="Mexico">
-																						<td class="rank__position rank__position--id rank__cell--id">5</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="Mexico"><img src="./media/Mexico.jpg" alt="" class="flag"> Mexico</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="0">
-																								<div class="evaluation" data-quality="1">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="South Africa">
-																						<td class="rank__position rank__position--id rank__cell--id">6</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="3">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="South Africa">
-																						<td class="rank__position rank__position--id rank__cell--id">7</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="3">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="South Africa">
-																						<td class="rank__position rank__position--id rank__cell--id">8</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="3">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																				<tr class="rank__row js-row" data-country-data="South Africa">
-																						<td class="rank__position rank__position--id rank__cell--id">9</td>
-																						<td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
-																						<td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
-																								<div class="evaluation" data-quality="3">
-																										<span></span>
-																										<span></span>
-																										<span></span>
-																								</div>
-																						</td>
-																						<td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
-																						<td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
-																						<td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
-																						<td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
-																				</tr>
-																		</table>
-																</div>
-														</div>
-														<div class="comparison stats__item" data-compare="comparison">
-																<div class="comparison__col">
-																		<div class="comparison__tile comparison__tile--main js-item-main is-higher">
-																				<span class="comparison__number js-comp-num">1.67</span>
-																				<span class="comparison__unit">BILLION TONNES CO2e</span>
-																				<div class="comparison__details">
-																						<div class="dashboard__place">
-																								<div class="dashboard__countryname" data-animation="fadeRight">
-																										<img src="./media/Indonesia.jpg" alt="" class="icon-img-flag">
-																										<span class="js-country-name">Indonesia</span>
-																								</div>
-																								<span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
-																						</div>
-																						<div class="comparison__flex">
-																								<div class="dashboard__percentage">
-																										<strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
-																										<p>of total global emissions</p>
-																								</div>
-																								<div class="dashboard__position">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
-																										<div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																								<div class="dashboard__change">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
-																										<div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																						</div>
-																				</div>
-																				<div class="comparison__vs">
-																						<span>vs</span>
-																				</div>
-																		</div>
-																</div>
-																<div class="comparison__col">
-																		<div class="comparison__tile js-item">
-																				<button class="comparison__delete js-delete"></button>
-																				<span class="comparison__number js-comp-num">0.47</span>
-																				<span class="comparison__unit">BILLION TONNES CO2e</span>
-																				<div class="comparison__details">
-																						<div class="dashboard__place">
-																								<div class="dashboard__countryname" data-animation="fadeRight">
-																										<img src="./media/thailand.jpg" alt="" class="icon-img-flag">
-																										<span class="js-country-name">thailand</span>
-																								</div>
-																								<span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
-																						</div>
-																						<div class="comparison__flex">
-																								<div class="dashboard__percentage">
-																										<strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.01">0.01</span><span data-text>%</span></strong>
-																										<p>of total global emissions</p>
-																								</div>
-																								<div class="dashboard__position is-down">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="106">106</span></div>
-																										<div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																								<div class="dashboard__change is-up">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="7.3">7.3</span><span data-text>%</span></div>
-																										<div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																						</div>
-																				</div>
-																		</div>
-																		<div class="comparison__tile js-item">
-																				<button class="comparison__delete js-delete"></button>
-																				<span class="comparison__number js-comp-num">11.8</span>
-																				<span class="comparison__unit">BILLION TONNES CO2e</span>
-																				<div class="comparison__details">
-																						<div class="dashboard__place">
-																								<div class="dashboard__countryname" data-animation="fadeRight">
-																										<img src="./media/australia.jpg" alt="" class="icon-img-flag">
-																										<span class="js-country-name">Australia</span>
-																								</div>
-																								<span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
-																						</div>
-																						<div class="comparison__flex">
-																								<div class="dashboard__percentage">
-																										<strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.21">0.21</span><span data-text>%</span></strong>
-																										<p>of total global emissions</p>
-																								</div>
-																								<div class="dashboard__position is-up">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="37">37</span></div>
-																										<div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																								<div class="dashboard__change is-down">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="-1.1%">-1.1%</span><span data-text>%</span></div>
-																										<div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																						</div>
-																				</div>
-																		</div>
-																		<div class="comparison__tile js-item">
-																				<button class="comparison__delete js-delete"></button>
-																				<span class="comparison__number js-comp-num">2.05</span>
-																				<span class="comparison__unit">BILLION TONNES CO2e</span>
-																				<div class="comparison__details">
-																						<div class="dashboard__place">
-																								<div class="dashboard__countryname" data-animation="fadeRight">
-																										<img src="./media/hungary.jpg" alt="" class="icon-img-flag">
-																										<span class="js-country-name">hungary</span>
-																								</div>
-																								<span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
-																						</div>
-																						<div class="comparison__flex">
-																								<div class="dashboard__percentage">
-																										<strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
-																										<p>of total global emissions</p>
-																								</div>
-																								<div class="dashboard__position is-down">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="68">68</span></div>
-																										<div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																								<div class="dashboard__change is-up">
-																										<img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
-																										<img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
-																										<div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.4">21.4</span><span data-text>%</span></div>
-																										<div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
-																								</div>
-																						</div>
-																				</div>
-																		</div>
-																		<div class="comparison__add js-add-item">
-																				<button class="comparison__button">
-																						<span></span>
-																						<span></span>
-																				</button>
-																				<div class="comparison__adding">
-																						<p>Add another country</p>
-																						<div data-component="Search">
-																								<form class="filters__search">
-																										<div class="search search--add">
-																												{# <label class="search__info" for="search-country">Enter country name</label> #}
-																												<input class="search__input" id="search-country" name="search-country" autocomplete="off">
-																												[[svg::pin-icon]]
-																										</div>
-																								</form>
-																								<div class="livesearch js-search-live">
-																										<div class="livesearch__wrapper js-live-list">
-																												<div class="livesearch__item js-live-item">
-																														<img src="/media/haiti.jpg" alt="" class="livesearch__flag">
-																														<span class="livesearch__country">Haiti</span>
-																												</div>
-																												<div class="livesearch__item js-live-item">
-																														<img src="/media/honduras.jpg" alt="" class="livesearch__flag">
-																														<span class="livesearch__country">honduras</span>
-																												</div>
-																												<div class="livesearch__item js-live-item">
-																														<img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
-																														<span class="livesearch__country">hongkong</span>
-																												</div>
-																												<div class="livesearch__item js-live-item">
-																														<img src="/media/hungary.jpg" alt="" class="livesearch__flag">
-																														<span class="livesearch__country">hungary</span>
-																												</div>
-																										</div>
-																								</div>
-																						</div>
-																				</div>
-																				<div class="comparison__or">or</div>
-																				<button class="comparison__global js-add-global">global</button>
-																		</div>
-																</div>
-														</div>
-												</div>
-										</div>
-								</div>
-								<div class="stats__item" data-view="1">
-										{# <div class="stats__heading">
-												Compare country data
-												<em class="stats__heading-em">by Sector</em>
-										</div> #}
-										<div class="stats__content">
-												<div class="stats__topbar">
-														<h3 class="stats__h3">Total Emissions</h3>
-														{# <div class="stats__calendar compare compare--sector" data-component="Range">
-																<button class="compare__button js-trigger">
-																		<span><span data-selected>Last year</span></span>
-																		<img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
-																</button>
-																<div class="compare__toggle">
-																		<form>
-																				<div class="compare__option">
-																						<label class="compare__label">ALL</label>
-																						<input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
-																				</div>
-																				<div class="compare__option">
-																						<label class="compare__label">Last year</label>
-																						<input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
-																				</div>
-																				<div class="compare__option">
-																						<label class="compare__label">Last 5 years</label>
-																						<input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
-																				</div>
-																				<div class="compare__option">
-																						<label class="compare__label">Last 10 years</label>
-																						<input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
-																				</div>
-																		</form>
-																</div>
-														</div> #}
-												</div>
-												<div class="masonry" data-component="Masonry" data-animation="itemsFade" data-elements="js-masonry-tile" data-elements-in="js-wrapper" data-stagger="0.1" data-uncache data-delay="0" data-scale="true">
-														<div class="masonry__tile js-masonry-tile" data-tile="forestry" data-value="66.3" data-color="#427FD9">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">forestry</h4>
-																		<div class="masonry__data">1.517 billion tonnes</div>
-																		<div class="masonry__number">66.3%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Forestry</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile js-masonry-tile" data-tile="agriculture" data-value="7.5" data-color="#3C5BBC">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">agriculture</h4>
-																		<div class="masonry__data">172.4 million tonnes</div>
-																		<div class="masonry__number">7.5%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Agriculture</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile js-masonry-tile" data-tile="electricity" data-value="7.4" data-color="#4C49B0">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">Electricity Generation</h4>
-																		<div class="masonry__data">168.8 million tonnes</div>
-																		<div class="masonry__number">7.4%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Electricity Generation</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#94c840">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">buildings</h4>
-																		<div class="masonry__data">121.8 million tonnes</div>
-																		<div class="masonry__number">5.35%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Buildings</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#4ACFDC">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">transportation</h4>
-																		<div class="masonry__data">110 MILLION TONNES</div>
-																		<div class="masonry__number">4.85%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Transportation</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#3DD5A2">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">manufacturing</h4>
-																		<div class="masonry__data">84.3 million tonnes</div>
-																		<div class="masonry__number">3.7%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Manufacturing</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#3CABE3">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">Extractive Industries</h4>
-																		<div class="masonry__data">60.1 million tonnes</div>
-																		<div class="masonry__number">2.64%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Extractive Industries</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-														<div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="other" data-value="2.15" data-color="#959DB3">
-																<div class="masonry__wrapper js-wrapper">
-																		<h4 class="masonry__sector">other</h4>
-																		<div class="masonry__data">48.9 m tonnes</div>
-																		<div class="masonry__number">2.15%</div>
-																</div>
-																<div class="masonry__tooltip">
-																		<div class="masonry__tooltip-wrapper">
-																				<h4>Other</h4>
-																				<hr class="masonry__hr">
-																				<ul>
-																						<li>
-																								<strong>Coal Power 52%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								<strong>Natural Gas 34%</strong> of electricity generation emissions
-																						</li>
-																						<li>
-																								BioGas - not present in data
-																						</li>
-																						<li>
-																								Combined heat and power - not present in data
-																						</li>
-																				</ul>
-																		</div>
-																</div>
-														</div>
-												</div>
-										</div>
-								</div>
-								
-								<div class="stats__item stats__item--trends" data-view="2">
-										{# <div class="stats__heading">
-												Compare country data
-												<em class="stats__heading-em">by Time</em>
-										</div> #}
-										<div class="stats__content">
-												<div class="stats__topbar">
-														<h3 class="stats__h3">Change over time by sector</h3>
-														<span class="stats__instruction">Select to turn sector on/off</span>
-														{# <div class="stats__calendar compare compare--sector" data-component="Range">
-																<button class="compare__button js-trigger">
-																		<span><span data-selected>Last year</span></span>
-																		<img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
-																</button>
-																<div class="compare__toggle">
-																		<form>
-																				<div class="compare__option">
-																						<label class="compare__label">ALL</label>
-																						<input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
-																				</div>
-																				<div class="compare__option">
-																						<label class="compare__label">Last year</label>
-																						<input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
-																				</div>
-																				<div class="compare__option">
-																						<label class="compare__label">Last 5 years</label>
-																						<input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
-																				</div>
-																				<div class="compare__option">
-																						<label class="compare__label">Last 10 years</label>
-																						<input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
-																				</div>
-																		</form>
-																</div>
-														</div> #}
-												</div>
-												<div class="chart" data-component="Linechart">
-														<div class="chart__tabs" data-animation="itemsFade" data-y="true" data-uncache data-elements="chart__tab" data-stagger="0.1">
-																<div class="chart__tab chart__tab--violet" data-chart-tab="0" data-color="violet" data-points="[30, 35, 30, 32, 22, 15, 32, 48, 49, 47, 20, 21]">
-																		<h5 class="chart__sector">Agriculture</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
-																<div class="chart__tab chart__tab--indigo" data-chart-tab="1" data-color="indigo" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21]">
-																		<h5 class="chart__sector">Forestry</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
-																<div class="chart__tab chart__tab--blue" data-chart-tab="2" data-color="blue" data-points="[20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11]">
-																		<h5 class="chart__sector">Electricity Generation</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
-																<div class="chart__tab chart__tab--winter" data-chart-tab="3" data-color="winter" data-points="[16, 22, 50, 32, 32, 15, 22, 18, 49, 47, 44, 21]">
-																		<h5 class="chart__sector">Extractive Industries</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
-																<div class="chart__tab chart__tab--viking" data-chart-tab="4" data-color="viking" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 43, 21]">
-																		<h5 class="chart__sector">TRANSPORTATION</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
-																<div class="chart__tab chart__tab--shamrock" data-chart-tab="5" data-color="shamrock" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 12, 21]">
-																		<h5 class="chart__sector">Manufacturing</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
-																<div class="chart__tab chart__tab--green" data-chart-tab="6" data-color="green" data-points="[10, 35, 45, 32, 22, 15, 32, 18, 49, 47, 34, 21]">
-																		<h5 class="chart__sector">Buildings</h5>
-																		<div class="chart__number">1,872,431</div>
-																		<span class="chart__info">Total CO2 this year</span>
-																</div>
+    {# <div class="dashboard__top">
+        <div class="dashboard__header"> #}
+            {# <div class="panel">
+                <button class="panel__button js-button-toggle">
+                    <span class="icon-filter">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                    <span>Filter</span>
+                    <i class="icon-arr-down"></i>
+                </button>
+                {# <div class="panel__bar">
+                    <div class="panel__filters js-picked-filter"> #}
+                        {# <span>Home</span>
+                        <span>Agriculture</span>
+                        <span>indonesia</span>
+                        <span>last 1 year</span> #}
+                    {# </div>
+                </div>
+            </div>
+        {# </div>
+    </div> #}
+    <div class="dashboard__wrapper dashboard__wrapper--panel">
+        <div class="dashboard__body js-dashboard-body">
+            
+            <div class="filters" data-component="Filters">
+                <button class="filters__clear js-clear">
+                    <img src="./media/return-icon.png" alt="" class="icon-img-return">
+                    <span>clear selection</span>
+                </button>
+                <div class="filters__panel js-panel">
+                    <div class="filters__section">
+                        <h4 class="filters__label">Select country</h4>
+                        <div data-component="Search">
+                        
+                            <form class="filters__search">
+                                <div class="search">
+                                    <label class="search__info" for="search-country">Enter country name</label>
+                                    <input class="search__input" id="search-country" name="search-country" autocomplete="off">
+                                    [[svg::pin-icon]]
+                                </div>
+                            </form>
+                            <div class="livesearch js-search-live">
+                                <div class="livesearch__wrapper js-live-list">
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/haiti.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">Haiti</span>
+                                    </div>
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/honduras.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">honduras</span>
+                                    </div>
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">hongkong</span>
+                                    </div>
+                                    <div class="livesearch__item js-live-item">
+                                        <img src="/media/hungary.jpg" alt="" class="livesearch__flag">
+                                        <span class="livesearch__country">hungary</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filters__item filters__item--static js-item-country" data-item="all-country">all countries</div>
+                        </div>
+                    </div>
+                    <div class="filters__section filters__section--sector">
+                        <h4 class="filters__label">Choose sector</h4>
+                        <div class="filters__flex">
+                            <div class="filters__item filters__item--static js-item-all">All sectors</div>
+                            <div class="filters__group">
+                                <div class="filters__item js-item" data-item="transportation">transportation</div>
+                                <div class="filters__item js-item" data-item="agriculture">agriculture</div>
+                                <div class="filters__item js-item" data-item="forestry">forestry</div>
+                                <div class="filters__item js-item" data-item="buildings">buildings</div>
+                                <div class="filters__item js-item" data-item="electricity">electricity generation</div>
+                                <div class="filters__item js-item" data-item="manufacturing">manufacturing</div>
+                                <div class="filters__item js-item" data-item="extractive">extractive industries</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filters__section">
+                        <h4 class="filters__label">Select time</h4>
+                        <div class="filters__centering">
+                            <div class="filters__timeline">
+                                <div class="filters__timedot" data-time="1w"></div>
+                                <div class="filters__timedot" data-time="1m"></div>
+                                <div class="filters__timedot" data-time="1y"></div>
+                                <div class="filters__timedot" data-time="3y"></div>
+                                <div class="filters__timedot" data-time="5y"></div>
+                                {# <div class="filters__timedot" data-time="all-time"></div> #}
+                            </div>
+                            <div class="filters__group filters__group--nowrap">
+                                <div class="filters__item js-time" data-item="1w" data-item-label="1 week">1w</div>
+                                <div class="filters__item js-time" data-item="1m" data-item-label="1 month">1m</div>
+                                <div class="filters__item js-time" data-item="1y" data-item-label="1 year">1y</div>
+                                <div class="filters__item js-time" data-item="3y" data-item-label="3 years">3y</div>
+                                <div class="filters__item js-time" data-item="5y" data-item-label="5 years">5y</div>
+                                <div class="filters__item filters__item--static js-time" data-item="all-time" data-item-label="All time">all time</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="dashboard__footer js-dashboard-footer">
+            <div class="dashboard__wrapper">
+                <div class="panel">
+                    <button class="panel__button js-button-toggle">
+                        <span class="icon-filter">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </span>
+                        <span>Filter</span>
+                        <i class="icon-arr-down"></i>
+                    </button>
+                    <div class="panel__bar">
+                        <div class="panel__filters js-picked-filter">
+                            {# <span>Home</span>
+                            <span>Agriculture</span>
+                            <span>indonesia</span>
+                            <span>last 1 year</span> #}
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard__flex dashboard__flex--border">
+                    <div class="dashboard__country">
+                        <div class="dashboard__emission js-emission" data-animation="number" data-time="1.5"><span class="num" data-num="1.67">1.67</span><span data-text> billion tonnes CO2e</span></div>
+                    </div>
+                    <div class="dashboard__details">
+                        <div class="dashboard__percentage">
+                            <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
+                            <span>of total global emissions</span>
+                        </div>
+                        <div class="dashboard__rank">
+                            <div class="dashboard__position is-down">
+                                <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
+                                <div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                            </div>
+                            <div class="dashboard__change is-up">
+                                <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
+                                <div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="dashboard__flex">
+                    <div class="dashboard__place">
+                        <div class="dashboard__countryname" data-animation="fadeRight">
+                            <img src="./media/Indonesia.jpg" alt="" class="icon-img-flag">
+                            <span class="js-country-name">Indonesia</span>
+                        </div>
+                        <span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
+                    </div>
+                    {% include '../components/share.twig' %}
+                    {# <div class="dashboard__share" data-animation="itemsFade" data-elements="js-share-element" data-delay="2" data-stagger="0.05">
+                        <div class="dashboard__share-icon js-share-element">
+                            <img src="./media/share-icon.png" class="icon-img-share" alt=""><span>share dashboard</span>
+                        </div>
+                        <div class="dashboard__link">
+                            <a href="" data-share class="js-share-element">[[svg::full-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::csv-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::pdf-icon]]</a>
+                            <a href="" data-share class="js-share-element">[[svg::json-icon]]</a>
+                        </div>
+                    </div> #}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="stats" data-component="Stats">
+        <div class="dashboard__wrapper">
+            <div class="tabs">
+                <div class="tab" data-tab="0">
+                    <i>Explore emissions by</i>
+                    <span>Country</span>
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
+                </div>
+                <div class="tab" data-tab="1">
+                    <i>Explore emissions by</i>
+                    <span>Sector</span>
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
+                </div>
+                <div class="tab" data-tab="2">
+                    <i>Compare country</i>
+                    <span>Trends</span>
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
+                </div>
+                <div class="tab" data-tab="3">
+                    <i>About our</i>
+                    <span>Data</span>
+                    <img src="./media/triangle-dots-black.png" alt="" class="icon-img-dots">
+                </div>
+            </div>
+            <div class="stats__group js-tabs-wrapper">
+                <div class="stats__item stats__item--country" data-view="0">
+                    {# <div class="stats__heading js-heading">
+                        Compare country data
+                    </div> #}
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3 js-h3">Relative Rank</h3>
+                            <div class="compare-wrapper">
+                                <div class="compare compare--view">
+                                    <button class="button--sort" data-rank="comparison">
+                                        <span>comparison view</span>
+                                        <img src="./media/sort-grid.png" alt="">
+                                    </button>
+                                    <hr class="hr--v">
+                                    <button class="button--sort is-active" data-rank="list">
+                                        <img src="./media/sort-list.png" alt="">
+                                        <span>list view</span>
+                                    </buton>
+                                </div>
+                                <div class="stats__calendar compare" data-component="Range">
+                                    <button class="compare__button js-trigger">
+                                        <span>Compare to: <span data-selected>ALL</span></span>
+                                        <i class="icon-arr-down"></i>
+                                    </button>
+                                    <div class="compare__toggle">
+                                        <form>
+                                            <div class="compare__option">
+                                                <label class="compare__label">ALL</label>
+                                                <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
+                                            </div>
+                                            <div class="compare__option">
+                                                <label class="compare__label">Top 10</label>
+                                                <input type="radio" name="option" value="Top 10" class="compare__input compare__input--option">
+                                            </div>
+                                            <div class="compare__option">
+                                                <label class="compare__label">Relative</label>
+                                                <input type="radio" name="option" value="Relative" class="compare__input compare__input--option">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compare__views" data-component="Compare">
+                            <div class="rank stats__item is-active" data-compare="list">
+                                <div class="rank__wrapper">
+                                    <table class="rank__table" data-animation="itemsFade" data-y="true" data-uncache data-elements="js-row" data-stagger="0.1">
+                                        <tr class="rank__row js-row rank__row--header">
+                                            <th class="rank__header rank__cell--id"></th>
+                                            <th class="rank__header rank__cell--country">Country</th>
+                                            <th class="rank__header rank__cell--quality">data quality</th>
+                                            <th class="rank__header rank__cell--emission">emissions est.</th>
+                                            <th class="rank__header rank__cell--trend">1 yr trend</th>
+                                            <th class="rank__header rank__cell--capita">emissions / capita</th>
+                                            <th class="rank__header rank__cell--global">global</th>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Iran">
+                                            <td class="rank__position rank__position--id rank__cell--id">1</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Iran"><img src="./media/Iran.jpg" alt="" class="flag"> Iran</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="3">
+                                                <div class="evaluation" data-quality="1">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Korea">
+                                            <td class="rank__position rank__position--id rank__cell--id">2</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Korea"><img src="./media/SouthKorea.jpg" alt="" class="flag"> South Korea</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="1">
+                                                <div class="evaluation" data-quality="2">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Saudi Arabia">
+                                            <td class="rank__position rank__position--id rank__cell--id">3</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Saudi Arabia"><img src="./media/SaudiArabia.jpg" alt="" class="flag"> Saudi Arabia</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Indonesia">
+                                            <td class="rank__position rank__position--id rank__cell--id">3</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Indonesia"><img src="./media/Indonesia.jpg" alt="" class="flag"> Indonesia</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="2">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Canada">
+                                            <td class="rank__position rank__position--id rank__cell--id">4</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Canada"><img src="./media/Canada.jpg" alt="" class="flag"> Canada</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="1">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-b.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="Mexico">
+                                            <td class="rank__position rank__position--id rank__cell--id">5</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="Mexico"><img src="./media/Mexico.jpg" alt="" class="flag"> Mexico</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="0">
+                                                <div class="evaluation" data-quality="1">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">6</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">7</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">8</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                        <tr class="rank__row js-row" data-country-data="South Africa">
+                                            <td class="rank__position rank__position--id rank__cell--id">9</td>
+                                            <td class="rank__position rank__position--country rank__cell--country" data-country="South Africa"><img src="./media/SouthAfrica.jpg" alt="" class="flag"> South Africa</td>
+                                            <td class="rank__position rank__position--quality rank__cell--quality" data-quality="2">
+                                                <div class="evaluation" data-quality="3">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </td>
+                                            <td class="rank__position rank__position--emission rank__cell--emission" data-emission="0.72" data-unit="GT"><span class="js-emission">0.72</span><span class="js-unit">GT</span> of CO2</td>
+                                            <td class="rank__position rank__position--trand rank__cell--trend" data-trend="+7.13%" data-curve="">+7.13% <span><img src="./media/graph-a.png" class="curve" alt=""></span></td>
+                                            <td class="rank__position rank__position--capita rank__cell--capita" data-capita="8.82 T" data-relative="+0.8%">8.82 t (+0.8%)</td>
+                                            <td class="rank__position rank__position--global rank__cell--global" data-global="0.51%">0.51%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="comparison stats__item" data-compare="comparison">
+                                <div class="comparison__col">
+                                    <div class="comparison__tile comparison__tile--main js-item-main is-higher">
+                                        <span class="comparison__number js-comp-num">1.67</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/Indonesia.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">Indonesia</span>
+                                                </div>
+                                                <span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
+                                            </div>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="78">78</span></div>
+                                                    <div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.2">21.2</span><span data-text>%</span></div>
+                                                    <div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comparison__vs">
+                                            <span>vs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comparison__col">
+                                    <div class="comparison__tile js-item">
+                                        <button class="comparison__delete js-delete"></button>
+                                        <span class="comparison__number js-comp-num">0.47</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/thailand.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">thailand</span>
+                                                </div>
+                                                <span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
+                                            </div>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.01">0.01</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position is-down">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="106">106</span></div>
+                                                    <div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change is-up">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="7.3">7.3</span><span data-text>%</span></div>
+                                                    <div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison__tile js-item">
+                                        <button class="comparison__delete js-delete"></button>
+                                        <span class="comparison__number js-comp-num">11.8</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/australia.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">Australia</span>
+                                                </div>
+                                                <span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
+                                            </div>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.21">0.21</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position is-up">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="37">37</span></div>
+                                                    <div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change is-down">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="-1.1%">-1.1%</span><span data-text>%</span></div>
+                                                    <div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison__tile js-item">
+                                        <button class="comparison__delete js-delete"></button>
+                                        <span class="comparison__number js-comp-num">2.05</span>
+                                        <span class="comparison__unit">BILLION TONNES CO2e</span>
+                                        <div class="comparison__details">
+                                            <div class="dashboard__place">
+                                                <div class="dashboard__countryname" data-animation="fadeRight">
+                                                    <img src="./media/hungary.jpg" alt="" class="icon-img-flag">
+                                                    <span class="js-country-name">hungary</span>
+                                                </div>
+                                                <span class="updatetime" data-animation="fadeUp" data-delay="2.2">Last updated <span class="js-time-update">3d</span></span>
+                                            </div>
+                                            <div class="comparison__flex">
+                                                <div class="dashboard__percentage">
+                                                    <strong class="js-global-percentage" data-animation="number" data-time="1"><span data-num="0.03">0.03</span><span data-text>%</span></strong>
+                                                    <p>of total global emissions</p>
+                                                </div>
+                                                <div class="dashboard__position is-down">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-rank-position" data-animation="number" data-time="1"><span data-num="68">68</span></div>
+                                                    <div>global rank <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                                <div class="dashboard__change is-up">
+                                                    <img src="./media/arrow-down-red.png" alt="" class="icon-img-position icon-down" data-animation="upDown" data-shift="down" data-delay="0.1">
+                                                    <img src="./media/arrow-up-green.png" alt="" class="icon-img-position icon-up" data-animation="upDown" data-shift="up">
+                                                    <div class="dashboard__number js-emission-change" data-animation="number" data-time="1"><span data-num="21.4">21.4</span><span data-text>%</span></div>
+                                                    <div>change <i class="info"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comparison__add js-add-item">
+                                        <button class="comparison__button">
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                        <div class="comparison__adding">
+                                            <p>Add another country</p>
+                                            <div data-component="Search">
+                                                <form class="filters__search">
+                                                    <div class="search search--add">
+                                                        {# <label class="search__info" for="search-country">Enter country name</label> #}
+                                                        <input class="search__input" id="search-country" name="search-country" autocomplete="off">
+                                                        [[svg::pin-icon]]
+                                                    </div>
+                                                </form>
+                                                <div class="livesearch js-search-live">
+                                                    <div class="livesearch__wrapper js-live-list">
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/haiti.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">Haiti</span>
+                                                        </div>
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/honduras.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">honduras</span>
+                                                        </div>
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">hongkong</span>
+                                                        </div>
+                                                        <div class="livesearch__item js-live-item">
+                                                            <img src="/media/hungary.jpg" alt="" class="livesearch__flag">
+                                                            <span class="livesearch__country">hungary</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comparison__or">or</div>
+                                        <button class="comparison__global js-add-global">global</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats__item" data-view="1">
+                    {# <div class="stats__heading">
+                        Compare country data
+                        <em class="stats__heading-em">by Sector</em>
+                    </div> #}
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Total Emissions</h3>
+                            {# <div class="stats__calendar compare compare--sector" data-component="Range">
+                                <button class="compare__button js-trigger">
+                                    <span><span data-selected>Last year</span></span>
+                                    <img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
+                                </button>
+                                <div class="compare__toggle">
+                                    <form>
+                                        <div class="compare__option">
+                                            <label class="compare__label">ALL</label>
+                                            <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last year</label>
+                                            <input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 5 years</label>
+                                            <input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 10 years</label>
+                                            <input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div> #}
+                        </div>
+                        <div class="masonry" data-component="Masonry" data-animation="itemsFade" data-elements="js-masonry-tile" data-elements-in="js-wrapper" data-stagger="0.1" data-uncache data-delay="0" data-scale="true">
+                            <div class="masonry__tile js-masonry-tile" data-tile="forestry" data-value="66.3" data-color="#427FD9">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">forestry</h4>
+                                    <div class="masonry__data">1.517 billion tonnes</div>
+                                    <div class="masonry__number">66.3%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Forestry</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="agriculture" data-value="7.5" data-color="#3C5BBC">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">agriculture</h4>
+                                    <div class="masonry__data">172.4 million tonnes</div>
+                                    <div class="masonry__number">7.5%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Agriculture</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile js-masonry-tile" data-tile="electricity" data-value="7.4" data-color="#4C49B0">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">Electricity Generation</h4>
+                                    <div class="masonry__data">168.8 million tonnes</div>
+                                    <div class="masonry__number">7.4%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Electricity Generation</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="buildings" data-value="5.35" data-color="#94c840">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">buildings</h4>
+                                    <div class="masonry__data">121.8 million tonnes</div>
+                                    <div class="masonry__number">5.35%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Buildings</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="transportation" data-value="4.85" data-color="#4ACFDC">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">transportation</h4>
+                                    <div class="masonry__data">110 MILLION TONNES</div>
+                                    <div class="masonry__number">4.85%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Transportation</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--s js-masonry-tile" data-tile="manufacturing" data-value="3.7" data-color="#3DD5A2">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">manufacturing</h4>
+                                    <div class="masonry__data">84.3 million tonnes</div>
+                                    <div class="masonry__number">3.7%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Manufacturing</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="extractive" data-value="2.64" data-color="#3CABE3">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">Extractive Industries</h4>
+                                    <div class="masonry__data">60.1 million tonnes</div>
+                                    <div class="masonry__number">2.64%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Extractive Industries</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="masonry__tile masonry__tile--xs js-masonry-tile" data-tile="other" data-value="2.15" data-color="#959DB3">
+                                <div class="masonry__wrapper js-wrapper">
+                                    <h4 class="masonry__sector">other</h4>
+                                    <div class="masonry__data">48.9 m tonnes</div>
+                                    <div class="masonry__number">2.15%</div>
+                                </div>
+                                <div class="tooltip">
+                                    <div class="tooltip__wrapper">
+                                        <h4>Other</h4>
+                                        <hr class="tooltip__hr">
+                                        <ul>
+                                            <li>
+                                                <strong>Coal Power 52%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                <strong>Natural Gas 34%</strong> of electricity generation emissions
+                                            </li>
+                                            <li>
+                                                BioGas - not present in data
+                                            </li>
+                                            <li>
+                                                Combined heat and power - not present in data
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats__item stats__item--trends" data-view="2">
+                    {# <div class="stats__heading">
+                        Compare country data
+                        <em class="stats__heading-em">by Time</em>
+                    </div> #}
+                    <div class="stats__content">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3">Change over time by sector</h3>
+                            <span class="stats__instruction">Select to turn sector on/off</span>
+                            {# <div class="stats__calendar compare compare--sector" data-component="Range">
+                                <button class="compare__button js-trigger">
+                                    <span><span data-selected>Last year</span></span>
+                                    <img class="icon-img-triangle" src="./media/triangle-icon.png" alt="">
+                                </button>
+                                <div class="compare__toggle">
+                                    <form>
+                                        <div class="compare__option">
+                                            <label class="compare__label">ALL</label>
+                                            <input type="radio" name="option" value="ALL" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last year</label>
+                                            <input type="radio" name="option" value="Last year" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 5 years</label>
+                                            <input type="radio" name="option" value="Last 5 years" class="compare__input compare__input--option">
+                                        </div>
+                                        <div class="compare__option">
+                                            <label class="compare__label">Last 10 years</label>
+                                            <input type="radio" name="option" value="Last 10 years" class="compare__input compare__input--option">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div> #}
+                        </div>
+                        <div class="chart" data-component="Linechart">
+                            <div class="chart__tabs" data-animation="itemsFade" data-y="true" data-uncache data-elements="chart__tab" data-stagger="0.1">
+                                <div class="chart__tab chart__tab--violet" data-chart-tab="0" data-color="violet" data-points="[30, 35, 30, 32, 22, 15, 32, 48, 49, 47, 20, 21]">
+                                    <h5 class="chart__sector">Agriculture</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
+                                <div class="chart__tab chart__tab--indigo" data-chart-tab="1" data-color="indigo" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 20, 21]">
+                                    <h5 class="chart__sector">Forestry</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
+                                <div class="chart__tab chart__tab--blue" data-chart-tab="2" data-color="blue" data-points="[20, 25, 15, 30, 40, 10, 32, 28, 29, 27, 10, 11]">
+                                    <h5 class="chart__sector">Electricity Generation</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
+                                <div class="chart__tab chart__tab--winter" data-chart-tab="3" data-color="winter" data-points="[16, 22, 50, 32, 32, 15, 22, 18, 49, 47, 44, 21]">
+                                    <h5 class="chart__sector">Extractive Industries</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
+                                <div class="chart__tab chart__tab--viking" data-chart-tab="4" data-color="viking" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 43, 21]">
+                                    <h5 class="chart__sector">TRANSPORTATION</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
+                                <div class="chart__tab chart__tab--shamrock" data-chart-tab="5" data-color="shamrock" data-points="[10, 35, 50, 32, 22, 15, 32, 18, 49, 47, 12, 21]">
+                                    <h5 class="chart__sector">Manufacturing</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
+                                <div class="chart__tab chart__tab--green" data-chart-tab="6" data-color="green" data-points="[10, 35, 45, 32, 22, 15, 32, 18, 49, 47, 34, 21]">
+                                    <h5 class="chart__sector">Buildings</h5>
+                                    <div class="chart__number">1,872,431</div>
+                                    <span class="chart__info">Total CO2 this year</span>
+                                </div>
 
-														</div>
-														<div class="chart__wrapper js-wrapper">
-																<canvas id="canvas-chart"></canvas>
-														</div>
-												</div>
-										</div>
-								</div>
-								<div class="stats__item" data-view="3">
-										{# <div class="stats__heading">
-												About our
-												<em class="stats__heading-em">Data</em>
-										</div> #}
-										<div class="stats__content stats__content--box">
-												<div class="stats__topbar">
-														<h3 class="stats__h3" data-animation="fade" data-uncache>
-																Quality
-																<span class="stats__subhead">Data quality score based on:</span>
-														</h3>
-														<div class="stats__about">
-																<span>About data Quality</span>
+                            </div>
+                            <div class="chart__wrapper js-wrapper">
+                                <canvas id="canvas-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats__item" data-view="3">
+                    {# <div class="stats__heading">
+                        About our
+                        <em class="stats__heading-em">Data</em>
+                    </div> #}
+                    <div class="stats__content stats__content--box">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
+                                Quality
+                                <span class="stats__subhead">Data quality score based on:</span>
+                            </h3>
+                            <div class="stats__about">
+                                <span>About data Quality</span>
                                 <i class="info info--big"><em>!</em><span>Lorem ipsum dolor sit amet, <i>consectetur adipiscing</i> elit, sed do eiusmod tempor.</span></i>
-														</div>
-												</div>
-												<div class="quality">
-														<div class="quality__wrapper quality__wrapper--flex" data-animation="itemsFade" data-uncache data-delay="0" data-elements="js-area">
-																<div class="quality__area js-area">
-																		<div class="evaluation" data-quality="2">
-																				<span></span>
-																				<span></span>
-																				<span></span>
-																		</div>
-																		<h3 class="quality__h3">Completeness</h3>
-																		<p class="quality__info">74% coverage from source X, Y</p>
-																</div>
-																<div class="quality__area js-area">
-																		<div class="evaluation" data-quality="3">
-																				<span></span>
-																				<span></span>
-																				<span></span>
-																		</div>
-																		<h3 class="quality__h3">Accuracy</h3>
-																		<p class="quality__info">All sources are verified</p>
-																		<img src="./media/dotted-line.png" alt="" class="dotted-line">
-																</div>
-																<div class="quality__area js-area">
-																		<div class="evaluation" data-quality="3">
-																				<span></span>
-																				<span></span>
-																				<span></span>
-																		</div>
-																		<h3 class="quality__h3">Recency</h3>
-																		<p class="quality__info">Sources updated every two months</p>
-																		<img src="./media/dotted-line.png" alt="" class="dotted-line">
-																</div>
-														</div>
-												</div>
-										</div>
-										<div class="stats__content stats__content--space">
-												<div class="stats__topbar">
-														<h3 class="stats__h3" data-animation="fade" data-uncache>
-																Methodology
-																<span class="stats__subhead">Duis aute irure dolor in reprehenderit in voluptate velit<br> esse cillum dolore eu fugiat nulla pariatur.</span>
-														</h3>
-												</div>
-												<div class="quality">
-														<div class="quality__wrapper">
-																<div class="table">
+                            </div>
+                        </div>
+                        <div class="quality">
+                            <div class="quality__wrapper quality__wrapper--flex" data-animation="itemsFade" data-uncache data-delay="0" data-elements="js-area">
+                                <div class="quality__area js-area">
+                                    <div class="evaluation" data-quality="2">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <h3 class="quality__h3">Completeness</h3>
+                                    <p class="quality__info">74% coverage from source X, Y</p>
+                                </div>
+                                <div class="quality__area js-area">
+                                    <div class="evaluation" data-quality="3">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <h3 class="quality__h3">Accuracy</h3>
+                                    <p class="quality__info">All sources are verified</p>
+                                    <img src="./media/dotted-line.png" alt="" class="dotted-line">
+                                </div>
+                                <div class="quality__area js-area">
+                                    <div class="evaluation" data-quality="3">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <h3 class="quality__h3">Recency</h3>
+                                    <p class="quality__info">Sources updated every two months</p>
+                                    <img src="./media/dotted-line.png" alt="" class="dotted-line">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats__content stats__content--space">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
+                                Methodology
+                                <span class="stats__subhead">Duis aute irure dolor in reprehenderit in voluptate velit<br> esse cillum dolore eu fugiat nulla pariatur.</span>
+                            </h3>
+                        </div>
+                        <div class="quality">
+                            <div class="quality__wrapper">
+                                <div class="table">
 
-																		<div class="table__row" data-animation="fadeUp" data-uncache>
-																				<div class="table__col table__col--sub">
-																						<span class="table__th">subsector</span>
-																				</div>
-																				<div class="table__col table__col--def">
-																						<span class="table__th">definition</span>
-																				</div>
-																				<div class="table__col table__col--src">
-																						<span class="table__th">source</span>
-																				</div>
-																				<div class="table__col table__col--met">
-																						<span class="table__th">methodology</span>
-																				</div>
-																				<div class="table__col table__col--data">
-																						<span class="table__th">data frequency</span>
-																				</div>
-																		</div>
-																		<div class="table__row" data-animation="fadeUp" data-uncache>
-																				<div class="table__col table__col--sub">
-																					 <p class="table__p"><strong>CAFOs</strong> Concentrated animal feeding operation</p>
-																				</div>
-																				<div class="table__col table__col--def">
-																					 <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
-																				</div>
-																				<div class="table__col table__col--src">
-																					 <div class="table__icons">
-																						<img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite">
-																						<img src="./media/timer-icon-black.png" alt="" class="icon-img-time">
-																						<img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve">
-																					 </div>
-																				</div>
-																				<div class="table__col table__col--met">
-																					 <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
-																				</div>
-																				<div class="table__col table__col--data">
-																					 <p class="table__p">Updated every 3 weeks</p>
-																				</div>
-																		</div>
-																		<div class="table__row" data-animation="fadeUp" data-uncache>
-																				<div class="table__col table__col--sub">
-																					 <p class="table__p"><strong>Manure Management</strong></p>
-																				</div>
-																				<div class="table__col table__col--def">
-																					 <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-																				</div>
-																				<div class="table__col table__col--src">
-																					 <div class="table__icons">
-																						<img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite">
-																						<img src="./media/timer-icon-black.png" alt="" class="icon-img-time">
-																					 </div>
-																				</div>
-																				<div class="table__col table__col--met">
-																					 <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-																				</div>
-																				<div class="table__col table__col--data">
-																					 <p class="table__p">Updated every 3 weeks</p>
-																				</div>
-																		</div>
-																		<div class="table__row" data-animation="fadeUp" data-uncache>
-																				<div class="table__col table__col--sub">
-																					 <p class="table__p"><strong>Rice Cultivation</strong></p>
-																				</div>
-																				<div class="table__col table__col--def">
-																					 <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-																				</div>
-																				<div class="table__col table__col--src">
-																					 <div class="table__icons">
-																						<img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite">
-																						<img src="./media/timer-icon-black.png" alt="" class="icon-img-time">
-																					 </div>
-																				</div>
-																				<div class="table__col table__col--met">
-																					 <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-																				</div>
-																				<div class="table__col table__col--data">
-																					 <p class="table__p">Updated every 3 weeks</p>
-																				</div>
-																		</div>
-																</div>
-														</div>
-												</div>
-										</div>
-										<div class="stats__content stats__content--space">
-												<div class="stats__topbar">
-														<h3 class="stats__h3" data-animation="fade" data-uncache>
-																Coverage
-																<span class="stats__subhead">If you have an emissions dataset that would benefit our coverage and quality of work at Climate TRACE, check out the library of data below and contact us with your contribution</span>
-														</h3>
-														<div class="stats__about">
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
+                                        <div class="table__col table__col--sub">
+                                            <span class="table__th">subsector</span>
+                                        </div>
+                                        <div class="table__col table__col--def">
+                                            <span class="table__th">definition</span>
+                                        </div>
+                                        <div class="table__col table__col--src">
+                                            <span class="table__th">source</span>
+                                        </div>
+                                        <div class="table__col table__col--met">
+                                            <span class="table__th">methodology</span>
+                                        </div>
+                                        <div class="table__col table__col--data">
+                                            <span class="table__th">data frequency</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
+                                        <div class="table__col table__col--sub">
+                                           <p class="table__p"><strong>CAFOs</strong> Concentrated animal feeding operation</p>
+                                        </div>
+                                        <div class="table__col table__col--def">
+                                           <p class="table__p">Defined by the United States Department of Agriculture (USDA), is an intensive animal feeding operation (AFO) in which over 1000 animal units are confined for over 45 days a year.</p>
+                                        </div>
+                                        <div class="table__col table__col--src">
+                                           <div class="table__icons">
+                                            <img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite">
+                                            <img src="./media/timer-icon-black.png" alt="" class="icon-img-time">
+                                            <img src="./media/analysis-icon-black.png" alt="" class="icon-img-curve">
+                                           </div>
+                                        </div>
+                                        <div class="table__col table__col--met">
+                                           <p class="table__p">We begin with exact locations for refineries across all countries that have refining facilities. Thermal sensors are used to detect the outflow of energy from the facility and measure the emissions from combustion using a well known modeling process.</p>
+                                        </div>
+                                        <div class="table__col table__col--data">
+                                           <p class="table__p">Updated every 3 weeks</p>
+                                        </div>
+                                    </div>
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
+                                        <div class="table__col table__col--sub">
+                                           <p class="table__p"><strong>Manure Management</strong></p>
+                                        </div>
+                                        <div class="table__col table__col--def">
+                                           <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        </div>
+                                        <div class="table__col table__col--src">
+                                           <div class="table__icons">
+                                            <img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite">
+                                            <img src="./media/timer-icon-black.png" alt="" class="icon-img-time">
+                                           </div>
+                                        </div>
+                                        <div class="table__col table__col--met">
+                                           <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        </div>
+                                        <div class="table__col table__col--data">
+                                           <p class="table__p">Updated every 3 weeks</p>
+                                        </div>
+                                    </div>
+                                    <div class="table__row" data-animation="fadeUp" data-uncache>
+                                        <div class="table__col table__col--sub">
+                                           <p class="table__p"><strong>Rice Cultivation</strong></p>
+                                        </div>
+                                        <div class="table__col table__col--def">
+                                           <p class="table__p">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        </div>
+                                        <div class="table__col table__col--src">
+                                           <div class="table__icons">
+                                            <img src="./media/satellite-icon-black.png" alt="" class="icon-img-satellite">
+                                            <img src="./media/timer-icon-black.png" alt="" class="icon-img-time">
+                                           </div>
+                                        </div>
+                                        <div class="table__col table__col--met">
+                                           <p class="table__p">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        </div>
+                                        <div class="table__col table__col--data">
+                                           <p class="table__p">Updated every 3 weeks</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats__content stats__content--space">
+                        <div class="stats__topbar">
+                            <h3 class="stats__h3" data-animation="fade" data-uncache>
+                                Coverage
+                                <span class="stats__subhead">If you have an emissions dataset that would benefit our coverage and quality of work at Climate TRACE, check out the library of data below and contact us with your contribution</span>
+                            </h3>
+                            <div class="stats__about">
                                 <a href="#" class="more"><i>ALL DATA COVERAGE</i><span></span><span></span><span></span></a>
-														</div>
-												</div>
-												<div class="quality">
-														<div class="quality__wrapper coverage">
-																<div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
-																		<div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
-																		<div class="coverage__number js-cover-num">41%</div>
-																		<p class="coverage__text">of known cattle<br> operations are represented</p>
-																		<span class="coverage__supplier">DATA SUPPLIER</span>
-																		<div class="coverage__footer">
-																				<img src="./media/coverage-logo-3.png" alt="" class="coverage__logo">
-																				<div class="coverage__update">
-																						<p>Updated <span class="js-update">2/15/21</span></p>
-																						<p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
-																				</div>
-																		</div>
+                            </div>
+                        </div>
+                        <div class="quality">
+                            <div class="quality__wrapper coverage">
+                                <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number js-cover-num">41%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="./media/coverage-logo-3.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
                                     <span class="coverage__percent js-cover-percent"></span>
-																</div>
-																<div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
-																		<div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
-																		<div class="coverage__number js-cover-num">13%</div>
-																		<p class="coverage__text">of known cattle<br> operations are represented</p>
-																		<span class="coverage__supplier">DATA SUPPLIER</span>
-																		<div class="coverage__footer">
-																				<img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
-																				<div class="coverage__update">
-																						<p>Updated <span class="js-update">2/15/21</span></p>
-																						<p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
-																				</div>
-																		</div>
+                                </div>
+                                <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number js-cover-num">13%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
                                     <span class="coverage__percent js-cover-percent"></span>
-																</div>
-																<div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
-																		<div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
-																		<div class="coverage__number js-cover-num">76%</div>
-																		<p class="coverage__text">of known cattle<br> operations are represented</p>
-																		<span class="coverage__supplier">DATA SUPPLIER</span>
-																		<div class="coverage__footer">
-																				<img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
-																				<div class="coverage__update">
-																						<p>Updated <span class="js-update">2/15/21</span></p>
-																						<p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
-																				</div>
-																		</div>
+                                </div>
+                                <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number js-cover-num">76%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="./media/coverage-logo-2.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
                                     <span class="coverage__percent js-cover-percent"></span>
-																</div>
-																<div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
-																		<div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
-																		<div class="coverage__number js-cover-num">7%</div>
-																		<p class="coverage__text">of known cattle<br> operations are represented</p>
-																		<span class="coverage__supplier">DATA SUPPLIER</span>
-																		<div class="coverage__footer">
-																				<img src="./media/coverage-logo-1.png" alt="" class="coverage__logo">
-																				<div class="coverage__update">
-																						<p>Updated <span class="js-update">2/15/21</span></p>
-																						<p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
-																				</div>
-																		</div>
+                                </div>
+                                <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number js-cover-num">7%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="./media/coverage-logo-1.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
                                     <span class="coverage__percent js-cover-percent"></span>
-																</div>
-																<div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
-																		<div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
-																		<div class="coverage__number js-cover-num">98%</div>
-																		<p class="coverage__text">of known cattle<br> operations are represented</p>
-																		<span class="coverage__supplier">DATA SUPPLIER</span>
-																		<div class="coverage__footer">
-																				<img src="./media/coverage-logo-1.png" alt="" class="coverage__logo">
-																				<div class="coverage__update">
-																						<p>Updated <span class="js-update">2/15/21</span></p>
-																						<p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
-																				</div>
-																		</div>
+                                </div>
+                                <div class="coverage__tile js-tile" data-animation="percentBox" data-uncache data-delay="0">
+                                    <div class="coverage__sup"><span>Emissions model</span>Hudson Carbon</div>
+                                    <div class="coverage__number js-cover-num">98%</div>
+                                    <p class="coverage__text">of known cattle<br> operations are represented</p>
+                                    <span class="coverage__supplier">DATA SUPPLIER</span>
+                                    <div class="coverage__footer">
+                                        <img src="./media/coverage-logo-1.png" alt="" class="coverage__logo">
+                                        <div class="coverage__update">
+                                            <p>Updated <span class="js-update">2/15/21</span></p>
+                                            <p class="js-update">Next expected update - <span class="js-update">03/01/2021</span></p>
+                                        </div>
+                                    </div>
                                     <span class="coverage__percent js-cover-percent"></span>
-																</div>
-														</div>
-												</div>
-										</div>
-								</div>
-						</div>
-				</div>
-		</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

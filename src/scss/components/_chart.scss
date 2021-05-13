@@ -1,38 +1,3 @@
-$tab-colors: (
-    blue: (
-        $havelock-blue,
-        $havelock-blue-lighten,
-    ),
-    indigo: (
-        $indigo,
-        $indigo-lighten,
-    ),
-    violet: (
-        $blue-violet,
-        $blue-violet-lighten,
-    ),
-    green: (
-        $wild-willow,
-        $wild-willow-lighten,
-    ),
-    viking: (
-        $viking,
-        $viking-lighten,
-    ),
-    winter: (
-        $picton-blue,
-        $picton-blue-lighten,
-    ),
-    gray: (
-        $gull-gray,
-        $gull-gray-lighten,
-    ),
-    shamrock: (
-        $shamrock,
-        $shamrock-lighten,
-    ),
-);
-
 .chart {
     opacity: 1 !important;
 
@@ -85,7 +50,7 @@ $tab-colors: (
             // }
         }
 
-        @each $key, $val in $tab-colors {
+        @each $key, $val in $theme-colors {
             &--#{$key} {
                 background-color: #{nth($val, 2)};
                 color: #{nth($val, 1)};

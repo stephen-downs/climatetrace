@@ -26,8 +26,8 @@
         @include hover {
             z-index: 1;
 
-            .masonry__tooltip {
-                transform: translate(-50%, -100%);
+            .tooltip {
+                transform: translate(-70%, -100%);
                 opacity: 1;
             }
         }
@@ -45,7 +45,7 @@
             grid-row-end: 21;
             background-color: $havelock-blue-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $havelock-blue-lighten;
                 }
@@ -67,7 +67,7 @@
             grid-row-end: span 10;
             background-color: $indigo-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $indigo-lighten;
                 }
@@ -89,7 +89,7 @@
             grid-row-end: span 10;
             background-color: $blue-violet-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $blue-violet-lighten;
                 }
@@ -111,7 +111,7 @@
             grid-row-end: 21;
             background-color: $wild-willow-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $wild-willow-lighten;
                 }
@@ -133,7 +133,7 @@
             grid-row-end: 13;
             background-color: $viking-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $viking-lighten;
                 }
@@ -155,7 +155,7 @@
             grid-row-end: 21;
             background-color: $shamrock-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $shamrock-lighten;
                 }
@@ -177,7 +177,7 @@
             grid-row-end: 18;
             background-color: $picton-blue-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $picton-blue-lighten;
                 }
@@ -199,7 +199,7 @@
             grid-row-end: 21;
             background-color: $gull-gray-lighten;
 
-            .masonry__tooltip {
+            .tooltip {
                 strong {
                     color: $gull-gray-lighten;
                 }

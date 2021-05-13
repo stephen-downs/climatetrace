@@ -13,7 +13,7 @@
         height: 300px;
         width: percent(360, 1106, 0);
         margin-right: 10px;
-        background-color: $color-accent;
+        background-color: $sky-blue;
         padding: 16px;
         text-transform: uppercase;
         margin-bottom: 10px;
@@ -22,12 +22,6 @@
         color: $color-white;
         font-family: $font-main;
         overflow: hidden;
-
-        .contribute & {
-            &:not(.coverage__tile--nodata) {
-                background-color: rgba($color-accent, 0.6);
-            }
-        }
 
         &--nodata {
             background-color: rgba($color-gothic, 0.6);
@@ -50,6 +44,8 @@
     }
 
     &__sup {
+        position: relative;
+        z-index: 2;
         text-align: right;
         @include font-size(16, 15);
 
@@ -128,14 +124,10 @@
         width: 100%;
         height: 100%;
         border-radius: $radius;
-        background-color: $wild-willow;
+        background-color: rgba($wild-willow, 0.7);
         transform: scaleY(0);
         transform-origin: center bottom;
         z-index: 0;
-
-        .contribute & {
-            background-color: rgba($wild-willow, 0.7);
-        }
     }
 
     &__country {

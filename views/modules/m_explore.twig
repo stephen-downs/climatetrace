@@ -17,12 +17,12 @@
 							</h3>
 							<div class="compare-wrapper">
 									<div class="compare compare--view">
-											<button class="button--sort " data-chart-type="pie">
+											<button class="button--sort is-active" data-chart-type="pie">
 													<span>pie chart</span>
 													<img src="./media/circle-chart-icon.png" alt="">
 											</button>
 											<hr class="hr--v">
-											<button class="button--sort is-active" data-chart-type="bar">
+											<button class="button--sort " data-chart-type="bar">
 													<img src="./media/chart-icon.png" alt="">
 													<span>bar chart</span>
 											</buton>
@@ -42,13 +42,13 @@
                   </div>
 							  {% include '../components/share.twig' %}
               </div>
-              <div class="explore__charts chart">
-                <div class="chart__view" data-chart-app="pie">
+              <div class="explore__charts">
+                <div class="chart__view is-active" data-chart-app="pie">
                   <div class="chart__canvas">
                     <canvas id="pie-chart"></canvas>
                   </div>
                 </div>
-                <div class="chart__view is-active" data-chart-app="bar">
+                <div class="chart__view" data-chart-app="bar">
                   <div class="chart__canvas">
                     <canvas id="bar-chart"></canvas>
                   </div>

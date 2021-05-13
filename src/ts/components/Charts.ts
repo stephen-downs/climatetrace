@@ -2,7 +2,8 @@ import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc, $window } from '../Site';
 import { Scroll } from '../Scroll';
-import { Chart, Legend, LegendItem, LegendOptions } from 'chart.js';
+import { Chart } from 'chart.js';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { GlobalVars } from './GlobalVars';
 
 // var Chart = require('chart.js');
@@ -30,6 +31,52 @@ export class Charts extends Component {
         'MANUFACTURING',
         'FORESTRY'
     ];
+
+    private tooltips: any = [
+        [ 
+        '<strong>Coal Power 52%</strong> of buildings generation emissions',
+        '<strong>Natural Gas 34%</strong> of buildings generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ],
+        [ 
+        '<strong>Coal Power 52%</strong> of electricity generation emissions',
+        '<strong>Natural Gas 34%</strong> of electricity generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ],
+        [ 
+        '<strong>Coal Power 52%</strong> of transportation generation emissions',
+        '<strong>Natural Gas 34%</strong> of transportation generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ],
+        [ 
+        '<strong>Coal Power 52%</strong> of agriculture generation emissions',
+        '<strong>Natural Gas 34%</strong> of agriculture generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ],
+        [ 
+        '<strong>Coal Power 52%</strong> of extractive industries generation emissions',
+        '<strong>Natural Gas 34%</strong> of extractive industries generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ],
+        [ 
+        '<strong>Coal Power 52%</strong> of manufacturing generation emissions',
+        '<strong>Natural Gas 34%</strong> of manufacturing generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ],
+        [ 
+        '<strong>Coal Power 52%</strong> of forestry generation emissions',
+        '<strong>Natural Gas 34%</strong> of forestry generation emissions',
+        'BioGas - not present in data',
+        'Combined heat and power - not present in data'
+        ]
+
+    ]
 
     private colors: any = [
         GlobalVars.colors.indigo,
@@ -62,7 +109,13 @@ export class Charts extends Component {
         this.$viewSwitcher.off('.switch').on('click.switch', this.onViewSwitch);
     }
 
+    private destroyCharts(): void {
+        this.barChart.destroy();
+        this.pieChart.destroy();
+    }
+
     private setCharts(): void {
+
         const values = [23.6, 3.1, 28.7, 8.2, 11.9, 6.7, 15.3];
         const pieData = {
             labels: this.labels,
@@ -96,7 +149,16 @@ export class Charts extends Component {
                 plugins: {
                     legend: {
                         display: false,
-                    }
+                    },
+                    tooltip: {
+                        enabled: false,
+                        external: (context) => this.customBarTooltip(context),
+                        callbacks: {
+                            afterBody: (item) => {
+                                return this.tooltips[item[0].dataIndex];
+                            },
+                        },
+                    },
                 },
                 responsive: true,
                 indexAxis: 'y',
@@ -104,14 +166,17 @@ export class Charts extends Component {
                     x: {
                         display: true,
                         title: {
+                            display: true,
                             text: 'TONNES',
-                            color: 'rgba(88,88,88, 0.2)',
+                            color: 'rgba(88,88,88, 0.45)',
                             font: {
                                 size: 20,
-                            }
+                                family: 'Quicksand',
+                                weight: 'normal'
+                            },
                         },
                         ticks: {
-                            callback: function(value, index, values) {
+                            callback: (value) => {
                                 return value + 'B';
                             },
                             font: {
@@ -119,7 +184,6 @@ export class Charts extends Component {
                                 family: 'Quicksand',
                             },
                             padding: 20,
-
                         },
                     },
                     y: {
@@ -139,77 +203,142 @@ export class Charts extends Component {
                     },
                 },
                 animation: {
-                    onComplete: (chart) => {
-                        console.log(this, chart, "dupa znój");
-                        let chartInstance = chart.chart,
-                            ctx = chartInstance.ctx;
-
-                        ctx.font = '20px Quicksand';
-                        ctx.textAlign = 'left';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillStyle = GlobalVars.colors.white;
-
-                        chartInstance.data.datasets.forEach((dataset, i) => {
-                            let meta = chartInstance.getDatasetMeta(i);
-                            meta.data.forEach((bar, index) => {
-                                let data = dataset.data[index] + '%';
-                                ctx.fillText(data, 230, bar.y);
-                            });
-                        });
-                        
-                    
-                    }
-                }
-            }
+                    duration: 2000,
+                    onProgress: (chart) => this.percentOnBarHack(chart),
+                    onComplete: (chart) => this.percentOnBarHack(chart),
+                },
+            },
         });
-
-
         this.pieChart = new Chart(this.ctxPie, {
             type: 'doughnut',
             data: pieData,
             options: {
                 plugins: {
                     legend: {
-                        display: true,
-                        labels: {
-                            generateLabels: (chart): any => {
-                              let data = chart.data;
-                              console.log(data, "DATA");
-                              if (data.labels.length && data.datasets.length) {
-                                return data.labels.map((label, i) => {
-                                  let meta = chart.getDatasetMeta(0);
-                                  let ds = data.datasets[0];
-                                  let arc = meta.data[i];
-                                  let arcOpts = chart.options.elements.arc;
-                                  let fill = this.colors[i];
-                                  let stroke = this.colors[i];
-                                  let bw = 0;
-                                
-                                  // We get the value of the current label
-                                  let value = chart.config.data.datasets[0].data[i];
-                    
-                                  return {
-                                    // Instead of `text: label,`
-                                    // We add the value to the string
-                                    text: label + " : " + value + '%',
-                                    fillStyle: fill,
-                                    strokeStyle: stroke,
-                                    lineWidth: bw,
-                                    hidden: false,
-                                    index: i
-                                  };
-                                });
-                              } else {
-                                return [];
-                              }
-                            }
-                          }
-                    }
-                    // generateLabels: (chart) => this.legendCallback(chart);
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false,
+                        external: (context) => this.customBarTooltip(context),
+                        intersect: false,
+                        callbacks: {
+                            afterBody: (item) => {
+                                return this.tooltips[item[0].dataIndex];
+                            },
+                        },
+                    },
                 }
             }
         });
     }
+
+    private percentOnBarHack(chart): void {
+        let chartInstance = chart.chart,
+            ctx = chartInstance.ctx;
+
+        ctx.font = '500 22px Kanit';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = GlobalVars.colors.white;
+
+        chartInstance.data.datasets.forEach((dataset, i) => {
+            let meta = chartInstance.getDatasetMeta(i);
+            meta.data.forEach((bar, index) => {
+                let data = dataset.data[index] + '%';
+                ctx.fillText(data, 230, bar.y);
+            });
+        });
+    }
+
+    private customPieTooltip(context): void {
+
+    }
+
+    private customBarTooltip(context): void {
+        // Tooltip Element
+        let tooltipEl = $('#chartjs-tooltip')[0];
+
+        // Create element on first render
+        if (!tooltipEl) {
+            
+            tooltipEl = document.createElement('div');
+            tooltipEl.id = 'chartjs-tooltip';
+            tooltipEl.innerHTML = '<div class="tooltip tooltip--chart"><div class="tooltip__wrapper"></div></div>';
+            document.body.appendChild(tooltipEl);
+        }
+
+        // Hide if no tooltip
+        let tooltipModel = context.tooltip;
+        console.log(tooltipModel, 'model', context, 'ctx');
+        if (tooltipModel.opacity === '0') {
+            tooltipEl.style.opacity = '0';
+            return;
+        }
+
+        let index = null;
+        let color = '';
+
+        this.labels.forEach( (el, i) => {
+            let title = tooltipModel.title.length <= 0 ? tooltipModel.dataPoints[0].label : tooltipModel.title[0]; 
+            if (el === title) {
+                index = i;
+            }
+        });
+
+        color = this.colors[index];
+
+
+        // Set Text
+        if (tooltipModel.body) {
+            let titleLines = tooltipModel.title.length <= 0 ? tooltipModel.dataPoints[0].label : tooltipModel.title;
+            console.log(titleLines);
+            let bodyLines = tooltipModel.afterBody.map((bodyItem) => {
+                return bodyItem;
+            });
+
+            let innerHtml = '<h4>';
+
+            if (typeof titleLines == 'string') {
+                innerHtml += titleLines;
+            } else {
+                titleLines.forEach((title) => {
+                    innerHtml += title;
+                });
+            }
+            innerHtml += '</h4><hr class="tooltip__hr"><ul>';
+
+            bodyLines.forEach((body, i) => {
+                innerHtml += '<li>' + body + '</li>';
+            });
+            innerHtml += '</ul>';
+
+            let wrapper = $(tooltipEl).find('.tooltip__wrapper')[0];
+            wrapper.innerHTML = innerHtml;
+
+        }
+
+
+        let position = context.chart.canvas.getBoundingClientRect();
+
+        // Display, position, and set styles for font
+        $(tooltipEl).find('strong').css('color', color);
+        $(tooltipEl).find('hr').css('background-color', color);
+        tooltipEl.style.opacity = '1';
+        tooltipEl.style.position = 'absolute';
+        tooltipEl.style.zIndex = '4';
+        tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px';
+        tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px';
+        tooltipEl.style.font = 'Kanit';
+        tooltipEl.style.padding = tooltipModel.padding + 'px ' + tooltipModel.padding + 'px';
+        tooltipEl.style.pointerEvents = 'none';
+
+
+        gsap.fromTo($(tooltipEl).find('.tooltip'), { duration: 0.5, opacity: 0}, { opacity: 1});
+        if (tooltipModel.opacity === 0) {
+            gsap.fromTo($(tooltipEl).find('.tooltip'), { duration: 0.5, opacity: 1}, { opacity: 0});
+        }
+    }
+
 
     private onViewSwitch = (e): void => {
         const current = $(e.currentTarget);
@@ -219,6 +348,9 @@ export class Charts extends Component {
         current.addClass('is-active');
 
         this.setActiveSubview(view);
+
+        setTimeout(() => this.destroyCharts(), 300);
+        setTimeout(() => this.setCharts(), 450);
     }
 
 
@@ -290,7 +422,7 @@ export class Charts extends Component {
                   </li>
                 `
               )
-              .join("");
+              .join('');
           };
         return `
             <ul class="chartjs-legend">

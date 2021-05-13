@@ -73,6 +73,8 @@
   },
   "dependencies": {
     "chart.js": "^3.2.1",
+    "chartjs-plugin-datalabels": "^1.0.0",
+    "chartjs-plugin-labels": "^1.1.0",
     "gsap": "3.0.5",
     "imagesloaded": "4.1.4",
     "jquery": "^3.6.0",
