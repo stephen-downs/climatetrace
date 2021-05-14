@@ -1,7 +1,7 @@
 .subpage {
     position: relative;
     margin-top: $nav-height;
-    padding-top: 45px;
+    padding: 45px 30px 0;
     background: $gradient;
 
     &::after {

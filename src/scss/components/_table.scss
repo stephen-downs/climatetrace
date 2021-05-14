@@ -133,9 +133,10 @@
     }
 
     &__icons {
-        img {
-            margin-bottom: 16px;
+        svg {
             display: block;
+            margin: 0 auto 16px;
+            fill: $color-accent;
 
             .sector & {
                 margin: 0 auto 16px;

@@ -113,7 +113,7 @@ export class Filters extends Component {
         this.$itemTime.off('.time').on('click.time', this.toggleTime);
         this.$itemCountry.off('.country').on('click.country', this.toggleCountry);
         this.$clear.off('.clear').on('click.clear', this.clearArray);
-        this.$allSectors.off('.all').on('click.all', this.markAllSectors);
+        // this.$allSectors.off('.all').on('click.all', this.markAllSectors);
     }
 
 
@@ -122,7 +122,7 @@ export class Filters extends Component {
 
         this.clearArray();
         this.$itemSector.each((i, el) => {
-            this.addElementToArray($(el), this.filters);
+            this.addElementToArray($(el), this.filters, true);
         });
         this.$allSectors.addClass('is-active');
         this.isAllChecked = true;
@@ -161,7 +161,7 @@ export class Filters extends Component {
             this.addElementToArray(this.$itemCountry, this.filters);
     
             this.$itemSector.each((i, el) => {
-                this.addElementToArray($(el), this.filters);
+                this.addElementToArray($(el), this.filters, true);
             });
             this.$allSectors.addClass('is-active');
             this.isAllChecked = true;
@@ -176,12 +176,15 @@ export class Filters extends Component {
 
         if (current.hasClass('is-active')) {
             this.removeElementFromArray(current, this.filters);
+            // this.$allSectors.removeClass('is-active');
+            // this.isAllChecked = false;
 
-            if (this.isAllChecked) {
-                this.$allSectors.removeClass('is-active');
-                this.isAllChecked = false;
-            }
         } else {
+            const activePrev = this.$itemSector.filter('.is-active').length > 0 ? this.$itemSector.filter('.is-active') : null;
+
+            if (activePrev) {
+                this.removeElementFromArray(activePrev, this.filters);
+            }
             this.addElementToArray(current, this.filters);
         }
 
@@ -248,9 +251,9 @@ export class Filters extends Component {
     }
 
 
-    private addElementToArray($el: JQuery, array: Array<string>): void {
+    private addElementToArray($el: JQuery, array: Array<string>, notActivate?: boolean): void {
         array.push($el.data('item'));
-        $el.addClass('is-active');
+        notActivate ? $el.remove('is-active') : $el.addClass('is-active');
         console.log('FILTERS:', this.filters);
     }
 

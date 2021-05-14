@@ -35,6 +35,7 @@ export class Search extends Component {
 
     private onBlur(): void {
         this.view.removeClass('is-focus');
+        this.view.removeClass('is-livesearching');
     }
     
     private onInput(): void {
