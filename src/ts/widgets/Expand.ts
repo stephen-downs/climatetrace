@@ -9,7 +9,7 @@ export class Expand {
     public static bind(target?: ElementSelector): void {
         const $target = $(typeof target !== 'undefined' ? target : 'body');
         $target.find('[aria-controls]').off().on('click.aria', Expand.onAriaControlsClick);
-        console.log('bind expand', target, $target, $target.find('[aria-controls]'));
+        // console.log('bind expand', target, $target, $target.find('[aria-controls]'));
     }
 
 

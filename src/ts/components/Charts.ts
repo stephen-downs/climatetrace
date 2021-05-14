@@ -2,8 +2,10 @@ import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc, $window } from '../Site';
 import { Scroll } from '../Scroll';
-import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
+import * as ChartDataLabels from 'chartjs-plugin-datalabels';
+import {Context} from 'chartjs-plugin-datalabels';
 import { GlobalVars } from './GlobalVars';
 
 // var Chart = require('chart.js');
@@ -21,6 +23,7 @@ export class Charts extends Component {
 
     private pieChart: Chart;
     private barChart: Chart;
+
 
     private labels: any = [
         'BUILDINGS',
@@ -102,6 +105,9 @@ export class Charts extends Component {
         
         this.bind();
         this.setCharts();
+
+         console.log(ChartDataLabels);
+
     }
 
 
@@ -115,18 +121,19 @@ export class Charts extends Component {
     }
 
     private setCharts(): void {
-
+        // Chart.plugins.register(ChartDataLabels);
+        // Chart.register(...registerables);
         const values = [23.6, 3.1, 28.7, 8.2, 11.9, 6.7, 15.3];
         const pieData = {
             labels: this.labels,
             datasets: [{
-                label: 'Dataset',
+                labels: this.labels,
                 data: values,
                 backgroundColor: this.colors,
                 borderWidth: 0,
                 cutout: '70%',
+                hoverOffset: 5,
             }],
-            hoverOffset: 1
         };
 
         const barChart = {
@@ -209,11 +216,42 @@ export class Charts extends Component {
                 },
             },
         });
+        // Chart.register(ChartDataLabels);
         this.pieChart = new Chart(this.ctxPie, {
             type: 'doughnut',
             data: pieData,
+            plugins: [(ChartDataLabels as any)],
             options: {
+                layout: {
+                    padding: 100
+                },
                 plugins: {
+                    datalabels: {
+                        display: true,
+                        clamp: false,
+                        anchor: 'end',
+                        align: 'center',
+                        offset: 10,
+                        labels: {
+                            // title: {
+                            //     color: GlobalVars.colors.gray,
+                            //     font: {
+                            //         weight: 'normal',
+                            //         size: 16
+                            //     }
+                            // },
+                            value: {
+                                font: {
+                                    weight: 'bold',
+                                    size: 22
+                                }
+                            }
+                        },
+                        formatter: (value, context) => {
+                            console.log(value, context, 'dupa');
+                            return context.chart.data.labels[context.dataIndex] + '\n' + value +'%';
+                        }
+                    },
                     legend: {
                         display: false,
                     },

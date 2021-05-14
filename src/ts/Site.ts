@@ -276,7 +276,7 @@ export class Site {
             pageName: string = $pageEl.data('page') || 'Page',
             pageOptions: Object = $pageEl.data('options');
 
-        console.log($pageEl, pageName);
+        // console.log($pageEl, pageName);
 
         // page not found:
         if (pageName === undefined) {

@@ -17,6 +17,7 @@
     "npm": ">=2.1.5"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.32",
     "@types/node": "^14.14.20",
     "axios": "^0.19.0",
     "babel-core": "6.26.3",
@@ -73,7 +74,7 @@
   },
   "dependencies": {
     "chart.js": "^3.2.1",
-    "chartjs-plugin-datalabels": "^1.0.0",
+    "chartjs-plugin-datalabels": "^2.0.0-beta.1",
     "chartjs-plugin-labels": "^1.1.0",
     "gsap": "3.0.5",
     "imagesloaded": "4.1.4",
