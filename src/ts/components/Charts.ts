@@ -10,11 +10,13 @@ import { GlobalVars } from './GlobalVars';
 
 // var Chart = require('chart.js');
 
+
 export class Charts extends Component {
 
     private $viewSwitcher: JQuery;
     private $subviews: JQuery;
     private $current: JQuery;
+    private $pieChartWrapper: JQuery;
 
     private pieCanvas: HTMLCanvasElement;
     private barCanvas: HTMLCanvasElement;
@@ -24,6 +26,7 @@ export class Charts extends Component {
     private pieChart: Chart;
     private barChart: Chart;
 
+    private icons: any;
 
     private labels: any = [
         'BUILDINGS',
@@ -102,11 +105,10 @@ export class Charts extends Component {
         this.ctxBar = this.barCanvas.getContext('2d');
         this.ctxPie = this.pieCanvas.getContext('2d');
         this.barCanvas.height = 250;
+        this.$pieChartWrapper = this.view.find('.js-pie-chart');
         
         this.bind();
         this.setCharts();
-
-         console.log(ChartDataLabels);
 
     }
 
@@ -120,10 +122,35 @@ export class Charts extends Component {
         this.pieChart.destroy();
     }
 
+    private setBiggestValue(values: Array<number>): void {
+        let largest = this.getLargestValue(values);
+        this.$pieChartWrapper.append('<div class="chart__center js-center-value"><img src="" alt="" class="chart__largesticon js-largest-icon"><span class="chart__largestname js-largest-name"></span><span class="chart__largest js-largest-num"></span></div>');
+
+        let index = values.indexOf(largest);
+
+        let areaName = this.labels[index].toLowerCase();
+
+        this.view.find('.js-largest-name').text(areaName);
+        this.view.find('.js-largest-num').text(largest + '%');
+        let icon;
+
+        for (const prop in GlobalVars.icons) {
+            console.log(prop === areaName);
+            if (prop === areaName) {
+                icon = GlobalVars.icons[prop];
+                console.log(icon);
+            }
+        }
+
+        this.view.find('.js-largest-icon').attr('src', icon);
+
+    }
+
     private setCharts(): void {
         // Chart.plugins.register(ChartDataLabels);
         // Chart.register(...registerables);
         const values = [23.6, 3.1, 28.7, 8.2, 11.9, 6.7, 15.3];
+        this.setBiggestValue(values);
         const pieData = {
             labels: this.labels,
             datasets: [{
@@ -223,33 +250,28 @@ export class Charts extends Component {
             plugins: [(ChartDataLabels as any)],
             options: {
                 layout: {
-                    padding: 100
+                    padding: 50
                 },
                 plugins: {
                     datalabels: {
                         display: true,
                         clamp: false,
-                        anchor: 'end',
+                        anchor: 'center',
                         align: 'center',
                         offset: 10,
+                        color: GlobalVars.colors.white,
                         labels: {
-                            // title: {
-                            //     color: GlobalVars.colors.gray,
-                            //     font: {
-                            //         weight: 'normal',
-                            //         size: 16
-                            //     }
-                            // },
                             value: {
                                 font: {
+                                    family: 'Kanit',
                                     weight: 'bold',
                                     size: 22
                                 }
-                            }
+                            },
+                             
                         },
                         formatter: (value, context) => {
-                            console.log(value, context, 'dupa');
-                            return context.chart.data.labels[context.dataIndex] + '\n' + value +'%';
+                            return value +'%';
                         }
                     },
                     legend: {
@@ -288,9 +310,6 @@ export class Charts extends Component {
         });
     }
 
-    private customPieTooltip(context): void {
-
-    }
 
     private customBarTooltip(context): void {
         // Tooltip Element
@@ -440,31 +459,15 @@ export class Charts extends Component {
     }
 
 
-    private legendCallback(chart): any {
-        const renderLabels = (chart) => {
-            const { data } = chart;
-            return data.datasets[0].data
-              .map(
-                (_, i) =>
-                  `<li>
-                      <div id="legend-${i}-item" class="legend-item">
-                        <span style="background-color:
-                          ${data.datasets[0].backgroundColor[i]}">
-                          &nbsp;&nbsp;&nbsp;&nbsp;
-                        </span>
-                        ${
-                          data.labels[i] &&
-                          `<span class="label">${data.labels[i]}: $${data.datasets[0].data[i]}</span>`
-                        }
-                      </div>
-                  </li>
-                `
-              )
-              .join('');
-          };
-        return `
-            <ul class="chartjs-legend">
-              ${renderLabels(chart)}
-            </ul>`;
+    private getLargestValue(data: Array<number>): number {
+        let largest = 0;
+
+        for (let i = 0; i < data.length; i++ ) {
+            if (data[i] > largest) {
+                largest = data[i];
+            }
+        }
+
+        return largest;
     }
 }

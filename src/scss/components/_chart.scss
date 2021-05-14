@@ -151,4 +151,41 @@
             pointer-events: all;
         }
     }
+
+    &__canvas {
+        position: relative;
+    }
+
+    &__center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 55%;
+        height: 55%;
+        background-color: $wild-willow;
+        border-radius: 50%;
+        border: 20px solid $wild-willow-lighten;
+        @include flex(column, center, center);
+        color: $color-white;
+        font-family: $font-main;
+        padding-bottom: 10px;
+    }
+
+    &__largest {
+        @include font-size(70, 1);
+        font-weight: 700;
+    }
+
+    &__largesticon {
+        height: 52px;
+        text-align: center;
+    }
+
+    &__largestname {
+        @include font-size(20, 1);
+        font-weight: 300;
+        margin: 14px auto 10px;
+        text-transform: uppercase;
+    }
 }
