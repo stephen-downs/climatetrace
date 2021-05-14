@@ -66,7 +66,7 @@ export class Expand {
             target.parent().removeClass('is-toggled');
 
             const hgt = target.parent().height();
-            Scroll.scrollToElement(target, 20, 0.5);
+            // Scroll.scrollToElement(target, 20, 0.5);
             gsap.to(target, {
                 duration: hgt / 1000,
                 height: 0,

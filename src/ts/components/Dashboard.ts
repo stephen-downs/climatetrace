@@ -31,14 +31,16 @@ export class Dashboard extends Component {
 
     private togglePanel = (e) => {
         if (!this.isToggled) {
+            this.$toggle.addClass('is-open');
             gsap.to(this.$body, { duration: 0.5, height: 'auto', ease: 'power2.inOut',
             onComplete: () => {
-                this.isToggled = true;
                 this.view.addClass('is-toggled');
+                this.isToggled = true;
                 },
             });
         } else {
             this.view.removeClass('is-toggled');
+            this.$toggle.removeClass('is-open');
             gsap.to(this.$body, { duration: 0.5, height: '0', ease: 'power2.inOut',
                 onComplete: () => {
                     this.isToggled = false;

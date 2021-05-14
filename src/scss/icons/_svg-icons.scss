@@ -267,7 +267,7 @@ button {
 
     * {
         fill: $color-gray;
-        transition: opacity $time-fast $easing;
+        transition: opacity $time-fast $easing, fill $time $easing;
     }
 
     .rect_02,

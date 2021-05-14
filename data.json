@@ -9,7 +9,6 @@
       "modules": [
         {
           "type": "hero",
-          "grid": true,
           "items": [
             {
               "sup": "TOTAL GLOBAL POWER EMISSIONS IN 2020 (TONS)",

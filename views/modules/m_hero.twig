@@ -1,10 +1,9 @@
 <div class="hero">
-    <div class="hero__wrapper" data-component="Slider" data-animation="hero">
-        <div class="slider js-slider">
+    <div class="hero__wrapper" {#data-component="Slider" data-animation="hero"#}>
+        {# <div class="slider js-slider">
             {% for item in items %}
             <div class="slider__item js-item {% if loop.first %} is-active{% endif %}" data-item="{{loop.index0}}">
                 <div class="slider__map js-map">
-                    {# [[svg::{{item.map}}]] #}
                     <img src="/media/map.png" alt="" class="slider__img">
                 </div>
             </div>
@@ -28,6 +27,6 @@
                 </div>
                 {% endfor %}
             </div>
-        </div>
+        </div> #}
     </div>
 </div>

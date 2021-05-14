@@ -1,11 +1,8 @@
 import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc, $window } from '../Site';
-import { Scroll } from '../Scroll';
-import { Chart, registerables } from 'chart.js';
-// import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Chart } from 'chart.js';
 import * as ChartDataLabels from 'chartjs-plugin-datalabels';
-import {Context} from 'chartjs-plugin-datalabels';
 import { GlobalVars } from './GlobalVars';
 
 // var Chart = require('chart.js');

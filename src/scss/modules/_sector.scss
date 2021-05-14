@@ -102,15 +102,27 @@
         box-shadow: 0 8px 12px -6px rgba($color-gray, 0.05);
         @include font-size(14, 28);
         text-transform: uppercase;
-        transition: box-shadow $time-fast $easing, transform $time $easing;
+        transition: box-shadow $time-fast $easing, transform $time $easing, color $time $easing;
 
         span {
+            color: currentColor;
             margin-right: 18px;
+            transition: color $time $easing;
         }
 
         .is-toggled & {
             box-shadow: 0 0 0 rgba($color-gray, 0);
             transform: translateY(30px);
+        }
+
+        @include hover {
+            span {
+                color: $color-accent;
+            }
+
+            svg * {
+                fill: $color-accent;
+            }
         }
     }
 
