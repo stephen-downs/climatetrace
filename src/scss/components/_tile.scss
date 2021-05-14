@@ -166,10 +166,22 @@
             ~ .tile__wrapper--about {
                 .tile__hr {
                     transform: scale(1);
-                    background-color: $color-accent;
+                    // background-color: currentColor;
+                }
+
+                .tile__hr--smalt {
+                    background-color: $color-smalt;
+                }
+
+                .tile__hr--bordo {
+                    background-color: $color-bordo;
+                }
+
+                .tile__hr--yellow {
+                    background-color: $bright-sun;
                 }
                 .tile__text--about {
-                    color: $color-accent;
+                    // color: $color-accent;
                 }
                 img {
                     transform: scale(1.1);

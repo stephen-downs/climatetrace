@@ -11,12 +11,25 @@
     transition: color $time $easing;
     @include flex(row, center, center);
 
+    &--small {
+        position: relative;
+        bottom: 0;
+        margin: 30px auto 0 0;
+        text-align: left;
+        justify-content: flex-start;
+        font-size: 16px;
+    }
+
     @include hover {
         color: $color-accent;
 
         .loadmore__oval {
-            border-color: $color-accent;
+            color: $color-accent;
             animation: spin-center 5s infinite alternate;
+        }
+
+        .svg * {
+            stroke: $color-accent;
         }
     }
 
@@ -28,7 +41,7 @@
         // border-radius: 50%;
         @include flex(row, center, center);
         transform: rotate(-90deg);
-        margin-left: 20px;
+        margin-left: 18px;
     }
 
     &__oval {
@@ -39,8 +52,22 @@
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 2px dotted $color-silver;
-        transition: border $time $easing;
+        // border: 2px dotted $color-silver;
+        transition: color $time $easing;
+        color: $color-silver;
+
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+            * {
+                transition: stroke $time $easing;
+                stroke: currentColor;
+            }
+        }
     }
 
     .icon-arr-down {

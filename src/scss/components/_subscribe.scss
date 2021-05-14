@@ -12,7 +12,7 @@
     &__h2 {
         @include font-size(68, 1);
         position: relative;
-        font-weight: 100;
+        font-weight: 200;
 
         em {
             font-style: normal;
@@ -24,7 +24,7 @@
         @include font-size(24, 1);
         margin-top: 20px;
         max-width: get-grid-width(6);
-        font-weight: 100;
+        font-weight: 200;
     }
 
     &__bg {
