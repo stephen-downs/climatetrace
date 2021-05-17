@@ -171,13 +171,18 @@ $color-nav-mobile: rgba($color-dark, 0.4);
             height: 100%;
             vertical-align: top;
         }
-        svg path {
-            transition: fill $time $easing 0.1s;
+        svg {
+            path,
+            text {
+                transition: fill $time $easing, color $time $easing;
+            }
         }
 
         @include hover {
-            svg path {
-                fill: var(--color-secondary);
+            color: $color-accent;
+
+            svg * {
+                fill: $color-accent;
             }
         }
 
@@ -320,7 +325,7 @@ $color-nav-mobile: rgba($color-dark, 0.4);
     text-transform: uppercase;
     user-select: none;
     white-space: nowrap;
-    border: 2px solid $color-white;
+    // border: 2px solid $color-white;
     margin-right: 2px;
 
     opacity: 0;

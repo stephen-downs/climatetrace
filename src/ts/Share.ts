@@ -5,11 +5,11 @@ export class Share {
 
     constructor() {
 
-        this.bind();
+        Share.bind();
     }
 
 
-    private bind(): void {
+    public static bind(): void {
 
 
         $('[data-share]').on('click', (e): boolean => {
