@@ -350,7 +350,7 @@ export class PushStates extends Handler {
                 Scroll.resetScrollCache(state);
                 Historyjs.pushState({ randomData: Math.random() }, document.title, state);
             }
-        }, 1000);
+        }, 1);
     }
 
 

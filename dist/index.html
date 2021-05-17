@@ -16,7 +16,7 @@
   <meta property="og:title" content="Climate TRACE">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/main.css?v=1.0.35">
+  <link rel="stylesheet" href="./css/main.css?v=2021-05-17-17-25">
 </head>
 
 <body>
@@ -83,7 +83,70 @@
     <article id="article-main" data-page class="content ">
       <div id="section-1-module-1" class="module module--hero">
         <div class="hero">
-          <div class="hero__wrapper"></div>
+          <div class="hero__wrapper" data-component="Slider" data-animation="hero">
+            <div class="slider js-slider">
+              <div class="slider__item js-item  is-active" data-item="0">
+                <div class="slider__map js-map">
+                  <img src="/media/hero.png" alt="" class="slider__img">
+                </div>
+              </div>
+              <div class="slider__item js-item " data-item="1">
+                <div class="slider__map js-map">
+                  <img src="/media/hero.png" alt="" class="slider__img">
+                </div>
+              </div>
+              <div class="slider__item js-item " data-item="2">
+                <div class="slider__map js-map">
+                  <img src="/media/hero.png" alt="" class="slider__img">
+                </div>
+              </div>
+            </div>
+            <div class="slider__elements" data-parallax="css-animation">
+              <div class="slider__nav js-navigation">
+                <div class="slider__point js-nav  is-active">
+                  <span></span>
+                </div>
+                <div class="slider__point js-nav ">
+                  <span></span>
+                </div>
+                <div class="slider__point js-nav ">
+                  <span></span>
+                </div>
+              </div>
+              <div class="slider__captions">
+                <div class="slider__caption js-caption" data-caption="0">
+                  <span class="slider__sup js-el">TOTAL GLOBAL POWER EMISSIONS IN 2020 (TONS)</span>
+                  <div class="slider__stat js-el css-animation">193.67 billion</div>
+                  <div class="slider__sub js-el">
+                    <div class="equal-icon">
+                      <img src="media/dotted-oval.png" alt="" class="css-animation">
+                    </div>
+                    <span>THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM </span>
+                  </div>
+                </div>
+                <div class="slider__caption js-caption" data-caption="1">
+                  <span class="slider__sup js-el">TOTAL GLOBAL POWER EMISSIONS IN 2019 (TONS)</span>
+                  <div class="slider__stat js-el css-animation">173.67 billion</div>
+                  <div class="slider__sub js-el">
+                    <div class="equal-icon">
+                      <img src="media/dotted-oval.png" alt="" class="css-animation">
+                    </div>
+                    <span>THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM </span>
+                  </div>
+                </div>
+                <div class="slider__caption js-caption" data-caption="2">
+                  <span class="slider__sup js-el">TOTAL GLOBAL POWER EMISSIONS IN 2018 (TONS)</span>
+                  <div class="slider__stat js-el css-animation">123.67 billion</div>
+                  <div class="slider__sub js-el">
+                    <div class="equal-icon">
+                      <img src="media/dotted-oval.png" alt="" class="css-animation">
+                    </div>
+                    <span>THAT’S EQUIVALENT TO BURING TPIETK LOREM IPSUM </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="highlights" class="module module--highlights">
@@ -113,6 +176,16 @@
                         <img src="media/chart-a.png" alt="" class="tile__bg">
                         <h3 class="tile__h3">Power sector emissions declines by 1.2%.</h3>
                         <button class="tile__button">
+                          <div class="tile__buttonoval">
+                            <svg class="svg-dotted-oval" width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="19" cy="19.297" r="18" stroke="#fff" stroke-width="2" stroke-linejoin="bevel" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
+                          <div class="tile__buttonoval tile__buttonoval--rect">
+                            <svg class="svg-dotted-oval-rect" width="78" height="39" viewBox="0 0 78 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect opacity=".5" x="1" y="1.703" width="76" height="36" rx="18" stroke="#40D4E0" stroke-width="2" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
                           <span>More</span>
                           <i class="icon-arr-down"></i>
                         </button>
@@ -132,6 +205,16 @@
                         <img src="media/chart-b.png" alt="" class="tile__bg tile__bg--custom">
                         <h3 class="tile__h3">Change in energy related CO2 emissions by region - 2018-2019</h3>
                         <button class="tile__button">
+                          <div class="tile__buttonoval">
+                            <svg class="svg-dotted-oval" width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="19" cy="19.297" r="18" stroke="#fff" stroke-width="2" stroke-linejoin="bevel" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
+                          <div class="tile__buttonoval tile__buttonoval--rect">
+                            <svg class="svg-dotted-oval-rect" width="78" height="39" viewBox="0 0 78 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect opacity=".5" x="1" y="1.703" width="76" height="36" rx="18" stroke="#40D4E0" stroke-width="2" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
                           <span>More</span>
                           <i class="icon-arr-down"></i>
                         </button>
@@ -153,6 +236,16 @@
                         <img src="media/chart-c.png" alt="" class="tile__bg tile__bg--contain">
                         <h3 class="tile__h3">Global CO2 emissions from coal use declined from 2018.</h3>
                         <button class="tile__button">
+                          <div class="tile__buttonoval">
+                            <svg class="svg-dotted-oval" width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="19" cy="19.297" r="18" stroke="#fff" stroke-width="2" stroke-linejoin="bevel" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
+                          <div class="tile__buttonoval tile__buttonoval--rect">
+                            <svg class="svg-dotted-oval-rect" width="78" height="39" viewBox="0 0 78 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect opacity=".5" x="1" y="1.703" width="76" height="36" rx="18" stroke="#40D4E0" stroke-width="2" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
                           <span>More</span>
                           <i class="icon-arr-down"></i>
                         </button>
@@ -172,6 +265,16 @@
                         <img src="media/chart-d.png" alt="" class="tile__bg tile__bg--contain">
                         <h3 class="tile__h3">Ut enim ad minim veniam, quis nostrud exercitation ullamco </h3>
                         <button class="tile__button">
+                          <div class="tile__buttonoval">
+                            <svg class="svg-dotted-oval" width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="19" cy="19.297" r="18" stroke="#fff" stroke-width="2" stroke-linejoin="bevel" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
+                          <div class="tile__buttonoval tile__buttonoval--rect">
+                            <svg class="svg-dotted-oval-rect" width="78" height="39" viewBox="0 0 78 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect opacity=".5" x="1" y="1.703" width="76" height="36" rx="18" stroke="#40D4E0" stroke-width="2" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
                           <span>More</span>
                           <i class="icon-arr-down"></i>
                         </button>
@@ -191,6 +294,16 @@
                         <img src="media/chart-e.png" alt="" class="tile__bg tile__bg--contain">
                         <h3 class="tile__h3">Duis aute irure dolor in reprehenderit in voluptate velit esse.</h3>
                         <button class="tile__button">
+                          <div class="tile__buttonoval">
+                            <svg class="svg-dotted-oval" width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="19" cy="19.297" r="18" stroke="#fff" stroke-width="2" stroke-linejoin="bevel" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
+                          <div class="tile__buttonoval tile__buttonoval--rect">
+                            <svg class="svg-dotted-oval-rect" width="78" height="39" viewBox="0 0 78 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect opacity=".5" x="1" y="1.703" width="76" height="36" rx="18" stroke="#40D4E0" stroke-width="2" stroke-dasharray="2 2" />
+                            </svg>
+                          </div>
                           <span>More</span>
                           <i class="icon-arr-down"></i>
                         </button>

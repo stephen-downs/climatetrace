@@ -129,7 +129,7 @@
 
                 .tile__button {
                     width: 80px;
-                    border: 2px dotted $color-accent;
+                    // border: 2px dotted $color-accent;
 
                     &::after {
                         transform: scaleX(0);
@@ -142,6 +142,19 @@
                     .icon-arr-down {
                         transform: rotate(-135deg) translate(-14px, 14px);
                         color: $color-accent;
+                    }
+
+                    .tile__buttonoval {
+                        opacity: 0;
+                    }
+
+                    .tile__buttonoval--rect {
+                        transform: scaleX(1);
+                        opacity: 1;
+
+                        svg * {
+                            stroke: $color-accent;
+                        }
                     }
 
                     .tile__button {
@@ -234,7 +247,7 @@
         bottom: 20px;
         width: 36px;
         height: 36px;
-        border: 2px dotted $color-silver;
+        // border: 2px dotted $color-silver;
         border-radius: 18px;
         color: $color-accent !important;
         @include flex();
@@ -246,7 +259,7 @@
         overflow: hidden;
 
         &::after {
-            @include pseudo(100%, 100%, 50%, 50%, $color-white, 1);
+            @include pseudo(90%, 90%, 50%, 50%, $color-white, 1);
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
             transition: opacity $time $easing, transform $time $easing;
@@ -267,6 +280,42 @@
             z-index: 2;
             transform: rotate(-135deg) translate(0, 0);
             transition-delay: 0.1s;
+        }
+    }
+
+    &__buttonoval {
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        transition: opacity $time $easing;
+        z-index: 2;
+
+        svg {
+            width: 100%;
+            height: 36px;
+
+            * {
+                stroke: $color-silver;
+                transition: stroke $time $easing;
+            }
+        }
+
+        &--rect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            transition: transform $time $easing 0.25s, opacity $time-fast $easing;
+            transform-origin: right center;
+            transform: scaleX(0);
+            opacity: 0;
+
+            svg {
+                width: 100%;
+            }
         }
     }
 
