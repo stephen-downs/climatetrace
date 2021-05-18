@@ -18,7 +18,9 @@
                 "node_modules/gsap/dist/gsap.js",
                 "node_modules/imagesloaded/imagesloaded.pkgd.min.js",
                 "node_modules/stats.js/build/stats.min.js",
-                "node_modules/screenfull/dist/screenfull.js"
+                "node_modules/screenfull/dist/screenfull.js",
+                "node_modules/chart.js/dist/chart.js",
+                "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
             ],
             "ts": "src/ts/**/*.ts",
             "main": "src/ts/Site.ts",

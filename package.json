@@ -3,7 +3,7 @@
   "repository": "none",
   "description": "BrandStudio Custom Page Template",
   "license": "UNLICENSED",
-  "version": "1.0.35",
+  "version": "1.0.42",
   "scripts": {
     "local": "gulp watch",
     "production": "gulp --release",

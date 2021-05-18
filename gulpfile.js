@@ -308,16 +308,18 @@ function bumpVersion() {
     params.version;
 
   gulp
-    .src([paths.html.dest + "/index.html"])
-    .pipe(plugins.replace(/\?v=([^\"]+)/g, "?v=" + version))
-    .pipe(gulp.dest(paths.html.dest));
-
-  return gulp
     .src(["./package.json"])
     .pipe(plugins.if(args.release, plugins.bump({
       version: version
     })))
     .pipe(gulp.dest("./"));
+
+  return gulp
+    .src([paths.html.dest + "/index.html"])
+    .pipe(plugins.replace(/\?v=([^\"]+)/g, "?v=" + version))
+    .pipe(gulp.dest(paths.html.dest));
+
+
 }
 
 
@@ -626,7 +628,7 @@ exports.default = gulp.series(
   exports.scripts,
   exports.images,
   exports.bump,
-  exports.test
+  // exports.test
 );
 
 /**
