@@ -31,12 +31,12 @@ This will render like so:
 You can use a local server to view changes in your project.  BrowserSync is set up to view pages on your local server without refreshing manually.
 &NewLine;
 ```bash
-npm run watch
+gulp watch
 ```
 
 ## Versioning
 The version number in package.json is incremented on the 3rd digit on every push. ex.(1.0.x)
-The version number can be updated manually with the `npm run bump` command.
+The version number can be updated manually with the `gulp --release` command.
 
 
 ### Mobile Local Testing

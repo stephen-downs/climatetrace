@@ -1,10 +1,13 @@
+/// <reference path="../definitions/chart.d.ts" />
+
 import { Component } from './Component';
-import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc, $window } from '../Site';
-import { Chart } from 'chart.js';
-import * as ChartDataLabels from 'chartjs-plugin-datalabels';
+// import { Chart } from 'chart.js';
+// import * as ChartDataLabels from 'chartjs-plugin-datalabels';
 import { GlobalVars } from './GlobalVars';
 
+declare let Chart;
+declare let ChartDataLabels;
 // var Chart = require('chart.js');
 
 
@@ -20,8 +23,8 @@ export class Charts extends Component {
     private ctxPie: CanvasRenderingContext2D;
     private ctxBar: CanvasRenderingContext2D;
 
-    private pieChart: Chart;
-    private barChart: Chart;
+    private pieChart: any;
+    private barChart: any;
 
     private icons: any;
 
@@ -265,7 +268,6 @@ export class Charts extends Component {
                                     size: 22
                                 }
                             },
-                             
                         },
                         formatter: (value, context) => {
                             return value +'%';
