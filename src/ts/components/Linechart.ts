@@ -342,17 +342,20 @@ export class Linechart extends Component {
             this.ctx.closePath();
 
             // tooltip:
-            const mouseX = Math.max(0, this.mouseX) + this.graph.left;
-            const mxi1 = Math.floor((mouseX - this.graph.left) / colWidth);
+            let mouseX = Math.max(0, this.mouseX);
+            const mxi1 = Math.floor(mouseX / colWidth);
             const mxi2 = mxi1 + 1;
-            const mouseY = this.getInterPointsY(mouseX, [colWidth * mxi1 + this.graph.left, data.yPoints[mxi1]], [colWidth * mxi2 + this.graph.left, data.yPoints[mxi2]]);
-            // console.log(mouseX - this.graph.left, colWidth, mxi1);
+            mouseX += this.graph.left;
+            const mouseY = this.getInterPointsY(
+                mouseX,
+                [colWidth * mxi1 + this.graph.left, data.yPx[mxi1]],
+                [colWidth * mxi2 + this.graph.left, data.yPx[mxi2]]
+            );
             this.ctx.beginPath();
             this.ctx.strokeStyle = data.color;
             this.ctx.moveTo(mouseX, mouseY);
             this.ctx.lineTo(mouseX, this.graph.bottom);
             this.ctx.stroke();
-
         }
 
         // label:
