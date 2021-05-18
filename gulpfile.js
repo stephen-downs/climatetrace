@@ -319,7 +319,7 @@ function bumpVersion() {
     .pipe(plugins.replace(/\?v=([^\"]+)/g, "?v=" + version))
     .pipe(gulp.dest(paths.html.dest));
 
-   
+
 }
 
 
