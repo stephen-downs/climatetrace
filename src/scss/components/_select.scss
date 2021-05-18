@@ -17,7 +17,6 @@
         line-height: 40px;
         padding: 0 11px 0 7px;
         cursor: pointer;
-
         transition: border $time $easing, color $time $easing;
 
         svg * {
@@ -35,11 +34,23 @@
                 }
             }
         }
+
+        .select--contribute & {
+            border: none;
+
+            @include hover {
+                border: none;
+            }
+        }
     }
 
     &__label {
         margin-left: 12px;
         text-transform: uppercase;
+
+        .select--contribute & {
+            margin-left: 30px;
+        }
     }
 
     &__list {
@@ -57,7 +68,7 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        z-index: 2;
+        z-index: 3;
         overflow-y: scroll;
         height: 0;
         box-shadow: $box-shadow;
@@ -107,6 +118,9 @@
     }
 }
 
+.select--contribute .icon-arr-down {
+    right: 30px;
+}
 .is-open .icon-arr-down {
     transform: translateY(-20%) rotate(135deg);
 }

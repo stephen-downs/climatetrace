@@ -8,8 +8,9 @@
 
         .icon-plus {
             position: absolute;
+            padding: 20px;
             top: 50%;
-            right: 35px;
+            right: 15px;
             transform: translateY(-50%);
             color: rgba($color-gray, 0.2);
         }
@@ -117,9 +118,13 @@
 
         input {
             position: absolute;
-            width: 0;
-            height: 0;
+            width: 80%;
+            height: 20px;
+            left: 0;
+            top: -3px;
             opacity: 0;
+            cursor: pointer;
+            z-index: 2;
         }
 
         &--sub {
@@ -272,13 +277,13 @@
         @include font-size(13, 30);
         font-weight: 300;
 
-        span {
+        span:not(.select__label) {
             margin: auto;
             text-align: center;
         }
 
-        .icon-arr-down {
-            margin: 0 30px 0 auto;
-        }
+        // .icon-arr-down {
+        //     margin: 0 30px 0 auto;
+        // }
     }
 }

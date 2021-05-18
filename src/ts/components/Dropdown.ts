@@ -2,6 +2,7 @@ import { Component } from './Component';
 import { IBreakpoint, breakpoint, Breakpoint } from '../Breakpoint';
 import { $doc  } from '../Site';
 import { Filters } from './Filters';
+import { ContributeFilters } from './ContributeFilters';
 
 export class Dropdown extends Component {
 
@@ -53,8 +54,9 @@ export class Dropdown extends Component {
 
     private onClickAnywhereHandler = (e): void => {
         e.stopPropagation();
-        e.preventDefault();
-        if ($(e.currentTarget).hasClass('js-item') && !this.isOpen) { return; }
+        // e.preventDefault();
+        
+        if (($(e.currentTarget).hasClass('js-item') && !this.isOpen) || $(e.target).prop('tagName') === 'INPUT') { return; }
         if ($(e.target).closest(this.view).length <= 0) {
             this.closeSelect();
         }
@@ -70,8 +72,15 @@ export class Dropdown extends Component {
 
         this.view.attr('data-selected-country', current);
 
-        setTimeout( () => {
-            Filters.showPickedFilters(current);
-        }, 300);
+        if ($(e.currentTarget)[0].hasAttribute('data-country')) {
+            console.log('add country to filters');
+            ContributeFilters.markCountry(current);
+        } else {
+
+            setTimeout( () => {
+                Filters.showPickedFilters(current);
+            }, 300);
+        }
+
     }
 }

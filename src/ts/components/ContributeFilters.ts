@@ -11,14 +11,17 @@ interface IFiltersSettings {
 
 export class ContributeFilters extends Component {
 
-    // public static instance: Filters;
+    public static instance: ContributeFilters;
 
     private $checkboxes: JQuery;
     private $radio: JQuery;
     private filters: Array<string> = [];
 
 
-
+    public static markCountry(country: string): void {
+        ContributeFilters.instance.filters.push(country);
+        console.log("FILTERS", ContributeFilters.instance.filters);
+    }
 
     constructor(protected view: JQuery, protected options?) {
         super(view);
@@ -26,10 +29,9 @@ export class ContributeFilters extends Component {
         
         this.$checkboxes = this.view.find('[type="checkbox"]');
         this.$radio = this.view.find('[type="radio"');
-        // Filters.instance = this;
+        
+        ContributeFilters.instance = this;
         this.bind();
-
-
     }
 
 

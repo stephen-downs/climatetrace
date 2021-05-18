@@ -49,6 +49,11 @@ export class Expand {
                 onComplete: (): void => {
                     that.attr('aria-expanded', 'true');
                     gsap.set(target, { height: 'auto'});
+
+                    target.add(target.children()).css({
+                        position: 'relative',
+                        overflow: 'visible',
+                    });
                 },
             });
 
@@ -75,6 +80,11 @@ export class Expand {
                     that.attr('aria-expanded', 'false');
                     target.attr('aria-hidden', 'true');
                     target.hide();
+
+                    target.add(target.children()).css({
+                        position: 'relative',
+                        overflow: 'visible',
+                    });
                 },
             });
 
