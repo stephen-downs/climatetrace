@@ -10,7 +10,7 @@
             </div>
         </div>
         <section class="contribute__content">
-            <aside class="filters filters--aside">
+            <aside class="filters filters--aside" data-component="ContributeFilters">
                 <form class="form form--filters" action="" novalidate>
                     <div class="form__subcategory">
                         <button class="form__dropdown" aria-controls="con-sector">
@@ -20,60 +20,61 @@
                         <div id="con-sector" class="hidden" aria-hidden="true">
                             <div class="form__wrap">
                                 <label class="form__row">
-                                    <input type="checkbox" name="sector-all" id="f-sector-all" value="all">
+                                    <input type="checkbox" name="sector-all" id="f-sector-all" value="all" data-all-sectors>
                                     <span class="form__checkbox"></span>
                                     <span class="form__label">All</span>
                                 </label>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle" aria-controls="con-agriculture">
+                                    <div class="form__toggle">
+                                        <input type="checkbox" name="agriculture-all" id="f-sector-agriculture-all" value="agriculture-all" data-all-subsectors>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">Agriculture</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-agriculture"></i>
+                                    </div>
                                     <div id="con-agriculture" class="hidden">
                                         <div class="form__subdropdown">
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-enteric-fermentation" id="f-sector-enteric-fermentation" value="enteric-fermentation">
+                                                <input type="checkbox" name="agriculture-enteric-fermentation" id="f-agriculture-enteric-fermentation" value="enteric-fermentation">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Enteric Fermentation</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-rise-cultivation" id="f-sector-rise-cultivation" value="rise-cultivation">
+                                                <input type="checkbox" name="agriculture-rise-cultivation" id="f-agriculture-rise-cultivation" value="rise-cultivation">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Rise Cultivation</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-crop-residues" id="f-sector-crop-residues" value="crop-residues">
+                                                <input type="checkbox" name="agriculture-crop-residues" id="f-agriculture-crop-residues" value="crop-residues">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Crop Residues</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-cultivation-soils" id="f-sector-cultivation-soils" value="cultivation-of-organic-soils">
+                                                <input type="checkbox" name="agriculture-cultivation-soils" id="f-agriculture-cultivation-soils" value="cultivation-of-organic-soils">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Cultivation of organic soils</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-synthetic-fertilizer" id="f-sector-synthetic-fertilizer" value="synthetic-fertilizer">
+                                                <input type="checkbox" name="agriculture-synthetic-fertilizer" id="f-agriculture-synthetic-fertilizer" value="synthetic-fertilizer">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Synthetic fertilizer</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-manure-soils" id="f-sector-manure-soils" value="manure-applied-to-soils">
+                                                <input type="checkbox" name="agriculture-manure-soils" id="f-agriculture-manure-soils" value="manure-applied-to-soils">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Manure applied to soils</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-manure-management" id="f-sector-manure-management" value="manure-management">
+                                                <input type="checkbox" name="agriculture-manure-management" id="f-agriculture-manure-management" value="manure-management">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Manure management</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-pasture" id="f-sector-pasture" value="manure-left-on-pasture">
+                                                <input type="checkbox" name="agriculture-pasture" id="f-agriculture-pasture" value="manure-left-on-pasture">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Manure left on pasture</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-burning" id="f-sector-burning" value="burning">
+                                                <input type="checkbox" name="agriculture-burning" id="f-agriculture-burning" value="burning">
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Burning</span>
                                             </label>
@@ -81,55 +82,56 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle" aria-controls="con-forestry">
+                                    <div class="form__toggle">
+                                        <input type="checkbox" name="forestry-all" id="f-sector-forestry-all" value="forestry-all" data-all-subsectors>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">forestry</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-forestry"></i>
+                                    </div>
                                     <div id="con-forestry" class="hidden">
                                         <div class="form__subdropdown">
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-enteric-fermentation" id="f-sector-enteric-fermentation" value="enteric-fermentation">
+                                                <input type="checkbox" name="forestry-enteric-fermentation" id="f-forestry-enteric-fermentation" value="enteric-fermentation" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Enteric Fermentation</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-rise-cultivation" id="f-sector-rise-cultivation" value="rise-cultivation">
+                                                <input type="checkbox" name="forestry-rise-cultivation" id="f-forestry-rise-cultivation" value="rise-cultivation" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Rise Cultivation</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-crop-residues" id="f-sector-crop-residues" value="crop-residues">
+                                                <input type="checkbox" name="forestry-crop-residues" id="f-forestry-crop-residues" value="crop-residues" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Crop Residues</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-cultivation-soils" id="f-sector-cultivation-soils" value="cultivation-of-organic-soils">
+                                                <input type="checkbox" name="forestry-cultivation-soils" id="f-forestry-cultivation-soils" value="cultivation-of-organic-soils" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Cultivation of organic soils</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-synthetic-fertilizer" id="f-sector-synthetic-fertilizer" value="synthetic-fertilizer">
+                                                <input type="checkbox" name="forestry-synthetic-fertilizer" id="f-forestry-synthetic-fertilizer" value="synthetic-fertilizer" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Synthetic fertilizer</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-manure-soils" id="f-sector-manure-soils" value="manure-applied-to-soils">
+                                                <input type="checkbox" name="forestry-manure-soils" id="f-forestry-manure-soils" value="manure-applied-to-soils" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Manure applied to soils</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-manure-management" id="f-sector-manure-management" value="manure-management">
+                                                <input type="checkbox" name="forestry-manure-management" id="f-forestry-manure-management" value="manure-management" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Manure management</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-pasture" id="f-sector-pasture" value="manure-left-on-pasture">
+                                                <input type="checkbox" name="forestry-pasture" id="f-forestry-pasture" value="manure-left-on-pasture" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Manure left on pasture</span>
                                             </label>
                                             <label class="form__row">
-                                                <input type="checkbox" name="sector-burning" id="f-sector-burning" value="burning">
+                                                <input type="checkbox" name="forestry-burning" id="f-sector-burning" value="burning" data-subsector>
                                                 <span class="form__checkbox"></span>
                                                 <span class="form__label">Burning</span>
                                             </label>
@@ -148,16 +150,17 @@
                         <div id="con-location" class="hidden" aria-hidden="true">
                             <div class="form__wrap form__wrap--spacetop">
                                 <label class="form__row">
-                                    <input type="checkbox" name="location-all" id="f-location-all" value="all">
+                                    <input type="checkbox" name="location-all" id="f-location-all" value="all-location" data-all-sectors="location">
                                     <span class="form__checkbox"></span>
                                     <span class="form__label">All</span>
                                 </label>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-asia">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-asia" id="f-location-asia" value="asia" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">asia</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-asia"></i>
+                                    </div>
                                     <div id="con-asia" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -167,11 +170,12 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-africa">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-africa" id="f-location-africa" value="africa" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">africa</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-africa"></i>
+                                    </div>
                                     <div id="con-africa" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -181,11 +185,12 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-europe">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-europe" id="f-location-europe" value="europe" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">europe</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-europe"></i>
+                                    </div>
                                     <div id="con-europe" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -195,11 +200,12 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-middle-east">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-middle-east" id="f-location-middle-east" value="middle-east" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">middle east</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-middle-east"></i>
+                                    </div>
                                     <div id="con-middle-east" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -209,11 +215,12 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-north-america">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-north-america" id="f-location-north-america" value="north-america" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">north america</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-north-america"></i>
+                                    </div>
                                     <div id="con-north-america" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -223,11 +230,12 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-south-central-america">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-south-central-america" id="f-location-south-central-america" value="south-central-america" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">south & central america</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-south-central-america"></i>
+                                    </div>
                                     <div id="con-south-central-america" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -237,11 +245,12 @@
                                     </div>
                                 </div>
                                 <div class="form__row--sub">
-                                    <button class="form__toggle form__toggle--country" aria-controls="con-oceania">
+                                    <div class="form__toggle form__toggle--country">
+                                        <input type="checkbox" name="location-oceania" id="f-location-oceania" value="oceania" data-region>
                                         <span class="form__checkbox"></span>
                                         <span class="form__label">oceania</span>
-                                        <i class="icon-plus"></i>
-                                    </button>
+                                        <i class="icon-plus" aria-controls="con-oceania"></i>
+                                    </div>
                                     <div id="con-oceania" class="hidden">
                                         <div class="form__subdropdown form__subdropdown--country">
                                             <div class="form__dropdownlist">
@@ -262,22 +271,22 @@
                         <div id="con-data" class="hidden" aria-hidden="true">
                             <div class="form__wrap">
                                 <label class="form__row">
-                                    <input type="radio" name="data-coverage" id="f-data-all" value="all">
+                                    <input type="radio" name="data-coverage" id="f-data-all" value="all-coverage">
                                     <span class="form__checkbox form__checkbox--radio"></span>
                                     <span class="form__label">All</span>
                                 </label>
                                 <label class="form__row">
-                                    <input type="radio" name="data-coverage" id="f-data-excellent" value="excellent">
+                                    <input type="radio" name="data-coverage" id="f-data-excellent" value="excellent-coverage">
                                     <span class="form__checkbox form__checkbox--radio"></span>
                                     <span class="form__label">Excellent</span>
                                 </label>
                                 <label class="form__row">
-                                    <input type="radio" name="data-coverage" id="f-data-good" value="good">
+                                    <input type="radio" name="data-coverage" id="f-data-good" value="good-coverage">
                                     <span class="form__checkbox form__checkbox--radio"></span>
                                     <span class="form__label">Good</span>
                                 </label>
                                 <label class="form__row">
-                                    <input type="radio" name="data-coverage" id="f-data-fair" value="fair">
+                                    <input type="radio" name="data-coverage" id="f-data-fair" value="fair-coverage">
                                     <span class="form__checkbox form__checkbox--radio"></span>
                                     <span class="form__label">Fair</span>
                                 </label>

@@ -12,6 +12,7 @@ import { Parallax } from './components/Parallax';
 import { Search } from './components/Search';
 import { Compare } from './components/Compare';
 import { Charts } from './components/Charts';
+import { ContributeFilters } from './components/ContributeFilters';
 
 import { Page } from './pages/Page';
 
@@ -30,6 +31,7 @@ export const components = {
     Search,
     Compare,
     Charts,
+    ContributeFilters,
 };
 
 

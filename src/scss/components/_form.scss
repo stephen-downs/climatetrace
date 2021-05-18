@@ -124,6 +124,21 @@
 
         &--sub {
             margin-bottom: 16px;
+
+            input {
+                position: absolute;
+                width: 80%;
+                height: 20px;
+                left: 0;
+                top: -3px;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .icon-plus {
+                cursor: pointer;
+            }
         }
 
         &--radiozip {

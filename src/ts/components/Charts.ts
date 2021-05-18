@@ -135,10 +135,8 @@ export class Charts extends Component {
         let icon;
 
         for (const prop in GlobalVars.icons) {
-            console.log(prop === areaName);
             if (prop === areaName) {
                 icon = GlobalVars.icons[prop];
-                console.log(icon);
             }
         }
 
