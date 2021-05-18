@@ -6,11 +6,11 @@
 export class Copy {
 
     constructor() {
-        this.bind();
+        Copy.bind();
     }
 
 
-    private bind(): void {
+    public static bind(): void {
         $('[data-copy]').on('click', (e): void => {
             e.preventDefault();
             e.stopPropagation();

@@ -22,37 +22,23 @@
                 </div>
                 <div class="flex">
                     <span class="filters__label filters__label--inline">Sort by region</span>
-                    <div data-component="Search">
-                        <form class="filters__search">
-                            <div class="search search--highlights">
-                                {# <label class="search__info" for="search-country">Enter country name</label> #}
-                                <input class="search__input" id="search-country" name="search-country" autocomplete="off" placeholder="Global">
+                    <div class="filters__select">
+                        <div class="select" data-component="Dropdown">
+                            <div class="select__trigger js-trigger">
+                                {# <img class="icon-img-pin " src="./media/pin-icon.png" alt=""> #}
                                 [[svg::pin-icon]]
+                                <span class="select__label" data-select>Global</span>
+                                <i class="icon-arr-down"></i>
                             </div>
-                        </form>
-                        <div class="livesearch js-search-live">
-                            <div class="livesearch__wrapper js-live-list">
-                                <div class="livesearch__item js-live-item">
-                                    <img src="/media/haiti.jpg" alt="" class="livesearch__flag">
-                                    <span class="livesearch__country">Haiti</span>
-                                </div>
-                                <div class="livesearch__item js-live-item">
-                                    <img src="/media/honduras.jpg" alt="" class="livesearch__flag">
-                                    <span class="livesearch__country">honduras</span>
-                                </div>
-                                <div class="livesearch__item js-live-item">
-                                    <img src="/media/hongkong.jpg" alt="" class="livesearch__flag">
-                                    <span class="livesearch__country">hongkong</span>
-                                </div>
-                                <div class="livesearch__item js-live-item">
-                                    <img src="/media/hungary.jpg" alt="" class="livesearch__flag">
-                                    <span class="livesearch__country">hungary</span>
-                                </div>
-                                <div class="livesearch__item js-live-item">
-                                    <img src="/media/hungary.jpg" alt="" class="livesearch__flag">
-                                    <span class="livesearch__country">San Marino</span>
-                                </div>
-                            </div>
+                            <ul class="select__list">
+                                <li class="select__item" data-value="africa">africa</li>
+                                <li class="select__item" data-value="asia">asia</li>
+                                <li class="select__item" data-value="australia">australia</li>
+                                <li class="select__item" data-value="europe">europe</li>
+                                <li class="select__item" data-value="north-america">north america</li>
+                                <li class="select__item" data-value="south-america">south america</li>
+                                <li class="select__item" data-value="global">global</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

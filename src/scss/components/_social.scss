@@ -155,7 +155,7 @@ $color-nav-mobile: rgba($color-dark, 0.4);
         transition: color 0.3s $ease-out, background-color 0.3s $ease-out;
         vertical-align: top;
 
-        span {
+        span:not(.copied) {
             height: 100%;
             color: currentColor;
             transition: color $time $easing;
@@ -171,13 +171,18 @@ $color-nav-mobile: rgba($color-dark, 0.4);
             height: 100%;
             vertical-align: top;
         }
-        svg path {
-            transition: fill $time $easing 0.1s;
+        svg {
+            path,
+            text {
+                transition: fill $time $easing, color $time $easing;
+            }
         }
 
         @include hover {
-            svg path {
-                fill: var(--color-secondary);
+            color: $color-accent;
+
+            svg * {
+                fill: $color-accent;
             }
         }
 
@@ -308,8 +313,9 @@ $color-nav-mobile: rgba($color-dark, 0.4);
 .copied {
     position: absolute;
     z-index: 3;
-    background-color: $color-dark;
-    bottom: -45px;
+    background-color: $color-accent;
+    bottom: -31px;
+    border-radius: 15px;
     color: $color-white;
     font-size: 10px;
     font-weight: 700;
@@ -319,30 +325,31 @@ $color-nav-mobile: rgba($color-dark, 0.4);
     text-transform: uppercase;
     user-select: none;
     white-space: nowrap;
-    border: 2px solid $color-white;
+    // border: 2px solid $color-white;
     margin-right: 2px;
 
     opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity $time-fast $easing, transform $time-fast $easing;
+    transform: translateY(-2px);
+    transition: opacity $time $easing, transform $time $easing;
 
     .is-copied & {
         opacity: 1;
         transform: translateY(0);
+        color: $color-white;
     }
 
-    // &::after {
-    //     content: "";
-    //     border-color: transparent transparent $color-dark;
-    //     border-style: solid;
-    //     border-width: 0 8px 8px;
-    //     height: 0;
-    //     left: 50%;
-    //     margin-left: -8px;
-    //     position: absolute;
-    //     top: -7px;
-    //     width: 0;
-    // }
+    &::after {
+        content: "";
+        border-color: transparent transparent $color-accent;
+        border-style: solid;
+        border-width: 0 2px 4px 2px;
+        height: 0;
+        left: 50%;
+        margin-left: -2px;
+        position: absolute;
+        top: -4px;
+        width: 0;
+    }
 }
 
 .is-open .social--toggle .social__item {

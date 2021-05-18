@@ -303,6 +303,8 @@ export class Site {
 
         // bind events:
         API.bind();
+        Copy.bind();
+        Share.bind();
         Widgets.bind();
 
         page.on(PageEvents.PROGRESS, this.onPageProgress);
