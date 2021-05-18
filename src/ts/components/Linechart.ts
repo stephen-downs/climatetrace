@@ -20,11 +20,12 @@ export class Linechart extends Component {
     private $wrapper: JQuery;
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
+    private mouseX: number = 0;
 
     private margin: any = {
         top: 5,
         left: 25,
-        right: 110,
+        right: 0,
         bottom: 49
     };
 
@@ -115,7 +116,7 @@ export class Linechart extends Component {
                 // yPoints: this.getRandomPoints(Math.random() * 10 + 7, Math.random() * 30 + 18, 60, 0.3),
                 yPoints: this.getPoints(i),
                 color: GlobalVars.colors[$el.data('color')],
-                fill: i === 0 ? true : false,
+                fill: i === 0,
                 shown: false,
             };
         });
@@ -157,6 +158,7 @@ export class Linechart extends Component {
 
     private bind(): void {
         this.$tab.off('.tab').on('click.tab', this.onClickTab);
+        this.$wrapper.off('.lc').on('mousemove.lc', this.onMouseMove);
     }
 
 
@@ -164,6 +166,18 @@ export class Linechart extends Component {
     private onClickTab = (e): void => {
         this.toggleChart($(e.currentTarget).index());
         this.currentCharts = this.graphsData.map((data, i) => data.shown ? i : null).filter((index) => index !== null);
+    }
+
+
+
+    private onMouseMove = (e): void => {
+        const colWidth = this.graph.width / (this.graphsData[0].yPx.length - 1); // INFO: assume that first one needs a tooltip
+        gsap.to(this, {
+            duration: 0.3,
+            mouseX: Math.round((e.offsetX - this.graph.left) / colWidth) * colWidth,
+            onUpdate: this.draw,
+            ease: 'sine',
+        });
     }
 
 
@@ -298,13 +312,17 @@ export class Linechart extends Component {
         this.ctx.stroke();
         this.ctx.closePath();
 
-        // fill:
+        // fill/gradient:
         if (data.fill) {
             let lastX = this.margin.left;
 
             this.ctx.strokeStyle = 'transparent';
-            this.ctx.fillStyle = data.color;
-            this.ctx.globalAlpha = 0.4;
+            // this.ctx.fillStyle = data.color;
+            // this.ctx.globalAlpha = 0.4;
+            const grd = this.ctx.createLinearGradient(0, 0, 0, this.graph.height);
+            grd.addColorStop(0, Utils.colorToRGBA(data.color, 0.5));
+            grd.addColorStop(1, Utils.colorToRGBA(data.color, 0.1));
+            this.ctx.fillStyle = grd;
 
             this.ctx.beginPath();
             data.yPx.forEach( (y, i, a) => {
@@ -313,7 +331,8 @@ export class Linechart extends Component {
                     this.ctx.lineTo(x, y);
                     lastX = x;
                 } else if (x < maxX + colWidth && data.xPercent > 0) {
-                    this.ctx.lineTo(maxX, this.getInterPointsY(maxX, [x - colWidth, a[i - 1]], [x, y]));
+                    const iy = this.getInterPointsY(maxX, [x - colWidth, a[i - 1]], [x, y]);
+                    this.ctx.lineTo(maxX, iy);
                     lastX = maxX;
                 }
             });
@@ -321,6 +340,19 @@ export class Linechart extends Component {
             this.ctx.lineTo(this.graph.left, this.graph.bottom);
             this.ctx.fill();
             this.ctx.closePath();
+
+            // tooltip:
+            const mouseX = Math.max(0, this.mouseX) + this.graph.left;
+            const mxi1 = Math.floor(mouseX / colWidth);
+            const mxi2 = mxi1 + 1;
+            const mouseY = this.getInterPointsY(mouseX, [colWidth * mxi1 + this.graph.left, data.yPoints[mxi1]], [colWidth * mxi2 + this.graph.left, data.yPoints[mxi2]]);
+            // console.log(xi);
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = data.color;
+            this.ctx.moveTo(mouseX, mouseY);
+            this.ctx.lineTo(mouseX, this.graph.bottom);
+            this.ctx.stroke();
+
         }
 
         // label:
