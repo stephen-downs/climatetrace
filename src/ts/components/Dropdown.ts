@@ -73,7 +73,6 @@ export class Dropdown extends Component {
         this.view.attr('data-selected-country', current);
 
         if ($(e.currentTarget)[0].hasAttribute('data-country')) {
-            console.log('add country to filters');
             ContributeFilters.markCountry(current);
         } else {
 

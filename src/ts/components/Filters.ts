@@ -72,8 +72,24 @@ export class Filters extends Component {
 
     public static addCountryToFilters(country: string): void {
         const countryName: string = country.split(' ').join('-').toLowerCase();
+        let prevCountry = '';
 
-        Filters.instance.selectedCountry = country;
+        if (Filters.instance.selectedCountry !== country && !Filters.instance.$itemCountry.hasClass('is-active')) {
+            prevCountry = Filters.instance.selectedCountry;
+            Filters.instance.selectedCountry = country;
+        }
+
+        const currentActive = prevCountry.length > 0  ? prevCountry : Filters.instance.$itemCountry.data('item')
+
+        const index = Filters.instance.filters.indexOf(currentActive);
+
+        if (index > -1) {
+            Filters.instance.filters.splice(index, 1);
+            Filters.instance.$itemCountry.removeClass('is-active');
+        }
+
+        Filters.instance.filters.push(country);
+
         console.log(countryName, 'country name');
     }
 
@@ -154,15 +170,11 @@ export class Filters extends Component {
         if (this.settings.status === 'unchecked') {
             this.filters = [];
             this.isAllChecked = false;
-
         } else {
-
             this.addElementToArray(this.$itemTime.filter('[data-item="all-time"]'), this.filters);
             this.addElementToArray(this.$itemCountry, this.filters);
+            this.addElementToArray(this.$itemSector.filter('[data-item="all-sectors"]'), this.filters, true);
     
-            this.$itemSector.each((i, el) => {
-                this.addElementToArray($(el), this.filters, true);
-            });
             this.$allSectors.addClass('is-active');
             this.isAllChecked = true;
     
@@ -176,15 +188,10 @@ export class Filters extends Component {
 
         if (current.hasClass('is-active')) {
             this.removeElementFromArray(current, this.filters);
-            // this.$allSectors.removeClass('is-active');
-            // this.isAllChecked = false;
-
         } else {
-            const activePrev = this.$itemSector.filter('.is-active').length > 0 ? this.$itemSector.filter('.is-active') : null;
-
-            if (activePrev) {
-                this.removeElementFromArray(activePrev, this.filters);
-            }
+            this.$itemSector.each((i, el) => {
+                this.removeElementFromArray($(el), this.filters);
+            });
             this.addElementToArray(current, this.filters);
         }
 
@@ -211,7 +218,6 @@ export class Filters extends Component {
         Filters.showPickedFilters();
     }
 
-
     private toggleCountry = (e) => {
         const current = $(e.currentTarget);
 
@@ -224,10 +230,6 @@ export class Filters extends Component {
         Filters.showPickedFilters(current.data('item'));
     }
 
-
-
-
-
     private markTimeline(el: JQuery): void {
         if (el.hasClass('js-time')) {
             this.$timelineItem.removeClass('is-active');
@@ -235,7 +237,6 @@ export class Filters extends Component {
             timelinedot.addClass('is-active');
         }
     }
-
 
     private unmarkTimeline(): void {
         this.$timelineItem.removeClass('is-active');
@@ -250,11 +251,9 @@ export class Filters extends Component {
         console.log('FILTERS:', this.filters);
     }
 
-
     private addElementToArray($el: JQuery, array: Array<string>, notActivate?: boolean): void {
         array.push($el.data('item'));
         notActivate ? $el.remove('is-active') : $el.addClass('is-active');
         console.log('FILTERS:', this.filters);
     }
-
 }
