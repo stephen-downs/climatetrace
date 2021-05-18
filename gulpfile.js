@@ -628,7 +628,7 @@ exports.default = gulp.series(
   exports.scripts,
   exports.images,
   exports.bump,
-  exports.test
+  // exports.test
 );
 
 /**
