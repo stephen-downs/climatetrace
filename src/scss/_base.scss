@@ -4,7 +4,7 @@
 
 body,
 html {
-    background-color: $color-white;
+    background: $color-pale;
 }
 
 #main {
@@ -15,6 +15,12 @@ html {
     font-weight: 400;
     user-select: text;
     position: relative;
+    transition: background $time-fast $easing;
+    background: $color-pale;
+
+    &.is-loaded {
+        background: transparent;
+    }
 
     .ie & {
         display: none;
